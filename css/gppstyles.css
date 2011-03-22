@@ -1,0 +1,17 @@
+/* 
+    Document   : gppstyles
+    Created on : Mar 12, 2011, 11:34:05 AM
+    Author     : SpiderLily Web Design
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+
+root { 
+    display: block;
+}
+
+h1 {color:red;}
+
+label {display:block;}
