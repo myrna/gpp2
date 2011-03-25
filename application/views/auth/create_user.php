@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <link rel="stylesheet" href="css/gppstyles.css">
+	<title></title>
+</head>
+<body>
+    <a href="/">Home</a> | <a href="/plantdata/">Plant Data</a> | <a href="/auth/login/">Login</a>
 <div class='mainInfo'>
 
 	<h2>Register</h2>
