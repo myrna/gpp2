@@ -14,4 +14,4 @@ root {
 
 h1 {color:red;}
 
-label {display:block;}
+label {display:inline-block; width:120px;}
