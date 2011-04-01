@@ -2,8 +2,7 @@
 class Plants extends Controller {
     function display($query_id = 0, $sort_by = 'family', $sort_order = 'asc', $offset = 0)
          {
-
-        $limit = 20;
+               $limit = 20;
 
          $plants['fields'] = array(
             'PlantID' => 'Plant ID',
@@ -27,6 +26,8 @@ class Plants extends Controller {
             'PlantHeight' => $this->input->get('PlantHeight'),
         );
 
+        //print_r($query_array); return;
+
         $plants['query_id'] = $query_id;
 
         $this->load->model('list_model');
@@ -36,6 +37,7 @@ class Plants extends Controller {
         $plants['num_results'] = $results['num_rows'];
 
         // pagination
+        $this->load->library('pagination');
         $config = array();
         $config['base_url'] = site_url("plants/display/$query_id/$sort_by/$sort_order");
         $config['total_rows'] = $plants['num_results'];
@@ -54,6 +56,7 @@ class Plants extends Controller {
     }
 
     function search() {
+         
         $query_array = array(
             'family' => $this->input->post('family'),
             'genus' => $this->input->post('genus'),
@@ -67,6 +70,8 @@ class Plants extends Controller {
         $query_id = $this->input->save_query($query_array);
 
         redirect("plants/display/$query_id");
+       
     }
-}
+ }
+
 ?>

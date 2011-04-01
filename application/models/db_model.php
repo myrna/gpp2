@@ -12,7 +12,7 @@ class Db_model extends Model {
         $this->db->insert('plantdata', $plants);
         return;
     }
-    function update_record($data)
+    function update_record($plants)
     {
         $this->db->where('PlantId', $plantid);
         $this->db->update('plantdata', $plants);
@@ -21,6 +21,18 @@ class Db_model extends Model {
     {
         $this->db->where('PlantId', $plantid);
         $this->db->delete('plantdata');
+    }
+     function update($PlantID, $family, $genus, $species, $PlantType)
+    {
+        $plants = array(
+            'family' => $family,
+            'genus' => $genus,
+            'species' => $species,
+            'PlantType' => $PlantType,
+        );
+        $this->db_model->where('PlantId',$PlantID);
+        $this->db_model->update('plantdata',$plants );
+
     }
 }
 
