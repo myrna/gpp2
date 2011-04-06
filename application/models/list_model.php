@@ -4,7 +4,7 @@ class List_model extends Model {
     function search($query_array, $limit, $offset, $sort_by, $sort_order) {
 
         $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // if desc selected then desc, else asc order
-        $sort_columns = array('PlantId','family','genus','species','cultivar', 'PlantType', 'PlantHeight');
+        $sort_columns = array('PlantId','family','genus','species','cultivar', 'PlantType', 'PlantHeight');  // sortable columns
         $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by  : 'family';
         //results query
         $q = $this->db->select('PlantID, family, genus, species, cultivar, PlantType, PlantHeight')
@@ -45,7 +45,7 @@ class List_model extends Model {
         $ret['num_rows'] = $tmp[0]->count;
         return $ret;
     }
-
+// create dropdown for Plant Type input field
     function planttype_options() {
         $rows = $this->db->select('PlantType')
                 ->from('plantdata')

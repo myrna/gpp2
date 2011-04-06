@@ -1,4 +1,4 @@
-<?php
+<?php //allows use of query strings
 class MY_Input extends CI_Input {
 
 

@@ -2,9 +2,9 @@
 class Plants extends Controller {
     function display($query_id = 0, $sort_by = 'family', $sort_order = 'asc', $offset = 0)
          {
-               $limit = 20;
+               $limit = 20; // number of items to show per page
 
-         $plants['fields'] = array(
+         $plants['fields'] = array(   // fields to show in table
             'PlantID' => 'Plant ID',
             'family' => 'Family',
             'genus' => 'Genus',
@@ -14,7 +14,7 @@ class Plants extends Controller {
             'PlantHeight' => 'Plant Height'
         );
 
-        $this->input->load_query($query_id);
+        $this->input->load_query($query_id);   // searchable fields
 
         $query_array = array(
             'family' => $this->input->get('family'),
@@ -26,7 +26,7 @@ class Plants extends Controller {
             'PlantHeight' => $this->input->get('PlantHeight'),
         );
 
-        //print_r($query_array); return;
+        //print_r($query_array); return;   // test query if bug
 
         $plants['query_id'] = $query_id;
 
@@ -34,10 +34,10 @@ class Plants extends Controller {
 
         $results = $this->list_model->search($query_array, $limit, $offset, $sort_by, $sort_order);
         $plants['plants'] = $results['rows'];
-        $plants['num_results'] = $results['num_rows'];
+        $plants['num_results'] = $results['num_rows'];  // show number of query results
 
         // pagination
-        $this->load->library('pagination');
+        $this->load->library('pagination');    // establish url sequence and allow pagination
         $config = array();
         $config['base_url'] = site_url("plants/display/$query_id/$sort_by/$sort_order");
         $config['total_rows'] = $plants['num_results'];
@@ -50,12 +50,12 @@ class Plants extends Controller {
 	$plants['sort_order'] = $sort_order;
 
 // choose plant based on type
-        $plants['planttype_options'] = $this->list_model->planttype_options();
+        $plants['planttype_options'] = $this->list_model->planttype_options();  // load dropdown options
 
         $this->load->view('list_plants', $plants);
     }
 
-    function search() {
+    function search() {   // searchable fields
          
         $query_array = array(
             'family' => $this->input->post('family'),
@@ -69,7 +69,7 @@ class Plants extends Controller {
 
         $query_id = $this->input->save_query($query_array);
 
-        redirect("plants/display/$query_id");
+        redirect("plants/display/$query_id");   // query URL
        
     }
  }
