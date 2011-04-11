@@ -6,9 +6,9 @@
 	<title>Plant List</title>
 </head>
 <body>
-    <a href="/">Home</a> | <a href="/plantdata/">Plant Data</a>
+    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a>
     <div class="main">
-        <?php echo form_open('plants/search'); ?>
+        <?php echo form_open('listplants/search'); ?>
         <div>
             <?php echo form_label('Genus:', 'genus'); ?>
             <?php echo form_input('genus', set_value('genus'), 'id="genus"'); ?>
@@ -37,7 +37,7 @@
            <thead>
 			<?php foreach($fields as $field_name => $field_display): ?>
 			<th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-				<?php echo anchor("/plants/display/$query_id/$field_name/" .
+				<?php echo anchor("/listplants/display/$query_id/$field_name/" .
 					(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
 					$field_display); ?>
 			</th>

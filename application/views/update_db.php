@@ -1,5 +1,6 @@
 
     <div class="main">
+        <h2>Update Records</h2>
 <?php echo form_open('plantdata/update/'); ?>
 
     <p>

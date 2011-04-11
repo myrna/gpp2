@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * gallery.php
+ *
+ * upload images and create thumbnails
+ *
+ * @package		Great Plant Picks
+ * @subpackage	Controllers
+ * @category		Controllers
+ * @author		mlo
+ */
+
 class Gallery extends Controller {
 
 	function index() {
@@ -16,4 +28,6 @@ class Gallery extends Controller {
 	}
 
 }
-?>
+
+/* End of file gallery.php */
+/* Location: ./application/controllers/gallery.php */

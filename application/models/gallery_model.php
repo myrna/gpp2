@@ -1,4 +1,16 @@
 <?php
+
+/**
+ * gallery_model.php
+ *
+ * Allows upload of image files to /images folder and automatically creates thumbnail images /images/thumbs with url
+ *
+ * @package		Great Plant Picks
+ * @subpackage	Models
+ * @category		Models
+ * @author		mlo
+ */
+
 class Gallery_model extends Model {
 
 	var $gallery_path;
@@ -55,5 +67,6 @@ class Gallery_model extends Model {
 
 }
 
-?>
+/* End of file gallery_model.php */
+/* Location: ./application/models/gallery_model.php */
 

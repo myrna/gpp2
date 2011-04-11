@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * auth.php
+ *
+ * Ion Auth controller
+ *
+ * @package		Ion Auth
+ * @subpackage	Controllers
+ * @category		Controllers
+ */
+
 if ( ! class_exists('Controller'))
 {
 	class Controller extends CI_Controller {}
@@ -384,3 +394,6 @@ class Auth extends Controller {
 	}
 
 }
+
+/* End of file auth.php */
+/* Location: ./application/controllers/auth.php */

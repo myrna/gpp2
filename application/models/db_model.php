@@ -1,12 +1,23 @@
 <?php
 
+/**
+ * db_model.php
+ *
+ * Database Administration model (controller: dbadmin.php)
+ *
+ * @package		Great Plant Picks
+ * @subpackage	Models
+ * @category		Models
+ * @author		mlo
+ */
+
 class Db_model extends Model {
 
-    function get_records() // get all records in plantdata table
-    {
-        $query = $this->db->get('plantdata');
-        return $query->result();
-    }
+    function get_records()
+	{
+		$query = $this->db->get('plantdata');
+              	return $query->result();
+	}
     function add_record($plants)
     {
         $this->db->insert('plantdata', $plants);
@@ -14,26 +25,15 @@ class Db_model extends Model {
     }
     function update_record($plants)
     {
-        $this->db->where('PlantId', $plantid);
+        $this->db->where('id', $plantid);
         $this->db->update('plantdata', $plants);
     }
     function delete_row()
     {
-        $this->db->where('PlantId', $plantid);
+        $this->db->where('id', $this->uri->segment(3));
         $this->db->delete('plantdata');
     }
-     function update($PlantID, $family, $genus, $species, $PlantType)
-    {
-        $plants = array(
-            'family' => $family,
-            'genus' => $genus,
-            'species' => $species,
-            'PlantType' => $PlantType,
-        );
-        $this->db_model->where('PlantId',$PlantID);
-        $this->db_model->update('plantdata',$plants );
-
-    }
+     
 }
-
-?>
+/* End of file db_model.php */
+/* Location: ./application/models/db_model.php */

@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-    <a href="/">Home</a> | <a href="/plantdata/">Plant Data</a> | <a href="/auth/create_user/">Register</a>
+    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a> | <a href="/auth/create_user/">Register</a>
 <div class='mainInfo'>
 
     <h2>Login</h2>

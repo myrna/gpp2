@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-    <a href="/">Home</a> | <a href="/plantdata/">Plant Data</a> | <a href="/plants/display/">Advanced Search</a> |
+    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a> | <a href="/gallery/">Upload Image</a> | <a href="/listplants/display/">Advanced Search</a> |
 <?php if ($logged_in) :?>
   <a href="/auth/logout/">Logout</a>
 <?php else :  ?>

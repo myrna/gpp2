@@ -1072,3 +1072,6 @@ class Ion_auth_model extends CI_Model
 	    return FALSE;
 	}
 }
+
+/* End of file ion_auth__model.php */
+/* Location: ./application/models/ion_auth_model.php */
