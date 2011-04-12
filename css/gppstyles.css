@@ -13,7 +13,7 @@ root {
 }
 
 h1 {color:red;}
-
+h2 {color:blue;}
 label {display:inline-block; width:120px;}
 
 #gallery, #upload {
@@ -35,3 +35,5 @@ label {display:inline-block; width:120px;}
 		#gallery:after {
 			content: "."; visibility: hidden; display: block; clear: both; height: 0; font-size: 0;
 		}
+ul {list-style-image:none;}
+ul li {}
