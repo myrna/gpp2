@@ -28,24 +28,16 @@ class Crud extends Controller
             if ($records->num_rows() > 0)
             {
                 $table = array();
-                $table[] = array('Family','Genus','CrossGenus','Species','Subspecies',
-                    'CrossSpecies','Variety','Cultivar','TradeName','RegisteredName',
-                    'PlantGroup','Synonym','Origin','PlantType','FoliageType','GrowthHabit',
-                    'FoliageColor','FlowerColor','FlowerTime','Sun','Soil','Water','PlantWidth','PlantHeight',
-                    'ZoneLow','ZoneHigh','Culture','Qualities','DesignUse','Wildlife',
-                    'NominatedBy','NominatedForYear','Status','Year','Theme','Publish','Tag');
+                $table[] = array('PlantId','Family','Genus','CrossGenus','Species','Subspecies',
+                    'CrossSpecies','Variety','Cultivar','TradeName','RegisteredName','View','Edit','Delete');
 
              foreach ($records->result() as $row)
                 {
                  $table[] = array($row->PlantId,$row->Family,$row->Genus,$row->CrossGenus,$row->Species,
                      $row->Subspecies,$row->CrossSpecies,$row->Variety,$row->Cultivar,$row->TradeName,
-                     $row->RegisteredName,$row->PlantGroup,$row->Synonym,$row->Origin,$row->PlantType,
-                     $row->FoliageType,$row->GrowthHabit,$row->FoliageColor,$row->FlowerColor,
-                     $row->FlowerTime,$row->Sun,$row->Soil,$row->Water,$row->PlantWidth,$row->PlantHeight,
-                     $row->ZoneLow,$row->ZoneHigh,$row->Culture,$row->Qualities,$row->DesignUse,$row->Wildlife,
-                     $row->NominatedBy,$row->NominatedForYear,$row->Status,$row->Year,$row->Theme,$row->Publish,
-                     $row->Tag);
-
+                     $row->RegisteredName, anchor('crud/view_record/'.$row->PlantId, 'View'),
+                     anchor('crud/edit_record/'.$row->PlantId, 'Edit'), anchor('crud/delete_record/'.$row->PlantId, 'Delete',
+                             array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
                 }
                 $data['records'] = $table;
             }
@@ -62,6 +54,7 @@ class Crud extends Controller
             {
                 $this->load->model('crud_model');
                 $data = array (
+                    'PlantId' => $_POST['PlantId'],
                     'Family' => $_POST['Family'],
                     'Genus' => $_POST['Genus'],
                     'CrossGenus' => $_POST['CrossGenus'],
@@ -112,6 +105,100 @@ class Crud extends Controller
             }
             redirect('crud', 'refresh');
     }
+        function view_record($PlantId = ''){
+		$this->load->model('crud_model');
+
+		//we call our model's get_site function, we will create that function in a moment
+		$record = $this->crud_model->get_record($PlantId);
+
+		$data['title'] = "View Record: ";
+		//Returned data will be put into the $row variable that will be send to the view.
+		$data['row'] = $record;
+
+		$this->load->view('admin/view', $data);
+
+	}
+
+        function edit_record($PlantId = ''){
+		$this->load->model('crud_model');
+
+		//we call our model's get_site function, we will create that function in a moment
+		$record = $this->crud_model->get_record($PlantId);
+
+		$data['title'] = "Edit Record: ";
+		//Returned data will be put into the $row variable that will be send to the view.
+		$data['row'] = $record;
+
+		$this->load->view('admin/edit', $data);
+        }
+         function edit()
+        {
+            $this->load->model('crud_model');
+            $data = array (
+                    'Family' => $_POST['Family'],
+                    'Genus' => $_POST['Genus'],
+                    'CrossGenus' => $_POST['CrossGenus'],
+                    'Species' => $_POST['Species'],
+                    'Subspecies' => $_POST['Subspecies'],
+                    'CrossSpecies' => $_POST['CrossSpecies'],
+                    'Variety' => $_POST['Variety'],
+                    'Cultivar' => $_POST['Cultivar'],
+                    'TradeName' => $_POST['TradeName'],
+                    'RegisteredName' => $_POST['RegisteredName'],
+                    'PlantGroup' => $_POST['PlantGroup'],
+                    'Synonym' => $_POST['Synonym'],
+                    'Origin' => $_POST['Origin'],
+                    'PlantType' => $_POST['PlantType'],
+                    'FoliageType' => $_POST['FoliageType'],
+                    'GrowthHabit' => $_POST['GrowthHabit'],
+                    'FoliageColor' => $_POST['FoliageColor'],
+                    'FlowerColor' => $_POST['FlowerColor'],
+                    'FlowerTime' => $_POST['FlowerTime'],
+                    'Sun' => $_POST['Sun'],
+                    'Soil' => $_POST['Soil'],
+                    'Water' => $_POST['Water'],
+                    'PlantWidth' => $_POST['PlantWidth'],
+                    'PlantHeight' => $_POST['PlantHeight'],
+                    'ZoneLow' => $_POST['ZoneLow'],
+                    'ZoneHigh' => $_POST['ZoneHigh'],
+                    'Culture' => $_POST['Culture'],
+                    'Qualities' => $_POST['Qualities'],
+                    'DesignUse' => $_POST['DesignUse'],
+                    'Wildlife' => $_POST['Wildlife'],
+                    'NominatedBy' => $_POST['NominatedBy'],
+                    'NominatedForYear' => $_POST['NominatedForYear'],
+                    'Status' => $_POST['Status'],
+                    'Year' => $_POST['Year'],
+                    'Theme' => $_POST['Theme'],
+                    'Publish' => $_POST['Publish'],
+                    'Tag' => $_POST['Tag'],
+                    );
+            $records = $this->crud_model->edit_record($data, $_POST['PlantId']);
+            if($records)
+            {
+                $this->session->set_flashdata('status', 'Record Updated');
+            }
+            else
+            {
+                $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
+            }
+            redirect('crud','refresh');
+        }
+
+        function delete_record($PlantId = '')
+        {
+            $this->load->model('crud_model');
+            $records = $this->crud_model->delete_record($PlantId);
+            if($records)
+            {
+                $this->session->set_flashdata('status', 'Record Has Been Deleted');
+            }
+            else
+            {
+                $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
+            }
+            redirect('crud', 'refresh');
+        }
 }
 /* End of file crud.php */
 /* Location: ./application/controllers/crud.php */

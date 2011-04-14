@@ -6,7 +6,7 @@
 	<title>Plant List</title>
 </head>
 <body>
-    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a>
+    <a href="/">Home</a> | <a href="/crud/">Database Administration</a> | <a href="/gallery/">Upload Image</a>
     <div class="main">
         <?php echo form_open('listplants/search'); ?>
         <div>

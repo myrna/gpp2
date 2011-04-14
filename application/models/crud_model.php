@@ -41,25 +41,56 @@ class Crud_model extends Model
            
         }
         
+       // get individual record from database using list produced by get_records//
 
-	/**
-	* Update existing record in DB table.
-	*
-	* @access public
-	* @param int
-	* @param array
-	* @return bool
-	*/
-	
+       function get_record($PlantId)
+	{
+		if(!empty($PlantId))
+		{
+			//use the where function to add a filter to our query, this time the id, with the $id value
+			$this->db->where('PlantId', $PlantId);
+
+			//and then execute the query
+			$query = $this->db->get('plantdata');
+                }
+                if ($query->num_rows() > 0) {
+                        return $row = $query->row();
+		}
+                else
+                {
+                    $row = FALSE;
+                }
+		
+		return $row;
+	}
 
 
-	/**
-	* Delete specified records from the DB table.
-	*
-	* @access public
-	* @param array
-	* @return bool
-	*/
+	// Update existing record in DB table.
+
+       
+       function edit_record($data, $PlantId)
+	{
+		$result = 0;
+		if(!empty($data)){
+			$this->db->where('PlantId', $PlantId);
+			$result = $this->db->update('plantdata', $data);
+		}
+
+		return $result;
+	}
+
+	//Delete specified records from the DB table.
+
+        function delete_record($PlantId)
+        {
+            $return = 0;
+            if(!empty($PlantId))
+            {
+                $this->db->where('PlantId', $PlantId);
+                $result = $this->db->delete('plantdata');
+            }
+            return $result;
+        }
 	
 
 }
