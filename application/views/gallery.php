@@ -6,7 +6,7 @@
 	<title>Gallery</title>
 </head>
 <body>
-    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a> | <a href="/listplants/display/">Advanced Search</a> |
+    <a href="/">Home</a> | <a href="/crud/">Database Administration</a> | <a href="/listplants/display/">Advanced Search</a> |
     <div id="gallery">
 		<?php if (isset($images) && count($images)):
 			foreach($images as $image):	?>

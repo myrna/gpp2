@@ -1,5 +1,5 @@
 <?php
-function set_value($field = '', $default = '') // retaiin search terms in input fields for reference
+function set_value($field = '', $default = '') // retain search terms in input fields for reference
 {
 	if (FALSE === ($OBJ =& _get_validation_object()))
 	{

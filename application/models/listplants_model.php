@@ -16,42 +16,42 @@ class Listplants_model extends Model {
     function search($query_array, $limit, $offset, $sort_by, $sort_order) {
 
         $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // if desc selected then desc, else asc order
-        $sort_columns = array('PlantId','family','genus','species','cultivar', 'PlantType', 'PlantHeight');  // sortable columns
+        $sort_columns = array('plant_id','family','genus','species','cultivar', 'plant_type', 'plant_height');  // sortable columns
         $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by  : 'family';
         //results query
-        $q = $this->db->select('PlantID, family, genus, species, cultivar, PlantType, PlantHeight')
-                ->from('plantdata')
+        $q = $this->db->select('plant_id, family, genus, species, cultivar, plant_type, plant_height')
+                ->from('plant_data')
                 ->limit($limit, $offset)
                 ->order_by($sort_by, $sort_order);
 
             if (strlen($query_array['genus'])) {
             $q->where('genus', $query_array['genus']);
         }
-            if (strlen($query_array['PlantType'])) {
-            $q->where('PlantType', $query_array['PlantType']);
+            if (strlen($query_array['plant_type'])) {
+            $q->where('plant_type', $query_array['plant_type']);
         }
-          if (strlen($query_array['PlantHeight'])) {
+          if (strlen($query_array['plant_height'])) {
             $operators =  array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
             $operator = $operators[$query_array['height_comparison']];
 
-            $q->where("PlantHeight $operator", $query_array['PlantHeight']);
+            $q->where("plant_height $operator", $query_array['plant_height']);
         }
         $ret['rows'] = $q->get()->result();
         //count query
         $q = $this->db->select('COUNT(*) as count', FALSE) // whenever function is used as field enter FALSE
-                ->from('plantdata');
+                ->from('plant_data');
 
-             if (strlen($query_array['genus'])) {
+              if (strlen($query_array['genus'])) {
             $q->where('genus', $query_array['genus']);
         }
-                     if (strlen($query_array['PlantType'])) {
-            $q->where('PlantType', $query_array['PlantType']);
+             if (strlen($query_array['plant_type'])) {
+            $q->where('plant_type', $query_array['plant_type']);
         }
-          if (strlen($query_array['PlantHeight'])) {
+             if (strlen($query_array['plant_height'])) {
             $operators =  array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
             $operator = $operators[$query_array['height_comparison']];
 
-            $q->where("PlantHeight $operator", $query_array['PlantHeight']);
+            $q->where("plant_height $operator", $query_array['plant_height']);
           }
         $tmp = $q->get()->result();
         $ret['num_rows'] = $tmp[0]->count;
@@ -59,13 +59,13 @@ class Listplants_model extends Model {
     }
 // create dropdown for Plant Type input field
     function planttype_options() {
-        $rows = $this->db->select('PlantType')
-                ->from('plantdata')
+        $rows = $this->db->select('plant_type')
+                ->from('plant_data')
                 ->get()->result();
 
         $planttype_options = array('' => '');
         foreach ($rows as $row) {
-            $planttype_options[$row->PlantType] = $row->PlantType;
+            $planttype_options[$row->plant_type] = $row->plant_type;
         }
 
         return $planttype_options;       

@@ -15,16 +15,16 @@
         </div>
        
                 <div>
-            <?php echo form_label('Plant Type:', 'PlantType'); ?>
-            <?php echo form_dropdown('PlantType', $planttype_options,
-                    set_value('PlantType'), 'id="PlantType"'); ?>
+            <?php echo form_label('Plant Type:', 'plant_type'); ?>
+            <?php echo form_dropdown('plant_type', $planttype_options,
+                    set_value('plant_type'), 'id="plant_type"'); ?>
         </div>
          <div>
-            <?php echo form_label('Plant Height:', 'PlantHeight'); ?>
+            <?php echo form_label('Plant Height:', 'plant_height'); ?>
             <?php echo form_dropdown('height_comparison',
                     array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<'),
                     set_value('height_comparison'), 'id="height_comparison"'); ?>
-            <?php echo form_input('PlantHeight', set_value('PlantHeight'), 'id="PlantHeight"'); ?>
+            <?php echo form_input('plant_height', set_value('plant_height'), 'id="plant_height"'); ?>
         </div>
         <div>
             <?php echo form_submit('action', 'Search'); ?>

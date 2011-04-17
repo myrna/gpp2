@@ -9,9 +9,12 @@
 
     echo "<h2>".$heading."</h2>";
 
+    echo $this->session->flashdata('status');
+
     echo "<p>".anchor('crud/new_record', 'Add new record')."</p>";
     if(!empty($records)) echo $this->table->generate($records);
-    
+
+    echo "".$this->pagination->create_links();
     ?>
 
 </body>

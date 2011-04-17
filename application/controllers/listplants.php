@@ -17,13 +17,13 @@ class Listplants extends Controller {
                $limit = 20; // number of items to show per page
 
          $plants['fields'] = array(   // fields to show in table
-            'PlantID' => 'Plant ID',
-            'family' => 'Family',
-            'genus' => 'Genus',
-            'species' => 'Species',
-            'cultivar' => 'Cultivar',
-             'PlantType' => 'PlantType',
-            'PlantHeight' => 'Plant Height'
+            'plant_id' => 'plant_id',
+            'family' => 'family',
+            'genus' => 'genus',
+            'species' => 'species',
+            'cultivar' => 'cultivar',
+             'plant_type' => 'plant_type',
+            'plant_height' => 'plant_height'
         );
 
         $this->input->load_query($query_id);   // searchable fields
@@ -33,9 +33,9 @@ class Listplants extends Controller {
             'genus' => $this->input->get('genus'),
             'species' => $this->input->get('species'),
             'cultivar' => $this->input->get('cultivar'),
-            'PlantType' => $this->input->get('PlantType'),
+            'plant_type' => $this->input->get('plant_type'),
             'height_comparison' => $this->input->get('height_comparison'),
-            'PlantHeight' => $this->input->get('PlantHeight'),
+            'plant_height' => $this->input->get('plant_height'),
         );
 
         //print_r($query_array); return;   // test query if bug
@@ -49,7 +49,7 @@ class Listplants extends Controller {
         $plants['num_results'] = $results['num_rows'];  // show number of query results
 
         // pagination
-        $this->load->library('pagination');    // establish url sequence and allow pagination
+         // establish url sequence and allow pagination
         $config = array();
         $config['base_url'] = site_url("listplants/display/$query_id/$sort_by/$sort_order");
         $config['total_rows'] = $plants['num_results'];
@@ -74,9 +74,9 @@ class Listplants extends Controller {
             'genus' => $this->input->post('genus'),
             'species' => $this->input->post('species'),
             'cultivar' => $this->input->post('cultivar'),
-            'PlantType' => $this->input->post('PlantType'),
+            'plant_type' => $this->input->post('plant_type'),
             'height_comparison' => $this->input->post('height_comparison'),
-            'PlantHeight' => $this->input->post('PlantHeight'),
+            'plant_height' => $this->input->post('plant_height'),
         );
 
         $query_id = $this->input->save_query($query_array);

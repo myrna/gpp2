@@ -21,6 +21,7 @@ class Gallery_model extends Model {
 
 		$this->gallery_path = realpath(APPPATH . '../images');
 		$this->gallery_path_url = base_url().'images/';
+
 	}
 
 	function do_upload() {
@@ -34,7 +35,9 @@ class Gallery_model extends Model {
 		$this->load->library('upload', $config);
 		$this->upload->do_upload();
 		$image_data = $this->upload->data();
-
+                $this->db->get('images');   // get image table
+                //
+// this directs image and thumbnail to appropriate folder, and sizes thumbnail
 		$config = array(
 			'source_image' => $image_data['full_path'],
 			'new_image' => $this->gallery_path . '/thumbs',
@@ -43,11 +46,38 @@ class Gallery_model extends Model {
 			'height' => 150
 		);
 
+// this is supposed to insert the image URL into the images table but does not work
+   //             $data = array(
+   //                     $image_id => 'image_id',
+   //                     $filename => 'gallery_path_url',
+   //                       );
+    //            $this->db->insert('images',$data);
+
+// thumbnail resize function
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();
 
 	}
 
+ // this would insert the plant_id and image_id into a table linking the images to the plants
+        function link_image($data) {
+
+            $plant_id = $this->uri->segment(3);
+            $data = array($plant_id, $image_id);
+
+            $result = 0;
+            //check if $data is not empty
+            if(!empty($data))
+            {
+                //insert $data with insert method
+                $result = $this->db->insert('plant_images',$data);
+            }
+            return $result;
+
+
+        }
+
+  // this displays the uploaded images in the gallery view; will probably remove this function as there will be too many images
 	function get_images() {
 
 		$files = scandir($this->gallery_path);  // return all folders
