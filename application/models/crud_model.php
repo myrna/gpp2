@@ -19,7 +19,7 @@ class Crud_model extends Model
 	*
 	*/
 	function get_records($page = "0"){
-            $this->db->limit(5, $page);
+            $this->db->limit(20, $page);
             $query = $this->db->get('plant_data');
             $query2 = $this->db->get('plant_data');
             $total_rows = $query2->num_rows();

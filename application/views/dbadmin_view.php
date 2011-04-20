@@ -9,8 +9,8 @@
     <input type="text" name="genus" id="genus" />
 </p>
 <p>
-    <label for="crossgenus">Cross Genus:</label>
-    <input type="text" name="crossgenus" id="crossgenus" />
+    <label for="cross_genus">Cross Genus:</label>
+    <input type="text" name="cross_genus" id="crossgenus" />
 </p>
 <p>
     <label for="species">Species:</label>
@@ -21,8 +21,8 @@
     <input type="text" name="subspecies" id="subspecies" />
 </p>
 <p>
-    <label for="crossSpecies">Cross Species:</label>
-    <input type="text" name="crossSpecies" id="crossSpecies" />
+    <label for="cross_species">Cross Species:</label>
+    <input type="text" name="cross_species" id="crossSpecies" />
 </p>
 <p>
     <label for="variety">Variety:</label>
@@ -33,28 +33,28 @@
     <input type="text" name="cultivar" id="cultivar" />
 </p>
 <p>
-    <label for="tradename">Trade Name:</label>
-    <input type="text" name="tradename" id="tradename" />
+    <label for="trade_name">Trade Name:</label>
+    <input type="text" name="trade_name" id="trade_name" />
 </p>
 <p>
-    <label for="registeredname">Registered Name:</label>
-    <input type="text" name="registeredname" id="registeredname" />
+    <label for="registered_name">Registered Name:</label>
+    <input type="text" name="registered_name" id="registered_name" />
 </p>
 <p>
-    <label for="plantgroup">Plant Group (e.g. Atropurpurea):</label>
-    <input type="text" name="plantgroup" id="plantgroup" />
+    <label for="plantname_group">Plant Group (e.g. Atropurpurea):</label>
+    <input type="text" name="plantname_group" id="plantname_group" />
 </p>
 <p>
     <label for="synonym">Synonym:</label>
     <input type="text" name="synonym" id="synonym" />
 </p>
 <p>
-    <label for="origin">Origin:</label>
-    <input type="text" name="origin" id="origin" />
+    <label for="plant_origin">Origin:</label>
+    <input type="text" name="plant_origin" id="plant_origin" />
 </p>
 <p>
-    <label for="PlantType">Type:</label>
-    <input type="text" name="PlantType" id="PlantType" />
+    <label for="plant_type">Type:</label>
+    <input type="text" name="plant_type" id="plant_type" />
 </p>
 <p>
     <input type="submit" value="Add Record" />

@@ -15,6 +15,7 @@ class Gallery_model extends Model {
 
 	var $gallery_path;
 	var $gallery_path_url;
+        
 
 	function Gallery_model() {
 		parent::Model();
@@ -35,8 +36,7 @@ class Gallery_model extends Model {
 		$this->load->library('upload', $config);
 		$this->upload->do_upload();
 		$image_data = $this->upload->data();
-                $this->db->get('images');   // get image table
-                //
+
 // this directs image and thumbnail to appropriate folder, and sizes thumbnail
 		$config = array(
 			'source_image' => $image_data['full_path'],
@@ -46,23 +46,32 @@ class Gallery_model extends Model {
 			'height' => 150
 		);
 
-// this is supposed to insert the image URL into the images table but does not work
-   //             $data = array(
-   //                     $image_id => 'image_id',
-   //                     $filename => 'gallery_path_url',
-   //                       );
-    //            $this->db->insert('images',$data);
 
 // thumbnail resize function
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();
+
+                $this->db->get('images');   // get image table
+
+// this inserts the image URL into the images table and automatically creates the image_id
+                                    
+            $data = array(               
+               'filename' => $image_data['full_path'],
+               
+               //'thumbname' => $image['thumb_url']
+                );
+
+            $this->db->insert('images', $data);
 
 	}
 
  // this would insert the plant_id and image_id into a table linking the images to the plants
         function link_image($data) {
 
-            $plant_id = $this->uri->segment(3);
+
+
+
+            
             $data = array($plant_id, $image_id);
 
             $result = 0;

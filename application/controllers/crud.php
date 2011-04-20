@@ -212,7 +212,8 @@ class Crud extends Controller
 		$data['row'] = $record;
 
 		$this->load->view('gallery', $data);
-        }
+
+                }
 
         function delete_record($plant_id = '')
         {

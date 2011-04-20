@@ -15,23 +15,23 @@ class Db_model extends Model {
 
     function get_records()
 	{
-		$query = $this->db->get('plantdata');
+		$query = $this->db->get('plant_data');
               	return $query->result();
 	}
     function add_record($plants)
     {
-        $this->db->insert('plantdata', $plants);
+        $this->db->insert('plant_data', $plants);
         return;
     }
     function update_record($plants)
     {
-        $this->db->where('id', $plantid);
-        $this->db->update('plantdata', $plants);
+        $this->db->where('plant_id', $plant_id);
+        $this->db->update('plant_data', $plants);
     }
     function delete_row()
     {
-        $this->db->where('id', $this->uri->segment(3));
-        $this->db->delete('plantdata');
+        $this->db->where('plant_id', $this->uri->segment(3));
+        $this->db->delete('plant_data');
     }
      
 }
