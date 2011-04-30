@@ -21,8 +21,12 @@
 
 	<div id="upload">
 		<?php
+
 		echo form_open_multipart('gallery');
 		echo form_upload('userfile');
+        if (isset($plant_id)) {
+            echo form_hidden('plant_id', $plant_id);
+        }
 		echo form_submit('upload', 'Upload');
 		echo form_close();
 		?>

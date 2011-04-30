@@ -37,6 +37,7 @@ class Gallery_model extends Model {
 		$this->upload->do_upload();
 		$image_data = $this->upload->data();
 
+
 // this directs image and thumbnail to appropriate folder, and sizes thumbnail
 		$config = array(
 			'source_image' => $image_data['full_path'],
@@ -51,17 +52,18 @@ class Gallery_model extends Model {
 		$this->load->library('image_lib', $config);
 		$this->image_lib->resize();
 
-                $this->db->get('images');   // get image table
+        $this->db->get('images'); // get image table
 
 // this inserts the image URL into the images table and automatically creates the image_id
                                     
             $data = array(               
-               'filename' => $image_data['full_path'],
+               'filename' => $image_data['file_name'],
                
                //'thumbname' => $image['thumb_url']
                 );
 
             $this->db->insert('images', $data);
+            return $this->db->insert_id();
 
 	}
 

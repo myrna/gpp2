@@ -208,12 +208,12 @@ class Crud extends Controller
 		$record = $this->crud_model->get_record($plant_id);
 
 		$data['title'] = "Upload Image: ";
-
-		$data['row'] = $record;
+        
+		$data['plant_id'] = $record->plant_id;
 
 		$this->load->view('gallery', $data);
 
-                }
+        }
 
         function delete_record($plant_id = '')
         {
