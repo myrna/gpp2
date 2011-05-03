@@ -12,7 +12,7 @@
 			foreach($images as $image):	?>
 			<div class="thumb">
 				<a href="<?php echo $image['url']; ?>">
-					<img src="<?php echo $image['thumb_url']; ?>" /></a>                                     				</a>
+					<img alt="<?php echo $image; ?>" src="<?php echo $image['thumb_url']; ?>" /></a>                                     				</a>
 			</div>
 		<?php endforeach; else: ?>
 			<div id="blank_gallery">Please Upload an Image</div>
@@ -24,8 +24,8 @@
 
 		echo form_open_multipart('gallery');
 		echo form_upload('userfile');
-        if (isset($plant_id)) {
-            echo form_hidden('plant_id', $plant_id);
+        if (isset($id)) {
+            echo form_hidden('id', $id);
         }
 		echo form_submit('upload', 'Upload');
 		echo form_close();

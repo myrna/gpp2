@@ -67,14 +67,14 @@ class Gallery_model extends Model {
 
 	}
 
- // this would insert the plant_id and image_id into a table linking the images to the plants
+ // this would insert the id and image_id into a table linking the images to the plants
         function link_image($data) {
 
 
 
 
             
-            $data = array($plant_id, $image_id);
+            $data = array($id, $image_id);
 
             $result = 0;
             //check if $data is not empty

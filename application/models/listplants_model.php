@@ -16,10 +16,10 @@ class Listplants_model extends Model {
     function search($query_array, $limit, $offset, $sort_by, $sort_order) {
 
         $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // if desc selected then desc, else asc order
-        $sort_columns = array('plant_id','family','genus','species','cultivar', 'plant_type', 'plant_height');  // sortable columns
+        $sort_columns = array('id','family','genus','species','cultivar', 'plant_type', 'plant_height');  // sortable columns
         $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by  : 'family';
         //results query
-        $q = $this->db->select('plant_id, family, genus, species, cultivar, plant_type, plant_height')
+        $q = $this->db->select('id, family, genus, species, cultivar, plant_type, plant_height')
                 ->from('plant_data')
                 ->limit($limit, $offset)
                 ->order_by($sort_by, $sort_order);

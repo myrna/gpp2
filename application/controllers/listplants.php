@@ -17,7 +17,7 @@ class Listplants extends Controller {
                $limit = 20; // number of items to show per page
 
          $plants['fields'] = array(   // fields to show in table
-            'plant_id' => 'plant_id',
+            'id' => 'id',
             'family' => 'family',
             'genus' => 'genus',
             'species' => 'species',

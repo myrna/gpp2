@@ -16,17 +16,19 @@ class Gallery extends Controller {
 	function index() {
 		$this->load->model('Gallery_model');
         $this->db->get('images');
-        
+   
 		if ($this->input->post('upload')) {
 			$image_id = $this->Gallery_model->do_upload();
-            if ($this->input->post('plant_id')) {
+            if ($this->input->post('id')) {
                 // insert a link record for the plant
                 $this->db->get('plant_images');
+        
                 $link_data = array(
-                    'plant_id' => $this->input->post('plant_id'),
+                    'id' => $this->input->post('id'),
                     'image_id' => $image_id
                 );
                 $this->db->insert('plant_images', $link_data);
+                
             }
 		}
 

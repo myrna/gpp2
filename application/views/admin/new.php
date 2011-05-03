@@ -42,6 +42,7 @@
         <li>Design Use: <?php echo form_input('design_use'); ?></li>
         <li>Wildlife: <?php echo form_input('wildlife'); ?></li>
         <li>Nominated By: <?php echo form_input('nominator'); ?></li>
+         <li>GPP Committee: <?php echo form_input('committee'); ?></li>
         <li>Status: <?php echo form_input('status'); ?></li>
         <li>Year: <?php echo form_input('gpp_year'); ?></li>
         <li>Theme: <?php echo form_input('theme'); ?></li>

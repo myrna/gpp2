@@ -26,15 +26,15 @@ class Crud extends Controller
             if ($records['query']->num_rows() > 0)
             {
                 $table = array();
-                $table[] = array('plant_id','family','genus','cross_genus','species','subspecies',
+                $table[] = array('id','family','genus','cross_genus','species','subspecies',
                     'cross_species','variety','cultivar','trade_name','registered_name','view','edit','upload image','delete');
 
              foreach ($records['query']->result() as $row)
                 {
-                 $table[] = array($row->plant_id,$row->family,$row->genus,$row->cross_genus,$row->species,
+                 $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,$row->species,
                      $row->subspecies,$row->cross_species,$row->variety,$row->cultivar,$row->trade_name,
-                     $row->registered_name, anchor('crud/view_record/'.$row->plant_id, 'View'),
-                     anchor('crud/edit_record/'.$row->plant_id, 'Edit'), anchor('crud/add_image/'.$row->plant_id, 'Upload Image'), anchor('crud/delete_record/'.$row->plant_id, 'Delete',
+                     $row->registered_name, anchor('crud/view_record/'.$row->id, 'View'),
+                     anchor('crud/edit_record/'.$row->id, 'Edit'), anchor('crud/add_image/'.$row->id, 'Upload Image'), anchor('crud/delete_record/'.$row->id, 'Delete',
                              array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
                 }
                 $data['records'] = $table;
@@ -116,11 +116,11 @@ class Crud extends Controller
             }
             redirect('crud', 'refresh');
     }
-        function view_record($plant_id = ''){
+        function view_record($id = ''){
 		$this->load->model('crud_model');
 
 		//we call our model's get_site function, we will create that function in a moment
-		$record = $this->crud_model->get_record($plant_id);
+		$record = $this->crud_model->get_record($id);
 
 		$data['title'] = "View Record: ";
 		//Returned data will be put into the $row variable that will be send to the view.
@@ -130,10 +130,10 @@ class Crud extends Controller
 
 	}
 
-        function edit_record($plant_id = ''){
+        function edit_record($id = ''){
 		$this->load->model('crud_model');
 
-		$record = $this->crud_model->get_record($plant_id);
+		$record = $this->crud_model->get_record($id);
 
 		$data['title'] = "Edit Record: ";
 		
@@ -190,7 +190,7 @@ class Crud extends Controller
             'publish' => $this->input->post('publish'),
             'sort' => $this->input->post('sort'),
                     );
-            $records = $this->crud_model->edit_record($data, $_POST['plant_id']);
+            $records = $this->crud_model->edit_record($data, $_POST['id']);
             if($records)
             {
                 $this->session->set_flashdata('status', 'Record Updated');
@@ -202,23 +202,23 @@ class Crud extends Controller
             redirect('crud','refresh');
         }
 
-         function add_image($plant_id = ''){
+         function add_image($id = ''){
 		$this->load->model('crud_model');
 
-		$record = $this->crud_model->get_record($plant_id);
+		$record = $this->crud_model->get_record($id);
 
 		$data['title'] = "Upload Image: ";
         
-		$data['plant_id'] = $record->plant_id;
+		$data['id'] = $record->id;
 
 		$this->load->view('gallery', $data);
-
+                
         }
 
-        function delete_record($plant_id = '')
+        function delete_record($id = '')
         {
             $this->load->model('crud_model');
-            $records = $this->crud_model->delete_record($plant_id);
+            $records = $this->crud_model->delete_record($id);
             if($records)
             {
                 $this->session->set_flashdata('status', 'Record Has Been Deleted');

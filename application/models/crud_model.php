@@ -48,12 +48,12 @@ class Crud_model extends Model
         
        // get individual record from database using list produced by get_records//
 
-       function get_record($plant_id)
+       function get_record($id)
 	{
-		if(!empty($plant_id))
+		if(!empty($id))
 		{
 			//use the where function to add a filter to our query, this time the id, with the $id value
-			$this->db->where('plant_id', $plant_id);
+			$this->db->where('id', $id);
 
 			//and then execute the query
 			$query = $this->db->get('plant_data');
@@ -73,11 +73,11 @@ class Crud_model extends Model
 	// Update existing record in DB table.
 
        
-       function edit_record($data, $plant_id)
+       function edit_record($data, $id)
 	{
 		$result = 0;
 		if(!empty($data)){
-			$this->db->where('plant_id', $plant_id);
+			$this->db->where('id', $id);
 			$result = $this->db->update('plant_data', $data);
 		}
 
@@ -86,12 +86,12 @@ class Crud_model extends Model
 
        	//Delete specified records from the DB table.
 
-        function delete_record($plant_id)
+        function delete_record($id)
         {
             $return = 0;
-            if(!empty($plant_id))
+            if(!empty($id))
             {
-                $this->db->where('plant_id', $plant_id);
+                $this->db->where('id', $id);
                 $result = $this->db->delete('plant_data');
             }
             return $result;
