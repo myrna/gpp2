@@ -53,10 +53,14 @@ class Crud_model extends Model
 		if(!empty($id))
 		{
 			//use the where function to add a filter to our query, this time the id, with the $id value
-			$this->db->where('id', $id);
+			
 
+                        $query = mysql_query("SELECT * FROM plant_data
+                            JOIN plant_images ON plant_data.id = plant_images.id
+                            WHERE plant_data.id = '$id'");
+                        
 			//and then execute the query
-			$query = $this->db->get('plant_data');
+			$query = $this->db->get('plant_data, plant_images');
                 }
                 if ($query->num_rows() > 0) {
                         return $row = $query->row();
