@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="css/gppstyles.css">
 	<title></title>
 </head>
-<body>
-    <a href="/">Home</a> | <a href="/about/">About GPP</a> |
-    <a href="/listplants/display/">Advanced Search</a> | Contact
+
+
+<h1>About Great Plant Picks</h1>
 
