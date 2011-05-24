@@ -17,23 +17,19 @@ class Crud extends Controller
     {
         parent::Controller();
     }
-	function index($page = "0")
+	function index($page = 0)
 	{
             $this->load->library('table');
             $this->load->model('crud_model');
-            $records = $this->crud_model->get_records();
+            $records = $this->crud_model->get_records($page);
 
             if ($records['query']->num_rows() > 0)
-            {
-                $table = array();
-                $table[] = array('id','family','genus','cross_genus','species','subspecies',
-                    'cross_species','variety','cultivar','trade_name','registered_name','view','edit','upload image','delete');
-
+            {    
              foreach ($records['query']->result() as $row)
                 {
-                 $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,$row->species,
-                     $row->subspecies,$row->cross_species,$row->variety,$row->cultivar,$row->trade_name,
-                     $row->registered_name, anchor('crud/view_record/'.$row->id, 'View'),
+                 $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,
+                     $row->cross_species,$row->cultivar,$row->trade_name,
+                     anchor('crud/view_record/'.$row->id, 'View'),
                      anchor('crud/edit_record/'.$row->id, 'Edit'), anchor('crud/add_image/'.$row->id, 'Upload Image'), anchor('crud/delete_record/'.$row->id, 'Delete',
                              array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
                 }
@@ -42,9 +38,9 @@ class Crud extends Controller
                 $data['heading'] = "GPP Database Administration";
 // initialize pagination
                  $config = array();
-                 $config['base_url'] = site_url("crud");
+                 $config['base_url'] = site_url("");
                  $config['total_rows'] = $records['total_rows'];
-                 $config['per_page'] = '5';
+                 $config['per_page'] = 5;
                  $config['uri_segment'] = 3;
                  $this->pagination->initialize($config);
                  
@@ -62,13 +58,9 @@ class Crud extends Controller
              'family' => $this->input->post('family'),
             'genus' => $this->input->post('genus'),
             'cross_genus' => $this->input->post('cross_genus'),
-            'species' => $this->input->post('species'),
-            'subspecies' => $this->input->post('subspecies'),
             'cross_species' => $this->input->post('cross_species'),
-            'variety' => $this->input->post('variety'),
             'cultivar' => $this->input->post('cultivar'),
             'trade_name' => $this->input->post('trade_name'),
-            'registered_name' => $this->input->post('registered_name'),
             'plant_patent_number' => $this->input->post('plant_patent_number'),
             'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
             'plantname_group' => $this->input->post('plantname_group'),
@@ -148,17 +140,12 @@ class Crud extends Controller
                     'family' => $this->input->post('family'),
             'genus' => $this->input->post('genus'),
             'cross_genus' => $this->input->post('cross_genus'),
-            'species' => $this->input->post('species'),
-            'subspecies' => $this->input->post('subspecies'),
             'cross_species' => $this->input->post('cross_species'),
-            'variety' => $this->input->post('variety'),
             'cultivar' => $this->input->post('cultivar'),
             'trade_name' => $this->input->post('trade_name'),
-            'registered_name' => $this->input->post('registered_name'),
             'plant_patent_number' => $this->input->post('plant_patent_number'),
             'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
             'plantname_group' => $this->input->post('plantname_group'),
-            'synonym' => $this->input->post('synonym'),
             'plant_origin' => $this->input->post('plant_origin'),
             'plant_type' => $this->input->post('plant_type'),
             'foliage_type' => $this->input->post('foliage_type'),
@@ -166,22 +153,14 @@ class Crud extends Controller
             'foliage_color' => $this->input->post('foliage_color'),
             'flower_color' => $this->input->post('flower_color'),
             'flower_time' => $this->input->post('flower_time'),
-            'sun' => $this->input->post('sun'),
-            'soil' => $this->input->post('soil'),
-            'water' => $this->input->post('water'),
-            'plant_width' => $this->input->post('plant_width'),
-            'plant_height' => $this->input->post('plant_height'),
             'zone_low' => $this->input->post('zone_low'),
             'zone_high' => $this->input->post('zone_high'),
             'culture_notes' => $this->input->post('culture_notes'),
             'qualities' => $this->input->post('qualities'),
-            'design_use' => $this->input->post('design_use'),
-            'wildlife' => $this->input->post('wildlife'),
             'nominator' => $this->input->post('nominator'),
             'committee' => $this->input->post('committee'),
             'advisory_group' => $this->input->post('advisory_group'),
             'eval_trial' => $this->input->post('eval_trial'),
-            'verify_name' => $this->input->post('verify_name'),
             'status' => $this->input->post('status'),
             'gpp_history' => $this->input->post('gpp_history'),
             'gpp_year' => $this->input->post('gpp_year'),

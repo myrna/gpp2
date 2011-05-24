@@ -24,7 +24,7 @@ class Gallery extends Controller {
                 $this->db->get('plant_images');
         
                 $link_data = array(
-                    'id' => $this->input->post('id'),
+                    'plant_id' => $this->input->post('id'),
                     'image_id' => $image_id
                 );
                 $this->db->insert('plant_images', $link_data);
