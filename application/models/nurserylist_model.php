@@ -20,10 +20,9 @@ class Nurserylist_model extends Model {
              $this->db->select("CONCAT(city, ',', state_province) AS location", FALSE);
             $query = $this->db->select('nursery_name,city,state_province,phone_area_code,phone_prefix,phone_number,website_url')
                     ->from('nursery_directory')->
-                    order_by('state_province','desc')->order_by('nursery_name','asc')->get();
-           
-            $data['query'] = $query;
-            return $data;
+                    order_by('state_province','asc')->order_by('nursery_name','asc')->where('publish',"yes")->get();
+             $data['query'] = $query;
+             return $data;
         }
 }
 /* End of file listnurseries_model.php */

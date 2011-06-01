@@ -27,11 +27,11 @@ class Nursery_list extends Controller
  function index()
  {
         // Enable Profiler.
-    //$this->output->enable_profiler(TRUE);
+    $this->output->enable_profiler(TRUE);
      $this->load->library('table');
      $this->load->model('nurserylist_model');
      $nurseries = $this->nurserylist_model->get_nurseries();
-     
+        
      if ($nurseries['query']->num_rows() > 0)
      {
          $table = array();
@@ -46,6 +46,7 @@ class Nursery_list extends Controller
          $data['nurseries'] = $table;
          $data['heading'] = 'Nursery Directory';
      }
+    
      $this->load->view('nursery_list', $data);
  }
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <a href="/">Home</a> | <a href="/about/">About GPP</a> | <a href="/admin/">Database Administration</a> | <a href="/gallery/">Upload Image</a> |
-    <a href="/listplants/display/">Advanced Search</a> |
+    <a href="/listplants/display/">Advanced Search</a> | <a href="/nursery_list/">Nursery Directory</a> | 
 <?php if ($logged_in) :?>
   <a href="/auth/logout/">Logout</a>
 <?php else :  ?>
