@@ -15,7 +15,7 @@ class MY_Input extends CI_Input {
 
 		$CI =& get_instance();
 
-		$rows = $CI->db->get_where('ci_query', array('ListId' => $query_id))->result();
+		$rows = $CI->db->get_where('ci_query', array('id' => $query_id))->result();
 		if (isset($rows[0])) {
 			parse_str($rows[0]->query_string, $_GET);
 		}

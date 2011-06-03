@@ -20,11 +20,11 @@
                     set_value('plant_type'), 'id="plant_type"'); ?>
         </div>
          <div>
-            <?php echo form_label('Plant Height:', 'plant_height'); ?>
+            <?php echo form_label('Plant Height:', 'plant_height_at_10'); ?>
             <?php echo form_dropdown('height_comparison',
                     array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<'),
                     set_value('height_comparison'), 'id="height_comparison"'); ?>
-            <?php echo form_input('plant_height', set_value('plant_height'), 'id="plant_height"'); ?>
+            <?php echo form_input('plant_height_at_10', set_value('plant_height_at_10'), 'id="plant_height_at_10"'); ?>
         </div>
         <div>
             <?php echo form_submit('action', 'Search'); ?>

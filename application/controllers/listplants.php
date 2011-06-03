@@ -14,16 +14,18 @@
 class Listplants extends Controller {
     function display($query_id = 0, $sort_by = 'family', $sort_order = 'asc', $offset = 0)
          {
+         // Enable Profiler.
+         $this->output->enable_profiler(TRUE);
                $limit = 20; // number of items to show per page
 
          $plants['fields'] = array(   // fields to show in table
             'id' => 'id',
             'family' => 'family',
             'genus' => 'genus',
-            'species' => 'species',
+            'specific_epithet' => 'specific_epithet',
             'cultivar' => 'cultivar',
              'plant_type' => 'plant_type',
-            'plant_height' => 'plant_height'
+            'plant_height_at_10' => 'plant_height_at_10'
         );
 
         $this->input->load_query($query_id);   // searchable fields
@@ -31,11 +33,11 @@ class Listplants extends Controller {
         $query_array = array(
             'family' => $this->input->get('family'),
             'genus' => $this->input->get('genus'),
-            'species' => $this->input->get('species'),
+            'specific_epithet' => $this->input->get('specific_epithet'),
             'cultivar' => $this->input->get('cultivar'),
             'plant_type' => $this->input->get('plant_type'),
             'height_comparison' => $this->input->get('height_comparison'),
-            'plant_height' => $this->input->get('plant_height'),
+            'plant_height_at_10' => $this->input->get('plant_height_at_10'),
         );
 
         //print_r($query_array); return;   // test query if bug
@@ -76,7 +78,7 @@ class Listplants extends Controller {
             'cultivar' => $this->input->post('cultivar'),
             'plant_type' => $this->input->post('plant_type'),
             'height_comparison' => $this->input->post('height_comparison'),
-            'plant_height' => $this->input->post('plant_height'),
+            'plant_height_at_10' => $this->input->post('plant_height_at_10'),
         );
 
         $query_id = $this->input->save_query($query_array);
