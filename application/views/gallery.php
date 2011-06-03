@@ -27,7 +27,7 @@
         if (isset($id)) {
             echo form_hidden('id', $id);
         }
-		echo form_submit('upload', 'Upload');
+                echo form_submit('upload', 'Upload');
 		echo form_close();
 		?>
 	</div>

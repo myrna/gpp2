@@ -14,6 +14,7 @@
 class Gallery extends Controller {
 
 	function index() {
+            $this->output->enable_profiler(TRUE);
 		$this->load->model('Gallery_model');
         $this->db->get('images');
    

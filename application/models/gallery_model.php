@@ -58,8 +58,12 @@ class Gallery_model extends Model {
                                     
             $data = array(               
                'filename' => $image_data['file_name'],
-               
-               //'thumbname' => $image['thumb_url']
+              // 'orientation' => $orientation,
+              // 'season' => $season,
+              // 'description' => $description,
+              // 'copyright' => $copyright,
+              // 'photographer' => $photographer,
+              // 'rank' => $rank
                 );
 
             $this->db->insert('images', $data);
@@ -69,12 +73,8 @@ class Gallery_model extends Model {
 
  // this would insert the id and image_id into a table linking the images to the plants
         function link_image($data) {
-
-
-
-
-            
-            $data = array($id, $image_id);
+         
+            $data = array($plant_id, $image_id);
 
             $result = 0;
             //check if $data is not empty
@@ -84,7 +84,6 @@ class Gallery_model extends Model {
                 $result = $this->db->insert('plant_images',$data);
             }
             return $result;
-
 
         }
 

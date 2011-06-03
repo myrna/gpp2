@@ -19,6 +19,8 @@ class Crud extends Controller
     }
 	function index($page = 0)
 	{
+             // Enable Profiler.
+          //  $this->output->enable_profiler(TRUE);
             $this->load->library('table');
             $this->load->model('crud_model');
             $records = $this->crud_model->get_records($page);
@@ -43,21 +45,23 @@ class Crud extends Controller
                 $data['heading'] = "GPP Database Administration";
 // initialize pagination
                  $config = array();
-                 $config['base_url'] = site_url("");
+                 $config['base_url'] = site_url("crud/index");
                  $config['total_rows'] = $records['total_rows'];
                  $config['per_page'] = 5;
                  $config['uri_segment'] = 3;
                  $this->pagination->initialize($config);
                  
                 $this->load->view('admin/crud_view', $data);
-	}
+            }
             function new_record()
             {
                 $this->load->view('admin/new');
             }
-           
+
             function add()
             {
+             // Enable Profiler.
+            $this->output->enable_profiler(TRUE);
                 $this->load->model('crud_model');
                 $data = array (
              'family' => $this->input->post('family'),
@@ -98,7 +102,7 @@ class Crud extends Controller
             'committee' => $this->input->post('committee'),
             'advisory_group' => $this->input->post('advisory_group'),
             'eval_trial' => $this->input->post('eval_trial'),
-            'gpp_reference' => $this->input->post('gpp_reference'),
+            'gpp_references' => $this->input->post('gpp_references'),
             'status' => $this->input->post('status'),
             'evaluation_available' => $this->input->post('evaluation_available'),
             'gpp_history' => $this->input->post('gpp_history'),
@@ -122,6 +126,8 @@ class Crud extends Controller
             redirect('crud', 'refresh');
     }
         function view_record($id = ''){
+             // Enable Profiler.
+            $this->output->enable_profiler(TRUE);
 		$this->load->model('crud_model');
 
 		$record = $this->crud_model->get_record($id);
@@ -135,6 +141,8 @@ class Crud extends Controller
 	}
 
         function edit_record($id = ''){
+            // Enable Profiler.
+            $this->output->enable_profiler(TRUE);
 		$this->load->model('crud_model');
 
 		$record = $this->crud_model->get_record($id);
@@ -187,7 +195,7 @@ class Crud extends Controller
             'committee' => $this->input->post('committee'),
             'advisory_group' => $this->input->post('advisory_group'),
             'eval_trial' => $this->input->post('eval_trial'),
-            'gpp_reference' => $this->input->post('gpp_reference'),
+            'gpp_references' => $this->input->post('gpp_references'),
             'status' => $this->input->post('status'),
             'evaluation_available' => $this->input->post('evaluation_available'),
             'gpp_history' => $this->input->post('gpp_history'),
