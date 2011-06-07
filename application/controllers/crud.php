@@ -50,18 +50,24 @@ class Crud extends Controller
                  $config['per_page'] = 5;
                  $config['uri_segment'] = 3;
                  $this->pagination->initialize($config);
-                 
-                $this->load->view('admin/crud_view', $data);
+
+            $this->template->set('thispage','View Records');
+            $this->template->set('title','View Records - Database Administration | Great Plant Picks');
+            $this->template->load('template','admin/crud_view', $data);
+               
             }
             function new_record()
             {
-                $this->load->view('admin/new');
+            $this->template->set('thispage','Add New Record');
+            $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
+            $this->template->load('template','admin/new');
+           
             }
 
             function add()
             {
              // Enable Profiler.
-            $this->output->enable_profiler(TRUE);
+           // $this->output->enable_profiler(TRUE);
                 $this->load->model('crud_model');
                 $data = array (
              'family' => $this->input->post('family'),
@@ -127,7 +133,7 @@ class Crud extends Controller
     }
         function view_record($id = ''){
              // Enable Profiler.
-            $this->output->enable_profiler(TRUE);
+            //$this->output->enable_profiler(TRUE);
 		$this->load->model('crud_model');
 
 		$record = $this->crud_model->get_record($id);
@@ -136,13 +142,15 @@ class Crud extends Controller
 		//Returned data will be put into the $row variable that will be send to the view.
 		$data['row'] = $record;
 
-		$this->load->view('admin/view', $data);
-
+	    $this->template->set('thispage','View Single Record');
+            $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
+            $this->template->load('template','admin/view', $data);
+           
 	}
 
         function edit_record($id = ''){
             // Enable Profiler.
-            $this->output->enable_profiler(TRUE);
+           // $this->output->enable_profiler(TRUE);
 		$this->load->model('crud_model');
 
 		$record = $this->crud_model->get_record($id);
@@ -151,7 +159,9 @@ class Crud extends Controller
 		
 		$data['row'] = $record;
 
-		$this->load->view('admin/edit', $data);
+		$this->template->set('thispage','Edit Record');
+                $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
+                $this->template->load('template','admin/edit', $data);
         }
          function edit()
         {
@@ -227,8 +237,10 @@ class Crud extends Controller
         
 		$data['id'] = $record->id;
 
-		$this->load->view('gallery', $data);
-                
+                $this->template->set('thispage','Upload Image');
+                $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
+                $this->template->load('template','gallery', $data);
+		                
         }
 
         function delete_record($id = '')

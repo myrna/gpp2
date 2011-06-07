@@ -10,10 +10,31 @@
 
 root { 
     display: block;
-}
-
-h1 {color:red;}
-h2 {color:blue;}
+    }
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, font, img, ins, kbd, q, s, strong, center, dl, dt, dd, ol, ul, li
+	{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	background: transparent;}
+ol, ul {list-style: none;}
+html {min-height:100%;}
+body {
+	font:normal 14px/1.3em Verdana, Arial, Helvetica, sans-serif;
+	min-height:100%;
+	background-color:#FFF;
+        color:#000;
+        min-width:1100px;
+        }
+div#wrapper {
+	width:960px; margin:5px auto;
+        }
+div#navigation {margin-bottom:15px;}
+h1, h2, h3, h4 {font-weight:bold;}
+h1 {font-size:28px; margin-bottom:10px;}
+h2 {font-size:22px;}
 label {display:inline-block; width:120px;}
 
 #gallery, #upload {
@@ -24,7 +45,7 @@ label {display:inline-block; width:120px;}
 			text-align: center;
 		}
 		.thumb {
-			float: left; width: 150px; height: 150px; padding: 10px; margin: 10px; background-color: #ddd;
+			float: left; width: 150px; height: 150px; padding: 10px; margin: 10px;
 		}
 		.thumb:hover {
 			outline: 1px solid #999;
@@ -38,7 +59,7 @@ label {display:inline-block; width:120px;}
 ul {list-style-image:none;}
 ul li {}
 
-#pagination a, #pagination strong {
+#pages a, #pages strong {
 	 background: #e3e3e3;
 	 padding: 4px 7px;
 	 text-decoration: none;
@@ -47,7 +68,11 @@ ul li {}
 	font-size: 13px;
 	}
 
-	#pagination strong, #pagination a:hover {
+	#pages strong, #pages a:hover {
 	 font-weight: normal;
 	 background: #cac9c9;
-	}		
+	}
+a#currentpage {color:#000000;}
+
+table {font-size:12px; line-height:14px;}
+table th {text-align:left;}

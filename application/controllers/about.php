@@ -47,9 +47,9 @@ class About extends Controller
 	public function index()
 
 	{
-            $this->load->view('includes/header');
-            $this->load->view('about');
-            $this->load->view('includes/footer');
+            $this->template->set('thispage','About GPP');
+            $this->template->set('title','About GPP | Great Plant Picks');
+            $this->template->load('template','about');
 	}
 
 }

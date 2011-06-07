@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>GPP Database Administration</title>
-         </head>
-<body>
-     <a href="/">Home</a> | <a href="/gallery/">Upload Image</a> | <a href="/listplants/display/">Advanced Search</a>
+<!-- Database Administration CRUD View All Records -->
     <?php
 
     echo "<h2>".$heading."</h2>";
@@ -15,8 +9,6 @@
     if(!empty($records)) echo $this->table->generate($records);
 
     ?>
-    
+<div id="pages">
 	<?php echo $this->pagination->create_links(); ?>
-	
-
-</body>
+</div>

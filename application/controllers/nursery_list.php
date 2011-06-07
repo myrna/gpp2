@@ -46,8 +46,10 @@ class Nursery_list extends Controller
          $data['nurseries'] = $table;
          $data['heading'] = 'Nursery Directory';
      }
+        $this->template->set('thispage','Nursery Directory');
+        $this->template->set('title','Nursery Directory | Great Plant Picks');
+        $this->template->load('template','nursery_list', $data);
     
-     $this->load->view('nursery_list', $data);
  }
 }
 

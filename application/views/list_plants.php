@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" href="css/gppstyles.css">
-	<title>Plant List</title>
-</head>
-<body>
-    <a href="/">Home</a> | <a href="/crud/">Database Administration</a> | <a href="/gallery/">Upload Image</a>
+
+   <!-- List Plants public display view -->
     <div class="main">
         <?php echo form_open('listplants/search'); ?>
         <div>
@@ -56,9 +49,9 @@
 
         </table>
 <?php if (strlen($pagination)): ?> 
-	<div>
+	<div id="pages">
 		Pages: <?php echo $pagination; ?>
 	</div>
 	<?php endif; ?>
     </div>
-<?php $this->load->view('includes/footer'); ?>
+

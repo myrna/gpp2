@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" href="/css/gppstyles.css">
-	<title>Gallery</title>
-</head>
-<body>
-    <a href="/">Home</a> | <a href="/crud/">Database Administration</a> | <a href="/listplants/display/">Advanced Search</a> |
+<!-- upload images, gallery view -->
     <div id="gallery">
 		<?php if (isset($images) && count($images)):
 			foreach($images as $image):	?>
@@ -32,4 +24,3 @@
 		?>
 	</div>
 
-<?php $this->load->view('includes/footer'); ?>

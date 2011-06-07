@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Edit Record</title>
-         </head>
-<body>
+<!-- Database Administration Edit Individual Record View -->
+
     <h1><?php echo $title ?></h1>
     <?php
     if($row == FALSE)
@@ -81,7 +77,3 @@
     ?>
 <a href="javascript:history.back()">Back</a>
 
-
-
-</body>
-</html>

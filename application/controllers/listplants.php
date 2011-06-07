@@ -15,7 +15,7 @@ class Listplants extends Controller {
     function display($query_id = 0, $sort_by = 'family', $sort_order = 'asc', $offset = 0)
          {
          // Enable Profiler.
-         $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
                $limit = 20; // number of items to show per page
 
          $plants['fields'] = array(   // fields to show in table
@@ -66,7 +66,10 @@ class Listplants extends Controller {
 // choose plant based on type
         $plants['planttype_options'] = $this->listplants_model->planttype_options();  // load dropdown options
 
-        $this->load->view('list_plants', $plants);
+        $this->template->set('thispage','List Plants');
+        $this->template->set('title','List Plants | Great Plant Picks');
+        $this->template->load('template','list_plants', $plants);
+        
     }
 
     function search() {   // searchable fields

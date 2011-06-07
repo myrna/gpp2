@@ -14,7 +14,7 @@
 class Gallery extends Controller {
 
 	function index() {
-            $this->output->enable_profiler(TRUE);
+           // $this->output->enable_profiler(TRUE);
 		$this->load->model('Gallery_model');
         $this->db->get('images');
    
@@ -46,9 +46,10 @@ class Gallery extends Controller {
                 'photographer' => $this->input->post('photographer'),
              );
 
-
-		$this->load->view('gallery', $data);
-
+            $this->template->set('thispage','Upload Images');
+            $this->template->set('title','Upload Images - Database Administration | Great Plant Picks');
+            $this->template->load('template','gallery', $data);
+	
 	}
 
 }

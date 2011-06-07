@@ -12,8 +12,7 @@ class Template {
 		{               
 			$this->CI =& get_instance();
 			$this->set('contents', $this->CI->load->view($view, $view_data, TRUE));
-                        $this->set('nav_list', array('Home','About GPP','Search','Nursery Directory','Contact'));
-			return $this->CI->load->view($template, $this->template_data, $return);
+                        return $this->CI->load->view($template, $this->template_data, $return);
 		}
 }
 

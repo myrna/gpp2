@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" href="css/gppstyles.css">
-	<title></title>
-</head>
-<body>
-    <a href="/">Home</a> | <a href="/admin/">Database Administration</a> | <a href="/gallery/">Upload Image</a> | <a href="/listplants/display/">Advanced Search</a> |
-
+<!-- Database Administration Add New Record View -->
     <h2>Add new record</h2>
     <?php
 
@@ -74,4 +65,3 @@
     </ul>
     <?php echo form_submit('add', 'Add Record'); ?>
 
-</body>

@@ -34,7 +34,9 @@ class Admin extends Controller
 	*/
 	public function index()
 	{
-            $this->load->view('admin');
+            $this->template->set('thispage','Database Administration');
+            $this->template->set('title','Database Administration | Great Plant Picks');
+            $this->template->load('template','admin');
 	}
 
 }
