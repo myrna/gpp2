@@ -70,10 +70,54 @@
         <li>Geek Notes: <?php echo form_input('geek_notes', $row->geek_notes); ?></li>
         <li>Publish: <?php echo form_input('publish', $row->publish); ?></li>
         <li>Sort: <?php echo form_input('sort', $row->sort); ?></li>
+        <li>Water: 
+            <?php foreach ($water_fields as $row) { ?>
+                <br />
+            <?php
+                $water_data = array(
+                    'name' => "water[]", 
+                    'id' => $row->requirement, 
+                    'value' => $row->id,
+                    'checked' => in_array($row->id, $water_requirements)
+                );
+                echo form_checkbox($water_data);
+                echo form_label($row->requirement, $row->requirement);
+            } ?>
+
+        </li>
+        <li>Sun: 
+            <?php foreach ($sun_fields as $row) { ?>
+                <br />
+            <?php
+                $sun_data = array(
+                    'name' => "sun[]", 
+                    'id' => $row->requirement, 
+                    'value' => $row->id,
+                    'checked' => in_array($row->id, $sun_requirements)
+                );
+                echo form_checkbox($sun_data);
+                echo form_label($row->requirement, $row->requirement);
+            } ?>
+
+        </li>        
+        <li>Soil: 
+            <?php foreach ($soil_fields as $row) { ?>
+                <br />
+            <?php
+                $soil_data = array(
+                    'name' => "soil[]", 
+                    'id' => $row->requirement, 
+                    'value' => $row->id,
+                    'checked' => in_array($row->id, $soil_requirements)
+                );
+                echo form_checkbox($soil_data);
+                echo form_label($row->requirement, $row->requirement);
+            } ?>
+
+        </li>     
     </ul>
     <?php echo form_submit('edit','Edit Record'); ?>
     <?php
     }
     ?>
 <a href="javascript:history.back()">Back</a>
-

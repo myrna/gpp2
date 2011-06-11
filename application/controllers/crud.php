@@ -1,184 +1,89 @@
 <?php
 
 /**
- * crud.php
- *
- * Create, Read, Update, Delete Records
- *
- * @package		Great Plant Picks
- * @subpackage	Controllers
- * @category		Controllers
- * @author		mlo
- */
+* crud.php
+*
+* Create, Read, Update, Delete Records
+*
+* @package		Great Plant Picks
+* @subpackage	Controllers
+* @category		Controllers
+* @author		mlo
+*/
 
 class Crud extends Controller
 {
     function Crud()
     {
         parent::Controller();
+        $this->output->enable_profiler(TRUE);
+
     }
-	function index($page = 0)
-	{
-             // Enable Profiler.
-          //  $this->output->enable_profiler(TRUE);
-            $this->load->library('table');
-            $this->load->model('crud_model');
-            $records = $this->crud_model->get_records($page);
+    function index($page = 0)
+    {
+        // Enable Profiler.
+        //  $this->output->enable_profiler(TRUE);
+        $this->load->library('table');
+        $this->load->model('crud_model');
+        $records = $this->crud_model->get_records($page);
 
-            if ($records['query']->num_rows() > 0)
-            {
-                 $table = array();
-                 $table[] = array('Plant ID','Family','Genus','Cross Genus','Specific Epithet','Designator','Infraspecific Epithet',
-                     'x Species','Group','Cultivar','Trade Name','PP#','PPAF','PBR','View','Edit','Add Image','Delete');
-             foreach ($records['query']->result() as $row)
-                {
-                 $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,
-                     $row->specific_epithet,$row->infraspecific_epithet_designator,$row->infraspecific_epithet,
-                     $row->cross_species,$row->plantname_group,$row->cultivar,$row->trade_name,$row->plant_patent_number,$row->plant_patent_number_applied_for,
-                     $row->plant_breeders_rights,
-                     anchor('crud/view_record/'.$row->id, 'View'),
-                     anchor('crud/edit_record/'.$row->id, 'Edit'), anchor('crud/add_image/'.$row->id, 'Upload Image'), anchor('crud/delete_record/'.$row->id, 'Delete',
-                             array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
-                }
-                $data['records'] = $table;
-            }
-                $data['heading'] = "GPP Database Administration";
-// initialize pagination
-                 $config = array();
-                 $config['base_url'] = site_url("crud/index");
-                 $config['total_rows'] = $records['total_rows'];
-                 $config['per_page'] = 5;
-                 $config['uri_segment'] = 3;
-                 $this->pagination->initialize($config);
-
-            $this->template->set('thispage','View Records');
-            $this->template->set('title','View Records - Database Administration | Great Plant Picks');
-            $this->template->load('template','admin/crud_view', $data);
-               
-            }
-            function new_record()
-            {
-            $this->template->set('thispage','Add New Record');
-            $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
-            $this->template->load('template','admin/new');
-           
-            }
-
-            function add()
-            {
-             // Enable Profiler.
-           // $this->output->enable_profiler(TRUE);
-                $this->load->model('crud_model');
-                $data = array (
-             'family' => $this->input->post('family'),
-            'genus' => $this->input->post('genus'),
-            'cross_genus' => $this->input->post('cross_genus'),
-            'specific_epithet' => $this->input->post('specific_epithet'),
-            'infraspecific_epithet_designator' => $this->input->post('infraspecific_epithet_designator'),
-             'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
-            'cross_species' => $this->input->post('cross_species'),
-            'plantname_group' => $this->input->post('plantname_group'),
-            'cultivar' => $this->input->post('cultivar'),
-            'trade_name' => $this->input->post('trade_name'),
-            'plant_patent_number' => $this->input->post('plant_patent_number'),
-             'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
-            'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
-            'plant_origin' => $this->input->post('plant_origin'),
-            'native_to_gpp_region' => $this->input->post('native_to_gpp_region'),
-            'plant_type' => $this->input->post('plant_type'),
-            'foliage_type' => $this->input->post('foliage_type'),
-            'growth_habit' => $this->input->post('growth_habit'),
-            'growth_rate' => $this->input->post('growth_rate'),
-            'foliage_texture' => $this->input->post('foliage_texture'),
-            'foliage_notes' => $this->input->post('foliage_notes'),
-            'flower_showy' =>  $this->input->post('flower_showy'),
-            'flower_time' => $this->input->post('flower_time'),
-            'plant_width_at_10' => $this->input->post('plant_width_at_10'),
-            'plant_height_at_10' => $this->input->post('plant_height_at_10'),
-            'plant_width_max' => $this->input->post('plant_width_max'),
-            'plant_height_max' => $this->input->post('plant_height_max'),
-            'zone_low' => $this->input->post('zone_low'),
-            'zone_high' => $this->input->post('zone_high'),
-            'growing_notes' => $this->input->post('growing_notes'),
-            'culture_notes' => $this->input->post('culture_notes'),
-            'qualities' => $this->input->post('qualities'),
-            'plant_combinations' => $this->input->post('plant_combinations'),
-            'nominator' => $this->input->post('nominator'),
-            'nominated_for_year' => $this->input->post('nominated_for_year'),
-            'committee' => $this->input->post('committee'),
-            'advisory_group' => $this->input->post('advisory_group'),
-            'eval_trial' => $this->input->post('eval_trial'),
-            'gpp_references' => $this->input->post('gpp_references'),
-            'status' => $this->input->post('status'),
-            'evaluation_available' => $this->input->post('evaluation_available'),
-            'gpp_history' => $this->input->post('gpp_history'),
-            'gpp_year' => $this->input->post('gpp_year'),
-            'theme' => $this->input->post('theme'),
-            'programmed_search' => $this->input->post('programmed_search'),
-            'geek_notes' => $this->input->post('geek_notes'),
-            'publish' => $this->input->post('publish'),
-            'sort' => $this->input->post('sort'),
-                    );
-           $records = $this->crud_model->add_record($data);
-
-           if($records)
-           {
-               $this->session->set_flashdata('status', '<p>Record has been successfully added</p>');
-            }
-            else
-            {
-                $this->session->set_flashdata('status', '<p>Record not added, please try again</p>');
-            }
-            redirect('crud', 'refresh');
-    }
-        function view_record($id = ''){
-             // Enable Profiler.
-            //$this->output->enable_profiler(TRUE);
-		$this->load->model('crud_model');
-
-		$record = $this->crud_model->get_record($id);
-
-		$data['title'] = "View Record: ";
-		//Returned data will be put into the $row variable that will be send to the view.
-		$data['row'] = $record;
-
-	    $this->template->set('thispage','View Single Record');
-            $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
-            $this->template->load('template','admin/view', $data);
-           
-	}
-
-        function edit_record($id = ''){
-            // Enable Profiler.
-           // $this->output->enable_profiler(TRUE);
-		$this->load->model('crud_model');
-
-		$record = $this->crud_model->get_record($id);
-
-		$data['title'] = "Edit Record: ";
-		
-		$data['row'] = $record;
-
-		$this->template->set('thispage','Edit Record');
-                $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
-                $this->template->load('template','admin/edit', $data);
-        }
-         function edit()
+        if ($records['query']->num_rows() > 0)
         {
-            $this->load->model('crud_model');
-            $data = array (
-             'family' => $this->input->post('family'),
+            $table = array();
+            $table[] = array('Plant ID','Family','Genus','Cross Genus','Specific Epithet','Designator','Infraspecific Epithet',
+                'x Species','Group','Cultivar','Trade Name','PP#','PPAF','PBR','View','Edit','Add Image','Delete');
+            foreach ($records['query']->result() as $row)
+            {
+                $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,
+                    $row->specific_epithet,$row->infraspecific_epithet_designator,$row->infraspecific_epithet,
+                    $row->cross_species,$row->plantname_group,$row->cultivar,$row->trade_name,$row->plant_patent_number,$row->plant_patent_number_applied_for,
+                    $row->plant_breeders_rights,
+                    anchor('crud/view_record/'.$row->id, 'View'),
+                    anchor('crud/edit_record/'.$row->id, 'Edit'), anchor('crud/add_image/'.$row->id, 'Upload Image'), anchor('crud/delete_record/'.$row->id, 'Delete',
+                    array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
+            }
+            $data['records'] = $table;
+        }
+        $data['heading'] = "GPP Database Administration";
+        // initialize pagination
+        $config = array();
+        $config['base_url'] = site_url("crud/index");
+        $config['total_rows'] = $records['total_rows'];
+        $config['per_page'] = 5;
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+
+        $this->template->set('thispage','View Records');
+        $this->template->set('title','View Records - Database Administration | Great Plant Picks');
+        $this->template->load('template','admin/crud_view', $data);
+
+    }
+    function new_record()
+    {
+        $this->template->set('thispage','Add New Record');
+        $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
+        $this->template->load('template','admin/new');
+
+    }
+
+    function add()
+    {
+        // Enable Profiler.
+        // $this->output->enable_profiler(TRUE);
+        $this->load->model('crud_model');
+        $data = array (
+            'family' => $this->input->post('family'),
             'genus' => $this->input->post('genus'),
             'cross_genus' => $this->input->post('cross_genus'),
             'specific_epithet' => $this->input->post('specific_epithet'),
             'infraspecific_epithet_designator' => $this->input->post('infraspecific_epithet_designator'),
-             'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
+            'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
             'cross_species' => $this->input->post('cross_species'),
             'plantname_group' => $this->input->post('plantname_group'),
             'cultivar' => $this->input->post('cultivar'),
             'trade_name' => $this->input->post('trade_name'),
             'plant_patent_number' => $this->input->post('plant_patent_number'),
-             'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
+            'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
             'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
             'plant_origin' => $this->input->post('plant_origin'),
             'native_to_gpp_region' => $this->input->post('native_to_gpp_region'),
@@ -215,48 +120,193 @@ class Crud extends Controller
             'geek_notes' => $this->input->post('geek_notes'),
             'publish' => $this->input->post('publish'),
             'sort' => $this->input->post('sort'),
-                    );
-            $records = $this->crud_model->edit_record($data, $_POST['id']);
-            if($records)
-            {
-                $this->session->set_flashdata('status', 'Record Updated');
-            }
-            else
-            {
-                $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
-            }
-            redirect('crud','refresh');
+            );
+        $records = $this->crud_model->add_record($data);
+
+        if($records)
+        {
+            $this->session->set_flashdata('status', '<p>Record has been successfully added</p>');
         }
+        else
+        {
+            $this->session->set_flashdata('status', '<p>Record not added, please try again</p>');
+        }
+        redirect('crud', 'refresh');
+    }
 
-         function add_image($id = ''){
-		$this->load->model('crud_model');
+    function view_record($id = ''){
+        // Enable Profiler.
+        //$this->output->enable_profiler(TRUE);
+        $this->load->model('crud_model');
 
-		$record = $this->crud_model->get_record($id);
+        $record = $this->crud_model->get_record($id);
 
-		$data['title'] = "Upload Image: ";
+        $data['title'] = "View Record: ";
+        //Returned data will be put into the $row variable that will be send to the view.
+        $data['row'] = $record;
+
+        $this->template->set('thispage','View Single Record');
+        $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
+        $this->template->load('template','admin/view', $data);
+
+    }
+
+    function edit_record($id = '') {
+        // Enable Profiler.
+        // $this->output->enable_profiler(TRUE);
+        $this->load->model('crud_model');
+
+        $data['title'] = "Edit Record: ";
+        $water = $this->crud_model->link_table($id, 'water');
+        $data['water_fields'] = $water['list'];
+        $data['water_requirements'] = $water['current'];
         
-		$data['id'] = $record->id;
+        $sun = $this->crud_model->link_table($id, 'sun');
+        $data['sun_fields'] = $sun['list'];
+        $data['sun_requirements'] = $sun['current'];
+        $data['row'] = $this->crud_model->get_record($id);
 
-                $this->template->set('thispage','Upload Image');
-                $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
-                $this->template->load('template','gallery', $data);
-		                
+        $soil = $this->crud_model->link_table($id, 'soil');
+        $data['soil_fields'] = $soil['list'];
+        $data['soil_requirements'] = $soil['current'];
+        $data['row'] = $this->crud_model->get_record($id);
+
+        $this->template->set('thispage','Edit Record');
+        $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
+        $this->template->load('template','admin/edit', $data);
+    }
+
+    function edit()
+    {
+        $this->load->model('crud_model');
+        $data = array (
+            'family' => $this->input->post('family'),
+            'genus' => $this->input->post('genus'),
+            'cross_genus' => $this->input->post('cross_genus'),
+            'specific_epithet' => $this->input->post('specific_epithet'),
+            'infraspecific_epithet_designator' => $this->input->post('infraspecific_epithet_designator'),
+            'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
+            'cross_species' => $this->input->post('cross_species'),
+            'plantname_group' => $this->input->post('plantname_group'),
+            'cultivar' => $this->input->post('cultivar'),
+            'trade_name' => $this->input->post('trade_name'),
+            'plant_patent_number' => $this->input->post('plant_patent_number'),
+            'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
+            'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
+            'plant_origin' => $this->input->post('plant_origin'),
+            'native_to_gpp_region' => $this->input->post('native_to_gpp_region'),
+            'plant_type' => $this->input->post('plant_type'),
+            'foliage_type' => $this->input->post('foliage_type'),
+            'growth_habit' => $this->input->post('growth_habit'),
+            'growth_rate' => $this->input->post('growth_rate'),
+            'foliage_texture' => $this->input->post('foliage_texture'),
+            'foliage_notes' => $this->input->post('foliage_notes'),
+            'flower_showy' =>  $this->input->post('flower_showy'),
+            'flower_time' => $this->input->post('flower_time'),
+            'plant_width_at_10' => $this->input->post('plant_width_at_10'),
+            'plant_height_at_10' => $this->input->post('plant_height_at_10'),
+            'plant_width_max' => $this->input->post('plant_width_max'),
+            'plant_height_max' => $this->input->post('plant_height_max'),
+            'zone_low' => $this->input->post('zone_low'),
+            'zone_high' => $this->input->post('zone_high'),
+            'growing_notes' => $this->input->post('growing_notes'),
+            'culture_notes' => $this->input->post('culture_notes'),
+            'qualities' => $this->input->post('qualities'),
+            'plant_combinations' => $this->input->post('plant_combinations'),
+            'nominator' => $this->input->post('nominator'),
+            'nominated_for_year' => $this->input->post('nominated_for_year'),
+            'committee' => $this->input->post('committee'),
+            'advisory_group' => $this->input->post('advisory_group'),
+            'eval_trial' => $this->input->post('eval_trial'),
+            'gpp_references' => $this->input->post('gpp_references'),
+            'status' => $this->input->post('status'),
+            'evaluation_available' => $this->input->post('evaluation_available'),
+            'gpp_history' => $this->input->post('gpp_history'),
+            'gpp_year' => $this->input->post('gpp_year'),
+            'theme' => $this->input->post('theme'),
+            'programmed_search' => $this->input->post('programmed_search'),
+            'geek_notes' => $this->input->post('geek_notes'),
+            'publish' => $this->input->post('publish'),
+            'sort' => $this->input->post('sort'),
+        );
+        
+        $link_tables = array('water', 'soil', 'sun');
+        foreach ($link_tables as $linker) {
+            if ($this->input->post($linker)) {
+                $this->update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
+            }
         }
 
-        function delete_record($id = '')
+        $records = $this->crud_model->edit_record($data, $_POST['id']);
+        if($records)
         {
-            $this->load->model('crud_model');
-            $records = $this->crud_model->delete_record($id);
-            if($records)
-            {
-                $this->session->set_flashdata('status', 'Record Has Been Deleted');
-            }
-            else
-            {
-                $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
-            }
-            redirect('crud', 'refresh');
+            $this->session->set_flashdata('status', 'Record Updated');
         }
+        else
+        {
+            $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
+        }
+        redirect('crud','refresh');
+    }
+
+    function add_image($id = ''){
+        $this->load->model('crud_model');
+
+        $record = $this->crud_model->get_record($id);
+
+        $data['title'] = "Upload Image: ";
+
+        $data['id'] = $record->id;
+
+        $this->template->set('thispage','Upload Image');
+        $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
+        $this->template->load('template','gallery', $data);
+
+    }
+
+    function delete_record($id = '')
+    {
+        $this->load->model('crud_model');
+        $records = $this->crud_model->delete_record($id);
+        if($records)
+        {
+            $this->session->set_flashdata('status', 'Record Has Been Deleted');
+        }
+        else
+        {
+            $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
+        }
+        redirect('crud', 'refresh');
+    }
+
+    function update_link_table($id, $root, $values) {
+        $link_table_name = "plant_" . $root;
+        $key_name = $root . "_id";
+        // handle the  requirements linking tables
+        // this is hacky and should be fixed eventually, but handling unsent checkboxes is always a clusterf.
+        // first we go through and delete anything from the link table that was not sent in the post (i.e. not checked)
+        $this->db->where('plant_id', $id);
+        $this->db->where_not_in($key_name, $values);
+        $this->db->delete($link_table_name);
+        // now we go back through and make sure that the ones that were checked in the linking table.
+        foreach ($values as $req) {
+            $this->db->where( array('plant_id' => $id, $key_name => $req ) );
+            $query = $this->db->get($link_table_name);
+
+            if ($query->num_rows() == 0) {
+                // if it doesn't exist, insert it.
+                $this->db->set('plant_id', $id);
+                $this->db->set($key_name, $req);
+                $this->db->insert($link_table_name);
+            }
+
+        }
+    }
+
 }
+
+
+
+
 /* End of file crud.php */
 /* Location: ./application/controllers/crud.php */
