@@ -35,7 +35,7 @@ class Crud_model extends Model
 
     function link_table($id, $root) {
         $join_table_name = 'plant_' . $root;
-        $list_table_name = $root . "_requirements";
+        $list_table_name = $root;
         $key_name = $root . "_id";
 
         $list = $this->db->get($list_table_name)->result();
