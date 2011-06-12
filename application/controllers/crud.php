@@ -247,7 +247,7 @@ class Crud extends Controller
         
         $link_tables = array('water', 'soil', 'sun', 'wildlife', 'pest_resistance', 'flower_color', 'design_use');
         foreach ($link_tables as $linker) {
-            $this->update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
+            $this->_update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
         }
 
         $records = $this->crud_model->edit_record($data, $_POST['id']);
@@ -292,7 +292,7 @@ class Crud extends Controller
         redirect('crud', 'refresh');
     }
 
-    function update_link_table($id, $root, $values) {
+    function _update_link_table($id, $root, $values) {
         $link_table_name = "plant_" . $root;
         $key_name = $root . "_id";
         if (empty($values)) {
