@@ -13,7 +13,7 @@
      ?>
     <?php echo form_open('crud/edit','',array('id' => $row->id));
     ?>
-    <?php display_botanical_name($row); ?>
+    <?php display_full_botanical_name($row); ?>
     <ul>
         <li>Plant ID: <?php echo form_input('id', $row->id); ?></li>
          <li>Plant Family: <?php echo form_input('family', $row->family); ?></li>

@@ -1,5 +1,5 @@
 <?php
-function display_botanical_name($record) {
+function display_full_botanical_name($record) {
     printf("%s %s %s %s %s %s %s %s %s %s %s",
         $record->genus ? format_genus($record->genus,$record->cross_genus) : "",
         $record->specific_epithet ? format_species($record->specific_epithet, $record->cross_species) : "",
