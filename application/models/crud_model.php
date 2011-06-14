@@ -87,6 +87,26 @@ class Crud_model extends Model
     }
 
 
+    function get_record_as_array($id)
+    {
+        if(!empty($id))
+        {
+            //use the where function to add a filter to our query, this time the id, with the $id value
+
+            $query = $this->db->where('id', $id);
+
+            //and then execute the query
+            $query = $this->db->get('plant_data');
+        }
+        if ($query->num_rows() > 0) {
+            return $row = $query->result_array();
+        }
+        else
+        {
+            $row = FALSE;
+        }
+    }
+
     // Update existing record in DB table.
 
 

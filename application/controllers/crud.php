@@ -140,11 +140,11 @@ class Crud extends Controller
         //$this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
 
-        $record = $this->crud_model->get_record($id);
+        $record = $this->crud_model->get_record_as_array($id);
 
         $data['title'] = "View Record: ";
         //Returned data will be put into the $row variable that will be send to the view.
-        $data['row'] = $record;
+        $data['row'] = $record[0];
 
         $this->template->set('thispage','View Single Record');
         $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
@@ -186,7 +186,8 @@ class Crud extends Controller
         $data['design_use_fields'] = $design_use['list'];
         $data['design_use_requirements'] = $design_use['current'];
 
-        $data['row'] = $this->crud_model->get_record($id);
+        $row = $this->crud_model->get_record_as_array($id);
+        $data['row'] = $row[0];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('template','admin/edit', $data);
