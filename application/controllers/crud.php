@@ -16,6 +16,7 @@ class Crud extends Controller
     function Crud()
     {
         parent::Controller();
+        $this->load->helper('plant_helper');
         $this->output->enable_profiler(TRUE);
 
     }
@@ -71,56 +72,9 @@ class Crud extends Controller
         // Enable Profiler.
         // $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
-        $data = array (
-            'family' => $this->input->post('family'),
-            'genus' => $this->input->post('genus'),
-            'cross_genus' => $this->input->post('cross_genus'),
-            'specific_epithet' => $this->input->post('specific_epithet'),
-            'infraspecific_epithet_designator' => $this->input->post('infraspecific_epithet_designator'),
-            'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
-            'cross_species' => $this->input->post('cross_species'),
-            'plantname_group' => $this->input->post('plantname_group'),
-            'cultivar' => $this->input->post('cultivar'),
-            'trade_name' => $this->input->post('trade_name'),
-            'plant_patent_number' => $this->input->post('plant_patent_number'),
-            'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
-            'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
-            'plant_origin' => $this->input->post('plant_origin'),
-            'native_to_gpp_region' => $this->input->post('native_to_gpp_region'),
-            'plant_type' => $this->input->post('plant_type'),
-            'foliage_type' => $this->input->post('foliage_type'),
-            'growth_habit' => $this->input->post('growth_habit'),
-            'growth_rate' => $this->input->post('growth_rate'),
-            'foliage_texture' => $this->input->post('foliage_texture'),
-            'foliage_notes' => $this->input->post('foliage_notes'),
-            'flower_showy' =>  $this->input->post('flower_showy'),
-            'flower_time' => $this->input->post('flower_time'),
-            'plant_width_at_10' => $this->input->post('plant_width_at_10'),
-            'plant_height_at_10' => $this->input->post('plant_height_at_10'),
-            'plant_width_max' => $this->input->post('plant_width_max'),
-            'plant_height_max' => $this->input->post('plant_height_max'),
-            'zone_low' => $this->input->post('zone_low'),
-            'zone_high' => $this->input->post('zone_high'),
-            'growing_notes' => $this->input->post('growing_notes'),
-            'culture_notes' => $this->input->post('culture_notes'),
-            'qualities' => $this->input->post('qualities'),
-            'plant_combinations' => $this->input->post('plant_combinations'),
-            'nominator' => $this->input->post('nominator'),
-            'nominated_for_year' => $this->input->post('nominated_for_year'),
-            'committee' => $this->input->post('committee'),
-            'advisory_group' => $this->input->post('advisory_group'),
-            'eval_trial' => $this->input->post('eval_trial'),
-            'gpp_references' => $this->input->post('gpp_references'),
-            'status' => $this->input->post('status'),
-            'evaluation_available' => $this->input->post('evaluation_available'),
-            'gpp_history' => $this->input->post('gpp_history'),
-            'gpp_year' => $this->input->post('gpp_year'),
-            'theme' => $this->input->post('theme'),
-            'programmed_search' => $this->input->post('programmed_search'),
-            'geek_notes' => $this->input->post('geek_notes'),
-            'publish' => $this->input->post('publish'),
-            'sort' => $this->input->post('sort'),
-            );
+        // still need to add checkbox handling
+        $data = $_POST;
+        unset($data['add']);
         $records = $this->crud_model->add_record($data);
 
         if($records)
@@ -139,11 +93,11 @@ class Crud extends Controller
         //$this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
 
-        $record = $this->crud_model->get_record($id);
+        $record = $this->crud_model->get_record_as_array($id);
 
         $data['title'] = "View Record: ";
         //Returned data will be put into the $row variable that will be send to the view.
-        $data['row'] = $record;
+        $data['row'] = $record[0];
 
         $this->template->set('thispage','View Single Record');
         $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
@@ -185,7 +139,8 @@ class Crud extends Controller
         $data['design_use_fields'] = $design_use['list'];
         $data['design_use_requirements'] = $design_use['current'];
 
-        $data['row'] = $this->crud_model->get_record($id);
+        $row = $this->crud_model->get_record_as_array($id);
+        $data['row'] = $row[0];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('template','admin/edit', $data);
@@ -194,62 +149,13 @@ class Crud extends Controller
     function edit()
     {
         $this->load->model('crud_model');
-        $data = array (
-            'family' => $this->input->post('family'),
-            'genus' => $this->input->post('genus'),
-            'cross_genus' => $this->input->post('cross_genus'),
-            'specific_epithet' => $this->input->post('specific_epithet'),
-            'infraspecific_epithet_designator' => $this->input->post('infraspecific_epithet_designator'),
-            'infraspecific_epithet'  => $this->input->post('infraspecific_epithet'),
-            'cross_species' => $this->input->post('cross_species'),
-            'plantname_group' => $this->input->post('plantname_group'),
-            'cultivar' => $this->input->post('cultivar'),
-            'trade_name' => $this->input->post('trade_name'),
-            'plant_patent_number' => $this->input->post('plant_patent_number'),
-            'plant_patent_number_applied_for' => $this->input->post('plant_patent_number_applied_for'),
-            'plant_breeders_rights' => $this->input->post('plant_breeders_rights'),
-            'plant_origin' => $this->input->post('plant_origin'),
-            'native_to_gpp_region' => $this->input->post('native_to_gpp_region'),
-            'plant_type' => $this->input->post('plant_type'),
-            'foliage_type' => $this->input->post('foliage_type'),
-            'growth_habit' => $this->input->post('growth_habit'),
-            'growth_rate' => $this->input->post('growth_rate'),
-            'foliage_texture' => $this->input->post('foliage_texture'),
-            'foliage_notes' => $this->input->post('foliage_notes'),
-            'flower_showy' =>  $this->input->post('flower_showy'),
-            'flower_time' => $this->input->post('flower_time'),
-            'plant_width_at_10' => $this->input->post('plant_width_at_10'),
-            'plant_height_at_10' => $this->input->post('plant_height_at_10'),
-            'plant_width_max' => $this->input->post('plant_width_max'),
-            'plant_height_max' => $this->input->post('plant_height_max'),
-            'zone_low' => $this->input->post('zone_low'),
-            'zone_high' => $this->input->post('zone_high'),
-            'growing_notes' => $this->input->post('growing_notes'),
-            'culture_notes' => $this->input->post('culture_notes'),
-            'qualities' => $this->input->post('qualities'),
-            'plant_combinations' => $this->input->post('plant_combinations'),
-            'nominator' => $this->input->post('nominator'),
-            'nominated_for_year' => $this->input->post('nominated_for_year'),
-            'committee' => $this->input->post('committee'),
-            'advisory_group' => $this->input->post('advisory_group'),
-            'eval_trial' => $this->input->post('eval_trial'),
-            'gpp_references' => $this->input->post('gpp_references'),
-            'status' => $this->input->post('status'),
-            'evaluation_available' => $this->input->post('evaluation_available'),
-            'gpp_history' => $this->input->post('gpp_history'),
-            'gpp_year' => $this->input->post('gpp_year'),
-            'theme' => $this->input->post('theme'),
-            'programmed_search' => $this->input->post('programmed_search'),
-            'geek_notes' => $this->input->post('geek_notes'),
-            'publish' => $this->input->post('publish'),
-            'sort' => $this->input->post('sort'),
-        );
-        
+
         $link_tables = array('water', 'soil', 'sun', 'wildlife', 'pest_resistance', 'flower_color', 'design_use');
         foreach ($link_tables as $linker) {
             $this->_update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
         }
-
+        $data = $_POST;
+        unset($data['edit']); // get rid of the submit button
         $records = $this->crud_model->edit_record($data, $_POST['id']);
         if($records)
         {

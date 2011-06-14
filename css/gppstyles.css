@@ -76,3 +76,35 @@ a#currentpage {color:#000000;}
 
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
+
+/* plant display styles */
+.genus {
+    font-style: italic;
+}
+
+.species {
+    font-style: italic;
+}
+
+.subspecies {
+    font-style: italic;
+}
+
+.variety {
+    font-style: italic;
+}
+
+.cultivar {
+    font-style: none;
+}
+
+.trade-name {
+    font-variant: small-caps;
+}
+
+.breeders-rights {
+    vertical-align: super;
+    font-size: 10px;
+}
+
+/* end */
