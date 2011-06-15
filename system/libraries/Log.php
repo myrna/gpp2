@@ -73,7 +73,8 @@ class CI_Log {
 	 * @return	bool
 	 */		
 	function write_log($level = 'error', $msg, $php_error = FALSE)
-	{		
+	{
+                
 		if ($this->_enabled === FALSE)
 		{
 			return FALSE;

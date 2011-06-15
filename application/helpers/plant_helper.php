@@ -104,4 +104,5 @@ function field_to_label($field) {
     }
 }
 
-?>
+/* End of file plant_helper.php */
+/* Location: ./application/helpers/plant_helper.php */

@@ -8,7 +8,7 @@
 * @package		Great Plant Picks
 * @subpackage	Models
 * @category		Models
-* @author		mlo
+* @author		jg :)
 */
 
 class Crud_model extends Model
@@ -40,10 +40,12 @@ class Crud_model extends Model
 
         $list = $this->db->get($list_table_name)->result();
         $current = array_map("Crud_model::get_id", $this->db->where('plant_id', $id)->select("$key_name")->get($join_table_name)->result_array());
+
         return array(
             'list' => $list,
             'current' => $current
         );
+
     }
 
     /**

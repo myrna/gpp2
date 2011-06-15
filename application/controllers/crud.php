@@ -17,13 +17,13 @@ class Crud extends Controller
     {
         parent::Controller();
         $this->load->helper('plant_helper');
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
 
     }
     function index($page = 0)
     {
         // Enable Profiler.
-        //  $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $this->load->library('table');
         $this->load->model('crud_model');
         $records = $this->crud_model->get_records($page);
@@ -107,7 +107,7 @@ class Crud extends Controller
 
     function edit_record($id = '') {
         // Enable Profiler.
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
 
         $data['title'] = "Edit Record: ";
