@@ -149,12 +149,13 @@ class Crud extends Controller
     function edit()
     {
         $this->load->model('crud_model');
-
+        $data = $_POST;
         $link_tables = array('water', 'soil', 'sun', 'wildlife', 'pest_resistance', 'flower_color', 'design_use');
         foreach ($link_tables as $linker) {
             $this->_update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
+            unset($data[$linker]);
         }
-        $data = $_POST;
+
         unset($data['edit']); // get rid of the submit button
         $records = $this->crud_model->edit_record($data, $_POST['id']);
         if($records)
