@@ -20,53 +20,12 @@ class Crud extends Controller
         //$this->output->enable_profiler(TRUE);
 
     }
-    function index($page = 0)
-    {
-        // Enable Profiler.
-        //$this->output->enable_profiler(TRUE);
-        $this->load->library('table');
-        $this->load->model('crud_model');
-        $records = $this->crud_model->get_records($page);
-
-        if ($records['query']->num_rows() > 0)
-        {
-            $table = array();
-            $table[] = array('Plant ID','Family','Genus','Cross Genus','Specific Epithet','Designator','Infraspecific Epithet',
-                'x Species','Group','Cultivar','Trade Name','PP#','PPAF','PBR','View','Edit','Add Image','Delete');
-            foreach ($records['query']->result() as $row)
-            {
-                $table[] = array($row->id,$row->family,$row->genus,$row->cross_genus,
-                    $row->specific_epithet,$row->infraspecific_epithet_designator,$row->infraspecific_epithet,
-                    $row->cross_species,$row->plantname_group,$row->cultivar,$row->trade_name,$row->plant_patent_number,$row->plant_patent_number_applied_for,
-                    $row->plant_breeders_rights,
-                    anchor('crud/view_record/'.$row->id, 'View'),
-                    anchor('crud/edit_record/'.$row->id, 'Edit'), 
-                    anchor('gallery/upload_image/'.$row->id, 'Upload Image'), 
-                    anchor('crud/delete_record/'.$row->id, 'Delete',
-                    array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
-            }
-            $data['records'] = $table;
-        }
-        $data['heading'] = "GPP Database Administration";
-        // initialize pagination
-        $config = array();
-        $config['base_url'] = site_url("crud/index");
-        $config['total_rows'] = $records['total_rows'];
-        $config['per_page'] = 5;
-        $config['uri_segment'] = 3;
-        $this->pagination->initialize($config);
-
-        $this->template->set('thispage','View Records');
-        $this->template->set('title','View Records - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/crud_view', $data);
-
-    }
+    
     function new_record()
     {
         $this->template->set('thispage','Add New Record');
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
         $this->template->load('template','admin/new');
-
     }
 
     function add()
@@ -185,7 +144,7 @@ class Crud extends Controller
         {
             $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
         }
-        redirect('crud', 'refresh');
+        redirect('listplants');
     }
 
     function _update_link_table($id, $root, $values) {
