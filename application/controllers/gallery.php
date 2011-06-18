@@ -42,7 +42,7 @@ class Gallery extends Controller {
         $plant_id = $this->input->post('plant_id');
         $image_id = $this->Gallery_model->do_upload();
         $this->Gallery_model->link_image($image_id, $plant_id);
-        $this->session->set_flashdata('message', 'Upload Another?');
+        $this->session->set_flashdata('status', 'Image Added, Upload Another?');
         redirect('gallery/upload_image/' . $plant_id);
     }
     
@@ -52,6 +52,7 @@ class Gallery extends Controller {
         $image_id = $this->input->post('image_id');
         $plant_id = $this->input->post('plant_id');
         $this->Gallery_model->delete_image($image_id);
+        $this->session->set_flashdata('status', "Image deleted.");
         redirect('gallery/upload_image/' . $plant_id);
     }
 }

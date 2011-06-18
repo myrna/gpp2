@@ -1,4 +1,6 @@
 <!-- upload images, gallery view -->
+    <?php echo $this->session->flashdata('status'); ?>
+
     <div id="gallery">
     <?php if (isset($images) && count($images)):
     foreach($images as $image):	?>
