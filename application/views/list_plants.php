@@ -6,6 +6,7 @@
     echo form_open('listplants/search');
     echo form_input('searchterms', $searchterms);
     echo form_submit('search', 'Search');
+    echo anchor('/listplants', "Clear Search");
     echo "<p>".anchor('crud/new_record', 'Add new record')."</p>";
     if ( !empty($records)) {
         echo $this->table->generate($records);  
