@@ -18,16 +18,6 @@ class Crud_model extends Model
     * Get and return all records from DB table.
     *
     */
-    function get_records($page = "0"){
-        $this->db->limit(30, $page);
-        $query = $this->db->get('plant_data');
-        $query2 = $this->db->get('plant_data');
-        $total_rows = $query2->num_rows();
-        $data['query'] = $query;
-        $data['total_rows'] = $total_rows;
-        return $data;
-    }
-
     public function get_id($element) {
         $values = array_values($element);
         return intval($values[0]);

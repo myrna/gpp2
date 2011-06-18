@@ -13,63 +13,14 @@
 
 class Listplants_model extends Model {
 
-    function search($query_array, $limit, $offset, $sort_by, $sort_order) {
-
-        $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // if desc selected then desc, else asc order
-        $sort_columns = array('id','family','genus','specific_epithet','cultivar', 'plant_type', 'plant_height_at_10');  // sortable columns
-        $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by  : 'family';
-        //results query
-        $q = $this->db->select('id, family, genus, specific_epithet, cultivar, plant_type, plant_height_at_10')
-                ->from('plant_data')
-                ->limit($limit, $offset)
-                ->order_by($sort_by, $sort_order);
-
-            if (strlen($query_array['genus'])) {
-            $q->where('genus', $query_array['genus']);
-        }
-            if (strlen($query_array['plant_type'])) {
-            $q->where('plant_type', $query_array['plant_type']);
-        }
-          if (strlen($query_array['plant_height_at_10'])) {
-            $operators =  array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
-            $operator = $operators[$query_array['height_comparison']];
-
-            $q->where("plant_height_at_10 $operator", $query_array['plant_height_at_10']);
-        }
-        $ret['rows'] = $q->get()->result();
-        //count query
-        $q = $this->db->select('COUNT(*) as count', FALSE) // whenever function is used as field enter FALSE
-                ->from('plant_data');
-
-              if (strlen($query_array['genus'])) {
-            $q->where('genus', $query_array['genus']);
-        }
-             if (strlen($query_array['plant_type'])) {
-            $q->where('plant_type', $query_array['plant_type']);
-        }
-             if (strlen($query_array['plant_height_at_10'])) {
-            $operators =  array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
-            $operator = $operators[$query_array['height_comparison']];
-
-            $q->where("plant_height_at_10 $operator", $query_array['plant_height_at_10']);
-          }
-        $tmp = $q->get()->result();
-        $ret['num_rows'] = $tmp[0]->count;
-        return $ret;
+    function get_records($page = "0"){
+        $this->db->limit(30, $page);
+        $query = $this->db->get('plant_data');
+        $data['query'] = $query;
+        $data['total_rows'] = $query->num_rows();
+        return $data;
     }
-// create dropdown for Plant Type input field
-    function planttype_options() {
-        $rows = $this->db->select('plant_type')
-                ->from('plant_data')
-                ->get()->result();
 
-        $planttype_options = array('' => '');
-        foreach ($rows as $row) {
-            $planttype_options[$row->plant_type] = $row->plant_type;
-        }
-
-        return $planttype_options;       
-    }
 }
 /* Note query string dependent on ./application/libraries/MY_Input.php */
 /* End of file listplants_model.php */
