@@ -1,57 +1,59 @@
 <?php
 
 /**
- * gallery.php
- *
- * upload images and create thumbnails
- *
- * @package		Great Plant Picks
- * @subpackage	Controllers
- * @category		Controllers
- * @author		mlo
- */
+* gallery.php
+*
+* upload images and create thumbnails
+*
+* @package		Great Plant Picks
+* @subpackage	Controllers
+* @category		Controllers
+* @author		mlo
+*/
 
 class Gallery extends Controller {
 
-	function index() {
-           // $this->output->enable_profiler(TRUE);
-		$this->load->model('Gallery_model');
-        $this->db->get('images');
-   
-		if ($this->input->post('upload')) {
-			$image_id = $this->Gallery_model->do_upload();
-            if ($this->input->post('id')) {
-                // insert a link record for the plant
-                $this->db->get('plant_images');
-        
-                $link_data = array(
-                    'plant_id' => $this->input->post('id'),
-                    'image_id' => $image_id
-                );
-                $this->db->insert('plant_images', $link_data);
-                
-            }
-		}
+    function index() {
+        $this->output->enable_profiler(TRUE);
+        $data['images'] = $this->db->get('images')->result_array();
 
-		$data['images'] = $this->Gallery_model->get_images();
+        $this->template->set('thispage','Images');
+        $this->template->set('title','Images - Database Administration | Great Plant Picks');
+        $this->load->helper('image');
+        $this->template->load('template','gallery/index', $data);
+    }
 
- // trying to set up array to upload into images table at the same time we are loading the images into appropriate folders
- // and creating their URLs
-       $image_data = array(
-                'filename' => $this->input->post('filename'),
-                'orientation' => $this->input->post('orientation'),
-                'season' => $this->input->post('season'),
-                'description' => $this->input->post('description'),
-                'copyright' => $this->input->post('copyright'),
-                'photographer' => $this->input->post('photographer'),
-             );
+    function upload_image($id = ''){
+        $this->load->model('crud_model');
+        $this->load->model('Gallery_model');
+        $data['plant_id'] = $id;
+        $data['images'] = $this->Gallery_model->get_images($id);
 
-            $this->template->set('thispage','Upload Images');
-            $this->template->set('title','Upload Images - Database Administration | Great Plant Picks');
-            $this->template->load('template','gallery', $data);
-	
-	}
-
+        $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
+        $this->template->set('thispage','Upload Image');
+        $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
+        $this->load->helper('html');
+        $this->load->helper('image');
+        $this->template->load('template','gallery/add', $data);
+    }
+    
+    function add_image() {
+        $this->load->model('Gallery_model');
+        $plant_id = $this->input->post('plant_id');
+        $image_id = $this->Gallery_model->do_upload();
+        $this->Gallery_model->link_image($image_id, $plant_id);
+        $this->session->set_flashdata('message', 'Upload Another?');
+        redirect('gallery/upload_image/' . $plant_id);
+    }
+    
+    function delete() {
+        $this->output->enable_profiler(TRUE);
+        $this->load->model('Gallery_model');
+        $image_id = $this->input->post('image_id');
+        $plant_id = $this->input->post('plant_id');
+        $this->Gallery_model->delete_image($image_id);
+        redirect('gallery/upload_image/' . $plant_id);
+    }
 }
 
 /* End of file gallery.php */

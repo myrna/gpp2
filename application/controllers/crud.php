@@ -40,7 +40,9 @@ class Crud extends Controller
                     $row->cross_species,$row->plantname_group,$row->cultivar,$row->trade_name,$row->plant_patent_number,$row->plant_patent_number_applied_for,
                     $row->plant_breeders_rights,
                     anchor('crud/view_record/'.$row->id, 'View'),
-                    anchor('crud/edit_record/'.$row->id, 'Edit'), anchor('crud/add_image/'.$row->id, 'Upload Image'), anchor('crud/delete_record/'.$row->id, 'Delete',
+                    anchor('crud/edit_record/'.$row->id, 'Edit'), 
+                    anchor('gallery/upload_image/'.$row->id, 'Upload Image'), 
+                    anchor('crud/delete_record/'.$row->id, 'Delete',
                     array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
             }
             $data['records'] = $table;
@@ -169,20 +171,7 @@ class Crud extends Controller
         redirect('crud','refresh');
     }
 
-    function add_image($id = ''){
-        $this->load->model('crud_model');
 
-        $record = $this->crud_model->get_record($id);
-
-        $data['title'] = "Upload Image: ";
-
-        $data['id'] = $record->id;
-
-        $this->template->set('thispage','Upload Image');
-        $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
-        $this->template->load('template','gallery', $data);
-
-    }
 
     function delete_record($id = '')
     {
