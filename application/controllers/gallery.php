@@ -38,6 +38,8 @@ class Gallery extends Controller {
     }
     
     function add_image() {
+        //$this->output->enable_profiler(TRUE);
+        
         $this->load->model('Gallery_model');
         $plant_id = $this->input->post('plant_id');
         $image_id = $this->Gallery_model->do_upload();
@@ -47,7 +49,7 @@ class Gallery extends Controller {
     }
     
     function delete() {
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $this->load->model('Gallery_model');
         $image_id = $this->input->post('image_id');
         $plant_id = $this->input->post('plant_id');

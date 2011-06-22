@@ -10,6 +10,7 @@
     echo form_hidden('image_id', $image['id']);
     echo form_hidden('plant_id', $image['plant_id']);
     echo form_submit('delete', "Delete");
+    echo form_close();
     ?>
 <img alt="<?php echo $image; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a>                                     				</a>
 </div>

@@ -54,7 +54,6 @@ class Gallery_model extends Model {
             // we'll do this part later.
         // 'rank' => $rank
         );
-        $plant_id = $this->input->post('plant_id');
 
         $this->db->insert('images', $data);
         return $this->db->insert_id();
