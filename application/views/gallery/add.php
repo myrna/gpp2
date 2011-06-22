@@ -12,7 +12,8 @@
     echo form_submit('delete', "Delete");
     echo form_close();
     ?>
-<img alt="<?php echo $image; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a>                                     				</a>
+<img alt="" title="<?php echo $image['description']; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a>
+   
 </div>
 <?php endforeach; else: ?>
 <div id="blank_gallery">Please Upload an Image</div>
@@ -21,26 +22,30 @@
 
     <div id="upload">
     <?php
-
-echo form_open_multipart('gallery/add_image');
+$attributes = array('id' => 'imageform');
+echo form_open_multipart('gallery/add_image', $attributes);
 echo form_upload('userfile');
 if (isset($plant_id)) {
     echo form_hidden('plant_id', $plant_id);
 }
-echo br();
+
 echo form_label('Description', 'description');
 echo form_textarea('description', "");
-echo br();
+
 echo form_label('Copyright', 'copyright');
 echo form_input('copyright', '');
-echo br();
+
 echo form_label('Photographer', 'photographer');
-echo form_input('credit', "");
-echo br();
+echo form_input('photographer', '');
+
 echo form_label('Season', 'season');
 echo form_dropdown('season', $seasons, '');
-echo br();
-echo form_submit('upload', 'Upload');
+
+echo form_label('Rank', 'rank');
+echo form_dropdown('rank', $rank, '');
+?>
+<input type="submit" class="submitimage" value="Submit">
+<?php
 echo form_close();
 ?>
     </div>

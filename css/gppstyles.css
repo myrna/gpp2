@@ -1,13 +1,9 @@
 /* 
     Document   : gppstyles
     Created on : Mar 12, 2011, 11:34:05 AM
-    Author     : SpiderLily Web Design
-    Description:
-        
+           
 */
-
-
-
+/* reset */
 root { 
     display: block;
     }
@@ -20,6 +16,8 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, font, img, 
 	vertical-align: baseline;
 	background: transparent;}
 ol, ul {list-style: none;}
+
+/* body styles */
 html {min-height:100%;}
 body {
 	font:normal 14px/1.3em Verdana, Arial, Helvetica, sans-serif;
@@ -37,6 +35,8 @@ h1 {font-size:28px; margin-bottom:10px;}
 h2 {font-size:22px;}
 label {display:inline-block; width:120px;}
 
+
+/* admin image upload page styling */
 #gallery, #upload {
 			border: 1px solid #ccc; margin: 10px auto; width: 650px; padding: 10px;
 		}
@@ -45,20 +45,28 @@ label {display:inline-block; width:120px;}
 			text-align: center;
 		}
 		.thumb {
-			float: left; width: 150px; height: 150px; padding: 10px; margin: 10px;
+			float: left; width: 150px; padding: 10px; margin: 10px;
 		}
 		.thumb:hover {
-			outline: 1px solid #999;
-		}
-		img {
-			border: 0;
+			/*outline: 1px solid #999; */
 		}
 		#gallery:after {
 			content: "."; visibility: hidden; display: block; clear: both; height: 0; font-size: 0;
 		}
-ul {list-style-image:none;}
-ul li {}
+#imageform form {float:left; clear:both; width:500px;}
+#imageform label {display:block; margin: 0 0 3px 0; font-weight:bold;}
+#imageform textarea, #imageform input {
+    width:500px;
+    padding:5px;
+    }
+    #imageform .submitimage {
+        clear:both;
+        display:block;
+        width:75px;
+}
 
+
+/* pagination styling --------- */
 #pages a, #pages strong {
 	 background: #e3e3e3;
 	 padding: 4px 7px;
@@ -74,6 +82,7 @@ ul li {}
 	}
 a#currentpage {color:#000000;}
 
+/* generic table styling (temporary) ------- */
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
 

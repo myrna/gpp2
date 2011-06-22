@@ -17,7 +17,7 @@ class Gallery_model extends Model {
         parent::Model();
         $this->gallery_path = realpath(APPPATH . '../images');
     }
-
+    
     function do_upload() {
         $config = array(
             'allowed_types' => 'jpg|jpeg|gif|png',
@@ -53,8 +53,9 @@ class Gallery_model extends Model {
             'photographer' => $this->input->post('photographer'),
             // we'll do this part later.
         // 'rank' => $rank
+            'rank' => $this->input->post('rank')
         );
-
+        
         $this->db->insert('images', $data);
         return $this->db->insert_id();
     }
@@ -87,4 +88,3 @@ class Gallery_model extends Model {
 
 /* End of file gallery_model.php */
 /* Location: ./application/models/gallery_model.php */
-

@@ -30,6 +30,7 @@ class Gallery extends Controller {
         $data['images'] = $this->Gallery_model->get_images($id);
 
         $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
+        $data['rank'] = array('1' => 'Primary', '2' => 'Cones or Flowers', '3' => 'Landscape');
         $this->template->set('thispage','Upload Image');
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
