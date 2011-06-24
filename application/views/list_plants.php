@@ -1,6 +1,7 @@
 <?php
 
-    echo "<h2>".$heading."</h2>";
+    echo "<h2>$heading: $total_rows records</h2>";
+
 
     echo $this->session->flashdata('status');
 

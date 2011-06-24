@@ -16,29 +16,45 @@ class Listplants extends Controller {
     function index($page = 0)
     {
         $this->load->model('listplants_model');
-        $records = $this->listplants_model->get_records($page);        
-        $this->show_plants($page, $records);
+        $records = $this->listplants_model->get_records($page);
+        $total = $this->db->count_all_results('plant_data');
+        $path = "listplants/index";
+        $this->show_plants($page, $records, $total, $path);
 
     }
-    function search($page = 0) {
-        $this->load->model('listplants_model');
-        $matchwords = explode(" ", $this->input->post('searchterms'));
+    
+    function setup_search_query($terms) {
+        $matchwords = explode(" ", $terms);
         $matchfields = array('genus', 'specific_epithet', 'family');
         foreach ($matchfields as $field) {
             foreach ($matchwords as $match) {
                 $this->db->or_like($field, $match);
             }
+        }        
+    }
+
+    function search($page = 0) {
+        if ($this->input->post('searchterms')) {
+            $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
         }
+        
+        $query = $this->session->userdata('plant_search');
+        
+        $this->load->model('listplants_model');
+        $this->setup_search_query($this->session->userdata('plant_search'));
+        $total = $this->db->count_all_results('plant_data');
+        $this->setup_search_query($this->session->userdata('plant_search'));
         $records = $this->listplants_model->get_records($page);
-        $this->show_plants($page, $records, $this->input->post('searchterms'));
+        $path = "listplants/search";
+        $this->show_plants($page, $records, $total, $path, $query);
     }
     
-    function show_plants($page, $records, $query = "") {
+    function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
             //$this->output->enable_profiler(TRUE);
             $this->load->library('table');
 
-            if ($records['query']->num_rows() > 0)
+            if ($records->num_rows() > 0)
             {
                 $table = array();
                 $table[] = array(
@@ -61,7 +77,7 @@ class Listplants extends Controller {
                     'Add Image',
                     'Delete'
                 );
-                foreach ($records['query']->result() as $row)
+                foreach ($records->result() as $row)
                 {
                     $table[] = array(
                         $row->id,
@@ -88,11 +104,11 @@ class Listplants extends Controller {
             }
             $data['heading'] = "GPP Database Administration";
             $data['searchterms'] = $query;
-            // initialize pagination
+            $data['total_rows'] = $total;
             $config = array();
-            $config['base_url'] = site_url("listplants/index");
-            $config['total_rows'] = $records['total_rows'];
-            $config['per_page'] = 5;
+            $config['base_url'] = site_url($path);
+            $config['per_page'] = 20;
+            $config['total_rows'] = $total;
             $config['uri_segment'] = 3;
             $this->pagination->initialize($config);
 

@@ -13,12 +13,9 @@
 
 class Listplants_model extends Model {
 
-    function get_records($page = "0"){
-        $this->db->limit(30, $page);
-        $query = $this->db->get('plant_data');
-        $data['query'] = $query;
-        $data['total_rows'] = $query->num_rows();
-        return $data;
+    function get_records($page) {
+        $this->db->limit(10, $page);
+        return $this->db->get('plant_data');        
     }
 
 }
