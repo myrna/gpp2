@@ -11,7 +11,7 @@
     echo form_submit('delete', "Delete");
     echo form_close();
     echo image_thumb_link($image['filename']);
-    ?>
+      ?>
 
 </div>
 <?php endforeach; else: ?>
@@ -26,19 +26,24 @@ echo form_open_multipart('gallery/add_image', $attributes);
 echo form_upload('userfile');
 if (isset($plant_id)) {
     echo form_hidden('plant_id', $plant_id);
-}
+}?>
 
-echo form_label('Description', 'description');
-echo form_textarea('description', "");
+        <fieldset>
+            <label for="description">Description</label>
+            <textarea id="description"></textarea>
+        </fieldset>
+        <fieldset>
+            <label for="copyright">Copyright</label>
+            <input id="copyright" type="text">
+        </fieldset>
+        <fieldset>
+            <label for="photographer">Photographer</label>
+            <input id="photographer" type="text">
+        </fieldset>
+<?php
 
-echo form_label('Copyright', 'copyright');
-echo form_input('copyright', '');
-
-echo form_label('Photographer', 'photographer');
-echo form_input('photographer', '');
-
-echo form_label('Season', 'season');
-echo form_dropdown('season', $seasons, '');
+        echo form_label('Season', 'season');
+        echo form_dropdown('season', $seasons, '');
 
 ?>
 <h3>Categories</h3>
@@ -48,13 +53,14 @@ foreach ($category_fields as $row) {
             'name' => "category[]", 
             'id' => $row->category, 
             'value' => $row->id
-        );
-
+        ); ?>
+<div class="check">
+<?php
         echo form_checkbox($category_data);
         echo form_label($row->category, $row->category);
-    } ?>
+    } ?></div>
 
-</li>
+
 <input type="submit" class="submitimage" value="Submit">
 <?php
 echo form_close();

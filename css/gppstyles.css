@@ -7,7 +7,8 @@
 root { 
     display: block;
     }
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, font, img, ins, kbd, q, s, strong, center, dl, dt, dd, ol, ul, li
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, font, img, ins, kbd, q, s, strong, center, dl, dt, dd, ol,
+ul, li, fieldset
 	{
 	margin: 0;
 	padding: 0;
@@ -33,7 +34,8 @@ div#navigation {margin-bottom:15px;}
 h1, h2, h3, h4 {font-weight:bold;}
 h1 {font-size:28px; margin-bottom:10px;}
 h2 {font-size:22px;}
-label {display:inline-block; width:120px;}
+h3 {font-size:18px;}
+#upload h3 {padding:15px 0 5px;}
 
 
 /* admin image upload page styling */
@@ -54,17 +56,18 @@ label {display:inline-block; width:120px;}
 			content: "."; visibility: hidden; display: block; clear: both; height: 0; font-size: 0;
 		}
 #imageform form {float:left; clear:both; width:500px;}
-#imageform label {display:block; margin: 0 0 3px 0; font-weight:bold;}
+#imageform label {display:block; margin: 3px 0; font-weight:bold;}
 #imageform textarea, #imageform input {
     width:500px;
     padding:5px;
     }
+#imageform textarea {display:block; height:50px;}
     #imageform .submitimage {
         clear:both;
         display:block;
         width:75px;
 }
-
+label {display:inline-block; width:120px;}
 
 /* pagination styling --------- */
 #pages a, #pages strong {
