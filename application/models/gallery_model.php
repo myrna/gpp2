@@ -17,11 +17,6 @@ class Gallery_model extends Model {
         parent::Model();
         $this->gallery_path = realpath(APPPATH . '../images');
     }
-
-    public function get_id($element) {
-        $values = array_values($element);
-        return intval($values[0]);
-	}
     
     function do_upload() {
         $config = array(
@@ -70,24 +65,6 @@ class Gallery_model extends Model {
         $this->db->insert('plant_images',$data);
     }
 
-    function link_table($id, $root) {
-        $join_table_name = 'images_' . $root;
-        $list_table_name = $root;
-		if ($root == 'categories') {
-			$key_name = 'category_id';
-		} else {
-        	$key_name = $root . "_id";			
-		}
-
-        $list = $this->db->get($list_table_name)->result();
-        $current = array_map("Gallery_model::get_id", $this->db->where('image_id', $id)->select("$key_name")->get($join_table_name)->result_array());
-
-        return array(
-            'list' => $list,
-            'current' => $current
-        );
-
-    }
     function get_images($plant_id) {
         $images = array();
         $this->db->select('images.*,plant_images.plant_id');

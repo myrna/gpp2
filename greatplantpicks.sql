@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `category` varchar(22) COLLATE utf8_bin NOT NULL COMMENT 'Primary, Landscape, Others TBD',
   PRIMARY KEY (`id`)
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category`) VALUES
+INSERT INTO `category` (`id`, `category`) VALUES
 (1, 'primary'),
 (2, 'flower or cone'),
 (3, 'landscape');
@@ -48,8 +48,8 @@ INSERT INTO `categories` (`id`, `category`) VALUES
 -- Table structure for table `categories_images`
 --
 
-DROP TABLE IF EXISTS `images_categories`;
-CREATE TABLE IF NOT EXISTS `images_categories` (
+DROP TABLE IF EXISTS `image_category`;
+CREATE TABLE IF NOT EXISTS `image_category` (
   `category_id` int(22) NOT NULL,
   `image_id` int(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Links image id with image category or categories';

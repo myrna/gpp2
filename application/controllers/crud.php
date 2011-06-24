@@ -72,31 +72,31 @@ class Crud extends Controller
         $this->load->model('crud_model');
 
         $data['title'] = "Edit Record: ";
-        $water = $this->crud_model->link_table($id, 'water');
+        $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water_fields'] = $water['list'];
         $data['water_requirements'] = $water['current'];
         
-        $sun = $this->crud_model->link_table($id, 'sun');
+        $sun = $this->crud_model->link_table($id, 'sun', 'plant');
         $data['sun_fields'] = $sun['list'];
         $data['sun_requirements'] = $sun['current'];
 
-        $soil = $this->crud_model->link_table($id, 'soil');
+        $soil = $this->crud_model->link_table($id, 'soil', 'plant');
         $data['soil_fields'] = $soil['list'];
         $data['soil_requirements'] = $soil['current'];
         
-        $wildlife = $this->crud_model->link_table($id, 'wildlife');
+        $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
         $data['wildlife_fields'] = $wildlife['list'];
         $data['wildlife_requirements'] = $wildlife['current'];
         
-        $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance');
+        $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
         $data['pest_resistance_fields'] = $pest_resistance['list'];
         $data['pest_resistance_requirements'] = $pest_resistance['current'];
 
-        $flower_color = $this->crud_model->link_table($id, 'flower_color');
+        $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
         $data['flower_color_fields'] = $flower_color['list'];
         $data['flower_color_requirements'] = $flower_color['current'];
 
-        $design_use = $this->crud_model->link_table($id, 'design_use');
+        $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use_fields'] = $design_use['list'];
         $data['design_use_requirements'] = $design_use['current'];
 
@@ -113,7 +113,7 @@ class Crud extends Controller
         $data = $_POST;
         $link_tables = array('water', 'soil', 'sun', 'wildlife', 'pest_resistance', 'flower_color', 'design_use');
         foreach ($link_tables as $linker) {
-            $this->_update_link_table($this->input->post('id'), $linker, $this->input->post($linker));                
+            $this->crud_model->update_link_table($this->input->post('id'), "plant", $linker, $this->input->post($linker));                
             unset($data[$linker]);
         }
 
@@ -127,7 +127,8 @@ class Crud extends Controller
         {
             $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
         }
-        redirect('crud','refresh');
+		$id = $data['id'];
+        redirect("crud/edit_record/$id",'refresh');
     }
 
 
@@ -145,34 +146,6 @@ class Crud extends Controller
             $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
         }
         redirect('listplants');
-    }
-
-    function _update_link_table($id, $root, $values) {
-        $link_table_name = "plant_" . $root;
-        $key_name = $root . "_id";
-        if (empty($values)) {
-            // if we got nothing checked, then just clear everything.
-            $this->db->where('plant_id', $id)->delete($link_table_name);
-        } else {
-            // handle the  requirements linking tables
-            // this is hacky and should be fixed eventually, but handling unsent checkboxes is always a clusterf.
-            // first we go through and delete anything from the link table that was not sent in the post (i.e. not checked)
-            $this->db->where('plant_id', $id);
-            $this->db->where_not_in($key_name, $values);
-            $this->db->delete($link_table_name);
-            // now we go back through and make sure that the ones that were checked in the linking table.
-            foreach ($values as $req) {
-                $this->db->where( array('plant_id' => $id, $key_name => $req ) );
-                $query = $this->db->get($link_table_name);
-                if ($query->num_rows() == 0) {
-                    // if it doesn't exist, insert it.
-                    $this->db->set('plant_id', $id);
-                    $this->db->set($key_name, $req);
-                    $this->db->insert($link_table_name);
-                }
-
-            }
-        }
     }
 
 }

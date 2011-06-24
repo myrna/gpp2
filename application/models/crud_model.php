@@ -23,13 +23,44 @@ class Crud_model extends Model
         return intval($values[0]);
     }
 
-    function link_table($id, $root) {
-        $join_table_name = 'plant_' . $root;
-        $list_table_name = $root;
-        $key_name = $root . "_id";
+    public function update_link_table($id, $primary, $attribute, $values) {
+        $link_table_name = "$primary" . "_" . $attribute;
+        $attribute_key = $attribute . "_id";
+		$primary_key = $primary . "_id";
+        if (empty($values)) {
+            // if we got nothing checked, then just clear everything.
+            $this->db->where($primary_key, $id)->delete($link_table_name);
+        } else {
+            // handle the  requirements linking tables
+            // this is hacky and should be fixed eventually, but handling unsent checkboxes is always a clusterf.
+            // first we go through and delete anything from the link table that was not sent in the post (i.e. not checked)
+            $this->db->where($primary_key, $id);
+            $this->db->where_not_in($attribute_key, $values);
+            $this->db->delete($link_table_name);
+            // now we go back through and make sure that the ones that were checked in the linking table.
+            foreach ($values as $req) {
+                $this->db->where( array($primary_key => $id, $attribute_key => $req ) );
+                $query = $this->db->get($link_table_name);
+                if ($query->num_rows() == 0) {
+                    // if it doesn't exist, insert it.
+                    $this->db->set($primary_key, $id);
+                    $this->db->set($attribute_key, $req);
+                    $this->db->insert($link_table_name);
+                }
+            }
+        }
+    }
+
+    public function link_table($id, $attribute, $primary) {
+		$attribute_key = $attribute . "_id";
+		$primary_key = $primary . "_id";
+
+        $join_table_name = $primary . "_" . $attribute;
+        $list_table_name = $attribute;
+
 
         $list = $this->db->get($list_table_name)->result();
-        $current = array_map("Crud_model::get_id", $this->db->where('plant_id', $id)->select("$key_name")->get($join_table_name)->result_array());
+        $current = array_map("Crud_model::get_id", $this->db->where($primary_key, $id)->select($attribute_key)->get($join_table_name)->result_array());
 
         return array(
             'list' => $list,

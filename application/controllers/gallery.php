@@ -24,11 +24,12 @@ class Gallery extends Controller {
     }
 
     function upload_image($id = ''){
-        $this->load->model('Gallery_model');
+        $this->load->model('Crud_model');
+		$this->load->model("Gallery_model");
         $data['plant_id'] = $id;
         $data['images'] = $this->Gallery_model->get_images($id);
 
-        $categories = $this->Gallery_model->link_table($id, 'categories');
+        $categories = $this->Crud_model->link_table($id, 'category', "image");
         $data['categories_fields'] = $categories['list'];
         $data['categories_requirements'] = $categories['current'];
 
