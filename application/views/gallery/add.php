@@ -1,6 +1,5 @@
 <!-- upload images, gallery view -->
     <?php echo $this->session->flashdata('status'); ?>
-
     <div id="gallery">
     <?php if (isset($images) && count($images)):
     foreach($images as $image):	?>
@@ -41,9 +40,22 @@ echo form_input('photographer', '');
 echo form_label('Season', 'season');
 echo form_dropdown('season', $seasons, '');
 
-echo form_label('Rank', 'rank');
-echo form_dropdown('rank', $rank, '');
 ?>
+<h3>Categories</h3>
+<?php
+foreach ($categories_fields as $row) { 
+       $category_data = array(
+            'name' => "categories[]", 
+            'id' => $row->category, 
+            'value' => $row->id,
+            'checked' => in_array($row->id, $categories_requirements)
+        );
+
+        echo form_checkbox($category_data);
+        echo form_label($row->category, $row->category);
+    } ?>
+
+</li>
 <input type="submit" class="submitimage" value="Submit">
 <?php
 echo form_close();

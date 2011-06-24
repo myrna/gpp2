@@ -48,8 +48,8 @@ INSERT INTO `categories` (`id`, `category`) VALUES
 -- Table structure for table `categories_images`
 --
 
-DROP TABLE IF EXISTS `categories_images`;
-CREATE TABLE IF NOT EXISTS `categories_images` (
+DROP TABLE IF EXISTS `images_categories`;
+CREATE TABLE IF NOT EXISTS `images_categories` (
   `category_id` int(22) NOT NULL,
   `image_id` int(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Links image id with image category or categories';

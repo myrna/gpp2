@@ -24,13 +24,15 @@ class Gallery extends Controller {
     }
 
     function upload_image($id = ''){
-        $this->load->model('crud_model');
         $this->load->model('Gallery_model');
         $data['plant_id'] = $id;
         $data['images'] = $this->Gallery_model->get_images($id);
 
+        $categories = $this->Gallery_model->link_table($id, 'categories');
+        $data['categories_fields'] = $categories['list'];
+        $data['categories_requirements'] = $categories['current'];
+
         $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
-        $data['rank'] = array('1' => 'Primary', '2' => 'Cones or Flowers', '3' => 'Landscape');
         $this->template->set('thispage','Upload Image');
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
