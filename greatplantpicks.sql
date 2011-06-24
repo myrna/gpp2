@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 22, 2011 at 10:40 AM
+-- Generation Time: Jun 23, 2011 at 05:07 PM
 -- Server version: 5.1.30
 -- PHP Version: 5.3.5
 
@@ -26,11 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `category` varchar(22) COLLATE utf8_bin NOT NULL COMMENT 'Primary, Landscape, Others TBD',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assigns id to image categories' AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assigns id to image categories' AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `categories`
@@ -47,6 +48,7 @@ INSERT INTO `categories` (`id`, `category`) VALUES
 -- Table structure for table `categories_images`
 --
 
+DROP TABLE IF EXISTS `categories_images`;
 CREATE TABLE IF NOT EXISTS `categories_images` (
   `category_id` int(22) NOT NULL,
   `image_id` int(22) NOT NULL
@@ -58,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `categories_images` (
 -- Table structure for table `ci_query`
 --
 
+DROP TABLE IF EXISTS `ci_query`;
 CREATE TABLE IF NOT EXISTS `ci_query` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `query_string` text CHARACTER SET utf8 NOT NULL,
@@ -80,6 +83,7 @@ INSERT INTO `ci_query` (`id`, `query_string`) VALUES
 -- Table structure for table `ci_sessions`
 --
 
+DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `session_id` varchar(40) CHARACTER SET utf8 NOT NULL DEFAULT '0',
   `ip_address` varchar(16) CHARACTER SET utf8 NOT NULL DEFAULT '0',
@@ -95,6 +99,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 -- Table structure for table `design_use`
 --
 
+DROP TABLE IF EXISTS `design_use`;
 CREATE TABLE IF NOT EXISTS `design_use` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `design_use` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'Plant use, options in dropdown',
@@ -115,6 +120,7 @@ INSERT INTO `design_use` (`id`, `design_use`) VALUES
 -- Table structure for table `flower_color`
 --
 
+DROP TABLE IF EXISTS `flower_color`;
 CREATE TABLE IF NOT EXISTS `flower_color` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `flower_color` varchar(22) COLLATE utf8_bin DEFAULT NULL COMMENT 'Choices in dropdown',
@@ -136,6 +142,7 @@ INSERT INTO `flower_color` (`id`, `flower_color`) VALUES
 -- Table structure for table `foliage_color`
 --
 
+DROP TABLE IF EXISTS `foliage_color`;
 CREATE TABLE IF NOT EXISTS `foliage_color` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `color` varchar(22) COLLATE utf8_bin DEFAULT NULL COMMENT 'Color will be dropdown selection',
@@ -148,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `foliage_color` (
 -- Table structure for table `groups`
 --
 
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 NOT NULL,
@@ -169,6 +177,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- Table structure for table `images`
 --
 
+DROP TABLE IF EXISTS `images`;
 CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `orientation` varchar(5) CHARACTER SET utf8 DEFAULT NULL,
@@ -179,20 +188,14 @@ CREATE TABLE IF NOT EXISTS `images` (
   `filename` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `rank` int(2) DEFAULT NULL COMMENT 'In order of preference',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`id`, `orientation`, `season`, `description`, `copyright`, `photographer`, `filename`, `rank`) VALUES
-(18, NULL, NULL, NULL, NULL, NULL, 'abelia_edwardgoucher_02_VFS1.jpg', NULL),
-(19, NULL, NULL, NULL, NULL, NULL, 'acer_cratae_veitchii_01_VFS.jpg', NULL),
-(20, NULL, 'unknown', 'Abelia x grandiflora Mardi Gras', '', '0', 'abelia_x_grandiflora_mardi-gras_01_VFS.jpg', NULL),
-(21, NULL, 'unknown', 'Abelia Edward Goucher', '2006', '0', 'abelia_edwardgoucher_02_VFS.jpg', NULL),
-(22, NULL, 'unknown', 'Abies grandis', '2004', '0', 'abies_grandis_01_VFS.jpg', NULL),
-(29, NULL, 'unknown', 'Abies koreane', '2006', '0', 'abies_koreana_01_VFS.jpg', NULL),
-(30, NULL, 'unknown', 'Abies koreane', '2006', '0', 'abies_koreana_01_VFS_VFS.jpg', NULL);
+(32, NULL, 'unknown', 'Acer griseum', '2006', 'Great Plant Picks', 'acer_griseum_01_VFS2.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -200,6 +203,7 @@ INSERT INTO `images` (`id`, `orientation`, `season`, `description`, `copyright`,
 -- Table structure for table `meta`
 --
 
+DROP TABLE IF EXISTS `meta`;
 CREATE TABLE IF NOT EXISTS `meta` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` mediumint(8) unsigned DEFAULT NULL,
@@ -224,6 +228,7 @@ INSERT INTO `meta` (`id`, `user_id`, `first_name`, `last_name`, `company`, `phon
 -- Table structure for table `nursery_directory`
 --
 
+DROP TABLE IF EXISTS `nursery_directory`;
 CREATE TABLE IF NOT EXISTS `nursery_directory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nursery_name` varchar(200) COLLATE utf8_bin NOT NULL,
@@ -421,6 +426,7 @@ INSERT INTO `nursery_directory` (`id`, `nursery_name`, `retail`, `wholesale`, `p
 -- Table structure for table `pest_resistance`
 --
 
+DROP TABLE IF EXISTS `pest_resistance`;
 CREATE TABLE IF NOT EXISTS `pest_resistance` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `pest_resistance` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'Choices in dropdown',
@@ -442,6 +448,7 @@ INSERT INTO `pest_resistance` (`id`, `pest_resistance`) VALUES
 -- Table structure for table `plant_common`
 --
 
+DROP TABLE IF EXISTS `plant_common`;
 CREATE TABLE IF NOT EXISTS `plant_common` (
   `plant_id` int(11) NOT NULL COMMENT 'Plant ID FK',
   `common_name` varchar(500) CHARACTER SET utf8 DEFAULT NULL COMMENT 'plantid can have more than one common name',
@@ -454,6 +461,7 @@ CREATE TABLE IF NOT EXISTS `plant_common` (
 -- Table structure for table `plant_data`
 --
 
+DROP TABLE IF EXISTS `plant_data`;
 CREATE TABLE IF NOT EXISTS `plant_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `family` text,
@@ -2231,6 +2239,7 @@ INSERT INTO `plant_data` (`id`, `family`, `family_common_name`, `genus`, `cross_
 -- Table structure for table `plant_design_use`
 --
 
+DROP TABLE IF EXISTS `plant_design_use`;
 CREATE TABLE IF NOT EXISTS `plant_design_use` (
   `plant_id` int(22) NOT NULL,
   `design_use_id` int(22) NOT NULL
@@ -2242,6 +2251,7 @@ CREATE TABLE IF NOT EXISTS `plant_design_use` (
 -- Table structure for table `plant_flower_color`
 --
 
+DROP TABLE IF EXISTS `plant_flower_color`;
 CREATE TABLE IF NOT EXISTS `plant_flower_color` (
   `plant_id` int(22) NOT NULL,
   `flower_color_id` int(22) NOT NULL
@@ -2253,6 +2263,7 @@ CREATE TABLE IF NOT EXISTS `plant_flower_color` (
 -- Table structure for table `plant_foliage`
 --
 
+DROP TABLE IF EXISTS `plant_foliage`;
 CREATE TABLE IF NOT EXISTS `plant_foliage` (
   `plant_id` int(22) NOT NULL,
   `foliage_id` int(22) NOT NULL
@@ -2264,6 +2275,7 @@ CREATE TABLE IF NOT EXISTS `plant_foliage` (
 -- Table structure for table `plant_images`
 --
 
+DROP TABLE IF EXISTS `plant_images`;
 CREATE TABLE IF NOT EXISTS `plant_images` (
   `plant_id` int(11) NOT NULL,
   `image_id` int(11) NOT NULL,
@@ -2275,12 +2287,7 @@ CREATE TABLE IF NOT EXISTS `plant_images` (
 --
 
 INSERT INTO `plant_images` (`plant_id`, `image_id`) VALUES
-(400, 19),
-(2, 20),
-(4, 21),
-(10, 22),
-(12, 29),
-(12, 30);
+(35, 32);
 
 -- --------------------------------------------------------
 
@@ -2288,6 +2295,7 @@ INSERT INTO `plant_images` (`plant_id`, `image_id`) VALUES
 -- Table structure for table `plant_pest_resistance`
 --
 
+DROP TABLE IF EXISTS `plant_pest_resistance`;
 CREATE TABLE IF NOT EXISTS `plant_pest_resistance` (
   `plant_id` int(22) DEFAULT NULL,
   `pest_resistance_id` int(22) DEFAULT NULL
@@ -2307,6 +2315,7 @@ INSERT INTO `plant_pest_resistance` (`plant_id`, `pest_resistance_id`) VALUES
 -- Table structure for table `plant_soil`
 --
 
+DROP TABLE IF EXISTS `plant_soil`;
 CREATE TABLE IF NOT EXISTS `plant_soil` (
   `plant_id` int(22) NOT NULL,
   `soil_id` int(22) NOT NULL COMMENT 'from soil_requirements'
@@ -2328,6 +2337,7 @@ INSERT INTO `plant_soil` (`plant_id`, `soil_id`) VALUES
 -- Table structure for table `plant_sun`
 --
 
+DROP TABLE IF EXISTS `plant_sun`;
 CREATE TABLE IF NOT EXISTS `plant_sun` (
   `plant_id` int(22) NOT NULL,
   `sun_id` int(22) NOT NULL
@@ -2347,6 +2357,7 @@ INSERT INTO `plant_sun` (`plant_id`, `sun_id`) VALUES
 -- Table structure for table `plant_synonym`
 --
 
+DROP TABLE IF EXISTS `plant_synonym`;
 CREATE TABLE IF NOT EXISTS `plant_synonym` (
   `plant_id` int(11) NOT NULL,
   `genus` text NOT NULL,
@@ -2373,6 +2384,7 @@ CREATE TABLE IF NOT EXISTS `plant_synonym` (
 -- Table structure for table `plant_water`
 --
 
+DROP TABLE IF EXISTS `plant_water`;
 CREATE TABLE IF NOT EXISTS `plant_water` (
   `plant_id` int(22) NOT NULL,
   `water_id` int(22) NOT NULL
@@ -2384,6 +2396,7 @@ CREATE TABLE IF NOT EXISTS `plant_water` (
 -- Table structure for table `plant_wildlife`
 --
 
+DROP TABLE IF EXISTS `plant_wildlife`;
 CREATE TABLE IF NOT EXISTS `plant_wildlife` (
   `plant_id` int(22) NOT NULL,
   `wildlife_id` int(22) NOT NULL
@@ -2395,6 +2408,7 @@ CREATE TABLE IF NOT EXISTS `plant_wildlife` (
 -- Table structure for table `soil`
 --
 
+DROP TABLE IF EXISTS `soil`;
 CREATE TABLE IF NOT EXISTS `soil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `soil` varchar(25) COLLATE utf8_bin NOT NULL,
@@ -2420,6 +2434,7 @@ INSERT INTO `soil` (`id`, `soil`) VALUES
 -- Table structure for table `sun`
 --
 
+DROP TABLE IF EXISTS `sun`;
 CREATE TABLE IF NOT EXISTS `sun` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `sun` varchar(25) COLLATE utf8_bin NOT NULL,
@@ -2443,6 +2458,7 @@ INSERT INTO `sun` (`id`, `sun`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` mediumint(8) unsigned NOT NULL,
@@ -2474,6 +2490,7 @@ INSERT INTO `users` (`id`, `group_id`, `ip_address`, `username`, `password`, `sa
 -- Table structure for table `water`
 --
 
+DROP TABLE IF EXISTS `water`;
 CREATE TABLE IF NOT EXISTS `water` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `water` varchar(25) COLLATE utf8_bin NOT NULL,
@@ -2498,6 +2515,7 @@ INSERT INTO `water` (`id`, `water`) VALUES
 -- Table structure for table `wildlife`
 --
 
+DROP TABLE IF EXISTS `wildlife`;
 CREATE TABLE IF NOT EXISTS `wildlife` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `wildlife` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'wildlife choices will be in dropdown',
