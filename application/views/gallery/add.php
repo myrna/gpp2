@@ -12,9 +12,7 @@
     echo form_close();
     echo image_thumb_link($image['filename']);
     ?>
-<!--
-<img alt="" title="<?php echo $image['description']; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a> -->
-   
+
 </div>
 <?php endforeach; else: ?>
 <div id="blank_gallery">Please Upload an Image</div>
