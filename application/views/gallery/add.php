@@ -10,8 +10,10 @@
     echo form_hidden('plant_id', $image['plant_id']);
     echo form_submit('delete', "Delete");
     echo form_close();
+    echo image_thumb_link($image['filename']);
     ?>
-<img alt="" title="<?php echo $image['description']; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a>
+<!--
+<img alt="" title="<?php echo $image['description']; ?>" src="<?php echo image_thumb_url($image['filename']); ?>" /></a> -->
    
 </div>
 <?php endforeach; else: ?>
@@ -47,8 +49,7 @@ foreach ($category_fields as $row) {
        $category_data = array(
             'name' => "category[]", 
             'id' => $row->category, 
-            'value' => $row->id,
-            'checked' => in_array($row->id, $category_requirements)
+            'value' => $row->id
         );
 
         echo form_checkbox($category_data);

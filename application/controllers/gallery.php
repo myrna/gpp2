@@ -31,7 +31,6 @@ class Gallery extends Controller {
 
         $categories = $this->Crud_model->link_table($id, 'category', 'image');
         $data['category_fields'] = $categories['list'];
-        $data['category_requirements'] = $categories['current'];
 
         $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
         $this->template->set('thispage','Upload Image');
