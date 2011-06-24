@@ -45,6 +45,7 @@ class Gallery_model extends Model {
         $this->load->library('image_lib', $config);
         $this->image_lib->resize();
 
+
         $data = array(               
             'filename' => $image_data['file_name'],
             'season' => $this->input->post('season'),
@@ -52,8 +53,6 @@ class Gallery_model extends Model {
             'copyright' => $this->input->post('copyright'),
             'photographer' => $this->input->post('photographer'),
             // we'll do this part later.
-        // 'rank' => $rank
-            'rank' => $this->input->post('rank')
         );
         
         $this->db->insert('images', $data);
@@ -78,7 +77,7 @@ class Gallery_model extends Model {
         $image = $this->db->get('images', array('id' => $image_id))->result();
         $this->db->delete('images', array('id' => $image_id));
         $this->db->delete('plant_images', array('image_id' => $image_id));
-
+		$this->db->delete('image_category', array('image_id' => $image_id));
         # we're having permission problems with this, but we should add it later.
         #unlink($this->gallery_path . $image['filename']);
         #unlink($this->gallery_path . 'thumbs/' . $image['filename']);

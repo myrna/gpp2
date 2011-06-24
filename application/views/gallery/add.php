@@ -43,12 +43,12 @@ echo form_dropdown('season', $seasons, '');
 ?>
 <h3>Categories</h3>
 <?php
-foreach ($categories_fields as $row) { 
+foreach ($category_fields as $row) { 
        $category_data = array(
-            'name' => "categories[]", 
+            'name' => "category[]", 
             'id' => $row->category, 
             'value' => $row->id,
-            'checked' => in_array($row->id, $categories_requirements)
+            'checked' => in_array($row->id, $category_requirements)
         );
 
         echo form_checkbox($category_data);

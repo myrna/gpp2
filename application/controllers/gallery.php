@@ -29,9 +29,9 @@ class Gallery extends Controller {
         $data['plant_id'] = $id;
         $data['images'] = $this->Gallery_model->get_images($id);
 
-        $categories = $this->Crud_model->link_table($id, 'category', "image");
-        $data['categories_fields'] = $categories['list'];
-        $data['categories_requirements'] = $categories['current'];
+        $categories = $this->Crud_model->link_table($id, 'category', 'image');
+        $data['category_fields'] = $categories['list'];
+        $data['category_requirements'] = $categories['current'];
 
         $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
         $this->template->set('thispage','Upload Image');
@@ -44,10 +44,16 @@ class Gallery extends Controller {
     function add_image() {
         //$this->output->enable_profiler(TRUE);
         
-        $this->load->model('Gallery_model');
-        $plant_id = $this->input->post('plant_id');
-        $image_id = $this->Gallery_model->do_upload();
-        $this->Gallery_model->link_image($image_id, $plant_id);
+        $this->load->model('gallery_model');
+        $this->load->model('crud_model');
+		$plant_id = $this->input->post('plant_id');
+        $image_id = $this->gallery_model->do_upload();
+        $link_tables = array('category');
+        foreach ($link_tables as $linker) {
+            $this->crud_model->update_link_table($image_id, "image", $linker, $this->input->post($linker));                
+            unset($_POST[$linker]);
+        }
+        $this->gallery_model->link_image($image_id, $plant_id);
         $this->session->set_flashdata('status', 'Image Added, Upload Another?');
         redirect('gallery/upload_image/' . $plant_id);
     }
