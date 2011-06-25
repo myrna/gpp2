@@ -25,7 +25,7 @@ class Listplants extends Controller {
     
     function setup_search_query($terms) {
         $matchwords = explode(" ", $terms);
-        $matchfields = array('genus', 'specific_epithet', 'family');
+        $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name');
         foreach ($matchfields as $field) {
             foreach ($matchwords as $match) {
                 $this->db->or_like($field, $match);
@@ -53,15 +53,26 @@ class Listplants extends Controller {
          // Enable Profiler.
             //$this->output->enable_profiler(TRUE);
             $this->load->library('table');
+            $tmpl = array (
+                    'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
+                    'heading_row_start'   => '<tr>',
+                    'heading_row_end'     => '</tr>',
+                    'heading_cell_start'  => '<th>',
+                    'heading_cell_end'    => '</th>',
+                    'row_alt_start'       => '<tr class="alternate">',                  
+                    'table_close'         => '</table>'
+              );
+
+            $this->table->set_template($tmpl);
 
             if ($records->num_rows() > 0)
             {
                 $table = array();
                 $table[] = array(
-                    'Plant ID',
+                    'ID',
                     'Family',
                     'Genus',
-                    'Cross Genus',
+                    'X Genus',
                     'Specific Epithet',
                     'Designator',
                     'Infraspecific Epithet',
@@ -74,7 +85,7 @@ class Listplants extends Controller {
                     'PBR',
                     'View',
                     'Edit',
-                    'Add Image',
+                    'Images',
                     'Delete'
                 );
                 foreach ($records->result() as $row)
@@ -96,7 +107,7 @@ class Listplants extends Controller {
                         $row->plant_breeders_rights,
                         anchor('crud/view_record/'.$row->id, 'View'),
                         anchor('crud/edit_record/'.$row->id, 'Edit'), 
-                        anchor('gallery/upload_image/'.$row->id, 'Upload Image'), 
+                        anchor('gallery/upload_image/'.$row->id, 'Images'),
                         anchor('crud/delete_record/'.$row->id, 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
                 }
@@ -107,7 +118,7 @@ class Listplants extends Controller {
             $data['total_rows'] = $total;
             $config = array();
             $config['base_url'] = site_url($path);
-            $config['per_page'] = 20;
+            $config['per_page'] = 30;
             $config['total_rows'] = $total;
             $config['uri_segment'] = 3;
             $this->pagination->initialize($config);

@@ -1,11 +1,9 @@
 <!-- Database Administration Edit Individual Record View -->
 
-    <h1><?php echo $title ?></h1>
     <?php
     if($row == FALSE)
     {
         echo "The record does not exist"; ?>
-        <a href="javascript:history.back()">Back</a>
         <?php
     }
  else
@@ -14,8 +12,13 @@
     <?php 
         echo form_open('crud/edit','',array('id' => $row['id']));
     ?>
-    <?php 
+    <h4><?php echo $title ?><?php
         display_full_botanical_name($row);
+    ?></h4>
+<?php
+    echo "<p>".anchor('crud/new_record', 'Add new record')." | ";
+
+    echo anchor('/listplants', 'Return to Main List')."</p>";
     ?>
     <ul>
     <?php foreach ($row as $key => $value) {

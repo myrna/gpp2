@@ -21,7 +21,7 @@ ol, ul {list-style: none;}
 /* body styles */
 html {min-height:100%;}
 body {
-	font:normal 14px/1.3em Verdana, Arial, Helvetica, sans-serif;
+	font:normal 14px/1.4em Verdana, Arial, Helvetica, sans-serif;
 	min-height:100%;
 	background-color:#FFF;
         color:#000;
@@ -30,12 +30,31 @@ body {
 div#wrapper {
 	width:960px; margin:5px auto;
         }
-div#navigation {margin-bottom:15px;}
+div#wrapper-admin {width:1024px; margin:5px auto;}
+p {margin-bottom:5px;}
 h1, h2, h3, h4 {font-weight:bold;}
 h1 {font-size:28px; margin-bottom:10px;}
 h2 {font-size:22px;}
 h3 {font-size:18px;}
 #upload h3 {padding:15px 0 5px;}
+h4 {font-size:18px; padding:5px 0;}
+/* navigation */
+
+div#navigation {
+    display:block;
+    width:960px;
+    height:40px;
+    padding:5px;
+   }
+
+/* container styles */
+
+div#content {
+    background-color:#bebe31;
+    border:5px #d2d26f solid;
+    margin-top:5px;
+    padding:10px;
+}
 
 
 /* admin image upload page styling */
@@ -55,6 +74,8 @@ h3 {font-size:18px;}
 		#gallery:after {
 			content: "."; visibility: hidden; display: block; clear: both; height: 0; font-size: 0;
 		}
+
+/* form styling */
 #imageform form {float:left; clear:both; width:500px;}
 #imageform label {display:block; margin: 3px 0; font-weight:bold;}
 #imageform textarea, #imageform input {
@@ -67,7 +88,17 @@ h3 {font-size:18px;}
         display:block;
         width:75px;
 }
-label {display:inline-block; width:120px;}
+label {display:inline-block; width:120px; float:left; white-space:nowrap;}
+
+.check label {display:inline-block; line-height:15px; width:1px; clear:both;}
+
+/* searchform styling */
+#searchform {
+    position:relative;
+    float:left;
+    padding:10px 20px;
+}
+
 
 /* pagination styling --------- */
 #pages a, #pages strong {
@@ -88,6 +119,11 @@ a#currentpage {color:#000000;}
 /* generic table styling (temporary) ------- */
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
+
+table.dblist {margin:0 0 10px 0; border:1px #d2d26f solid; }
+table.dblist th {background-color:#bebe31; border-right:1px #000 solid; padding:5px;}
+table.dblist td {padding:5px; white-space:nowrap;}
+table.dblist tr.alternate {background-color:#d2d26f;}
 
 /* plant display styles */
 .genus {
@@ -118,5 +154,7 @@ table th {text-align:left;}
     vertical-align: super;
     font-size: 10px;
 }
+
+
 
 /* end */

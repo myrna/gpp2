@@ -28,7 +28,7 @@
         </script>
 </head>
     <body>
-        <div id="wrapper">
+        <div id="wrapper-admin">
         <div id="navigation">
       <a <?php if ($thispage=="Home")
       echo " id=\"currentpage\""; ?> href="/">Home</a> |

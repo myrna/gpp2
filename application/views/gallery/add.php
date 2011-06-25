@@ -60,12 +60,12 @@ foreach ($category_fields as $row) {
             'id' => $row->category, 
             'value' => $row->id
         ); ?>
-<div class="check">
+<span class="check">
 <?php
         echo form_checkbox($category_data);
         echo form_label($row->category, $row->category);
-    } ?></div>
-
+    } ?>
+</span>
 
 <input type="submit" class="submitimage" value="Submit">
 <?php

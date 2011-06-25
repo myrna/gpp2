@@ -1,6 +1,5 @@
 <!-- Database Administration View Single Record -->
-    <h1><?php echo $title ?></h1>
-    <?php
+       <?php
     if($row == FALSE)
     {
         echo "The record does not exist";
@@ -8,6 +7,14 @@
  else
     {
      ?>
+    <h4><?php echo $title ?><?php
+        display_full_botanical_name($row);
+    ?></h4>
+<?php
+    echo "<p>".anchor('crud/new_record', 'Add new record')." | ";
+
+    echo anchor('/listplants', 'Return to Main List')."</p>";
+    ?>
     <ul>
     <?php foreach ($row as $key => $value) {
         echo "<li>";
@@ -19,5 +26,5 @@
     <?php
     }
     ?>
-<a href="javascript:history.back()">Back</a>
+
 
