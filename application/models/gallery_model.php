@@ -64,12 +64,27 @@ class Gallery_model extends Model {
         $this->db->insert('plant_images',$data);
     }
 
+	function get_categories($image_id) {
+		$this->db->select('category.category');
+		$this->db->where('image_category.image_id', $image_id);
+		$this->db->join('category','image_category.category_id = category.id');
+		$categories = array();
+		$query = $this->db->get('image_category')->result_array();
+		foreach ($query as $category) {
+			$categories[] = $category['category'];
+		}
+		return $categories;
+	}
+
     function get_images($plant_id) {
         $images = array();
         $this->db->select('images.*,plant_images.plant_id');
         $this->db->where('plant_id', $plant_id);
         $this->db->join('images', 'images.id = plant_images.image_id');
         $images = $this->db->get('plant_images')->result_array();
+		foreach ($images as $index => $image) {
+			$images[$index]['categories'] = $this->get_categories($image['id']);
+		}
         return $images;
     }
 

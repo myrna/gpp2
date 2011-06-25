@@ -1,6 +1,10 @@
 <!-- upload images, gallery view -->
     <?php echo $this->session->flashdata('status'); ?>
+	<?php echo "<div>" . display_full_botanical_name($plant_data) . "</div>"; ?>
+
     <div id="gallery">
+
+	
     <?php if (isset($images) && count($images)):
     foreach($images as $image):	?>
     <div class="thumb">
@@ -11,8 +15,10 @@
     echo form_submit('delete', "Delete");
     echo form_close();
     echo image_thumb_link($image['filename']);
-      ?>
-
+	foreach ($image['categories'] as $category) {
+		echo "<div class='category'>" . $category . "</div>";
+	}
+     ?>
 </div>
 <?php endforeach; else: ?>
 <div id="blank_gallery">Please Upload an Image</div>
