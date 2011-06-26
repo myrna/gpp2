@@ -29,7 +29,7 @@ class Gallery extends Controller {
         $this->load->model('Crud_model');
 		$this->load->model("Gallery_model");
         $data['plant_id'] = $id;
-		$plants = $this->db->get('plant_data', array('id' => $id))->result_array();
+		$plants = $this->db->get_where('plant_data', array('id' => $id))->result_array();
 		$data['plant_data'] = $plants[0];
 		$data['images'] = $this->Gallery_model->get_images($id);
 
