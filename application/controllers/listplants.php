@@ -11,7 +11,7 @@
  * @author		mlo
  */
 
-class Listplants extends Controller {
+class Listplants extends CI_Controller {
 
     function index($page = 0)
     {

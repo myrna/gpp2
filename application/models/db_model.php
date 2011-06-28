@@ -11,7 +11,7 @@
  * @author		mlo
  */
 
-class Db_model extends Model {
+class Db_model extends CI_Model {
 
     function get_records()
 	{

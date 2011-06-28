@@ -11,7 +11,7 @@
  * @author		mlo
  */
 
-class Listplants_model extends Model {
+class Listplants_model extends CI_Model {
 
     function get_records($page) {
         $this->db->limit(30, $page);

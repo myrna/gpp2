@@ -23,20 +23,8 @@
  * @author		Author Name
  */
 
-class About extends Controller
+class About extends CI_Controller
 {
-
-	/**
-	* Constructor
-	*/
-	public function __construct()
-	{
-		parent::Controller();
-	}
-
-
-	// ------------------------------------------------------------------------
-
 
 	/**
 	* Description

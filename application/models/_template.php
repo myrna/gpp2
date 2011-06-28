@@ -23,7 +23,7 @@
  * @author		Author Name
  */
 
-class Some_model extends Model
+class Some_model extends CI_Model
 {
 
 	private $_table = 'table name';

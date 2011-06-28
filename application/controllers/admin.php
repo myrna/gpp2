@@ -11,20 +11,8 @@
  * @author		mlo
  */
 
-class Admin extends Controller
+class Admin extends CI_Controller
 {
-
-	/**
-	* Constructor
-	*/
-	public function __construct()
-	{
-		parent::Controller();
-	}
-
-
-	// ------------------------------------------------------------------------
-
 
 	/**
 	* Description

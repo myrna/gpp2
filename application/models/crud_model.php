@@ -11,7 +11,7 @@
 * @author		jg :)
 */
 
-class Crud_model extends Model
+class Crud_model extends CI_Model
 {
 
     /**

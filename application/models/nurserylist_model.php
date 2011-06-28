@@ -12,7 +12,7 @@
  * @author		mlo
  */
 
-class Nurserylist_model extends Model {
+class Nurserylist_model extends CI_Model {
 
     function get_nurseries(){
             $this->db->get('nursery_directory');

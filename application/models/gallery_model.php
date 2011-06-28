@@ -11,10 +11,10 @@
 * @author		mlo
 */
 
-class Gallery_model extends Model {
+class Gallery_model extends CI_Model {
     var $gallery_path;
     function Gallery_model() {
-        parent::Model();
+       
         $this->gallery_path = realpath(APPPATH . '../images');
     }
     

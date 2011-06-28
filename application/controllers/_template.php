@@ -26,18 +26,7 @@
 class Some extends Controller
 {
 
-	/**
-	* Constructor
-	*/
-	public function __construct()
-	{
-		parent::Controller();
-	}
-
-
-	// ------------------------------------------------------------------------
-
-
+	
 	/**
 	* Description
 	*

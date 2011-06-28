@@ -11,7 +11,7 @@
 * @author		mlo
 */
 
-class Gallery extends Controller {
+class Gallery extends CI_Controller {
 
     function index() {
         $this->output->enable_profiler(TRUE);

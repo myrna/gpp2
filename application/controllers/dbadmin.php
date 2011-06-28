@@ -11,7 +11,7 @@
  * @author		mlo
  */
 
-class Dbadmin extends Controller {
+class Dbadmin extends CI_Controller {
 
      function index() {
    // login function //

@@ -11,15 +11,9 @@
 * @author		mlo
 */
 
-class Crud extends Controller
+class Crud extends CI_Controller
 {
-    function Crud()
-    {
-        parent::Controller();
-       
-        //$this->output->enable_profiler(TRUE);
-
-    }
+    
     
     function new_record()
     {
