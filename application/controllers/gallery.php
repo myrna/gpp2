@@ -27,7 +27,7 @@ class Gallery extends Controller {
 	    //$this->output->enable_profiler(TRUE);
     
         $this->load->model('Crud_model');
-		$this->load->model("Gallery_model");
+        $this->load->model("Gallery_model");
         $data['plant_id'] = $id;
 		$plants = $this->db->get('plant_data', array('id' => $id))->result_array();
 		$data['plant_data'] = $plants[0];
@@ -41,7 +41,7 @@ class Gallery extends Controller {
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
         $this->load->helper('image');
-		$this->load->helper('plant');
+	$this->load->helper('plant');
         $this->template->load('template','gallery/add', $data);
     }
     

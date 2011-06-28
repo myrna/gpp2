@@ -30,7 +30,7 @@ function format_species($species, $cross) {
 function format_subspecies($designator, $spp) {
     $spp = strtolower($spp);
     $designator = strtolower($designator);
-    return "<span class='subspecies'>$designator $spp</span>";
+    return "<span class='subspecies'>$designator</span> <span class='designate'>$spp</span>";
 }
 
 function format_cultivar($cultivar) {

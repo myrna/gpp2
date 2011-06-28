@@ -87,7 +87,8 @@ div#content {
         clear:both;
         display:block;
         width:75px;
-}
+        height:30px;
+       }
 label {display:inline-block; width:120px; float:left; white-space:nowrap;}
 
 .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
@@ -134,8 +135,12 @@ table.dblist tr.alternate {background-color:#d2d26f;}
     font-style: italic;
 }
 
+.designate {
+    font-style:italic;
+}
+
 .subspecies {
-    font-style: italic;
+    font-style: normal;
 }
 
 .variety {

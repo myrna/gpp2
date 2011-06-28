@@ -20,7 +20,6 @@ class Listplants extends Controller {
         $total = $this->db->count_all_results('plant_data');
         $path = "listplants/index";
         $this->show_plants($page, $records, $total, $path);
-
     }
     
     function setup_search_query($terms) {
@@ -125,8 +124,9 @@ class Listplants extends Controller {
 
             $this->template->set('thispage','View Records');
             $this->template->set('title','View Records - Database Administration | Great Plant Picks');
-            $this->template->load('template','list_plants', $data);
+            $this->template->load('template','listplants', $data);
     }
+
  }
 
 /* End of file listplants.php */

@@ -16,7 +16,7 @@ class Crud extends Controller
     function Crud()
     {
         parent::Controller();
-        $this->load->helper('plant_helper');
+       
         //$this->output->enable_profiler(TRUE);
 
     }
