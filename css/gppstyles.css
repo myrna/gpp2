@@ -8,7 +8,7 @@ root {
     display: block;
     }
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a, em, font, img, ins, kbd, q, s, strong, center, dl, dt, dd, ol,
-ul, li, fieldset
+ul, li, fieldset, table, th, tr, td
 	{
 	margin: 0;
 	padding: 0;
@@ -30,7 +30,6 @@ body {
 div#wrapper {
 	width:960px; margin:5px auto;
         }
-div#wrapper-admin {width:1024px; margin:5px auto;}
 p {margin-bottom:5px;}
 h1, h2, h3, h4 {font-weight:bold;}
 h1 {font-size:28px; margin-bottom:10px;}
@@ -121,10 +120,23 @@ a#currentpage {color:#000000;}
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
 
-table.dblist {margin:0 0 10px 0; border:1px #d2d26f solid; }
-table.dblist th {background-color:#bebe31; border-right:1px #000 solid; padding:5px;}
-table.dblist td {padding:5px; white-space:nowrap;}
-table.dblist tr.alternate {background-color:#d2d26f;}
+table.dblist, table.nursery {margin:10px 0; border:1px #d2d26f solid; }
+table.dblist th, table.nursery th {background-color:#bebe31; border-right:1px #000 solid; padding:5px;}
+table.dblist td, table.nursery td {padding:5px; white-space:nowrap;}
+table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
+
+table.nursery {width:960px;}
+table.nursery th {font-size:16px;}
+table.nursery th:nth-child(even) {
+    width:10%;
+}
+table.nursery th:last-child {
+    width:40%;
+}
+table.nursery th:first-child, table.nursery td:first-child {
+    width:40%;
+    font-weight:bold;
+}
 
 /* plant display styles */
 .genus {

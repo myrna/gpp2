@@ -50,7 +50,7 @@ class Listplants extends CI_Controller {
     
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
-            //$this->output->enable_profiler(TRUE);
+            $this->output->enable_profiler(TRUE);
             $this->load->library('table');
             $tmpl = array (
                     'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
