@@ -55,6 +55,95 @@ class Nurserylist_model extends CI_Model {
              $data['query4'] = $query4;
              return $data;
         }
+        /**
+    * Add new record to DB table.
+    *
+    */
+    function add_record($data)
+    {
+        $result = 0;
+        //check if $data is not empty
+        if(!empty($data))
+        {
+            //insert $data with insert method
+            $result = $this->db->insert('nursery_directory',$data);
+        }
+        return $result;
+
+    }
+
+    // get individual record from database using list produced by get_records//
+
+    function get_record($id)
+    {
+        if(!empty($id))
+        {
+            //use the where function to add a filter to our query, this time the id, with the $id value
+
+            $query = $this->db->where('id', $id);
+
+            //and then execute the query
+            $query = $this->db->get('nursery_directory');
+        }
+        if ($query->num_rows() > 0) {
+            return $row = $query->row();
+        }
+        else
+        {
+            $row = FALSE;
+        }
+        return $row;
+    }
+
+
+    function get_record_as_array($id)
+    {
+        if(!empty($id))
+        {
+            //use the where function to add a filter to our query, this time the id, with the $id value
+
+            $query = $this->db->where('id', $id);
+
+            //and then execute the query
+            $query = $this->db->get('nursery_directory');
+        }
+        if ($query->num_rows() > 0) {
+            return $row = $query->result_array();
+        }
+        else
+        {
+            $row = FALSE;
+        }
+    }
+
+    // Update existing record in DB table.
+
+
+    function edit_record($data, $id)
+    {
+
+        $result = 0;
+        if(!empty($data)){
+            $this->db->where('id', $id);
+            $result = $this->db->update('nursery_directory', $data);
+        }
+
+        return $result;
+    }
+
+    //Delete specified records from the DB table.
+
+    function delete_record($id)
+    {
+        $return = 0;
+        if(!empty($id))
+        {
+            $this->db->where('id', $id);
+            $result = $this->db->delete('nursery_directory');
+        }
+        return $result;
+    }
+
 }
 /* End of file listnurseries_model.php */
 /* Location: ./application/models/listnurseries_model.php */

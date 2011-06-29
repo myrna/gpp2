@@ -11,7 +11,7 @@
         display_full_botanical_name($row);
     ?></h4>
 <?php
-    echo "<p>".anchor('crud/new_record', 'Add new record')." | ";
+    echo "<p>".anchor('crud/add_record', 'Add new record')." | ";
 
     echo anchor('/listplants', 'Return to Main List')."</p>";
     ?>

@@ -111,5 +111,5 @@ class Nursery_list extends CI_Controller
 }
 
 
-/* End of file some.php */
-/* Location: ./application/controllers/some.php */
+/* End of file nursery_list.php */
+/* Location: ./application/controllers/nursery_list.php */

@@ -50,7 +50,7 @@ class Crud_model extends CI_Model
             }
         }
     }
-
+    
     public function link_table($id, $attribute, $primary) {
 		$attribute_key = $attribute . "_id";
 		$primary_key = $primary . "_id";

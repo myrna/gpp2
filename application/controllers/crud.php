@@ -14,35 +14,68 @@
 class Crud extends CI_Controller
 {
     
-    
-    function new_record()
-    {
-        $this->template->set('thispage','Add New Record');
-        $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/new');
-    }
-
-    function add()
+    function add_record()
     {
         // Enable Profiler.
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
         // still need to add checkbox handling
         $data = $_POST;
         unset($data['add']);
+
         $records = $this->crud_model->add_record($data);
 
+        $water = $this->crud_model->link_table($id, 'water', 'plant');
+        $data['water_fields'] = $water['list'];
+        $data['water_requirements'] = $water['current'];
+
+        $sun = $this->crud_model->link_table($id, 'sun', 'plant');
+        $data['sun_fields'] = $sun['list'];
+        $data['sun_requirements'] = $sun['current'];
+
+        $soil = $this->crud_model->link_table($id, 'soil', 'plant');
+        $data['soil_fields'] = $soil['list'];
+        $data['soil_requirements'] = $soil['current'];
+
+        $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
+        $data['wildlife_fields'] = $wildlife['list'];
+        $data['wildlife_requirements'] = $wildlife['current'];
+
+        $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
+        $data['pest_resistance_fields'] = $pest_resistance['list'];
+        $data['pest_resistance_requirements'] = $pest_resistance['current'];
+
+        $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
+        $data['flower_color_fields'] = $flower_color['list'];
+        $data['flower_color_requirements'] = $flower_color['current'];
+
+        $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
+        $data['design_use_fields'] = $design_use['list'];
+        $data['design_use_requirements'] = $design_use['current'];
+
+        $this->template->set('thispage','Add New Record');
+        $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
+        $this->template->load('template','admin/new');
+         }
+         
+    function add() {
+        $this->load->model('crud_model');
+        $data = $_POST;
+
+        unset($data['add']); // get rid of the submit button
+        $records = $this->crud_model->add_record($data, $_POST['id']);
         if($records)
         {
-            $this->session->set_flashdata('status', '<p>Record has been successfully added</p>');
+            $this->session->set_flashdata('status', 'Record Added');
         }
         else
         {
-            $this->session->set_flashdata('status', '<p>Record not added, please try again</p>');
+            $this->session->set_flashdata('status', 'Record Addition Unsuccessful, Please Try Again');
         }
-        redirect('crud', 'refresh');
+		$id = $data['id'];
+        redirect("crud/add_record",'refresh');
     }
-
+    
     function view_record($id = ''){
         // Enable Profiler.
         //$this->output->enable_profiler(TRUE);
@@ -106,7 +139,6 @@ class Crud extends CI_Controller
         $this->load->model('crud_model');
         $data = $_POST;
 
-
         unset($data['edit']); // get rid of the submit button
         $records = $this->crud_model->edit_record($data, $_POST['id']);
         if($records)
@@ -137,8 +169,8 @@ class Crud extends CI_Controller
         }
         redirect('listplants');
     }
-
 }
+
 
 
 

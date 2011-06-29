@@ -6,7 +6,6 @@
 
     ?>
     <ul>
-        <li>Plant ID: <?php echo form_input('id'); ?></li>
          <li>Plant Family: <?php echo form_input('family'); ?></li>
         <li>Genus: <?php echo form_input('genus'); ?></li>
         <li>&#935; Genus: <?php echo form_input('cross_genus'); ?></li>
@@ -54,7 +53,7 @@
         <li>Plant Evaluation or Trial:  <?php echo form_input('eval_trial'); ?></li>
         <li>References/Name Validation:  <?php echo form_input('gpp_references'); ?></li>
         <li>Status: <?php echo form_input('status'); ?></li>
-        <li>Evalution Available: <?php echo form_input('evaluation_available'); ?></li>
+        <li>Evaluation Available: <?php echo form_input('evaluation_available'); ?></li>
         <li>GPP History: <?php echo form_input('gpp_history'); ?></li>
         <li>GPP Year: <?php echo form_input('gpp_year'); ?></li>
         <li>Theme: <?php echo form_input('theme'); ?></li>
@@ -62,6 +61,106 @@
         <li>Geek Notes: <?php echo form_input('geek_notes'); ?></li>
         <li>Publish: <?php echo form_input('publish'); ?></li>
         <li>Sort: <?php echo form_input('sort'); ?></li>
+
+        <li> Water: <?php
+foreach ($water_fields as $row) {
+       $water_data = array(
+            'name' => "water[]",
+            'id' => $row->water,
+            'value' => $row->id
+        ); ?>
+<span class="check">
+<?php
+        echo form_checkbox($water_requirements);
+        echo form_label($row->water, $row->water);
+    } ?>
+</span></li>
+
+        <li>Sun:
+            <?php foreach ($sun_fields as $row) { ?>
+                <br />
+            <?php
+                $sun_data = array(
+                    'name' => "sun[]",
+                    'id' => $row->sun,
+                    'value' => $row->id
+                     );
+                echo form_checkbox($sun_data);
+                echo form_label($row->sun, $row->sun);
+            } ?>
+
+        </li>
+        <li>Soil:
+            <?php foreach ($soil_fields as $row) { ?>
+                <br />
+            <?php
+                $soil_data = array(
+                    'name' => "soil[]",
+                    'id' => $row->soil,
+                    'value' => $row->id
+                     );
+                echo form_checkbox($soil_data);
+                echo form_label($row->soil, $row->soil);
+            } ?>
+
+        </li>
+        <li>Wildlife:
+            <?php foreach ($wildlife_fields as $row) { ?>
+                <br />
+            <?php
+                $wildlife_data = array(
+                    'name' => "wildlife[]",
+                    'id' => $row->wildlife,
+                    'value' => $row->id
+                   );
+                echo form_checkbox($wildlife_data);
+                echo form_label($row->wildlife, $row->wildlife);
+            } ?>
+
+        </li>
+
+        <li>Pest Resistance:
+            <?php foreach ($pest_resistance_fields as $row) { ?>
+                <br />
+            <?php
+                $pest_resistance_data = array(
+                    'name' => "pest_resistance[]",
+                    'id' => $row->pest_resistance,
+                    'value' => $row->id
+                      );
+                echo form_checkbox($pest_resistance_data);
+                echo form_label($row->pest_resistance, $row->pest_resistance);
+            } ?>
+
+        </li>
+        <li>Flower Color:
+            <?php foreach ($flower_color_fields as $row) { ?>
+                <br />
+            <?php
+                $flower_color_data = array(
+                    'name' => "flower_color[]",
+                    'id' => $row->flower_color,
+                    'value' => $row->id
+                         );
+                echo form_checkbox($flower_color_data);
+                echo form_label($row->flower_color, $row->flower_color);
+            } ?>
+
+        </li>
+        <li>Design Use:
+            <?php foreach ($design_use_fields as $row) { ?>
+                <br />
+            <?php
+                $design_use_data = array(
+                    'name' => "design_use[]",
+                    'id' => $row->design_use,
+                    'value' => $row->id                    
+                );
+                echo form_checkbox($design_use_data);
+                echo form_label($row->design_use, $row->design_use);
+            } ?>
+
+        </li> 
     </ul>
     <?php echo form_submit('add', 'Add Record'); ?>
 

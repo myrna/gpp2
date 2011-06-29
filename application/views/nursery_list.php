@@ -1,4 +1,4 @@
-<!-- Nursery Directory -->
+<!-- Nursery Directory View -->
 <?php
 echo "<h1>".$heading."</h1>";
 echo "<h4>Washington State Nurseries</h4>";
