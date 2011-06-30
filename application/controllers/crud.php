@@ -19,60 +19,73 @@ class Crud extends CI_Controller
         // Enable Profiler.
         $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
-        // still need to add checkbox handling
-        $data = $_POST;
-        unset($data['add']);
-
-        $records = $this->crud_model->add_record($data);
+		$id = "";
 
         $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water_fields'] = $water['list'];
-        $data['water_requirements'] = $water['current'];
 
         $sun = $this->crud_model->link_table($id, 'sun', 'plant');
         $data['sun_fields'] = $sun['list'];
-        $data['sun_requirements'] = $sun['current'];
 
         $soil = $this->crud_model->link_table($id, 'soil', 'plant');
         $data['soil_fields'] = $soil['list'];
-        $data['soil_requirements'] = $soil['current'];
 
         $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
         $data['wildlife_fields'] = $wildlife['list'];
-        $data['wildlife_requirements'] = $wildlife['current'];
 
         $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
         $data['pest_resistance_fields'] = $pest_resistance['list'];
-        $data['pest_resistance_requirements'] = $pest_resistance['current'];
 
         $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
         $data['flower_color_fields'] = $flower_color['list'];
-        $data['flower_color_requirements'] = $flower_color['current'];
 
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use_fields'] = $design_use['list'];
-        $data['design_use_requirements'] = $design_use['current'];
 
         $this->template->set('thispage','Add New Record');
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/new');
+        $this->template->load('template','admin/new', $data);
          }
          
     function add() {
         $this->load->model('crud_model');
         $data = $_POST;
+		echo "<pre>" . print_r($data) . "</pre>";
+		
+		$linkers = array(
+			'water',
+			'sun',
+			'flower_color',
+			'design_use',
+			'pest_resistance',
+			'soil',
+			'wildlife'
+		);
 
+		foreach ($linkers as $link_name) {
+			if (array_key_exists($link_name, $data)) {
+				$$link_name = $data[$link_name];
+				unset($data[$link_name]);
+			}
+		}
+
+	
         unset($data['add']); // get rid of the submit button
-        $records = $this->crud_model->add_record($data, $_POST['id']);
-        if($records)
+
+        $id = $this->crud_model->add_record($data);
+        if($id)
         {
-            $this->session->set_flashdata('status', 'Record Added');
+            $this->session->set_flashdata('status', "Record Added: $id");
+			foreach ($linkers as $linkname) {
+				if (isset(${$linkname})) {
+					$this->crud_model->update_link_table($id, 'plant', $linkname, ${$linkname});
+				}
+			}
         }
         else
         {
             $this->session->set_flashdata('status', 'Record Addition Unsuccessful, Please Try Again');
         }
-		$id = $data['id'];
         redirect("crud/add_record",'refresh');
     }
     
