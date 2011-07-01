@@ -80,9 +80,9 @@ class Crud_model extends CI_Model
         if(!empty($data))
         {
             //insert $data with insert method
-            $result = $this->db->insert('plant_data',$data);
+            $this->db->insert('plant_data',$data);
         }
-        return $result;
+        return $this->db->insert_id();
 
     }
 

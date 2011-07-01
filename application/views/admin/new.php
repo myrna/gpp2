@@ -5,6 +5,7 @@
    echo form_open('crud/add');
 
     ?>
+    <?php echo $this->session->flashdata('status'); ?>
     <ul>
          <li>Plant Family: <?php echo form_input('family'); ?></li>
         <li>Genus: <?php echo form_input('genus'); ?></li>
@@ -71,7 +72,7 @@ foreach ($water_fields as $row) {
         ); ?>
 <span class="check">
 <?php
-        echo form_checkbox($water_requirements);
+        echo form_checkbox($water_data);
         echo form_label($row->water, $row->water);
     } ?>
 </span></li>

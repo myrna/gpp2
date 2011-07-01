@@ -15,6 +15,8 @@ class Listplants extends CI_Controller {
 
     function index($page = 0)
     {
+		$this->output->enable_profiler(TRUE);
+        
         $this->load->model('listplants_model');
         $records = $this->listplants_model->get_records($page);
         $total = $this->db->count_all_results('plant_data');
@@ -52,6 +54,7 @@ class Listplants extends CI_Controller {
          // Enable Profiler.
             $this->output->enable_profiler(TRUE);
             $this->load->library('table');
+			$this->load->helper('plant');
             $tmpl = array (
                     'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
                     'heading_row_start'   => '<tr>',
