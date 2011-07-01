@@ -90,7 +90,19 @@ div#content {
        }
 label {display:inline-block; width:120px; float:left; white-space:nowrap;}
 
+.primary-thumb {
+    position:relative;
+    float:right;
+    width:200px;
+}
+
 .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
+
+/* add and update record form styling */
+
+form.data-entry {}
+.data-entry ul .labelname {display:inline-block; width:200px;}
+.data-entry input {margin-left:20px; display:inline-block; width:500px;}
 
 /* searchform styling */
 #searchform {

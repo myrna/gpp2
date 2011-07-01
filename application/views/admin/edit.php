@@ -9,12 +9,14 @@
  else
     {
      ?>
-    <?php 
-        echo form_open('crud/edit','',array('id' => $row['id']));
+    <?php
+        $attributes = array('class' => 'data-entry', 'id' => $row['id']);
+        echo form_open('crud/edit',$attributes);
     ?>
     <h4><?php echo $title ?><?php
         display_full_botanical_name($row);
     ?></h4>
+
 <?php
     echo "<p>".anchor('crud/add_record', 'Add new record')." | ";
 
@@ -23,14 +25,16 @@
     <ul>
     <?php foreach ($row as $key => $value) {
         echo "<li>";
+        echo "<span class='labelname'>";
         echo field_to_label($key);
+        echo "</span><span class='entry'>";
         echo form_input($key, $value);
-        echo "</li>";
+        echo "</span></li>";
     } ?>
-        <li>Water: 
+        <li>Water:
         <?php // this could definitely be refactored into a loop, instead of doing each one by hand ?>
             <?php foreach ($water_fields as $row) { ?>
-                <br />
+               <br />
             <?php
                 $water_data = array(
                     'name' => "water[]", 

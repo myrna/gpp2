@@ -98,6 +98,15 @@ function field_to_label($field) {
         case 'gpp_references':
             echo "References/Name Validation";
             break;
+        case 'native_to_gpp_region':
+            echo "Native to GPP Region";
+            break;
+        case 'gpp_history':
+            echo "GPP History";
+            break;
+        case 'gpp_year':
+            echo "GPP Year";
+            break;
         default:
             echo convert_label($field);
             break;

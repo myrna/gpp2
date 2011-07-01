@@ -64,7 +64,7 @@ class Gallery_model extends CI_Model {
         $this->db->insert('plant_images',$data);
     }
 
-	function get_categories($image_id) {
+    function get_categories($image_id) {
 		$this->db->select('category.category');
 		$this->db->where('image_category.image_id', $image_id);
 		$this->db->join('category','image_category.category_id = category.id');

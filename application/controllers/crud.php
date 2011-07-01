@@ -97,7 +97,10 @@ class Crud extends CI_Controller
         // Enable Profiler.
         $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
-
+        $this->load->model('gallery_model');
+        $this->load->helper('image');
+        $this->load->helper('html');
+                
         $data['title'] = "Edit Record: ";
         $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water_fields'] = $water['list'];
@@ -137,6 +140,9 @@ class Crud extends CI_Controller
     function edit()
     {
         $this->load->model('crud_model');
+        $this->load->model('gallery_model');
+        $this->load->helper('image');
+        $this->load->helper('html');
         $data = $_POST;
 
         unset($data['edit']); // get rid of the submit button

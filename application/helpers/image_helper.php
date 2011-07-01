@@ -12,4 +12,5 @@
         return anchor("images/$filename", $thumb);
     }
 
+
 ?>

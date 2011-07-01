@@ -27,7 +27,7 @@ class Gallery extends CI_Controller {
 	    //$this->output->enable_profiler(TRUE);
     
         $this->load->model('Crud_model');
-        $this->load->model("Gallery_model");
+        $this->load->model('Gallery_model');
         $data['plant_id'] = $id;
 		$plants = $this->db->get_where('plant_data', array('id' => $id))->result_array();
 		$data['plant_data'] = $plants[0];
@@ -41,8 +41,18 @@ class Gallery extends CI_Controller {
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
         $this->load->helper('image');
-	$this->load->helper('plant');
-        $this->template->load('template','gallery/add', $data);
+	$this->template->load('template','gallery/add', $data);
+    }
+
+    function thumbs($id = ''){
+        $this->load->model('Crud_model');
+        $this->load->model('Gallery_model');
+        $this->load->helper('image');
+        $this->load->helper('html');
+        $data['plant_id'] = $id;
+		$plants = $this->db->get_where('plant_data', array('id' => $id))->result_array();
+		$data['plant_data'] = $plants[0];
+		$data['images'] = $this->Gallery_model->get_images($id);
     }
     
     function add_image() {
@@ -50,7 +60,7 @@ class Gallery extends CI_Controller {
         
         $this->load->model('gallery_model');
         $this->load->model('crud_model');
-		$plant_id = $this->input->post('plant_id');
+        $plant_id = $this->input->post('plant_id');
         $image_id = $this->gallery_model->do_upload();
         $link_tables = array('category');
         foreach ($link_tables as $linker) {
@@ -64,13 +74,14 @@ class Gallery extends CI_Controller {
     
     function delete() {
         //$this->output->enable_profiler(TRUE);
-        $this->load->model('Gallery_model');
+        $this->load->model('gallery_model');
         $image_id = $this->input->post('image_id');
         $plant_id = $this->input->post('plant_id');
         $this->Gallery_model->delete_image($image_id);
         $this->session->set_flashdata('status', "Image deleted.");
         redirect('gallery/upload_image/' . $plant_id);
     }
+
 }
 
 /* End of file gallery.php */
