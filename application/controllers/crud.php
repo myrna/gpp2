@@ -115,6 +115,9 @@ class Crud extends CI_Controller
         $this->load->helper('html');
                 
         $data['title'] = "Edit Record: ";
+
+        $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
+
         $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water_fields'] = $water['list'];
         $data['water_requirements'] = $water['current'];

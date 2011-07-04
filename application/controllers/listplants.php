@@ -8,7 +8,7 @@
  * @package		Great Plant Picks
  * @subpackage	Controllers
  * @category		Controllers
- * @author		mlo
+ * @author		
  */
 
 class Listplants extends CI_Controller {

@@ -111,6 +111,7 @@ function field_to_label($field) {
             echo convert_label($field);
             break;
     }
+
 }
 
 /* End of file plant_helper.php */

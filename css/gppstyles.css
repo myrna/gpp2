@@ -102,7 +102,7 @@ label {display:inline-block; width:120px; float:left; white-space:nowrap;}
 
 form.data-entry {}
 .data-entry ul .labelname {display:inline-block; width:200px;}
-.data-entry input {margin-left:20px; display:inline-block; width:500px;}
+.data-entry input {margin-left:20px; display:inline-block;}
 
 /* searchform styling */
 #searchform {

@@ -1,6 +1,12 @@
 <!-- Database Administration Edit Individual Record View -->
-
-    <?php
+<?php foreach ($images as $image) {
+     echo image_thumb_link($image['filename']);
+     foreach ($image['categories'] as $category) {
+		echo "<div class='category'>" . $category . "</div>";
+     }
+}
+?>
+<?php
     if($row == FALSE)
     {
         echo "The record does not exist"; ?>
@@ -27,9 +33,9 @@
         echo "<li>";
         echo "<span class='labelname'>";
         echo field_to_label($key);
-        echo "</span><span class='entry'>";
+        echo "</span>";
         echo form_input($key, $value);
-        echo "</span></li>";
+        echo "</li>";
     } ?>
         <li>Water:
         <?php // this could definitely be refactored into a loop, instead of doing each one by hand ?>
