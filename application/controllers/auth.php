@@ -21,11 +21,8 @@ class Auth extends Controller {
 	{
 		parent::__construct();
 		$this->load->library('ion_auth');
-		$this->load->library('session');
 		$this->load->library('form_validation');
-		$this->load->database();
-		$this->load->helper('url');
-	}
+		}
 
 	//redirect if needed, otherwise display the user list
 	function index()

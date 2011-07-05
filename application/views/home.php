@@ -1,3 +1,4 @@
-
-<h1>Great Plant Picks</h1>
+<div class="home-image">
+    <img src="../assets/home-maple.jpg">
+</div>
 

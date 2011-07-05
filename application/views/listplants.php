@@ -1,7 +1,8 @@
 <!-- list plants view -->
+<div id="content" class="display">
 <?php
 
-    echo "<h2>$heading: $total_rows records</h2>";
+    echo "<h1>$heading: $total_rows records</h1>";
 
 
     echo $this->session->flashdata('status');
@@ -11,11 +12,9 @@
     <input type="submit" value="Search">
 
     <?php
-    echo "<p>".anchor('/listplants', "Clear Search")." | ";
+    echo "<p>".anchor('/listplants', "Clear Search");
 
-    echo anchor('crud/add_record', 'Add new record')." | ";
-
-    echo anchor('/listplants', 'Return to Main List')."</p>";
+    echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')."</p>";
 
     if ( !empty($records)) {
         echo $this->table->generate($records);  
@@ -27,3 +26,4 @@
 <div id="pages">
 	<?php echo $this->pagination->create_links(); ?>
 </div>
+</div><!-- end content -->

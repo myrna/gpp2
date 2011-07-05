@@ -29,15 +29,26 @@
 </head>
     <body>
         <div id="wrapper">
+            <div id="banner">
+                <?php
+                    if ($thispage=="Home")
+                echo "<div id='logo'></div>";
+                    elseif ($thispage=="Database Administration")
+                echo "<a href='/'><div id='logo'></div></a>";
+                    else {
+                echo "<a href='/'><div id='logo-sub'></div></a>" ;
+                }
+                ?>
+            </div>
         <div id="navigation">
       <a <?php if ($thispage=="Home")
-      echo " id=\"currentpage\""; ?> href="/">Home</a> |
+      echo " id=\"currentpage\""; ?> href="/">Home</a> 
         <a <?php if ($thispage=="About GPP")
-      echo " id=\"currentpage\""; ?> href="/about/">About GPP</a> |
+      echo " id=\"currentpage\""; ?> href="/about/">About GPP</a> 
      <a <?php if ($thispage=="Plant Lists")
-      echo " id=\"currentpage\""; ?> href="/listplants/display/">Plant Lists</a> |
+      echo " id=\"currentpage\""; ?> href="/listplants/display/">Plant Lists</a> 
      <a <?php if ($thispage=="Nursery Directory")
-      echo " id=\"currentpage\""; ?> href="/nursery_list/">Nurseries</a> |
+      echo " id=\"currentpage\""; ?> href="/nursery_list/">Nurseries</a> 
      <a <?php if ($thispage=="Database Administration")
       echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a> 
 </div>

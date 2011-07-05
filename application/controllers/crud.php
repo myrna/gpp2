@@ -17,9 +17,12 @@ class Crud extends CI_Controller
     function add_record()
     {
         // Enable Profiler.
-        $this->output->enable_profiler(TRUE);
+       // $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
 		$id = "";
+
+        $common = $this->crud_model->link_table($id, 'common', 'plant');
+        $data['common_fields'] = input;
 
         $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water_fields'] = $water['list'];
@@ -108,14 +111,14 @@ class Crud extends CI_Controller
 
     function edit_record($id = '') {
         // Enable Profiler.
-        $this->output->enable_profiler(TRUE);
+       // $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
         $this->load->model('gallery_model');
         $this->load->helper('image');
         $this->load->helper('html');
-                
+              
         $data['title'] = "Edit Record: ";
-
+       
         $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
 
         $water = $this->crud_model->link_table($id, 'water', 'plant');

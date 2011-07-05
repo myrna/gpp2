@@ -1,8 +1,12 @@
 <!-- Database Administration Add New Record View -->
-    <h2>Add new record</h2>
+<div id="content" class="admin">
+    <h2>GPP Database Administration: Add New Record</h2>
+    <p class="nav"><?php
+       echo anchor('/listplants', 'Return to Main List');
+    ?></p>
     <?php
-
-   echo form_open('crud/add');
+    $attributes = array('class' => 'data-entry');
+   echo form_open('crud/add', $attributes);
 
     ?>
     <?php echo $this->session->flashdata('status'); ?>
@@ -62,106 +66,120 @@
         <li>Geek Notes: <?php echo form_input('geek_notes'); ?></li>
         <li>Publish: <?php echo form_input('publish'); ?></li>
         <li>Sort: <?php echo form_input('sort'); ?></li>
-
-        <li> Water: <?php
-foreach ($water_fields as $row) {
-       $water_data = array(
-            'name' => "water[]",
-            'id' => $row->water,
-            'value' => $row->id
-        ); ?>
-<span class="check">
-<?php
-        echo form_checkbox($water_data);
-        echo form_label($row->water, $row->water);
-    } ?>
-</span></li>
-
-        <li>Sun:
-            <?php foreach ($sun_fields as $row) { ?>
-                <br />
-            <?php
-                $sun_data = array(
-                    'name' => "sun[]",
-                    'id' => $row->sun,
-                    'value' => $row->id
-                     );
-                echo form_checkbox($sun_data);
-                echo form_label($row->sun, $row->sun);
-            } ?>
-
-        </li>
-        <li>Soil:
-            <?php foreach ($soil_fields as $row) { ?>
-                <br />
-            <?php
-                $soil_data = array(
-                    'name' => "soil[]",
-                    'id' => $row->soil,
-                    'value' => $row->id
-                     );
-                echo form_checkbox($soil_data);
-                echo form_label($row->soil, $row->soil);
-            } ?>
-
-        </li>
-        <li>Wildlife:
-            <?php foreach ($wildlife_fields as $row) { ?>
-                <br />
-            <?php
-                $wildlife_data = array(
-                    'name' => "wildlife[]",
-                    'id' => $row->wildlife,
-                    'value' => $row->id
-                   );
-                echo form_checkbox($wildlife_data);
-                echo form_label($row->wildlife, $row->wildlife);
-            } ?>
-
-        </li>
-
-        <li>Pest Resistance:
-            <?php foreach ($pest_resistance_fields as $row) { ?>
-                <br />
-            <?php
-                $pest_resistance_data = array(
-                    'name' => "pest_resistance[]",
-                    'id' => $row->pest_resistance,
-                    'value' => $row->id
-                      );
-                echo form_checkbox($pest_resistance_data);
-                echo form_label($row->pest_resistance, $row->pest_resistance);
-            } ?>
-
-        </li>
-        <li>Flower Color:
+        <li>Common Name: <?php echo form_input('common_name'); ?></li>
+        <li><p>Flower Color:</p>
             <?php foreach ($flower_color_fields as $row) { ?>
-                <br />
+
             <?php
                 $flower_color_data = array(
                     'name' => "flower_color[]",
                     'id' => $row->flower_color,
                     'value' => $row->id
                          );
+                echo "<span class='formcheck'>";
                 echo form_checkbox($flower_color_data);
                 echo form_label($row->flower_color, $row->flower_color);
+                echo "</span>";
             } ?>
 
-        </li>
-        <li>Design Use:
+                </li>
+        <li><p>Design Use:</p>
             <?php foreach ($design_use_fields as $row) { ?>
-                <br />
+
             <?php
                 $design_use_data = array(
                     'name' => "design_use[]",
                     'id' => $row->design_use,
-                    'value' => $row->id                    
+                    'value' => $row->id
                 );
+                echo "<span class='formcheck'>";
                 echo form_checkbox($design_use_data);
                 echo form_label($row->design_use, $row->design_use);
+                echo "</span>";
+            } ?>
+                </li>
+        <li><p> Water:</p>
+            <?php foreach ($water_fields as $row) { ?>
+            
+            <?php       $water_data = array(
+                        'name' => "water[]",
+                        'id' => $row->water,
+                        'value' => $row->id
+                    ); ?>
+            
+            <?php
+                    echo "<span class='formcheck'>";
+                    echo form_checkbox($water_data);
+                    echo form_label($row->water, $row->water);
+                    echo "</span>";
+                } ?>
+            </li>
+
+        <li><p>Sun:</p>
+            <?php foreach ($sun_fields as $row) { ?>
+            
+            <?php
+                $sun_data = array(
+                    'name' => "sun[]",
+                    'id' => $row->sun,
+                    'value' => $row->id
+                     );
+                echo "<span class='formcheck'>";
+                echo form_checkbox($sun_data);
+                echo form_label($row->sun, $row->sun);
+                echo "</span>";
+            } ?>
+            </li>
+        <li><p>Soil:</p>
+            <?php foreach ($soil_fields as $row) { ?>
+               
+            <?php
+                $soil_data = array(
+                    'name' => "soil[]",
+                    'id' => $row->soil,
+                    'value' => $row->id
+                     );
+                echo "<span class='formcheck'>";
+                echo form_checkbox($soil_data);
+                echo form_label($row->soil, $row->soil);
+                echo "</span>";
             } ?>
 
-        </li> 
+               </li>
+        <li><p>Wildlife:</p>
+            <?php foreach ($wildlife_fields as $row) { ?>
+               
+            <?php
+                $wildlife_data = array(
+                    'name' => "wildlife[]",
+                    'id' => $row->wildlife,
+                    'value' => $row->id
+                   );
+                echo "<span class='formcheck'>";
+                echo form_checkbox($wildlife_data);
+                echo form_label($row->wildlife, $row->wildlife);
+                echo "</span>";
+            } ?>
+
+                </li>
+
+        <li><p>Pest Resistance:</p>
+            <?php foreach ($pest_resistance_fields as $row) { ?>
+              
+            <?php
+                $pest_resistance_data = array(
+                    'name' => "pest_resistance[]",
+                    'id' => $row->pest_resistance,
+                    'value' => $row->id
+                      );
+                echo "<span class='formcheck'>";
+                echo form_checkbox($pest_resistance_data);
+                echo form_label($row->pest_resistance, $row->pest_resistance);
+                echo "</span>";
+            } ?>
+
+                </li>
+        
     </ul>
     <?php echo form_submit('add', 'Add Record'); ?>
-
+</div><!-- end content -->

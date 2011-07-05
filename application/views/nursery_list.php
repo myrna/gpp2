@@ -1,4 +1,5 @@
 <!-- Nursery Directory View -->
+<div id="content" class="display">
 <?php
 echo "<h1>".$heading."</h1>";
 echo "<h4>Washington State Nurseries</h4>";
@@ -10,3 +11,4 @@ if(!empty($nurseries_bc)) echo $this->table->generate($nurseries_bc);
 echo "<h4>Other Nurseries</h4>";
 if(!empty($nurseries_other)) echo $this->table->generate($nurseries_other);
 ?>
+</div><!-- end content -->

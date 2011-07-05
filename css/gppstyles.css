@@ -23,44 +23,105 @@ html {min-height:100%;}
 body {
 	font:normal 14px/1.4em Verdana, Arial, Helvetica, sans-serif;
 	min-height:100%;
-	background-color:#FFF;
+	background-color:#000;
         color:#000;
-        min-width:1100px;
+        min-width:1024px;
         }
 div#wrapper {
-	width:960px; margin:5px auto;
+	width:1024px; margin:5px auto;
         }
-p {margin-bottom:5px;}
-h1, h2, h3, h4 {font-weight:bold;}
-h1 {font-size:28px; margin-bottom:10px;}
-h2 {font-size:22px;}
-h3 {font-size:18px;}
-#upload h3 {padding:15px 0 5px;}
-h4 {font-size:18px; padding:5px 0;}
+div#banner {
+        position:relative;
+        display:block;
+        width:1024px;
+        height:70px;
+        background: url(../assets/greatplantpicks.png) 270px 21px no-repeat;
+}
+/* logo for all pages except home */
+div#logo {
+    position:absolute;
+    display:block;
+    top:0;
+    left:-5px;
+    width:217px;
+    height:300px;
+    background: url(../assets/logo-main.png) 0 5px no-repeat;
+    text-indent:-9999px;
+    }
+div#logo-sub {
+    position:absolute;
+    display:block;
+    top:0;
+    left:-5px;
+    width:212px;
+    height:190px;
+    background: url(../assets/logo-sub.png) 0 5px no-repeat;
+    text-indent:-9999px;
+    }
+
+
+
 /* navigation */
 
 div#navigation {
     display:block;
-    width:960px;
-    height:40px;
-    padding:5px;
+    float:right;
+    width:800px;
+    height:22px;
+    padding:3px 5px 5px 160px;
+    background-color:#63b446;
+    margin-bottom:10px;
    }
+#navigation a {
+    color:#000;
+    text-decoration:none;
+    background: url(../assets/nav-inactive.gif) 0 0 no-repeat;
+    padding:0 0 0 23px;
+    margin-right:40px;
+    line-height:23px;
+    vertical-align:bottom;
+}
+#navigation #currentpage {    
+    background: url(../assets/nav-active.gif) 0 0 no-repeat;
+}
+#navigation a:hover {
+    color:#e65925;
+    background: url(../assets/nav-active.gif) 0 0 no-repeat;
+}
 
 /* container styles */
 
 div#content {
+    clear:both;
+    float:right;
     background-color:#bebe31;
     border:5px #d2d26f solid;
     margin-top:5px;
+    padding-top:10px;
+    }
+.main {
+    width:780px;
     padding:10px;
 }
-
+.display {}
+.admin {
+    padding:10px;
+    }
+.gallery {
+   padding:10px;
+   width:994px;
+}
+.home-image {
+    float:right;
+    margin-bottom:5px;
+}
+.clear {clear:both; line-height:1px;}
 
 /* admin image upload page styling */
 #gallery, #upload {
-			border: 1px solid #ccc; margin: 10px auto; width: 650px; padding: 10px;
+			margin: 10px auto; width: 650px; padding: 10px;
 		}
-		#blank_gallery {
+                #blank_gallery {
 			font-family: Arial; font-size: 18px; font-weight: bold;
 			text-align: center;
 		}
@@ -88,22 +149,27 @@ div#content {
         width:75px;
         height:30px;
        }
-label {display:inline-block; width:120px; float:left; white-space:nowrap;}
+#imageform label {display:inline-block; width:120px; float:left; white-space:nowrap;}
 
-.primary-thumb {
-    position:relative;
-    float:right;
-    width:200px;
+.gallery-thumbs {
+    clear:both;
+    margin-left:20px;
+}
+.gallery-thumbs img {
+    border:5px #d2d26f solid;
 }
 
-.check label {display:inline-block; line-height:15px; width:1px; clear:both;}
+#imageform .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
 
 /* add and update record form styling */
 
-form.data-entry {}
+form.data-entry {clear:both;}
 .data-entry ul .labelname {display:inline-block; width:200px;}
 .data-entry input {margin-left:20px; display:inline-block;}
-
+.data-entry checkbox {}
+.data-entry p {font-weight:bold; padding-top:10px;}
+.data-entry label {display:inline-block; width:150px;}
+.formcheck {white-space:nowrap;}
 /* searchform styling */
 #searchform {
     position:relative;
@@ -132,12 +198,12 @@ a#currentpage {color:#000000;}
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
 
-table.dblist, table.nursery {margin:10px 0; border:1px #d2d26f solid; }
-table.dblist th, table.nursery th {background-color:#bebe31; border-right:1px #000 solid; padding:5px;}
+table.dblist, table.nursery {margin:10px 0; }
+table.dblist th, table.nursery th {background-color:#bebe31; padding:5px;}
 table.dblist td, table.nursery td {padding:5px; white-space:nowrap;}
 table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
 
-table.nursery {width:960px;}
+table.nursery {}
 table.nursery th {font-size:16px;}
 table.nursery th:nth-child(even) {
     width:10%;
@@ -184,6 +250,19 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-size: 10px;
 }
 
+/* headers */
+h1, h2, h3, h4 {font-weight:bold;}
+h1 {font-size:28px; margin-bottom:10px;}
+.display h1, .gallery h1, .display h4, .admin h2, .admin h4 {text-align:center; padding:5px 0;}
+.display h4 {display:block; background-color:#f8e100;}
+h2 {font-size:22px;}
+h3 {font-size:18px;}
+#upload h3 {padding:15px 0 5px;}
+h4 {font-size:18px; padding:5px 0;}
 
+/* paragraph styles */
+p {margin-bottom:5px;}
+p.nav {text-align:right;}
+.category p {font-style:italic; font-weight:bold; padding-bottom:10px;}
 
 /* end */

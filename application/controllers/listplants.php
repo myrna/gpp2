@@ -15,7 +15,7 @@ class Listplants extends CI_Controller {
 
     function index($page = 0)
     {
-		$this->output->enable_profiler(TRUE);
+	//	$this->output->enable_profiler(TRUE);
         
         $this->load->model('listplants_model');
         $records = $this->listplants_model->get_records($page);
@@ -52,9 +52,9 @@ class Listplants extends CI_Controller {
     
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
-            $this->output->enable_profiler(TRUE);
+         //   $this->output->enable_profiler(TRUE);
             $this->load->library('table');
-			$this->load->helper('plant');
+		
             $tmpl = array (
                     'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
                     'heading_row_start'   => '<tr>',
@@ -85,8 +85,7 @@ class Listplants extends CI_Controller {
                     'PP#',
                     'PPAF',
                     'PBR',
-                    'View',
-                    'Edit',
+                    'Edit/View',
                     'Images',
                     'Delete'
                 );
@@ -107,8 +106,8 @@ class Listplants extends CI_Controller {
                         $row->plant_patent_number,
                         $row->plant_patent_number_applied_for,
                         $row->plant_breeders_rights,
-                        anchor('crud/view_record/'.$row->id, 'View'),
-                        anchor('crud/edit_record/'.$row->id, 'Edit'), 
+                        
+                        anchor('crud/edit_record/'.$row->id, 'Edit/View'),
                         anchor('gallery/upload_image/'.$row->id, 'Images'),
                         anchor('crud/delete_record/'.$row->id, 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));

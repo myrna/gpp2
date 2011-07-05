@@ -1,6 +1,13 @@
 <!-- upload images, gallery view -->
-    <?php echo $this->session->flashdata('status'); ?>
-	<?php echo "<div>" . display_full_botanical_name($plant_data) . "</div>"; ?>
+<div id="content" class="gallery">
+    <h1>GPP Database Administration: Add/Delete Images</h1>
+    <?php
+    echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')." | ";
+
+    echo anchor('/listplants', 'Return to Main List')."</p>";
+    ?>
+    <h4><?php echo $this->session->flashdata('status'); ?>
+	<?php echo "<div>" . display_full_botanical_name($plant_data) . "</div>"; ?></h4>
 
     <div id="gallery">
 
@@ -72,4 +79,4 @@ foreach ($category_fields as $row) {
 echo form_close();
 ?>
     </div>
-
+</div><!-- end content -->

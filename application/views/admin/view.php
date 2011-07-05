@@ -1,4 +1,5 @@
 <!-- Database Administration View Single Record -->
+<div id="content" class="main">
        <?php
     if($row == FALSE)
     {
@@ -26,5 +27,5 @@
     <?php
     }
     ?>
-
+</div><!-- end content -->
 
