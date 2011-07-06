@@ -31,7 +31,6 @@ class Reports extends CI_Controller
      //$this->output->enable_profiler(TRUE);
      $this->load->model('reports_model');
      $this->load->library('table');
-     $this->load->helper('plant');
      $shrubs_status = $this->reports_model->get_shrubs_status();
 
      if ($shrubs_status['query']->num_rows() > 0)
@@ -47,8 +46,7 @@ function shrubs_by_name() {
      //$this->output->enable_profiler(TRUE);
      $this->load->model('reports_model');
      $this->load->library('table');
-     $this->load->helper('plant');
-     
+         
      $shrubs_by_name = $this->reports_model->get_shrubs_by_name();
 
      if ($shrubs_by_name['query2']->num_rows() > 0) 
@@ -62,12 +60,12 @@ function shrubs_by_name() {
 
 function build_shrubs_table($results_array, $title) {
     $table = array();
-    $table[] = array('Genus','Status','History','Nominated By');
+    $table[] = array('Status','Plant Name','History','Nominated By');
     foreach ($results_array as $row)
     {
         $table[] = array(
             $row['status'],
-            $row['genus'],
+            display_full_botanical_name($row),
             $row['gpp_history'],
             $row['nominator']);
     }
