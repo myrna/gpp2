@@ -39,7 +39,7 @@ class Reports extends CI_Controller
          $data = $this->build_shrubs_table($shrubs_status['query']->result_array(), "Sorted by Status");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/shrubs_status', $data);
+         $this->template->load('template','reports/shrubs', $data);
      }
  }
 function shrubs_by_name() {

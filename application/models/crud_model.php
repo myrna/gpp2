@@ -59,7 +59,7 @@ class Crud_model extends CI_Model
         $list_table_name = $attribute;
 
 
-        $list = $this->db->get($list_table_name)->result();
+        $list = $this->db->get($list_table_name)->result_array();
         $current = array_map("Crud_model::get_id", $this->db->where($primary_key, $id)->select($attribute_key)->get($join_table_name)->result_array());
 
         return array(
