@@ -73,7 +73,7 @@ class Listplants extends CI_Controller {
                 $table = array();
                 $table[] = array(
                     'ID',
-                    'Name',
+                    'Plant Name',
                     'Edit/View',
                     'Images',
                     'Delete'
@@ -102,7 +102,7 @@ class Listplants extends CI_Controller {
             $this->pagination->initialize($config);
 
             $this->template->set('thispage','View Records');
-            $this->template->set('title','View Records - Database Administration | Great Plant Picks');
+            $this->template->set('title','Search Records - Database Administration | Great Plant Picks');
             $this->template->load('template','listplants', $data);
     }
 

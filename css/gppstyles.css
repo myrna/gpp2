@@ -106,6 +106,7 @@ div#content {
 .display {}
 .admin {
     padding:10px;
+    width:994px;
     }
 .gallery {
    padding:10px;
@@ -200,7 +201,8 @@ table th {text-align:left;}
 
 table.dblist, table.nursery {margin:10px 0; }
 table.dblist th, table.nursery th {background-color:#bebe31; padding:5px;}
-table.dblist td, table.nursery td {padding:5px; white-space:nowrap;}
+table.nursery td {padding:5px; white-space:nowrap;}
+table.dblist td {padding: 5px 20px 5px 5px;}
 table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
 
 table.nursery {}

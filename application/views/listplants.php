@@ -1,5 +1,5 @@
 <!-- list plants view -->
-<div id="content" class="display">
+<div id="content" class="admin">
 <?php
 
     echo "<h1>$heading: $total_rows records</h1>";
