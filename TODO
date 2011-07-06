@@ -1,0 +1,9 @@
+Jon TODO list:
+----------------
+
+1. add example form generation code for foliage_type (Deciduous, semi-evergreen, evergreen), and incorporate it into the edit and new record pages.
+
+2. replace name fields with consolidated name in all lists and reports
+
+3. make ids for form elements valid (no spaces, etc)
+
