@@ -1,6 +1,6 @@
 <?php
 function display_full_botanical_name($record) {
-    printf("%s %s %s %s %s %s %s %s %s %s %s",
+    return sprintf("%s %s %s %s %s %s %s %s %s %s %s",
         $record['genus'] ? format_genus($record['genus'],$record['cross_genus']) : "",
         $record['specific_epithet'] ? format_species($record['specific_epithet'], $record['cross_species']) : "",
         $record['infraspecific_epithet'] ? format_subspecies($record['infraspecific_epithet_designator'], $record['infraspecific_epithet']) : "",

@@ -9,7 +9,7 @@
     {
      ?>
     <h4><?php echo $title ?><?php
-        display_full_botanical_name($row);
+        echo display_full_botanical_name($row);
     ?></h4>
 <?php
     echo "<p>".anchor('crud/add_record', 'Add new record')." | ";
