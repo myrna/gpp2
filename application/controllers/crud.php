@@ -55,35 +55,13 @@ class Crud extends CI_Controller
         $data = $_POST;
 		echo "<pre>" . print_r($data) . "</pre>";
 		
-		$linkers = array(
-			'water',
-			'sun',
-			'flower_color',
-			'design_use',
-			'pest_resistance',
-			'soil',
-			'wildlife'
-		);
 
-		foreach ($linkers as $link_name) {
-			if (array_key_exists($link_name, $data)) {
-				$$link_name = $data[$link_name];
-				unset($data[$link_name]);
-			}
-		}
-
-	
         unset($data['add']); // get rid of the submit button
 
         $id = $this->crud_model->add_record($data);
         if($id)
         {
             $this->session->set_flashdata('status', "Record Added: $id");
-			foreach ($linkers as $linkname) {
-				if (isset(${$linkname})) {
-					$this->crud_model->update_link_table($id, 'plant', $linkname, ${$linkname});
-				}
-			}
         }
         else
         {
@@ -166,6 +144,7 @@ class Crud extends CI_Controller
 
     function edit()
     {
+        $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
         $this->load->model('gallery_model');
         $this->load->helper('image');

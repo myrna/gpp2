@@ -50,15 +50,16 @@
         foreach ($plant_attributes as $row => $values) {
             echo "<li><p>" . field_to_label($row) . ":</p>";
             foreach ($values['fields'] as $options) {
+                $html_id = "$row-" . $options['id'];
                 $data = array(
                     'name'  => "$row" . "[]",
-                    'id'    => $options['id'],
+                    'id'    => $html_id,
                     'value' => $options['id'],
                     'checked' => in_array($options['id'], $values['requirements'])
                 );
                 echo "<span class='formcheck'>";
                 echo form_checkbox($data);
-                echo form_label($options["$row"], $options['id']);
+                echo form_label($options["$row"], $html_id);
                 echo "</span>";
             };
         }
