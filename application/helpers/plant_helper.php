@@ -1,6 +1,6 @@
 <?php
 function display_full_botanical_name($record) {
-    printf("%s %s %s %s %s %s %s %s %s %s %s",
+    return sprintf("%s %s %s %s %s %s %s %s %s %s %s",
         $record['genus'] ? format_genus($record['genus'],$record['cross_genus']) : "",
         $record['specific_epithet'] ? format_species($record['specific_epithet'], $record['cross_species']) : "",
         $record['infraspecific_epithet'] ? format_subspecies($record['infraspecific_epithet_designator'], $record['infraspecific_epithet']) : "",
@@ -72,43 +72,43 @@ function convert_label($field) {
 function field_to_label($field) {
     switch ($field) {
         case 'family':
-            echo "Plant Family";
+            return "Plant Family";
             break;
         case 'id':
-            echo "Plant ID";
+            return "Plant ID";
             break;
         case 'cross_genus':
-            echo "&#935; Genus";
+            return "&#935; Genus";
             break;
         case 'plant_patent_number_applied_for':
-            echo convert_label($field) . " (PPAF)";
+            return convert_label($field) . " (PPAF)";
             break;
         case 'plant_origin':
-            echo "Origin";
+            return "Origin";
             break;
         case 'fruit_seedhead_attractive':
-            echo "Fruit/Seedhead Attractive";
+            return "Fruit/Seedhead Attractive";
             break;
         case 'nominator':
-            echo "Nominated By";
+            return "Nominated By";
             break;
         case 'eval_trial':
-            echo 'Plant Evaluation or Trial';
+            return 'Plant Evaluation or Trial';
             break;
         case 'gpp_references':
-            echo "References/Name Validation";
+            return "References/Name Validation";
             break;
         case 'native_to_gpp_region':
-            echo "Native to GPP Region";
+            return "Native to GPP Region";
             break;
         case 'gpp_history':
-            echo "GPP History";
+            return "GPP History";
             break;
         case 'gpp_year':
-            echo "GPP Year";
+            return "GPP Year";
             break;
         default:
-            echo convert_label($field);
+            return convert_label($field);
             break;
     }
 

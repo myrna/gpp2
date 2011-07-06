@@ -52,8 +52,9 @@ class Listplants extends CI_Controller {
     
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
-         //   $this->output->enable_profiler(TRUE);
+         // $this->output->enable_profiler(TRUE);
             $this->load->library('table');
+            $this->load->helper('plant');
 		
             $tmpl = array (
                     'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
@@ -72,44 +73,20 @@ class Listplants extends CI_Controller {
                 $table = array();
                 $table[] = array(
                     'ID',
-                    'Family',
-                    'Genus',
-                    'X Genus',
-                    'Specific Epithet',
-                    'Designator',
-                    'Infraspecific Epithet',
-                    'x Species',
-                    'Group',
-                    'Cultivar',
-                    'Trade Name',
-                    'PP#',
-                    'PPAF',
-                    'PBR',
+                    'Name',
                     'Edit/View',
                     'Images',
                     'Delete'
                 );
-                foreach ($records->result() as $row)
+                foreach ($records->result_array() as $row)
                 {
+                    $id = $row['id'];
                     $table[] = array(
-                        $row->id,
-                        $row->family,
-                        $row->genus,
-                        $row->cross_genus,
-                        $row->specific_epithet,
-                        $row->infraspecific_epithet_designator,
-                        $row->infraspecific_epithet,
-                        $row->cross_species,
-                        $row->plantname_group,
-                        $row->cultivar,
-                        $row->trade_name,
-                        $row->plant_patent_number,
-                        $row->plant_patent_number_applied_for,
-                        $row->plant_breeders_rights,
-                        
-                        anchor('crud/edit_record/'.$row->id, 'Edit/View'),
-                        anchor('gallery/upload_image/'.$row->id, 'Images'),
-                        anchor('crud/delete_record/'.$row->id, 'Delete',
+                        $id,
+                        display_full_botanical_name($row),
+                        anchor('crud/edit_record/'.$id, 'Edit/View'),
+                        anchor('gallery/upload_image/'.$id, 'Images'),
+                        anchor('crud/delete_record/'.$id, 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete the record?\');')));
                 }
                 $data['records'] = $table;

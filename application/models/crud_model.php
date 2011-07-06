@@ -22,6 +22,16 @@ class Crud_model extends CI_Model
         $values = array_values($element);
         return intval($values[0]);
     }
+    
+    public $plant_link_tables = array(
+			'water',
+			'sun',
+			'flower_color',
+			'design_use',
+			'pest_resistance',
+			'soil',
+			'wildlife'        
+    );
 
     public function update_link_table($id, $primary, $attribute, $values) {
         $link_table_name = "$primary" . "_" . $attribute;
@@ -59,7 +69,7 @@ class Crud_model extends CI_Model
         $list_table_name = $attribute;
 
 
-        $list = $this->db->get($list_table_name)->result();
+        $list = $this->db->get($list_table_name)->result_array();
         $current = array_map("Crud_model::get_id", $this->db->where($primary_key, $id)->select($attribute_key)->get($join_table_name)->result_array());
 
         return array(
@@ -76,14 +86,25 @@ class Crud_model extends CI_Model
     function add_record($data)
     {
         $result = 0;
-        //check if $data is not empty
         if(!empty($data))
         {
-            //insert $data with insert method
-            $this->db->insert('plant_data',$data);
-        }
-        return $this->db->insert_id();
 
+            foreach ($this->plant_link_tables as $link_name) {
+                if (array_key_exists($link_name, $data)) {
+                    $$link_name = $data[$link_name];
+                    unset($data[$link_name]);
+                }
+            }
+            $this->db->insert('plant_data',$data);
+            $id = $this->db->insert_id();
+
+            foreach ($this->plant_link_tables as $linkname) {
+                if (isset(${$linkname})) {
+                    $this->update_link_table($id, 'plant', $linkname, ${$linkname});
+                }
+            }            
+        }
+        return $id;
     }
 
     // get individual record from database using list produced by get_records//
@@ -138,10 +159,18 @@ class Crud_model extends CI_Model
 
         $result = 0;
         if(!empty($data)){
+
+            foreach ($this->plant_link_tables as $link_name) {
+                if (array_key_exists($link_name, $data)) {
+                    $this->update_link_table($id, 'plant', $link_name, $data[$link_name]);
+                    unset($data[$link_name]);
+                } else {
+                    $this->update_link_table($id, 'plant', $link_name, array());
+                }
+            }
             $this->db->where('id', $id);
             $result = $this->db->update('plant_data', $data);
         }
-
         return $result;
     }
 
