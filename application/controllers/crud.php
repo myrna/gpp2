@@ -138,6 +138,10 @@ class Crud extends CI_Controller
         $data['flower_color']['fields'] = $flower_color['list'];
         $data['flower_color']['requirements'] = $flower_color['current'];
 
+     //  $foliage_color = $this->crud_model->link_table($id, 'foliage_color', 'plant');
+      //  $data['foliage_color']['fields'] = $foliage_color_color['list'];
+     //   $data['foliage_color']['requirements'] = $foliage_color['current'];
+
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use']['fields'] = $design_use['list'];
         $data['design_use']['requirements'] = $design_use['current'];

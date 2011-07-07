@@ -57,7 +57,7 @@ class Listplants extends CI_Controller {
             $this->load->helper('plant');
 		
             $tmpl = array (
-                    'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">',
+                    'table_open'          => '<table class="dblist">',
                     'heading_row_start'   => '<tr>',
                     'heading_row_end'     => '</tr>',
                     'heading_cell_start'  => '<th>',

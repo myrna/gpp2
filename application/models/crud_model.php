@@ -27,10 +27,11 @@ class Crud_model extends CI_Model
 			'water',
 			'sun',
 			'flower_color',
-			'design_use',
+                      //  'foliage_color',
+                        'design_use',
 			'pest_resistance',
 			'soil',
-			'wildlife'        
+			'wildlife'                       
     );
 
     public function update_link_table($id, $primary, $attribute, $values) {
