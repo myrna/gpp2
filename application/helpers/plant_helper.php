@@ -114,7 +114,6 @@ function field_to_label($field) {
 }
     
 function build_form_control($key, $value) {
-    echo $key;
     switch ($key) {
         case 'foliage_type':
             $current = $value ? $value : 'none';
