@@ -111,6 +111,20 @@ function field_to_label($field) {
             return convert_label($field);
             break;
     }
+}
+    
+function build_form_control($key, $value) {
+    switch ($key) {
+        case 'foliage_type':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
+            return form_dropdown('foliage_type', $options, $current);
+            break;
+
+        default:
+            return form_input($key, $value);
+            break;
+    }
 
 }
 

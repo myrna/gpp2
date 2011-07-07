@@ -20,30 +20,34 @@ class Crud extends CI_Controller
        // $this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
 		$id = "";
+        $data['row'] = array();
+        $fields = $this->db->list_fields('plant_data');
+        foreach ($fields as $field) {
+            $data['row'][$field] = "";
+        }
 
-        $common = $this->crud_model->link_table($id, 'common', 'plant');
-        $data['common_fields'] = input;
+        // $water = $this->crud_model->link_table($id, 'water', 'plant');
+        //        $data['water_fields'] = $water['list'];
+        // 
+        //        $sun = $this->crud_model->link_table($id, 'sun', 'plant');
+        //        $data['sun_fields'] = $sun['list'];
+        // 
+        //        $soil = $this->crud_model->link_table($id, 'soil', 'plant');
+        //        $data['soil_fields'] = $soil['list'];
+        // 
+        //        $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
+        //        $data['wildlife_fields'] = $wildlife['list'];
+        // 
+        //        $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
+        //        $data['pest_resistance_fields'] = $pest_resistance['list'];
+        // 
+        //        $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
+        //        $data['flower_color_fields'] = $flower_color['list'];
+        // 
+        //        $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
+        //        $data['design_use_fields'] = $design_use['list'];
 
-        $water = $this->crud_model->link_table($id, 'water', 'plant');
-        $data['water_fields'] = $water['list'];
-
-        $sun = $this->crud_model->link_table($id, 'sun', 'plant');
-        $data['sun_fields'] = $sun['list'];
-
-        $soil = $this->crud_model->link_table($id, 'soil', 'plant');
-        $data['soil_fields'] = $soil['list'];
-
-        $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
-        $data['wildlife_fields'] = $wildlife['list'];
-
-        $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
-        $data['pest_resistance_fields'] = $pest_resistance['list'];
-
-        $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
-        $data['flower_color_fields'] = $flower_color['list'];
-
-        $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
-        $data['design_use_fields'] = $design_use['list'];
+        $data['plant_attributes'] = $this->get_plant_link_data(false);
 
         $this->template->set('thispage','Add New Record');
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');

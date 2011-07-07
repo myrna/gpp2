@@ -62,16 +62,18 @@ class Crud_model extends CI_Model
     }
     
     public function link_table($id, $attribute, $primary) {
-		$attribute_key = $attribute . "_id";
-		$primary_key = $primary . "_id";
 
         $join_table_name = $primary . "_" . $attribute;
         $list_table_name = $attribute;
-
-
         $list = $this->db->get($list_table_name)->result_array();
-        $current = array_map("Crud_model::get_id", $this->db->where($primary_key, $id)->select($attribute_key)->get($join_table_name)->result_array());
 
+        if ($id) {
+            $attribute_key = $attribute . "_id";
+            $primary_key = $primary . "_id";
+            $current = array_map("Crud_model::get_id", $this->db->where($primary_key, $id)->select($attribute_key)->get($join_table_name)->result_array());
+        } else {
+            $current = array();
+        }
         return array(
             'list' => $list,
             'current' => $current
