@@ -94,8 +94,7 @@ class Crud extends CI_Controller
         $this->load->model('gallery_model');
         $this->load->helper('image');
         $this->load->helper('html');
-        $this->load->helper('plant');
-              
+                      
         $data['title'] = "Edit Record: ";
        
         $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display

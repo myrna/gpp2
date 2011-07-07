@@ -28,7 +28,7 @@ body {
         min-width:1024px;
         }
 div#wrapper {
-	width:1024px; margin:5px auto;
+        width:1024px; margin:5px auto;
         }
 div#banner {
         position:relative;
@@ -89,9 +89,24 @@ div#navigation {
     background: url(../assets/nav-active.gif) 0 0 no-repeat;
 }
 
+#footer {
+    position:relative;
+    float:left;
+    margin-top:5px;
+    clear:both;
+    display:block;
+    width:1024px;
+    background-color:#63b446;
+    padding:3px 0;
+}
+#footer p {
+    text-align:center;
+    font-size:11px;
+}
 /* container styles */
 
 div#content {
+    position:relative;
     clear:both;
     float:right;
     background-color:#bebe31;

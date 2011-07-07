@@ -31,6 +31,10 @@ class Reports extends CI_Controller
      //$this->output->enable_profiler(TRUE);
      $this->load->model('reports_model');
      $this->load->library('table');
+
+     $tmpl = array ('table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">' );
+     $this->table->set_template($tmpl);
+     
      $shrubs_status = $this->reports_model->get_shrubs_status();
 
      if ($shrubs_status['query']->num_rows() > 0)
@@ -46,7 +50,10 @@ function shrubs_by_name() {
      //$this->output->enable_profiler(TRUE);
      $this->load->model('reports_model');
      $this->load->library('table');
-         
+
+     $tmpl = array ('table_open' => '<table border="0" cellpadding="4" cellspacing="0" class="dblist">' );
+     $this->table->set_template($tmpl);
+
      $shrubs_by_name = $this->reports_model->get_shrubs_by_name();
 
      if ($shrubs_by_name['query2']->num_rows() > 0) 
