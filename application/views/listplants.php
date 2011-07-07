@@ -7,13 +7,13 @@
 
     echo $this->session->flashdata('status');
     $attributes = array('id' => 'searchform');
-    echo form_open('listplants/search', $attributes);
+    echo "<p>".form_open('listplants/search', $attributes);
     echo form_input('searchterms', $searchterms); ?>
     <input type="submit" value="Search">
-
+   
     <?php
-    echo "<p>".anchor('/listplants', "Clear Search");
-
+    echo "<span class='clear-search'>".anchor('/listplants', "Clear Search")."</span>";
+    echo "<p class='note'>*Search by plant name, or to list plants by status, enter gpp, evaluated, nominated, or eliminated into search box.</p>";
     echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')."</p>";
 
     if ( !empty($records)) {
@@ -23,6 +23,7 @@
     }
 
 ?>
+    
 <div id="pages">
 	<?php echo $this->pagination->create_links(); ?>
 </div>

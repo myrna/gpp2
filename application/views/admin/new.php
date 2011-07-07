@@ -19,9 +19,10 @@
         //form_input($key, $value);
         echo "</li>";
     } ?>
+    </ul>
     <?php
         foreach ($plant_attributes as $row => $values) {
-            echo "<li><p>" . field_to_label($row) . ":</p>";
+            echo "<p>" . field_to_label($row) . ":</p>";
             foreach ($values['fields'] as $options) {
                 $html_id = "$row-" . $options['id'];
                 $data = array(
@@ -36,8 +37,8 @@
                 echo "</span>";
             };
         }
-        echo "</li>";
+        
     ?>
-    </ul>
+        
     <?php echo form_submit('add', 'Add Record'); ?>
 </div><!-- end content -->

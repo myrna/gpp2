@@ -179,21 +179,45 @@ div#content {
 
 /* add and update record form styling */
 
-form.data-entry {clear:both;}
-.data-entry ul .labelname {display:inline-block; width:200px;}
-.data-entry input {margin-left:20px; display:inline-block;}
+form.data-entry {clear:both; width:850px;}
+.data-entry .labelname {
+    display:inline-block;
+    width:225px;
+    vertical-align:top;
+    padding-top:2px;
+    font-weight:bold;
+}
+
+.data-entry ul li {padding-bottom:5px;}
+.data-entry input {
+    display:inline-block;
+    
+}
 .data-entry checkbox {}
-.data-entry p {font-weight:bold; padding-top:10px;}
-.data-entry label {display:inline-block; width:150px;}
-.formcheck {white-space:nowrap;}
+.data-entry p {clear:both; font-weight:bold; padding-top:10px;}
+.data-entry textarea {width:600px; height:80px;}
+
+/* checkbox styling -- keep checkbox label from wrapping */
+.formcheck {float:left;}
+.formcheck label {margin-right:5px; white-space:nowrap;}
+
+input[type="submit"] {
+    clear:both;
+    float:left;
+}
 /* searchform styling */
 #searchform {
     position:relative;
     float:left;
     padding:10px 20px;
+    
 }
-
-
+#searchform input[type="text"] {
+    display:block;
+    width:300px;
+    height:20px;
+    }
+.clear-search {padding-left:10px;}
 /* pagination styling --------- */
 #pages a, #pages strong {
 	 background: #e3e3e3;
@@ -279,7 +303,8 @@ h4 {font-size:18px; padding:5px 0;}
 
 /* paragraph styles */
 p {margin-bottom:5px;}
-p.nav {text-align:right;}
+p.nav {clear:both; text-align:right;}
+p.note {clear:both; float:left; font-style:italic;}
 .category p {font-style:italic; font-weight:bold; padding-bottom:10px;}
 
 /* end */
