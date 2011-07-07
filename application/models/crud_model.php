@@ -93,7 +93,7 @@ class Crud_model extends CI_Model
 
             foreach ($this->plant_link_tables as $link_name) {
                 if (array_key_exists($link_name, $data)) {
-                    $$link_name = $data[$link_name];
+                    $link_name = $data[$link_name];
                     unset($data[$link_name]);
                 }
             }
