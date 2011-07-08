@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 23, 2011 at 05:07 PM
+-- Generation Time: Jul 08, 2011 at 02:54 PM
 -- Server version: 5.1.30
 -- PHP Version: 5.3.5
 
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `category`;
-CREATE TABLE IF NOT EXISTS `category` (
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `category` varchar(22) COLLATE utf8_bin NOT NULL COMMENT 'Primary, Landscape, Others TBD',
   PRIMARY KEY (`id`)
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `category` (`id`, `category`) VALUES
+INSERT INTO `categories` (`id`, `category`) VALUES
 (1, 'primary'),
 (2, 'flower or cone'),
 (3, 'landscape');
@@ -48,11 +48,33 @@ INSERT INTO `category` (`id`, `category`) VALUES
 -- Table structure for table `categories_images`
 --
 
-DROP TABLE IF EXISTS `image_category`;
-CREATE TABLE IF NOT EXISTS `image_category` (
+DROP TABLE IF EXISTS `categories_images`;
+CREATE TABLE IF NOT EXISTS `categories_images` (
   `category_id` int(22) NOT NULL,
   `image_id` int(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Links image id with image category or categories';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `category` varchar(22) COLLATE utf8_bin NOT NULL COMMENT 'Primary, Landscape, Others TBD',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assigns id to image categories' AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `category`) VALUES
+(1, 'primary'),
+(2, 'flower or cone'),
+(3, 'landscape');
 
 -- --------------------------------------------------------
 
@@ -96,6 +118,19 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `common`
+--
+
+DROP TABLE IF EXISTS `common`;
+CREATE TABLE IF NOT EXISTS `common` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `common_name` varchar(250) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `design_use`
 --
 
@@ -104,15 +139,23 @@ CREATE TABLE IF NOT EXISTS `design_use` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `design_use` varchar(45) COLLATE utf8_bin DEFAULT NULL COMMENT 'Plant use, options in dropdown',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assign id to potential plant uses' AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assign id to potential plant uses' AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `design_use`
 --
 
 INSERT INTO `design_use` (`id`, `design_use`) VALUES
-(1, 'planters'),
-(2, 'water feature');
+(1, 'containers'),
+(2, 'street tree'),
+(3, 'perennial border'),
+(4, 'woodland'),
+(5, 'groundcover'),
+(6, 'hedge'),
+(7, 'cut flower - dried'),
+(8, 'cut flower - fresh'),
+(9, 'focal point'),
+(10, 'structural');
 
 -- --------------------------------------------------------
 
@@ -125,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `flower_color` (
   `id` int(22) NOT NULL AUTO_INCREMENT,
   `flower_color` varchar(22) COLLATE utf8_bin DEFAULT NULL COMMENT 'Choices in dropdown',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assign id to possible flower colors' AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Assign id to possible flower colors' AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `flower_color`
@@ -133,8 +176,20 @@ CREATE TABLE IF NOT EXISTS `flower_color` (
 
 INSERT INTO `flower_color` (`id`, `flower_color`) VALUES
 (1, 'black'),
-(2, 'red'),
-(3, 'green');
+(4, 'blue'),
+(8, 'brown'),
+(9, 'cream'),
+(10, 'green'),
+(11, 'lavender'),
+(12, 'orange'),
+(13, 'pink'),
+(14, 'purple'),
+(15, 'red'),
+(16, 'rose'),
+(17, 'violet'),
+(18, 'white'),
+(19, 'yellow'),
+(20, 'none');
 
 -- --------------------------------------------------------
 
@@ -147,7 +202,27 @@ CREATE TABLE IF NOT EXISTS `foliage_color` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `color` varchar(22) COLLATE utf8_bin DEFAULT NULL COMMENT 'Color will be dropdown selection',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='foliage color, can have more than 1 color per plant' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='foliage color, can have more than 1 color per plant' AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `foliage_color`
+--
+
+INSERT INTO `foliage_color` (`id`, `color`) VALUES
+(1, 'black'),
+(2, 'blue'),
+(3, 'bronze'),
+(4, 'burgundy'),
+(5, 'chartreuse'),
+(6, 'dark green'),
+(7, 'gold'),
+(8, 'green'),
+(9, 'purple'),
+(10, 'red'),
+(11, 'silver'),
+(12, 'variegated'),
+(13, 'white'),
+(14, 'yellow');
 
 -- --------------------------------------------------------
 
@@ -188,14 +263,36 @@ CREATE TABLE IF NOT EXISTS `images` (
   `filename` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
   `rank` int(2) DEFAULT NULL COMMENT 'In order of preference',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`id`, `orientation`, `season`, `description`, `copyright`, `photographer`, `filename`, `rank`) VALUES
-(32, NULL, 'unknown', 'Acer griseum', '2006', 'Great Plant Picks', 'acer_griseum_01_VFS2.jpg', 1);
+(32, NULL, 'unknown', 'Acer griseum', '2006', 'Great Plant Picks', 'acer_griseum_01_VFS2.jpg', 1),
+(33, NULL, 'unknown', '0', '0', '0', 'abelia_x_grandiflora_mardi-gras_01_VFS.jpg', NULL),
+(34, NULL, 'unknown', '0', '0', '0', 'abies_pinsapo_01_VFS.jpg', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image_category`
+--
+
+DROP TABLE IF EXISTS `image_category`;
+CREATE TABLE IF NOT EXISTS `image_category` (
+  `category_id` int(22) NOT NULL,
+  `image_id` int(22) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Links image id with image category or categories';
+
+--
+-- Dumping data for table `image_category`
+--
+
+INSERT INTO `image_category` (`category_id`, `image_id`) VALUES
+(1, 33),
+(1, 34);
 
 -- --------------------------------------------------------
 
@@ -451,7 +548,7 @@ INSERT INTO `pest_resistance` (`id`, `pest_resistance`) VALUES
 DROP TABLE IF EXISTS `plant_common`;
 CREATE TABLE IF NOT EXISTS `plant_common` (
   `plant_id` int(11) NOT NULL COMMENT 'Plant ID FK',
-  `common_name` varchar(500) CHARACTER SET utf8 DEFAULT NULL COMMENT 'plantid can have more than one common name',
+  `common_id` varchar(500) CHARACTER SET utf8 DEFAULT NULL COMMENT 'linking table for common name and plant data',
   PRIMARY KEY (`plant_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Common name list';
 
@@ -482,14 +579,14 @@ CREATE TABLE IF NOT EXISTS `plant_data` (
   `plantname_group` varchar(200) DEFAULT NULL COMMENT 'eg Atropurpurea Group',
   `plant_origin` varchar(150) DEFAULT NULL,
   `native_to_gpp_region` varchar(22) DEFAULT NULL,
-  `plant_type` set('Bulb','Conifer','Perennial','Shrub','Tree','Vine') DEFAULT NULL,
-  `foliage_type` set('Deciduous','Evergreen','Semi-Evergreen') DEFAULT NULL,
+  `plant_type` varchar(45) DEFAULT NULL,
+  `foliage_type` varchar(100) DEFAULT NULL,
   `growth_habit` text COMMENT 'Review with Rick: will this column always be filled out?',
   `growth_rate` varchar(11) DEFAULT NULL,
   `foliage_texture` varchar(22) DEFAULT NULL COMMENT 'foliage texture: fine, shiny, bold, etc.',
   `foliage_notes` text COMMENT 'attractive or blank',
   `flower_showy` varchar(4) DEFAULT NULL COMMENT 'yes or blank',
-  `flower_time` set('Winter','Winter-Spring','Spring','Spring-Summer','Summer','Summer-Fall','Fall') DEFAULT NULL,
+  `flower_time` varchar(100) DEFAULT NULL,
   `flower_time_length` varchar(11) DEFAULT NULL COMMENT 'long, short, blank',
   `fruit_seedhead_attractive` varchar(4) DEFAULT NULL COMMENT 'yes or blank',
   `fragrance` varchar(45) DEFAULT NULL,
@@ -530,7 +627,7 @@ CREATE TABLE IF NOT EXISTS `plant_data` (
 --
 
 INSERT INTO `plant_data` (`id`, `family`, `family_common_name`, `genus`, `cross_genus`, `specific_epithet`, `infraspecific_epithet_designator`, `infraspecific_epithet`, `cross_species`, `cultivar`, `trade_name`, `registered`, `trademark`, `plant_patent_number`, `plant_patent_number_applied_for`, `plant_breeders_rights`, `plantname_group`, `plant_origin`, `native_to_gpp_region`, `plant_type`, `foliage_type`, `growth_habit`, `growth_rate`, `foliage_texture`, `foliage_notes`, `flower_showy`, `flower_time`, `flower_time_length`, `fruit_seedhead_attractive`, `fragrance`, `seasonal_interest`, `bark_interest`, `plant_width_at_10`, `plant_height_at_10`, `plant_width_max`, `plant_height_max`, `zone_low`, `zone_high`, `growing_notes`, `culture_notes`, `qualities`, `plant_combinations`, `nominator`, `nominated_for_year`, `committee`, `advisory_group`, `eval_trial`, `gpp_references`, `status`, `evaluation_available`, `gpp_history`, `gpp_year`, `theme`, `programmed_search`, `geek_notes`, `publish`, `sort`) VALUES
-(1, '', '', 'Abelia', '', 'grandiflora', '', '', '', 'Kaleidoscope', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'From Wayside Gardens website:The Best for Color, Bloomtime, and Winter Strength Bred for color stability and compact habit. Plant Patent 16,988.This new Glossy Abelia is such an improvement over older varieties! It was bred for color stability and compact habit, and these it has in trumps -- the variegation is true all season long and beautifully defined, while the plant itself remains small (2 to 3 feet tall and slightly wider), well-branched, and nicely leafed out. But it''s also the longest-blooming Abelia by far, and its winter leaf retention is first-rate. The leaves emerge along bright red stems, each with a lime-green center and bright yellow edges. As spring turns to summer, the yellow matures to golden, but it''s still clearly demarcated from the green. This is one variegated Abelia that absolutely won''t scorch or burn, even in the hottest weather! And as if this weren''t color enough, by late spring the entire shrub is covered with soft pink buds, which open to white blooms. These flowers persist well into autumn, even remaining as the foliage begins turning bright shades of golden, orange, and red. This is a magnificent effect, and really makes ''Kaleidoscope'' stand out. And even in winter, ''Kaleidoscope'' continues its show, sporting excellent leaf retention. A sport of A. ''Little Richard,'' ''Kaleidoscope'' was selected in 1997 by Randy Lindsey of North Carolina. After years of trialing, it was released in 2006. It thrives in full sun to part shade and in any well-drained soil, including sandy coastal types (it is not bothered by salt spray). Excellent for bed or border, it''s also ideal in containers, where its parade of colors can be enjoyed up close. Zones 6-10.', '', 'B. Rutherford', '2010', 'Shrubs - Vines', '', '', '', 'Evaluate', '', '03/09-07/09 more garden experience needed. 03/10 - too new, committee trial', '', '', '', '', 'No', ''),
+(1, '', '', 'Abelia', '', 'grandiflora', '', '', '', 'Kaleidoscope', '', '', '', '', '', '', '', '', '', 'none', 'none', '', '', '', '', '', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', 'From Wayside Gardens website:The Best for Color, Bloomtime, and Winter Strength Bred for color stability and compact habit. Plant Patent 16,988.This new Glossy Abelia is such an improvement over older varieties! It was bred for color stability and compact habit, and these it has in trumps -- the variegation is true all season long and beautifully defined, while the plant itself remains small (2 to 3 feet tall and slightly wider), well-branched, and nicely leafed out. But it''s also the longest-blooming Abelia by far, and its winter leaf retention is first-rate. The leaves emerge along bright red stems, each with a lime-green center and bright yellow edges. As spring turns to summer, the yellow matures to golden, but it''s still clearly demarcated from the green. This is one variegated Abelia that absolutely won''t scorch or burn, even in the hottest weather! And as if this weren''t color enough, by late spring the entire shrub is covered with soft pink buds, which open to white blooms. These flowers persist well into autumn, even remaining as the foliage begins turning bright shades of golden, orange, and red. This is a magnificent effect, and really makes ''Kaleidoscope'' stand out. And even in winter, ''Kaleidoscope'' continues its show, sporting excellent leaf retention. A sport of A. ''Little Richard,'' ''Kaleidoscope'' was selected in 1997 by Randy Lindsey of North Carolina. After years of trialing, it was released in 2006. It thrives in full sun to part shade and in any well-drained soil, including sandy coastal types (it is not bothered by salt spray). Excellent for bed or border, it''s also ideal in containers, where its parade of colors can be enjoyed up close. Zones 6-10.', '', 'B. Rutherford', '2010', 'Shrubs - Vines', '', '', '', 'Evaluate', '', '03/09-07/09 more garden experience needed. 03/10 - too new, committee trial', '', '', '', '', 'No', ''),
 (2, '', '', 'Abelia', '', 'grandiflora', '', '', '', 'Mardi Gras', '', '', '', '', '', '', '', '', '', '', 'Semi-Evergreen', '', '', '', '', '', 'Summer', '', '', 'yes', '', '', '', '', '6', '5', '6', '9', 'This semi-evergreen compact shrub will eventually grow to about four to five feet tall and five to six feet wide at maturity.  With light pruning in late spring, it can be easily kept lower. Its small variegated foliage creates a fine, but bright textured mound in the landscape. ', 'Abelia x grandiflora ''Mardi Gras'' grows best in a best in a humus-rich, fertile, well drained soil.  Plant it in full to partial sun, and although the variegation will not burn in full sun, it is better to keep this plant out of very hot locations.  Regular watering encourages a full and lush shrub.  Once established, it will tolerate short periods of drought.  Little pruning is necessary other than the occasional removal of the oldest twiggy growth. ', 'A festival of color splashes across the foliage of this compact semi-evergreen shrub. In spring, the new growth is tipped in bright pink which softens to a sparkling mound of creamy white and green leaves.   In early summer, lightly fragrant shell pink flowers appear, these flowers dot the shrub extending its bloomtime from summer until early fall. Unlike many of the other variegated abelias, ''Mardi Gras'' is a strong grower and is not prone to losing its variegation over time.  Use it as an accent shrub to add a touch of unusual color to the landscape. Its fine foliage will set off the garden''s bolder leaved plants. Add it to perennial plantings to provide structure and background, or use it in container plantings.  Try combining it with the blues and purples of plants like Geranium ''Brookside'' or Aster x frikartii. ''Mardi Gras'' foliage creates a lovely contrast to the bold leaves of hellebores and rhododendrons, and its pink new growth is enhanced by planting with Nandina or Astrantia.', '', '', '2009', 'Shrubs - Vines', '', '', 'not in AtoZ or Locator -lt', 'GPP', '', '03/08 picked for 2009', '2009', 'FOLIAGE', '', '', 'Yes', ''),
 (3, '', '', 'Abelia', '', 'grandiflora', '', '', '', 'Sunrise', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Rutherford', '2004', 'Shrubs - Vines', '', '', '', 'Eliminated', '', 'habit poor', '', '', '', '', 'No', ''),
 (4, '', '', 'Abelia', '', '', '', '', '', 'Edward Goucher', '', '', '', '', '', '', '', '', '7 to 9', '', 'Semi-Evergreen', '', '', 'shiny', 'attractive', '', 'Summer', 'long', '', '', '', '', '', '', '', '', '7', '9', 'Abelia ''Edward Goucher'' reaches 5 feet high and 6 feet wide.  Ideally, it should be planted where it has room to send up its long, arching, flower-bearing shoots unimpeded.', 'Plant ''Edward Goucher'' in full sun or part shade, with protection from cold winds, especially in zone 7. It also thrives trained against a sunny wall. Plants prefer well-drained soil and are drought tolerant once established. This shrub''s awkward growth habit can be easily aggravated by random pruning. Ideally, it should be planted where it has room to send up its long, arching, flower-bearing shoots unimpeded. If pruning is required, remove shoots at their bases in late spring. Alternatively, it can be grown as a hedge to 5 feet high and 3 feet wide. Set plants 3 feet on center and remove the tips of long shoots to encourage them to branch. Once established, prune a hedge of ''Edward Goucher'' annually in spring.   ', 'This semi-evergreen shrub is noted for its glossy foliage and long bloomtime. While the tubular, one-inch-long, soft pink flowers are not produced in huge quantities at any one time, bloomtime extends from summer into autumn - with scattered flowers as late as December in the milder parts of the coastal Pacific Northwest. Glossy abelia''s small, glossy leaves emerge with a red tinge and mature to dark green. Its fine texture and late bloom season make it a good companion for shrubs such as Cotinus coggygria ''Royal Purple'', Fothergilla ''Mount Airy'', Nandina domestica ''Gulf Stream'' or any of the sun-tolerant rhododendrons, such as ''Mrs. Furnivall'' or ''Trail Blazer''. In bloom it attracts bees, butterflies and hummingbirds.', '', 'Rutherford', '2006', 'Shrubs - Vines', '', '', 'Grant, Hillier, A-Z, English Reader''s Digest Encyc', 'GPP', '', '10/10 added ', '2006', '', '', 'Edward Goucher'' is a hybrid between the Chinese species Abelia schumannii and A. x grandiflora. It was raised at the USDA station at Glenn Dale, MD, in 1911. ', 'Yes', ''),
@@ -548,7 +645,7 @@ INSERT INTO `plant_data` (`id`, `family`, `family_common_name`, `genus`, `cross_
 (16, '', '', 'Abies', '', 'numidica', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '6', '8', '', '', 'This does well at UBC and the Hoyt Arboretum (according to my notes, anyway!) Cj', '', 'Committee', '2008', 'Trees - Conifers', '', '', '', 'Nominated', '', '? availability', '', '', '', '', 'No', ''),
 (17, '', '', 'Abies', '', 'pinsapo', '', '', '', 'Glauca', '', '', '', '', '', '', '', '', '', '', '', '', 'slow', 'unique', 'attractive', '', '', '', '', '', '', '', '', '15', '30', '60', '6', '9', 'Blue Spanish fir is slow growing and reaches 15 feet in ten years. It eventually matures to over 60 feet tall with a 30-foot spread. It has a conical habit when young, becoming more columnar with age.', 'Abies pinsapo ''Glauca'' performs best in full sun and is drought tolerant once established. It grows well in acidic or alkaline soils. Ensure good drainage and provide some summer water during very dry years. It tolerates heat very well and has few pest and disease problems.', '"Blue Spanish fir has some of the most striking foliage of any conifer.  It is frosty blue and waxy in appearance.  Unlike other firs, its stiff needles are arranged radially around the branchlets, creating an interesting texture.  ""It has fabulous tactile qualities,"" says GPP member Ned Wells.  When buying Abies pinsapo ''Glauca'', buy grafted plants rather than seed-grown to ensure the best color. (Look for the grafting scar at the base of the young tree, or ask the nursery''s buyer to be sure.) Blue Spanish fir''s hue contrasts well with plants having dark green foliage, including our native conifers. It also makes a distinctive focal point in medium- to large-scale settings.  It is more disease resistant than many other blue conifers and is easy to grow.  "', '', '', '', 'Trees - Conifers', '', '', '', 'GPP', '', '', '2004', '', '', '', 'Yes', ''),
 (18, '', '', 'Abies', '', 'pinsapo', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'unique', '', '', '', '', '', '', '', '', '', '', '', '', '6', '7', 'Spanish fir is slow growing and reaches 15 feet in ten years. It eventually matures to over 60 feet tall with a 30-foot spread. It has a conical habit when young, becoming more columnar with age.', 'Abies pinsapo performs best in full sun and is drought tolerant once established. It grows well in acidic or alkaline soils. Ensure good drainage and provide some summer water during very dry years. It tolerates heat very well and has few pest and disease problems.', '"Spanish fir has some of the most striking foliage of any conifer.  It is waxy in appearance and unlike other firs, its stiff needles are arranged radially around the branchlets, creating an interesting texture. ""It has fabulous tactile qualities,"" says GPP member Ned Wells. Spanish fir''s bluish hue contrasts well with plants having dark green foliage, including our native conifers. (To get an even bluer hue, buy the cultivar ''Glauca''.) Abies pinsapo also makes a distinctive focal point in medium- to large-scale settings. It is more disease resistant than many other blue conifers and is easy to grow. Spanish fir is native to southern Spain and northern Morocco."', '', 'Justice, Jones', '2005', 'Trees - Conifers', '', '', '', 'GPP', '', '', '2005', 'FOLIAGE', '', '', 'Yes', ''),
-(19, '', '', 'Abies', '', 'procera', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'die if roots become constricted, not garden adaptable, do ok for about 20 years and then fail', '', 'discussed & eliminated', '', 'Trees - Conifers', '', '', '', 'Eliminated', 'no', 'not garden adaptable in our region', '', '', '', '', 'No', ''),
+(19, '', '', 'Abies', '', 'procera', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Evergreen', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'die if roots become constricted, not garden adaptable, do ok for about 20 years and then fail', '', 'discussed & eliminated', '', 'Trees - Conifers', '', '', '', 'Eliminated', 'no', 'not garden adaptable in our region', '', '', '', '', 'No', ''),
 (20, '', '', 'Acanthus', '', 'caroli-alexandri', '', '', '', '', '', '', '', '', '', '', '', '', '5 to 9', '', '', '', '', 'shiny', '', '', '', '', '', '', '', '', '', '', '', '', '5', '9', 'Bear''s breeches forms a rosette of basal leaves 18 inches tall and 2 feet wide from which arise its 3-foot-tall inflorescences. These are still attractive once they have gone to seed, so there is no need to cut them back until winter. In late summer, the outer leaves of the rosette turn yellow and fade and can then be removed. However, the inner leaves remain fresh and green through all but the snowiest weather, adding cheer to the winter garden.', 'Acanthus caroli-alexandri thrives in full sun or part shade. It is more compact and blooms better with more light. GPP Selection Committee member Lambert Vrijmoed  suggests that you make up your mind where you want bear''s breeches in the garden, plant it once and leave it alone - including not overwatering it. It has deep tap roots that help it survive drought, but by the same token, when the main plant has been relocated they pop up later. ', 'The large, glossy, bright green leaves of Acanthus caroli-alexandri add drama to any setting. This genus is somewhat confused taxonomically, but horticulturally speaking, one fact is certain: It contains some great garden plants, and Acanthus caroli-alexandri is one of the best. Despite the boldness of its leaves, which have deeply cut and pointed margins, it is a compact grower, at home even in a large container. In full sun, bear''s breeches produces equally dramatic, pagoda-like inflorescences, up to three feet tall. These are composed of tiers of hooded flowers. Each flower has a sharp spine, so be careful when handling them. Because bear''s breeches grows well in sun or part shade, you can combine it with a range of other perennials. In shade, consider autumn fern, deer fern, Japanese painted fern, variegated Japanese forest grass and epimediums. In sun, bear''s breeches looks great with Persicaria amplexicaulis ''Rosea'', Phlomis russeliana and purple moor grasses, especially ''Moorflamme'' or ''Heidebraut''.', '', 'Horn', '2002', 'Perennials - Bulbs', '', '', '', 'GPP', '', '', '2006', '', '', '', 'Yes', ''),
 (21, '', '', 'Acanthus', '', 'mollis', '', '', '', 'Hollard''s Gold', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Hammond', '2003', 'Perennials - Bulbs', '', '', '', 'Eliminated', '', 'aggressive', '', '', '', '', 'No', ''),
 (22, '', '', 'Acer', '', 'buergerianum', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Deciduous', '', 'slow', '', '', '', '', '', '', '', 'autumn color ', '', '', '', '', '', '6', '9', 'Trident maple is slow growing, reaching 20 to 25 feet in ten years. It develops a rounded crown and may develop multiple trunks unless trained to a single trunk. It produces low, wide branches. It generally matures at 35 feet high and wide.  ', 'This maple grows fastest in full sun and fertile, humus-rich, well-drained soil. It is drought tolerant once established. Give it plenty of to room to spread so that the wide, lower branches do not need to be removed. ', 'Trident maple is an ideal tree for the small garden. Its dark green leaves turn orange and red in autumn. It is called trident maple due to the shape of its three-lobed, ivy-like leaves. Older branches and trunks develop an attractive patchwork of gray, brown and orange bark. It performs well as a container plant and is a favorite among bonsai enthusiasts.  ', '', 'Hogan', '2001', 'Trees - Conifers', '', '', '', 'GPP', '', '', '2002', '', 'small-tree ', '', 'Yes', ''),
@@ -2287,7 +2384,9 @@ CREATE TABLE IF NOT EXISTS `plant_images` (
 --
 
 INSERT INTO `plant_images` (`plant_id`, `image_id`) VALUES
-(35, 32);
+(35, 32),
+(2, 33),
+(18, 34);
 
 -- --------------------------------------------------------
 
@@ -2426,7 +2525,7 @@ INSERT INTO `soil` (`id`, `soil`) VALUES
 (4, 'humus-rich'),
 (5, 'sandy'),
 (6, 'well-drained'),
-(7, 'any');
+(7, 'any-soil');
 
 -- --------------------------------------------------------
 
@@ -2504,10 +2603,10 @@ CREATE TABLE IF NOT EXISTS `water` (
 INSERT INTO `water` (`id`, `water`) VALUES
 (1, 'bog'),
 (2, 'moist'),
-(3, 'winter-wet summer-dry'),
-(4, 'drought tolerant'),
+(3, 'winter-wet/summer-dry'),
+(4, 'drought-tolerant'),
 (5, 'average'),
-(6, 'any');
+(6, 'any-water');
 
 -- --------------------------------------------------------
 
