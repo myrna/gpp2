@@ -129,19 +129,19 @@ function build_form_control($key, $value) {
             $current = $value ? $value : 'none';
             $options = array('none' => "", 'Bulb' => "Bulb", 'Conifer' => "Conifer", 'Perennial' => "Perennial",
                 'Shrub' => "Shrub", 'Tree' => "Tree", 'Vine' => "Vine", 'Annual' => "Annual");
-            return form_dropdown('plant_type', $options, $current);
+            return form_dropdown('plant_type', $options, $current, "id='$key'");
             break;
          case 'flower_time':
             $current = $value ? $value : 'none';
             $options = array('none' => "", 'Winter' => "Winter", 'Winter-Spring' => "Winter-Spring", 'Spring' => "Spring",
                 'Spring-Summer' => "Spring-Summer", 'Summer' => "Summer", 'Summer-Fall' => "Summer-Fall", 'Fall' => "Fall",
                 'Winter' => "Winter");
-            return form_dropdown('flower_time', $options, $current);
+            return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
         case 'publish':
             $current = $value ? $value : 'No';
             $options = array('No' => "No", 'Yes' => "Yes");
-            return form_dropdown('flower_time', $options, $current);
+            return form_dropdown('flower_time', $options, $current, "id='key'");
             break;
          case 'growing_notes':
              return form_textarea($attributes);
