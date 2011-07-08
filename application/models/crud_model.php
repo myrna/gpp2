@@ -94,7 +94,7 @@ class Crud_model extends CI_Model
 
             foreach ($this->plant_link_tables as $link_name) {
                 if (array_key_exists($link_name, $data)) {
-                    $link_name = $data[$link_name];
+                    $$link_name = $data[$link_name];
                     unset($data[$link_name]);
                 }
             }
@@ -102,8 +102,8 @@ class Crud_model extends CI_Model
             $id = $this->db->insert_id();
 
             foreach ($this->plant_link_tables as $linkname) {
-                if (isset(${$linkname})) {
-                    $this->update_link_table($id, 'plant', $linkname, ${$linkname});
+                if (isset($$linkname)) {
+                    $this->update_link_table($id, 'plant', $linkname, $$linkname);
                 }
             }            
         }
@@ -159,7 +159,6 @@ class Crud_model extends CI_Model
 
     function edit_record($data, $id)
     {
-
         $result = 0;
         if(!empty($data)){
 
