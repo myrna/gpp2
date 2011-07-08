@@ -114,26 +114,31 @@ function field_to_label($field) {
 }
     
 function build_form_control($key, $value) {
+    $attributes = array(
+        'id' => $key,
+        'name' => $key,
+        'value' => $value ? $value : "",
+    );
     switch ($key) {
         case 'foliage_type':
             $current = $value ? $value : 'none';
             $options = array('none' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
-            return form_dropdown('foliage_type', $options, $current);
+            return form_dropdown($key, $options, $current, "id='$key'");
             break;
          case 'growing_notes':
-             return form_textarea($key, $value);
+             return form_textarea($attributes);
              break;        
          case 'culture_notes':
-             return form_textarea($key, $value);
+             return form_textarea($attributes);
              break;
         case 'qualities' :
-            return form_textarea($key, $value);
+            return form_textarea($attributes);
             break;        
         case 'plant_combinations' :
-            return form_textarea($key, $value);
+            return form_textarea($attributes);
             break;
         default:
-            return form_input($key, $value);
+            return form_input($attributes);
             break;
     }
 

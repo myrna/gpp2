@@ -158,7 +158,6 @@ class Crud_model extends CI_Model
 
     function edit_record($data, $id)
     {
-
         $result = 0;
         if(!empty($data)){
 

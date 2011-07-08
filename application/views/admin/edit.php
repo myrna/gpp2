@@ -38,9 +38,7 @@
     <ul>
     <?php foreach ($row as $key => $value) {
         echo "<li>";
-        echo "<span class='labelname'>";
-        echo field_to_label($key);
-        echo "</span>";
+        echo form_label(field_to_label($key), $key);
         echo build_form_control($key, $value);
         //form_input($key, $value);
         echo "</li>";
