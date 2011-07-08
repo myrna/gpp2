@@ -114,6 +114,8 @@ function field_to_label($field) {
 }
     
 function build_form_control($key, $value) {
+    // The options arrays should map to the SETs defined in the plant_data table.
+    // These can be dynamically generated, but it's a hassle...
     $attributes = array(
         'id' => $key,
         'name' => $key,

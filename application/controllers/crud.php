@@ -149,8 +149,6 @@ class Crud extends CI_Controller
         redirect("crud/edit_record/$id",'refresh');
     }
 
-
-
     function delete_record($id = '')
     {
         $this->load->model('crud_model');

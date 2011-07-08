@@ -33,7 +33,7 @@ class Crud_model extends CI_Model
 			'soil',
 			'wildlife'                       
     );
-
+    
     public function update_link_table($id, $primary, $attribute, $values) {
         $link_table_name = "$primary" . "_" . $attribute;
         $attribute_key = $attribute . "_id";
