@@ -27,10 +27,11 @@ class Crud_model extends CI_Model
 			'water',
 			'sun',
 			'flower_color',
-			'design_use',
+                      //  'foliage_color',
+                        'design_use',
 			'pest_resistance',
 			'soil',
-			'wildlife'        
+			'wildlife'                       
     );
 
     public function update_link_table($id, $primary, $attribute, $values) {
@@ -93,7 +94,7 @@ class Crud_model extends CI_Model
 
             foreach ($this->plant_link_tables as $link_name) {
                 if (array_key_exists($link_name, $data)) {
-                    $$link_name = $data[$link_name];
+                    $link_name = $data[$link_name];
                     unset($data[$link_name]);
                 }
             }

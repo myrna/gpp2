@@ -28,7 +28,7 @@ body {
         min-width:1024px;
         }
 div#wrapper {
-	width:1024px; margin:5px auto;
+        width:1024px; margin:5px auto;
         }
 div#banner {
         position:relative;
@@ -47,6 +47,7 @@ div#logo {
     height:300px;
     background: url(../assets/logo-main.png) 0 5px no-repeat;
     text-indent:-9999px;
+    z-index:9999;
     }
 div#logo-sub {
     position:absolute;
@@ -57,6 +58,7 @@ div#logo-sub {
     height:190px;
     background: url(../assets/logo-sub.png) 0 5px no-repeat;
     text-indent:-9999px;
+    z-index:9999;
     }
 
 
@@ -89,9 +91,24 @@ div#navigation {
     background: url(../assets/nav-active.gif) 0 0 no-repeat;
 }
 
+#footer {
+    position:relative;
+    float:left;
+    margin-top:5px;
+    clear:both;
+    display:block;
+    width:1024px;
+    background-color:#63b446;
+    padding:3px 0;
+}
+#footer p {
+    text-align:center;
+    font-size:11px;
+}
 /* container styles */
 
 div#content {
+    position:relative;
     clear:both;
     float:right;
     background-color:#bebe31;
@@ -164,21 +181,48 @@ div#content {
 
 /* add and update record form styling */
 
-form.data-entry {clear:both;}
-.data-entry ul .labelname {display:inline-block; width:200px;}
-.data-entry input {margin-left:20px; display:inline-block;}
+form.data-entry {clear:both; width:850px;}
+.data-entry .labelname {
+    display:inline-block;
+    width:225px;
+    vertical-align:top;
+    padding-top:2px;
+    font-weight:bold;
+}
+
+.data-entry ul li {padding-bottom:5px;}
+.data-entry input {
+    display:inline-block;
+    
+}
 .data-entry checkbox {}
-.data-entry p {font-weight:bold; padding-top:10px;}
-.data-entry label {display:inline-block; width:150px;}
-.formcheck {white-space:nowrap;}
+.data-entry p {clear:both; font-weight:bold; padding-top:10px;}
+.data-entry textarea {width:600px; height:80px;}
+
+/* checkbox styling -- keep checkbox label from wrapping */
+.formcheck {float:left;}
+.formcheck label {margin-right:5px; white-space:nowrap;}
+
+input[type="submit"] {
+    clear:both;
+    float:left;
+}
+input[type="option"] {
+    display:inline-block;
+    width:300px;
+}
 /* searchform styling */
 #searchform {
     position:relative;
     float:left;
-    padding:10px 20px;
+    padding:10px 20px;  
 }
-
-
+#searchform input[type="text"] {
+    display:block;
+    width:300px;
+    height:20px;
+    }
+.clear-search {padding-left:10px;}
 /* pagination styling --------- */
 #pages a, #pages strong {
 	 background: #e3e3e3;
@@ -199,9 +243,9 @@ a#currentpage {color:#000000;}
 table {font-size:12px; line-height:14px;}
 table th {text-align:left;}
 
-table.dblist, table.nursery {margin:10px 0; }
+table.dblist, table.nursery {margin:10px 0;border:none;border-collapse:collapse; border-spacing:0;}
 table.dblist th, table.nursery th {background-color:#bebe31; padding:5px;}
-table.nursery td {padding:5px; white-space:nowrap;}
+table.nursery td {padding:5px; white-space:nowrap; }
 table.dblist td {padding: 5px 20px 5px 5px;}
 table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
 
@@ -264,7 +308,8 @@ h4 {font-size:18px; padding:5px 0;}
 
 /* paragraph styles */
 p {margin-bottom:5px;}
-p.nav {text-align:right;}
+p.nav {clear:both; text-align:right;}
+p.note {clear:both; float:left; font-style:italic;}
 .category p {font-style:italic; font-weight:bold; padding-bottom:10px;}
 
 /* end */

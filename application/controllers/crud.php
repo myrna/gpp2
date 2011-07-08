@@ -98,8 +98,7 @@ class Crud extends CI_Controller
         $this->load->model('gallery_model');
         $this->load->helper('image');
         $this->load->helper('html');
-        $this->load->helper('plant');
-              
+                      
         $data['title'] = "Edit Record: ";
        
         $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
@@ -138,6 +137,10 @@ class Crud extends CI_Controller
         $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
         $data['flower_color']['fields'] = $flower_color['list'];
         $data['flower_color']['requirements'] = $flower_color['current'];
+
+     //  $foliage_color = $this->crud_model->link_table($id, 'foliage_color', 'plant');
+      //  $data['foliage_color']['fields'] = $foliage_color_color['list'];
+     //   $data['foliage_color']['requirements'] = $foliage_color['current'];
 
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use']['fields'] = $design_use['list'];

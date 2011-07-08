@@ -53,8 +53,9 @@
       echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a> 
 </div>
         <div id="contents"><?php echo $contents ?></div>
-        <div id="footer"></div>
-        </div><!-- end wrapper -->
+         
+        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div>
+       </div><!-- end wrapper -->
     </body>
 
 
