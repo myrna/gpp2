@@ -174,7 +174,7 @@ function perennials_by_name() {
 
      if ($perennials_by_name['query2']->num_rows() > 0)
      {
-         $data = $this->build_perennials_table($trees_by_name['query2']->result_array(), "Sorted by Botanical Name");
+         $data = $this->build_perennials_table($perennials_by_name['query2']->result_array(), "Sorted by Botanical Name");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
          $this->template->load('template','reports/perennials', $data);
