@@ -38,17 +38,18 @@
     <ul>
     <?php foreach ($row as $key => $value) {
         echo "<li>";
+        echo "<span class='labelname'>";
         echo form_label(field_to_label($key), $key);
+        echo "</span>";
         echo build_form_control($key, $value);
-        //form_input($key, $value);
         echo "</li>";
-        
+        //form_input($key, $value);        
     } ?>
-    
+     </ul>
     
     <?php
         foreach ($plant_attributes as $row => $values) {
-            echo "<li><p>" . field_to_label($row) . ":</p>";
+            echo "<p>" . field_to_label($row) . ":</p>";
             foreach ($values['fields'] as $options) {
                 $html_id = "$row-" . $options['id'];
                 $data = array(
@@ -63,9 +64,9 @@
                 echo "</span>";
             };
         }
-        echo "</li>";
+        
     ?>
-    </ul>
+   
     <?php echo form_submit('edit','Edit Record'); ?>
     <?php
     }

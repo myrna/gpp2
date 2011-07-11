@@ -192,8 +192,7 @@ form.data-entry {clear:both; width:850px;}
 
 .data-entry ul li {padding-bottom:5px;}
 .data-entry input {
-    display:inline-block;
-    
+    display:inline-block; 
 }
 .data-entry checkbox {}
 .data-entry p {clear:both; font-weight:bold; padding-top:10px;}
@@ -203,6 +202,9 @@ form.data-entry {clear:both; width:850px;}
 .formcheck {float:left;}
 .formcheck label {margin-right:5px; white-space:nowrap;}
 
+input[type="text"] {
+    display:inline-block;
+}
 input[type="submit"] {
     clear:both;
     float:left;

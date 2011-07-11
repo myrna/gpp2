@@ -140,10 +140,31 @@ function build_form_control($key, $value) {
                 'Winter' => "Winter");
             return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
+        case 'committee':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Perennials - Bulbs' => "Perennials - Bulbs",
+                'Shrubs - Vines' => "Shrubs - Vines", 'Trees - Conifers' => "Trees - Conifers");
+            return form_dropdown('flower_time', $options, $current, "id='$key'");
+            break;
+        case 'fruit_seedhead_attractive':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Yes' => "Yes");
+            return form_dropdown('fruit_seedhead_attractive', $options, $current, "id='$key'");
+            break;
+        case 'bark_interest':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Yes' => "Yes");
+            return form_dropdown('bark_interest', $options, $current, "id='$key'");
+            break;
+        case 'flower_showy':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Yes' => "Yes");
+            return form_dropdown('flower_showy', $options, $current, "id='$key'");
+            break;
         case 'publish':
             $current = $value ? $value : 'No';
             $options = array('No' => "No", 'Yes' => "Yes");
-            return form_dropdown('flower_time', $options, $current, "id='key'");
+            return form_dropdown('publish', $options, $current, "id='key'");
             break;
          case 'growing_notes':
              return form_textarea($attributes);
@@ -155,6 +176,12 @@ function build_form_control($key, $value) {
             return form_textarea($attributes);
             break;        
         case 'plant_combinations' :
+            return form_textarea($attributes);
+            break;
+        case 'gpp_references' :
+            return form_textarea($attributes);
+            break;
+        case 'gpp_history' :
             return form_textarea($attributes);
             break;
         default:
