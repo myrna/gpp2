@@ -103,7 +103,7 @@ class Listplants extends CI_Controller {
 
             $this->template->set('thispage','View Records');
             $this->template->set('title','Search Records - Database Administration | Great Plant Picks');
-            $this->template->load('template','listplants', $data);
+            $this->template->load('admin_template','listplants', $data);
     }
 
  }

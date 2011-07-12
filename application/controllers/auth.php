@@ -30,14 +30,16 @@ class Auth extends Controller {
 		if (!$this->ion_auth->logged_in())
 		{
 			//redirect them to the login page
-			redirect('auth/login', 'refresh');
+			$this->template->set('thispage','Database Administration');
+                        $this->template->set('title','Database Administration | Great Plant Picks');
+                        $this->template->load('admin_template','admin',$data);
 		}
 		elseif (!$this->ion_auth->is_admin())
 		{
 			//redirect them to the home page because they must be an administrator to view this
 			redirect($this->config->item('base_url'), 'refresh');
 		}
-              
+                
 		else
 		{
 			//set the flash data error message if there is one
@@ -67,7 +69,7 @@ class Auth extends Controller {
 			{ //if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect($this->config->item('base_url'), 'refresh');
+				redirect('admin', 'refresh');
 			}
 			else
 			{ //if the login was un-successful
@@ -91,7 +93,7 @@ class Auth extends Controller {
 				'type' => 'password',
 			);
 
-			$this->load->view('auth/login', $this->data);
+			$this->template->load('admin_template','auth/login', $this->data);
 		}
 	}
 
@@ -104,7 +106,7 @@ class Auth extends Controller {
 		$logout = $this->ion_auth->logout();
 
 		//redirect them back to the page they came from
-		redirect('home', 'refresh');
+		redirect('/', 'refresh');
 	}
 
 	//change password

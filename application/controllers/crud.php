@@ -8,7 +8,6 @@
 * @package		Great Plant Picks
 * @subpackage	Controllers
 * @category		Controllers
-* @author		mlo
 */
 
 class Crud extends CI_Controller
@@ -30,7 +29,7 @@ class Crud extends CI_Controller
 
         $this->template->set('thispage','Add New Record');
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/new', $data);
+        $this->template->load('admin_template','admin/new', $data);
          }
          
     function add() {
@@ -64,7 +63,7 @@ class Crud extends CI_Controller
 
         $this->template->set('thispage','View Single Record');
         $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/view', $data);
+        $this->template->load('admin_template','admin/view', $data);
 
     }
 
@@ -86,7 +85,7 @@ class Crud extends CI_Controller
         $data['row'] = $row[0];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
-        $this->template->load('template','admin/edit', $data);
+        $this->template->load('admin_template','admin/edit', $data);
     }
 
     function get_plant_link_data($id) {

@@ -154,6 +154,49 @@ div#content {
 		}
 
 /* form styling */
+ /* login form styling */
+
+ #login_form {
+        width: 300px;
+	background-color: #bebe32;
+	border: 1px solid #378b36;
+	margin: 20px auto 0;
+	padding: 1em 1em 7em 1em;
+        border-radius: 3px;
+	-moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+}
+#login_form input[type=text], #login_form input[type=password] {
+	display: block;
+        margin: 0 0 1em 0;
+	width: 280px;
+	border: 5px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	padding: 1em;
+}
+
+#login_form input[type=submit], #login_form form a {
+	border: none;
+        clear:both;
+	margin: 1em 1em 1em 0;
+	padding: 6px;
+	text-decoration: none;
+	font-size: 12px;
+	-moz-border-radius: 4px;
+	background: #348075;
+	color: white;
+	box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0 1px 0 #378b36;
+	-webkit-box-shadow: 0 1px 0 #378b36;
+}
+
+#login_form input[type=submit]:hover, #login_form form a:hover {
+	background: #378b36;
+	cursor: pointer;
+}
+
+/* image gallery upload form */
 #imageform form {float:left; clear:both; width:500px;}
 #imageform label {display:block; margin: 3px 0; font-weight:bold;}
 #imageform textarea, #imageform input {
@@ -204,6 +247,7 @@ form.data-entry {clear:both; width:850px;}
 
 input[type="text"] {
     display:inline-block;
+    width:300px;
 }
 input[type="submit"] {
     clear:both;
@@ -224,6 +268,9 @@ input[type="option"] {
     width:300px;
     height:20px;
     }
+
+
+
 .clear-search {padding-left:10px;}
 /* pagination styling --------- */
 #pages a, #pages strong {
@@ -306,6 +353,7 @@ h1 {font-size:28px; margin-bottom:10px;}
 h2 {font-size:22px;}
 h3 {font-size:18px;}
 #upload h3 {padding:15px 0 5px;}
+#login_form h2 {padding:5px 0 10px 0;}
 h4 {font-size:18px; padding:5px 0;}
 
 /* paragraph styles */

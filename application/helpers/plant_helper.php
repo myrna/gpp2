@@ -122,7 +122,7 @@ function build_form_control($key, $value) {
         'value' => $value ? $value : "",
     );
     switch ($key) {
-        case 'foliage_type':
+            case 'foliage_type':
             $current = $value ? $value : 'none';
             $options = array('none' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
             return form_dropdown($key, $options, $current, "id='$key'");

@@ -20,13 +20,25 @@ class Admin extends CI_Controller
 	* @access public
 	* @return void
 	*/
-	public function index()
-	{
-            $this->template->set('thispage','Database Administration');
-            $this->template->set('title','Database Administration | Great Plant Picks');
-            $this->template->load('template','admin');
-	}
 
+        
+	function index()
+	{
+          //  if (!$this->ion_auth->logged_in())
+	//	{
+	//		redirect('auth/login');
+	//	}
+         //  else {
+          //     $data = array(
+          //      'logged_in' => $this->ion_auth->logged_in()
+          //      );
+  		
+                 $this->template->set('thispage','Database Administration');
+                 $this->template->set('title','Database Administration | Great Plant Picks');
+                 $this->template->load('admin_template','admin',$data);
+          // }
+        }
+         
 }
 
 /* End of file some.php */

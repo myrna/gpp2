@@ -1,42 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" href="css/gppstyles.css">
-	<title></title>
-</head>
-<body>
-    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a> | <a href="/auth/create_user/">Register</a>
-<div class='mainInfo'>
-
-    <h2>Login</h2>
-    <div class="pageTitleBorder"></div>
-	<p>Please login with your email address and password below.</p>
+<div id="content" class="admin">
+<div id="login_form">
+    <h2>Administrative Login</h2>
+    
+	<p>Please log in with your email address and password below.</p>
 	
 	<div id="infoMessage"><?php echo $message;?></div>
 	
-    <?php echo form_open("auth/login");?>
+    <?php echo form_open("auth/login");
     	
-      <p>
-      	<label for="email">Email:</label>
-      	<?php echo form_input($email);?>
-      </p>
-      
-      <p>
-      	<label for="password">Password:</label>
-      	<?php echo form_input($password);?>
-      </p>
-      
-      <p>
-	      <label for="remember">Remember Me:</label>
-	      <?php echo form_checkbox('remember', '1', FALSE);?>
-	  </p>
-      
-      
-      <p><?php echo form_submit('submit', 'Login');?></p>
+    echo form_label('Name:', 'username', array('class' => 'strong'));
+    echo form_input(array('name' => 'username', 'tabindex' => '2', 'id' => 'Username', 'title' => 'Please enter your Username'), 'Username', 'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Username\':this.value;"');
+    echo '</p><p>';
+    echo form_label('Password:', 'password', array('class' => 'strong'));
+    echo form_password(array('name' => 'password', 'tabindex' => '2', 'id' => 'Password', 'title' => 'Please enter your Password'), 'Password', 'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Password\':this.value;"');
+    echo '</p>';
+     echo "<span class='formcheck'>"; ?>
+     <label for="remember">Remember Me:</label>
+     <?php echo form_checkbox('remember', '1', TRUE);
+        echo "</span>";
+    echo form_submit('submit', 'Login');
+    echo form_close();   ?>
 
-          <?php echo form_close();?>
-      <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>
-
-</div>
-<?php $this->load->view('includes/footer'); ?>
+      <p class="note"><a href="/auth/forgot_password">Reset Password</a></p>
+</div><!-- end form -->
+</div><!-- end content -->

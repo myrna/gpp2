@@ -42,7 +42,7 @@ class Reports extends CI_Controller
          $data = $this->build_shrubs_table($shrubs_status['query']->result_array(), "Sorted by Status");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/shrubs', $data);
+         $this->template->load('admin_template','reports/shrubs', $data);
      }
  }
 function shrubs_by_name() {
@@ -61,7 +61,7 @@ function shrubs_by_name() {
          $data = $this->build_shrubs_table($shrubs_by_name['query2']->result_array(), "Sorted by Botanical Name");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/shrubs', $data);
+         $this->template->load('admin_template','reports/shrubs', $data);
      }
 }
 
@@ -100,7 +100,7 @@ function trees_status()
          $data = $this->build_trees_table($trees_status['query']->result_array(), "Sorted by Status");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/trees', $data);
+         $this->template->load('admin_template','reports/trees', $data);
      }
  }
 function trees_by_name() {
@@ -119,7 +119,7 @@ function trees_by_name() {
          $data = $this->build_trees_table($trees_by_name['query2']->result_array(), "Sorted by Botanical Name");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/trees', $data);
+         $this->template->load('admin_template','reports/trees', $data);
      }
 }
 
@@ -158,7 +158,7 @@ function perennials_status()
          $data = $this->build_perennials_table($perennials_status['query']->result_array(), "Sorted by Status");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/perennials', $data);
+         $this->template->load('admin_template','reports/perennials', $data);
      }
  }
 function perennials_by_name() {
@@ -177,7 +177,7 @@ function perennials_by_name() {
          $data = $this->build_perennials_table($perennials_by_name['query2']->result_array(), "Sorted by Botanical Name");
          $this->template->set('thispage','Committee Reports');
          $this->template->set('title','Committee Reports | Great Plant Picks');
-         $this->template->load('template','reports/perennials', $data);
+         $this->template->load('admin_template','reports/perennials', $data);
      }
 }
 
