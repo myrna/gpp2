@@ -676,6 +676,7 @@ CREATE TABLE IF NOT EXISTS `plant_data` (
   `geek_notes` text COMMENT 'Plant geek notes of detailed botanical interest',
   `publish` enum('Yes','No') DEFAULT NULL,
   `sort` varchar(150) DEFAULT NULL COMMENT 'Field for administrative use to create custom lists',
+  `synonym_of` int(22) DEFAULT NULL COMMENT 'Used for synonym entries, and points to master record',
   PRIMARY KEY (`id`),
   UNIQUE KEY `PlantId_UNIQUE` (`id`),
   KEY `genus` (`genus`(255))
