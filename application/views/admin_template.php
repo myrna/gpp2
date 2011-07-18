@@ -4,30 +4,34 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
         <title><?php echo $title ?></title>
         <base href="<?php echo base_url();?>">
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
         <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $(function() {
-                    $( "#autocomplete" ).autocomplete({
-                        source: function(request, response) {
-                            $.ajax({ url: "<?php echo site_url('autocomplete/suggestions'); ?>",
-                            data: { term: $("#autocomplete").val()},
-                            dataType: "json",
-                            type: "POST",
-                            success: function(data){
-                                response(data);
-                            }
-                        });
-                            },
-                           minLength: 2
-                        });
+            $(".get_names").autocomplete({
+            minLength: 2,
+            source: function(req, add){
+                $.ajax({
+                    url: '<?php echo site_url('listplants/get_names');?>',
+                    dataType: 'json',
+                    type: 'POST',
+                    data: req,
+                    success: function(data){
+                        if(data.response =='true'){
+                           add(data.message);
+                        }
+                    }
                 });
-            });
+            },
+             select: function(event, ui){
+              log(ui.item ? ("Selected: " + ui.item.value + " aka " + ui.item.id) : "Nothing selected, input was " + this.value);
+              }
+        });
         </script>
 </head>
     <body>
+        <div id="topbar"></div>
         <div id="wrapper">
             <div id="banner">
                 <?php

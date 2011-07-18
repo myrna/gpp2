@@ -30,7 +30,7 @@ class Nursery_list extends CI_Controller
     //$this->output->enable_profiler(TRUE);
      $this->load->library('table');
      $tmpl = array (
-                    'table_open'          => '<table border="0" cellpadding="4" cellspacing="0" class="nursery">',
+                    'table_open'          => '<table class="nursery">',
                     'heading_row_start'   => '<tr>',
                     'heading_row_end'     => '</tr>',
                     'heading_cell_start'  => '<th>',

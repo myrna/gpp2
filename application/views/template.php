@@ -28,6 +28,7 @@
         </script>
 </head>
     <body>
+        <div id="topbar"></div>
         <div id="wrapper">
             <div id="banner">
                 <?php

@@ -7,10 +7,11 @@
 
     echo $this->session->flashdata('status');
     $attributes = array('id' => 'searchform');
-    echo "<p>".form_open('listplants/search', $attributes);
-    echo form_input('searchterms', $searchterms); ?>
+    echo "<p class='ui-widget'>".form_open('listplants/search', $attributes); ?>
+    <input id="get_names" type="text" name="searchterms" >
+    <!--echo form_input('searchterms', $searchterms); ?>-->
     <input type="submit" value="Search">
-   
+    
     <?php
     echo "<span class='clear-search'>".anchor('/listplants', "Clear Search")."</span>";
     echo "<p class='note'>*Search by plant name, or to list plants by status, enter gpp, evaluated, nominated, or eliminated into search box.</p>";

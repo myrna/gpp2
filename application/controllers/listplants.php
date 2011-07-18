@@ -34,13 +34,36 @@ class Listplants extends CI_Controller {
         }        
     }
 
+    function get_names() {
+                $names = false;
+		if($_GET['term']){
+			$names = $this->db->select('genus')->from('plant_data')->where_like('genus', $_GET['term']);
+		}
+		echo json_encode($names);
+        }
+
+    
     function search($page = 0) {
+
         if ($this->input->post('searchterms')) {
             $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
         }
         
         $query = $this->session->userdata('plant_search');
-        
+       //following is for autocomplete function
+       
+    //  $keyword = $this->input->post('term');
+     // $data['response'] = 'false';
+    //  $query = $this->listplants_model->search($keyword);
+   //   if($query->num_rows() > 0) {
+   //       $data['response'] = 'true';
+    //      $data['message'] = array();
+    //      foreach($query->$result as $row) {
+    //          $data['message'][] = array('label'=> $row->name, 'value'=> $row->name);
+    //      }
+    //  }
+   //   echo json_encode($data);
+       // end autocomplete coding
         $this->load->model('listplants_model');
         $this->setup_search_query($this->session->userdata('plant_search'));
         $total = $this->db->count_all_results('plant_data');
