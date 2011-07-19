@@ -181,7 +181,7 @@ class Crud_model extends CI_Model
 
     function delete_record($id)
     {
-        $return = 0;
+        $return = 0;   // result?
         if(!empty($id))
         {
             $this->db->where('id', $id);

@@ -54,8 +54,8 @@
       echo " id=\"currentpage\""; ?> href="/nursery_list/">Nurseries</a> 
      <a <?php if ($thispage=="Database Administration")
       echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a>
-            <?php if ($logged_in) :?>
-            <a href="/auth/logout/">Logout</a>
+          <?php if ($logged_in) :?>
+           <a href="/auth/logout/">Logout</a>
             <?php else :  ?>
             <a href="/auth/login/">Login</a>
             <?php endif ?>

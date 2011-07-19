@@ -15,5 +15,9 @@
         <li><a href="/reports/perennials_status/">Perennials and Bulbs sorted by status</a></li>
         <li><a href="/reports/perennials_by_name/">Perennials and Bulbs sorted by botanical name</a></li>
     </ul>
-
+<h4>Nursery Directory</h4>
+<ul>
+    <li><a href="/nurseries/view/">View and Edit Nursery List</a></li>
+     <li><a href="/nurseries/add_new/">Add New Nursery</a></li>
+</ul>
 </div><!-- end content -->
