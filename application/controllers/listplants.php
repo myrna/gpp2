@@ -77,8 +77,7 @@ class Listplants extends CI_Controller {
          // Enable Profiler.
          // $this->output->enable_profiler(TRUE);
             $this->load->library('table');
-            $this->load->helper('plant');
-		
+           		
             $tmpl = array (
                     'table_open'          => '<table class="dblist">',
                     'heading_row_start'   => '<tr>',

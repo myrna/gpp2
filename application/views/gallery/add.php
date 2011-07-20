@@ -22,7 +22,7 @@
     echo form_submit('delete', "Delete");
     echo form_close();
     echo image_thumb_link($image['filename']);
-	foreach ($image['categories'] as $category) {
+	foreach ($image['categories'] as $category) {   
 		echo "<div class='category'>" . $category . "</div>";
 	}
      ?>
@@ -61,7 +61,7 @@ if (isset($plant_id)) {
 ?>
 <h3>Categories</h3>
 <?php
-foreach ($category_fields as $row) { 
+foreach ($category_fields as $row) {
        $category_data = array(
             'name' => "category[]", 
             'id' => $row->category, 

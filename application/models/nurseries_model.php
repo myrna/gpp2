@@ -37,15 +37,37 @@ class Nurseries_model extends CI_Model
 		$this->db->insert('nursery_directory', $data);
 		return;
 	}
-    function delete_nursery($id)
+    function get_nursery($id)
     {
-       // $result = 0;
-        //if(!empty($id))
+       
+        if(!empty($id))
+        {
+            //use the where function to add a filter to our query, this time the id, with the $id value
+
+            $query = $this->db->where('id', $id);
+
+            //and then execute the query
+            $query = $this->db->get('nursery_directory');
+        }
+        if ($query->num_rows() > 0) {  // Fatal error: Call to a member function num_rows() on a non-object in C:\vhosts\gpptest\application\models\nurseries_model.php on line 52
+            return $row = $query->row();
+        }
+        else
+        {
+            $row = FALSE;
+        }
+        return $row;
+    }
+
+    function delete_nursery($id = '')
+    {
+        $result = 0;
+        if(!empty($id))
         {
             $this->db->where('id', $id);
             $this->db->delete('nursery_directory');
         }
-        //return $result;
+        return $result;
     }
 }
 

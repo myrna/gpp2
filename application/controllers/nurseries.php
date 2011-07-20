@@ -41,7 +41,7 @@ class Nurseries extends CI_Controller
          {
              
              $table[] = array($row->id,$row->nursery_name,$row->location,
-             anchor('nurseries/edit/'.$id, 'Edit/View'),
+             anchor('nurseries/edit_nursery/',$row->id, 'Edit/View'),
                         anchor('nurseries/delete/'.$id, 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete this record?\');')));
 
@@ -80,22 +80,30 @@ class Nurseries extends CI_Controller
             'publish' => $this->input->post('publish'),
         );
         $this->nurseries_model->add_nursery($data);
-       //  if($id)
-       // {
-       //     $this->session->set_flashdata('status', "Record Added: $id");
-      //  }
-       // else
-       // {
-       //     $this->session->set_flashdata('status', 'Record Addition Unsuccessful, Please Try Again');
-       // }
+        
         redirect("nurseries/add_new",'refresh');
        
     }
-        function delete($id = '')
+        function edit_nursery($id = '')
+    {
+        $this->output->enable_profiler(TRUE);
+        $this->load->model('nurseries_model');
+        $nursery = $this->nurseries_model->get_nursery($id);
+        $data['row'] = $nursery;
+        $this->template->set('thispage','Edit Nursery Record');
+        $this->template->set('title','Edit Nursery Record | Great Plant Picks');
+        $this->template->load('admin_template','nurseries/edit', $data);
+    }
+        function edit()
+        {
+            $this->load->model('nurseries_model');
+        }
+
+        function delete($id)
     {
         $this->load->model('nurseries_model');
-        $nurseries = $this->nurseries_model->delete_nursery($id);
-        if($nurseries)
+        $this->nurseries_model->delete_nursery($id);
+        if($id)
         {
             $this->session->set_flashdata('status', 'Record Has Been Deleted');
         }

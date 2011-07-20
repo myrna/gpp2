@@ -24,7 +24,7 @@ class Gallery extends CI_Controller {
     }
 
     function upload_image($id = ''){
-	    //$this->output->enable_profiler(TRUE);
+	    $this->output->enable_profiler(TRUE);
     
         $this->load->model('Crud_model');
         $this->load->model('Gallery_model');
