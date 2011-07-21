@@ -2,7 +2,7 @@
 
 /**
  * listplants.php
- *
+ *ADMIN ONLY
  * Show plant lists in sortable table, search for plants to display in table
  *
  * @package		Great Plant Picks
