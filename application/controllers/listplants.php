@@ -75,7 +75,7 @@ class Listplants extends CI_Controller {
     
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
-         // $this->output->enable_profiler(TRUE);
+         $this->output->enable_profiler(TRUE);
             $this->load->library('table');
            		
             $tmpl = array (
@@ -96,6 +96,7 @@ class Listplants extends CI_Controller {
                 $table[] = array(
                     'ID',
                     'Plant Name',
+                    'Status',
                     'Edit/View',
                     'Images',
                     'Delete'
@@ -103,9 +104,11 @@ class Listplants extends CI_Controller {
                 foreach ($records->result_array() as $row)
                 {
                     $id = $row['id'];
+                    $status = $row['status'];
                     $table[] = array(
                         $id,
                         display_full_botanical_name($row),
+                        $status,
                         anchor('crud/edit_record/'.$id, 'Edit/View'),
                         anchor('gallery/upload_image/'.$id, 'Images'),
                         anchor('crud/delete_record/'.$id, 'Delete',

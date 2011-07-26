@@ -8,11 +8,13 @@
 	
     <?php echo form_open("auth/login");
     	
-    echo form_label('Name:', 'username', array('class' => 'strong'));
-    echo form_input(array('name' => 'username', 'tabindex' => '2', 'id' => 'Username', 'title' => 'Please enter your Username'), 'Username', 'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Username\':this.value;"');
+    echo form_label('Email:', 'email', array('class' => 'strong'));
+    echo form_input(array('email' => 'email', 'tabindex' => '2', 'id' => 'email', 'title' => 'Please enter your email address'), 'email',
+            'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'email\':this.value;"');
     echo '</p><p>';
     echo form_label('Password:', 'password', array('class' => 'strong'));
-    echo form_password(array('name' => 'password', 'tabindex' => '2', 'id' => 'Password', 'title' => 'Please enter your Password'), 'Password', 'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Password\':this.value;"');
+    echo form_password(array('name' => 'password', 'tabindex' => '2', 'id' => 'Password', 'title' => 'Please enter your Password'), 'Password',
+            'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Password\':this.value;"');
     echo '</p>';
      echo "<span class='formcheck'>"; ?>
      <label for="remember">Remember Me:</label>

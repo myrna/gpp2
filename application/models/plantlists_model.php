@@ -46,7 +46,7 @@ class Plantlists_model extends CI_Model {
 			$q->like('genus', $query_array['genus']);
 		}
 		if (strlen($query_array['plant_type'])) {
-			$q->where('plant_type', $query_array['plant_typey']);
+			$q->where('plant_type', $query_array['plant_type']);
 		}
 		if (strlen($query_array['plant_height_at_10'])) {
 			$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
@@ -61,5 +61,17 @@ class Plantlists_model extends CI_Model {
 
 		return $ret;
 	}
+        function category_options() {
 
+		$rows = $this->db->select('plant_type')
+			->from('plant_data')
+			->get()->result();
+
+		$category_options = array('' => '');
+		foreach ($rows as $row) {
+			$category_options[$row->name] = $row->name;
+		}
+
+		return $category_options;
+	}
 }

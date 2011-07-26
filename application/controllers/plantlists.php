@@ -13,7 +13,7 @@
 
 class Plantlists extends CI_Controller {
 
-   function display($query_id = 0, $sort_by = 'genus', $sort_order, $offset = 0) {
+   function display($query_id = 0, $offset = 0, $sort_by = 'genus', $sort_order) {
                 $this->output->enable_profiler(TRUE);
                 
                 $limit = 20;
@@ -56,13 +56,25 @@ class Plantlists extends CI_Controller {
 		$data['sort_by'] = $sort_by;
 		$data['sort_order'] = $sort_order;
 
-               
+                $data['category_options'] = $this->plantlists_model->category_options();
 
             $this->template->set('thispage','View Records');
             $this->template->set('title','Search Plants | Great Plant Picks');
             $this->template->load('template','plantlists/view', $data);
     }
 
+ }
+
+ function search()
+ {
+     $query_array = array(
+         'genus' => $this->input->post('title'),
+         'plant_height_at_10' => $this->input->post('plant_height_at_10'),
+         'height_comparison' => $this->input->post('height_comparison')
+         );
+
+     $query_id = $this->input->save_query($query_array);
+     redirect("plantlists/display/$query_id");
  }
 
 /* End of file listplants.php */
