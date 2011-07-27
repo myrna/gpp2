@@ -24,20 +24,20 @@ class Admin extends CI_Controller
         
 	function index()
 	{
-       /*    if (!$this->ion_auth->logged_in())
+       if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');
 		}
           else {
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
-               );*/
+               );
   		
                  $this->template->set('thispage','Database Administration');
                  $this->template->set('title','Database Administration | Great Plant Picks');
                  $this->template->load('admin_template','admin',$data);
            }
-       // }
+      }
          
 }
 

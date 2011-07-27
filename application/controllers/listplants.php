@@ -52,17 +52,21 @@ class Listplants extends CI_Controller {
         $query = $this->session->userdata('plant_search');
        //following is for autocomplete function
        
-    //  $keyword = $this->input->post('term');
-     // $data['response'] = 'false';
-    //  $query = $this->listplants_model->search($keyword);
-   //   if($query->num_rows() > 0) {
-   //       $data['response'] = 'true';
-    //      $data['message'] = array();
-    //      foreach($query->$result as $row) {
-    //          $data['message'][] = array('label'=> $row->name, 'value'=> $row->name);
-    //      }
-    //  }
-   //   echo json_encode($data);
+            $keyword = $this->input->post('searchterms');
+
+            $data['response'] = 'false'; //Set default response
+
+            $q = $this->search_model->sw_search($searchterms); //Model DB search
+
+            if($q->num_rows() > 0){
+               $data['response'] = 'true'; //Set response
+               $data['message'] = array(); //Create array
+               foreach($q->result() as $row){
+               $data['message'][] = array('label'=> $row->genus, 'value'=> $row->genus); //Add a row to array
+               }
+            }
+            echo json_encode($data);
+
        // end autocomplete coding
         $this->load->model('listplants_model');
         $this->setup_search_query($this->session->userdata('plant_search'));
@@ -75,7 +79,15 @@ class Listplants extends CI_Controller {
     
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
-         $this->output->enable_profiler(TRUE);
+         //$this->output->enable_profiler(TRUE);
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
             $this->load->library('table');
            		
             $tmpl = array (
@@ -129,8 +141,8 @@ class Listplants extends CI_Controller {
             $this->template->set('thispage','View Records');
             $this->template->set('title','Search Records - Database Administration | Great Plant Picks');
             $this->template->load('admin_template','listplants', $data);
+     }
     }
-
  }
 
 /* End of file listplants.php */

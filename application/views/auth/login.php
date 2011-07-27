@@ -1,28 +1,33 @@
 <div id="content" class="admin">
 <div id="login_form">
     <h2>Administrative Login</h2>
-    
 	<p>Please log in with your email address and password below.</p>
-	
-	<div id="infoMessage"><?php echo $message;?></div>
-	
-    <?php echo form_open("auth/login");
-    	
-    echo form_label('Email:', 'email', array('class' => 'strong'));
-    echo form_input(array('email' => 'email', 'tabindex' => '2', 'id' => 'email', 'title' => 'Please enter your email address'), 'email',
-            'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'email\':this.value;"');
-    echo '</p><p>';
-    echo form_label('Password:', 'password', array('class' => 'strong'));
-    echo form_password(array('name' => 'password', 'tabindex' => '2', 'id' => 'Password', 'title' => 'Please enter your Password'), 'Password',
-            'onClick="this.value=\'\'"; onblur="this.value=!this.value?\'Password\':this.value;"');
-    echo '</p>';
-     echo "<span class='formcheck'>"; ?>
-     <label for="remember">Remember Me:</label>
-     <?php echo form_checkbox('remember', '1', TRUE);
-        echo "</span>";
-    echo form_submit('submit', 'Login');
-    echo form_close();   ?>
 
-      <p class="note"><a href="/auth/forgot_password">Reset Password</a></p>
+	<div id="infoMessage"><?php echo $message;?></div>
+    <p>
+  <?php echo form_open("auth/login");?>
+
+      <p>
+      	<label for="email">Email:</label>
+      	<?php echo form_input($email);?>
+      </p>
+
+      <p>
+      	<label for="password">Password:</label>
+      	<?php echo form_input($password);?>
+      </p>
+
+      <p>
+	      <label for="remember">Remember Me:</label>
+	      <?php echo form_checkbox('remember', '1', FALSE);?>
+	  </p>
+
+
+      <p><?php echo form_submit('submit', 'Login');?></p>
+
+          <?php echo form_close();?>
+
+     <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>
 </div><!-- end form -->
-</div><!-- end content -->
+
+

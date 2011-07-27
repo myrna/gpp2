@@ -34,8 +34,6 @@
                 <?php
                     if ($thispage=="Home")
                 echo "<div id='logo'></div>";
-                    elseif ($thispage=="Database Administration")
-                echo "<a href='/'><div id='logo'></div></a>";
                     else {
                 echo "<a href='/'><div id='logo-sub'></div></a>" ;
                 }
@@ -48,10 +46,13 @@
       echo " id=\"currentpage\""; ?> href="/about/">About GPP</a> 
      <a <?php if ($thispage=="Plant Lists")
       echo " id=\"currentpage\""; ?> href="/plantlists/display/">Plant Lists</a>
-     <a <?php if ($thispage=="Nursery Directory")
-      echo " id=\"currentpage\""; ?> href="/nursery_list/">Nurseries</a> 
-     <a <?php if ($thispage=="Database Administration")
-      echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a> 
+     
+    <a <?php if ($thispage=="Resources")
+      echo " id=\"currentpage\""; ?> href="/nursery_list/">Resources</a>
+    <a <?php if ($thispage=="Press")
+      echo " id=\"currentpage\""; ?> href="/press/">Press</a>
+    <a <?php if ($thispage=="Contact")
+      echo " id=\"currentpage\""; ?> href="/contact/">Contact</a>
 </div>
         <div id="contents"><?php echo $contents ?></div>
          

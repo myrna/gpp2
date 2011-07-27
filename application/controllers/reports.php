@@ -66,6 +66,14 @@ function shrubs_by_name() {
 }
 
 function build_shrubs_table($results_array, $title) {
+    if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
     $table = array();
     $table[] = array('Status','Plant Name','History','Nominated By');
     foreach ($results_array as $row)
@@ -79,6 +87,7 @@ function build_shrubs_table($results_array, $title) {
     $data['shrubs'] = $table;
     $data['heading'] = $title;
     return $data;
+          }
 }
 
 // Trees and Conifers Committee Reports (I know these can all be combined somehow -- quick and dirty for now
@@ -124,6 +133,14 @@ function trees_by_name() {
 }
 
 function build_trees_table($results_array, $title) {
+    if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
     $table = array();
     $table[] = array('Status','Plant Name','History','Nominated By');
     foreach ($results_array as $row)
@@ -137,6 +154,7 @@ function build_trees_table($results_array, $title) {
     $data['trees'] = $table;
     $data['heading'] = $title;
     return $data;
+          }
 }
 
 // Perennials and Bulbs Committee Reports (I know these can all be combined somehow -- quick and dirty for now
@@ -182,6 +200,14 @@ function perennials_by_name() {
 }
 
 function build_perennials_table($results_array, $title) {
+    if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
     $table = array();
     $table[] = array('Status','Plant Name','History','Nominated By');
     foreach ($results_array as $row)
@@ -195,6 +221,7 @@ function build_perennials_table($results_array, $title) {
     $data['perennials'] = $table;
     $data['heading'] = $title;
     return $data;
+          }
 }
 }
 /* End of file nursery_list.php */

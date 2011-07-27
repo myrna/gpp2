@@ -13,10 +13,19 @@
 class Crud extends CI_Controller
 {
     
-    function add_record()
+   function add_record()
     {
         // Enable Profiler.
        // $this->output->enable_profiler(TRUE);
+       if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+             
         $this->load->model('crud_model');
 		$id = "";
         $data['row'] = array();
@@ -31,7 +40,7 @@ class Crud extends CI_Controller
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
         $this->template->load('admin_template','admin/new', $data);
          }
-         
+    }
     function add() {
         $this->load->model('crud_model');
         $data = $_POST;

@@ -69,9 +69,7 @@ class Auth extends Controller {
 			{ //if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				$this->template->set('thispage','Database Administration');
-                                $this->template->set('title','Database Administration | Great Plant Picks');
-                                $this->template->load('admin_template','admin',$data);
+				redirect('admin','refresh');
 			}
 			else
 			{ //if the login was un-successful

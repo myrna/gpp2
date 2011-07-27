@@ -7,8 +7,8 @@
 
     echo $this->session->flashdata('status');
     $attributes = array('id' => 'searchform');
-    echo "<p class='ui-widget'>".form_open('listplants/search', $attributes); ?>
-    <input id="get_names" type="text" name="searchterms" >
+    echo form_open('listplants/search', $attributes); ?>
+    <input id="swSearch" type="text" name="searchterms" >
     <!--echo form_input('searchterms', $searchterms); ?>-->
     <input type="submit" value="Search">
     

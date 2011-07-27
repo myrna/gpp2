@@ -17,6 +17,14 @@ class Nurseries extends CI_Controller
     function view($id = ''){
          // Enable Profiler.
    $this->output->enable_profiler(TRUE);
+   if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
         $this->load->library('table');
      $tmpl = array (
                     'table_open'          => '<table class="nursery">',
@@ -52,13 +60,22 @@ class Nurseries extends CI_Controller
         $this->template->set('title','Edit Nurseries | Great Plant Picks');
         $this->template->load('admin_template','nurseries/view', $data);
     }
-
+    }
     function add_new()
     {
+          if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
         $this->template->set('thispage','Edit Nurseries');
         $this->template->set('title','Edit Nurseries | Great Plant Picks');
         $this->template->load('admin_template','nurseries/new');
         }
+    }
     function add()
     {
         $this->load->model('nurseries_model');
