@@ -80,6 +80,7 @@ class Listplants extends CI_Controller {
     function show_plants($page, $records, $total, $path, $query = '') {
          // Enable Profiler.
          //$this->output->enable_profiler(TRUE);
+        //user cannot access this page unless logged in, offer logout option
         if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');
@@ -88,8 +89,8 @@ class Listplants extends CI_Controller {
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
                );
-            $this->load->library('table');
-           		
+         //set table style-see stylesheet
+            $this->load->library('table');           	
             $tmpl = array (
                     'table_open'          => '<table class="dblist">',
                     'heading_row_start'   => '<tr>',
@@ -99,10 +100,9 @@ class Listplants extends CI_Controller {
                     'row_alt_start'       => '<tr class="alternate">',                  
                     'table_close'         => '</table>'
               );
-
             $this->table->set_template($tmpl);
 
-            if ($records->num_rows() > 0)
+        if ($records->num_rows() > 0)
             {
                 $table = array();
                 $table[] = array(
@@ -113,7 +113,7 @@ class Listplants extends CI_Controller {
                     'Images',
                     'Delete'
                 );
-                foreach ($records->result_array() as $row)
+         foreach ($records->result_array() as $row)
                 {
                     $id = $row['id'];
                     $status = $row['status'];

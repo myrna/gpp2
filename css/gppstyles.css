@@ -189,11 +189,11 @@ div#content {
 	margin: 1em 1em 1em 0;
 	padding: 6px;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 14px;
 	-moz-border-radius: 4px;
 	background: #348075;
 	color: white;
-	box-shadow: 0 1px 0 #378b36;
+	box-shadow: 0 px 0 #378b36;
 	-moz-box-shadow: 0 1px 0 #378b36;
 	-webkit-box-shadow: 0 1px 0 #378b36;
 }

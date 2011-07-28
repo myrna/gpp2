@@ -5,7 +5,10 @@
 
 	<div id="infoMessage"><?php echo $message;?></div>
     <p>
-  <?php echo form_open("auth/login");?>
+  <?php
+     $attributes = array('class' => 'login_form');
+     echo form_open('auth/login',$attributes);
+     ?>
 
       <p>
       	<label for="email">Email:</label>
@@ -17,17 +20,17 @@
       	<?php echo form_input($password);?>
       </p>
 
-      <p>
+ <!--    <p>
 	      <label for="remember">Remember Me:</label>
 	      <?php echo form_checkbox('remember', '1', FALSE);?>
-	  </p>
+	  </p> -->
 
 
       <p><?php echo form_submit('submit', 'Login');?></p>
 
           <?php echo form_close();?>
 
-     <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>
+  <!--   <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>-->
 </div><!-- end form -->
 
 

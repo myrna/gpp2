@@ -140,7 +140,7 @@ class Crud extends CI_Controller
 
     function edit()
     {
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
         $this->load->model('gallery_model');
         $this->load->helper('image');

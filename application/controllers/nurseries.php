@@ -13,20 +13,25 @@
 
 class Nurseries extends CI_Controller
 {
+    function index()
+    {
+
+    }
     
     function view($id = ''){
          // Enable Profiler.
-   $this->output->enable_profiler(TRUE);
-   if (!$this->ion_auth->logged_in())
+  // $this->output->enable_profiler(TRUE);
+        if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');
 		}
-          else {
+        else {
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
                );
+
         $this->load->library('table');
-     $tmpl = array (
+        $tmpl = array (
                     'table_open'          => '<table class="nursery">',
                     'heading_row_start'   => '<tr>',
                     'heading_row_end'     => '</tr>',
@@ -36,7 +41,8 @@ class Nurseries extends CI_Controller
                     'table_close'         => '</table>'
               );
 
-            $this->table->set_template($tmpl);
+        $this->table->set_template($tmpl);
+
      $this->load->model('nurseries_model');
      $nurseries = $this->nurseries_model->get_nurseries();
 
@@ -49,13 +55,14 @@ class Nurseries extends CI_Controller
          {
              
              $table[] = array($row->id,$row->nursery_name,$row->location,
-             anchor('nurseries/edit_nursery/',$row->id, 'Edit/View'),
-                        anchor('nurseries/delete/'.$id, 'Delete',
+             anchor("nurseries/edit_nursery/$row->id", 'Edit/View'),
+                        anchor("nurseries/delete/$row->id", 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete this record?\');')));
 
          }
          $data['nurseries'] = $table;
          }
+        
         $this->template->set('thispage','Edit Nurseries');
         $this->template->set('title','Edit Nurseries | Great Plant Picks');
         $this->template->load('admin_template','nurseries/view', $data);
@@ -104,8 +111,12 @@ class Nurseries extends CI_Controller
         function edit_nursery($id = '')
     {
         $this->output->enable_profiler(TRUE);
+        
         $this->load->model('nurseries_model');
+        $this->load->helper('html');
+        
         $nursery = $this->nurseries_model->get_nursery($id);
+        
         $data['row'] = $nursery;
         $this->template->set('thispage','Edit Nursery Record');
         $this->template->set('title','Edit Nursery Record | Great Plant Picks');
@@ -114,21 +125,34 @@ class Nurseries extends CI_Controller
         function edit()
         {
             $this->load->model('nurseries_model');
+            $this->load->helper('html');
+            $data = $_POST;
+            $nurseries = $this->nurseries_model->edit_nursery($data, $_POST['id']);
+            if($nurseries)
+            {
+                $this->session->set_flashdata('status', 'Record Updated');
+            }
+            else
+            {
+                $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
+            }
+                    $id = $data['id'];
+            redirect("nurseries/edit_record/$id",'refresh');
         }
 
         function delete($id)
     {
-        $this->load->model('nurseries_model');
-        $this->nurseries_model->delete_nursery($id);
-        if($id)
-        {
-            $this->session->set_flashdata('status', 'Record Has Been Deleted');
-        }
-        else
-        {
-            $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
-        }
-        redirect('nurseries/view');
+            $this->load->model('nurseries_model');
+            $this->nurseries_model->delete_nursery($id);
+            if($id)
+            {
+                $this->session->set_flashdata('status', 'Record Has Been Deleted');
+            }
+            else
+            {
+                $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
+            }
+            redirect('nurseries/view');
     }
 }
 /* End of file editnurseries.php */

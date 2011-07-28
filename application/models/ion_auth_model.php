@@ -561,7 +561,7 @@ class Ion_auth_model extends CI_Model
 	 * @return bool
 	 * @author Mathew
 	 **/
-	public function login($identity, $password, $remember=FALSE)
+	public function login($identity, $password, $remember=TRUE) // remember changed from default FALSE
 	{
 	    if (empty($identity) || empty($password) || !$this->identity_check($identity))
 	    {
