@@ -35,20 +35,20 @@ class Nurseries_model extends CI_Model
 	}
     function get_nursery($id)
     {
-        if(!empty($id))
+      if(!empty($id))
         {            
            $this->db->where('id', $id);
            $query = $this->db->get('nursery_directory');
-      //  }
+        }
       if ($query->num_rows() > 0)
-      //  {
+        {
         $row = $query->row();
         }
-        else
+      else
         {
         $row = FALSE;
         }
-        return $row;
+      return $row;
     }
     function edit_nursery($data, $id)
     {

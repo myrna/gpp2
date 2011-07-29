@@ -340,11 +340,14 @@ table.nursery th:first-child, table.nursery td:first-child {
 }
 
 .cultivar {
-    font-style: none;
+    font-style: normal;
 }
 
 .trade-name {
-    font-variant: small-caps;
+       font-family: Arial, Helvetica, sans-serif;
+}
+.trademark-name, .registered-name {
+    /*font-variant: small-caps;*/
 }
 
 .breeders-rights {

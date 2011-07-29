@@ -33,15 +33,6 @@ class Listplants extends CI_Controller {
             }
         }        
     }
-
-    function get_names() {
-                $names = false;
-		if($_GET['term']){
-			$names = $this->db->select('genus')->from('plant_data')->where_like('genus', $_GET['term']);
-		}
-		echo json_encode($names);
-        }
-
     
     function search($page = 0) {
 
@@ -50,24 +41,7 @@ class Listplants extends CI_Controller {
         }
         
         $query = $this->session->userdata('plant_search');
-       //following is for autocomplete function
-       
-            $keyword = $this->input->post('searchterms');
-
-            $data['response'] = 'false'; //Set default response
-
-            $q = $this->search_model->sw_search($searchterms); //Model DB search
-
-            if($q->num_rows() > 0){
-               $data['response'] = 'true'; //Set response
-               $data['message'] = array(); //Create array
-               foreach($q->result() as $row){
-               $data['message'][] = array('label'=> $row->genus, 'value'=> $row->genus); //Add a row to array
-               }
-            }
-            echo json_encode($data);
-
-       // end autocomplete coding
+      
         $this->load->model('listplants_model');
         $this->setup_search_query($this->session->userdata('plant_search'));
         $total = $this->db->count_all_results('plant_data');
@@ -146,4 +120,4 @@ class Listplants extends CI_Controller {
  }
 
 /* End of file listplants.php */
-/* Location: ./application/controllers/plants.php */
+/* Location: ./application/controllers/listplants.php */

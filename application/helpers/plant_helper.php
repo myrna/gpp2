@@ -6,12 +6,12 @@ function display_full_botanical_name($record) {
         $record['infraspecific_epithet'] ? format_subspecies($record['infraspecific_epithet_designator'], $record['infraspecific_epithet']) : "",
         $record['cultivar'] ? format_cultivar($record['cultivar']) : "",
         $record['trade_name'] ? format_trade_name($record['trade_name']) : "",
-        $record['registered'] ? format_registered_name($record['registered']) : "",
-        $record['trademark'] ? format_trademark_name($record['trademark']) : "",
+        $record['plant_breeders_rights'] ? format_breeders_rights() : "",
+        $record['trademark_name'] ? format_trademark_name($record['trademark_name']) : "",
+        $record['registered_name'] ? format_registered_name($record['registered_name']) : "",      
         $record['plant_patent_number'] ? format_patent_number($record['plant_patent_number']) : "",
         $record['plant_patent_number_applied_for'] ? "PPAF" : "",
-        $record['plant_breeders_rights'] ? format_breeders_rights() : "",
-        $record['plantname_group'] ? format_plantname_group($record['plantname_group']) : ""
+        $record['plantname_group'] ? format_plantname_group($record['plantname_group']." Group") : ""
     );
 }
 
@@ -39,20 +39,22 @@ function format_cultivar($cultivar) {
 }
 
 function format_trade_name($tradename) {
-    $tradename = strtoupper($tradename);
+    
     return "<span class='trade-name'>$tradename</span>";
 }
 
-function format_registered_name($name) {
-    return "<span class='registered-name'>$name &#174;</span>";
+function format_trademark_name($trademarkname) {
+    $trademarkname = strtoupper($trademarkname);
+    return "<span class='trademark-name'>$trademarkname &#8482;</span>";
 }
 
-function format_trademark_name($name) {
-    return "<span class='trademark_name'>$name &#8482;</span>";
+function format_registered_name($registeredname) {
+    $registeredname = strtoupper($registeredname);
+    return "<span class='registered-name'>$registeredname &#174;</span>";
 }
 
 function format_patent_number($number) {
-    return "<span class='patent-number'>PP $number</span>";
+    return "<span class='patent-number'>PP$number</span>";
 }
 
 function format_breeders_rights() {
@@ -122,7 +124,12 @@ function build_form_control($key, $value) {
         'value' => $value ? $value : "",
     );
     switch ($key) {
-            case 'foliage_type':
+         case 'plant_breeders_rights':
+            $current = $value ? $value : 'none';
+            $options = array('none' => "", 'Yes' => "Yes");
+            return form_dropdown('plant_breeders_rights', $options, $current, "id='$key'");
+            break;
+         case 'foliage_type':
             $current = $value ? $value : 'none';
             $options = array('none' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
             return form_dropdown($key, $options, $current, "id='$key'");

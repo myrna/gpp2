@@ -8,27 +8,7 @@
         <link rel="stylesheet" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
         <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#swSearch").autocomplete({
-             minLength: 2,
-             source: function(req, add){
-              $.ajax({
-               url: '/listplants', //Controller where search is performed
-               dataType: 'json',
-               type: 'POST',
-               data: req,
-               success: function(data){
-                if(data.response =='true'){
-                   add(data.message);
-                }
-               }
-              });
-             }
-            });
-
-        });
-        </script>
+        
 </head>
     <body>
         <div id="topbar"></div>

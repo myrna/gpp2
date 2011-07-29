@@ -113,8 +113,7 @@ class Nurseries extends CI_Controller
         $this->output->enable_profiler(TRUE);
         
         $this->load->model('nurseries_model');
-        $this->load->helper('html');
-        
+            
         $nursery = $this->nurseries_model->get_nursery($id);
         
         $data['row'] = $nursery;
@@ -125,8 +124,8 @@ class Nurseries extends CI_Controller
         function edit()
         {
             $this->load->model('nurseries_model');
-            $this->load->helper('html');
             $data = $_POST;
+            
             $nurseries = $this->nurseries_model->edit_nursery($data, $_POST['id']);
             if($nurseries)
             {

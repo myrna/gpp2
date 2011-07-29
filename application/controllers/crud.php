@@ -59,7 +59,7 @@ class Crud extends CI_Controller
         redirect("crud/edit_record/$id",'refresh');
     }
     
-    function view_record($id = ''){
+    function view_record($id = ''){    // not currently in use
         // Enable Profiler.
         //$this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');

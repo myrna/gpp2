@@ -17,11 +17,14 @@
     ?></h4>
 
 <?php
+
     echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')." | ";
 
     echo anchor('/listplants', 'Return to Main List')."</p>";
-    ?>
-    <div class="gallery-thumbs">
+    
+?>
+
+        <div class="gallery-thumbs">
 <?php foreach ($images as $image) {
      echo image_thumb_link($image['filename']);
      foreach ($image['categories'] as $category) {
