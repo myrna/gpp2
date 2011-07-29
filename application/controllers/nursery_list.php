@@ -105,7 +105,7 @@ class Nursery_list extends CI_Controller
 
         $this->template->set('thispage','Nursery Directory');
         $this->template->set('title','Nursery Directory | Great Plant Picks');
-        $this->template->load('template','nursery_list', $data);
+        $this->template->load('template','nurserylist', $data);
     
  }
 }

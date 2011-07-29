@@ -48,7 +48,7 @@
       echo " id=\"currentpage\""; ?> href="/plantlists/display/">Plant Lists</a>
      
     <a <?php if ($thispage=="Resources")
-      echo " id=\"currentpage\""; ?> href="/nursery_list/">Resources</a>
+      echo " id=\"currentpage\""; ?> href="/resources/">Resources</a>
     <a <?php if ($thispage=="Press")
       echo " id=\"currentpage\""; ?> href="/press/">Press</a>
     <a <?php if ($thispage=="Contact")
