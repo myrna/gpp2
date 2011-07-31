@@ -64,13 +64,13 @@ if (isset($plant_id)) {
 foreach ($category_fields as $row) {
        $category_data = array(
             'name' => "category[]", 
-            'id' => $row->category, 
-            'value' => $row->id
+            'id' => convert_to_id($row['category']), 
+            'value' => $row['id']
         ); ?>
 <span class="check">
 <?php
         echo form_checkbox($category_data);
-        echo form_label($row->category, $row->category);
+        echo form_label($row['category'], $row['category']);
     } ?>
 </span>
 

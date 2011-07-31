@@ -66,7 +66,12 @@ function format_plantname_group($name) {
     return "<span class='plantname-group'>$name</span>";
 }
 
-function convert_label($field) {
+function convert_to_id($string) {
+    $string = str_replace(" ", "_", $string);
+    return $string;
+}
+
+function convert_to_label($field) {
     $field = str_replace("_", " ", $field);
     return ucwords($field);
 }
@@ -83,7 +88,7 @@ function field_to_label($field) {
             return "&#935; Genus";
             break;
         case 'plant_patent_number_applied_for':
-            return convert_label($field) . " (PPAF)";
+            return convert_to_label($field) . " (PPAF)";
             break;
         case 'plant_origin':
             return "Origin";
@@ -110,7 +115,7 @@ function field_to_label($field) {
             return "GPP Year";
             break;
         default:
-            return convert_label($field);
+            return convert_to_label($field);
             break;
     }
 }
