@@ -1,6 +1,6 @@
 <div id="content" class="main">
 
 
-<h1>About Great Plant Picks</h1>
+<h1>Press</h1>
 
 </div><!-- end content -->
