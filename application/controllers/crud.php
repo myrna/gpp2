@@ -59,6 +59,40 @@ class Crud extends CI_Controller
         redirect("crud/edit_record/$id",'refresh');
     }
     
+    function add_synonym($id) {
+        $this->load->model('crud_model');
+
+        $record = $this->crud_model->get_record_as_array($id);
+        $fields = array(
+            'family',
+            'family_common_name',
+            'genus',
+            'cross_genus',
+            'specific_epithet',
+            'infraspecific_epithet_designator',
+            'infraspecific_epithet',            
+            'cross_species',
+            'cultivar',
+            'trade_name',
+            'registered_name'
+        );
+        
+        foreach ($fields as $field) {
+            $data['row'][$field] = $record[0][$field];
+            $data['row']['synonym'] = $id;
+        }
+        $data['id'] = $id;
+        $this->template->set('thispage', 'Add Synonym');
+        $this->template->set('title', 'Add Synonym - Database Administration | Great Plant Picks');
+        $this->template->load('admin_template', 'admin/new', $data);
+
+        
+    }
+    
+    function save_synonym() {
+        $this->load->model('crud_model');
+    }
+    
     function view_record($id = ''){    // not currently in use
         // Enable Profiler.
         //$this->output->enable_profiler(TRUE);
@@ -92,6 +126,7 @@ class Crud extends CI_Controller
 
         $row = $this->crud_model->get_record_as_array($id);
         $data['row'] = $row[0];
+        $data['id'] = $data['row']['id'];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('admin_template','admin/edit', $data);

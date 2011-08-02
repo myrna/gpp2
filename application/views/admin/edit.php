@@ -18,7 +18,7 @@
 
 <?php
 
-    echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')." | ";
+    echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')." | ".anchor("crud/add_synonym/".$id, 'Add Synonym')." | ";
 
     echo anchor('/listplants', 'Return to Main List')."</p>";
     

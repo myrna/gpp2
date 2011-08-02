@@ -111,7 +111,14 @@ class Crud_model extends CI_Model
         return $id;
     }
 
-    // get individual record from database using list produced by get_records//
+
+    function add_synonym($data) {
+        if (!empty($data)) {
+            $id = $this->db->insert('plant_data', $data);
+            return $id;
+        }
+    }
+
 
     function get_record($id)
     {
