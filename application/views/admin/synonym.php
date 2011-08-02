@@ -1,7 +1,7 @@
 <div id="content" class="admin">
     <h2>GPP Database Administration: Add Synonym</h2>
     <p class="nav"><?php
-       echo anchor('/listplants', 'Return to Main List');
+       echo anchor('/crud/edit_record/'.$synonym_id, 'Return to Plant Record');
     ?></p>
     <?php
         $attributes = array('class' => 'data-entry');
