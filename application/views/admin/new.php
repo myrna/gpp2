@@ -7,6 +7,10 @@
     <?php
     $attributes = array('class' => 'data-entry');
     echo form_open('crud/add', $attributes);
+    if (isset($id)) {
+        // used by synonym records
+        echo form_hidden('id', $id);
+    }
     ?>
     <?php echo $this->session->flashdata('status'); ?>
     <ul>

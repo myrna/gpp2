@@ -110,15 +110,53 @@ class Crud_model extends CI_Model
         }
         return $id;
     }
-
-
-    function add_synonym($data) {
+    function save_common_name($data) {
         if (!empty($data)) {
-            $id = $this->db->insert('plant_data', $data);
+            unset($data['save_common_name']);
+            $id = $this->db->insert('plant_common_name', $data);
+            return $data['plant_id'];
+        }
+    }
+    
+    function get_common_names($id) {
+        $this->db->where('plant_id', $id);
+        $query = $this->db->get('plant_common_name');
+        return $query->result_array();
+    }
+
+    function delete_common_name($id) {
+        $this->db->where('id', $id);
+        $record = $this->db->get('plant_common_name')->result_array();
+        $plant_id = $record[0]['plant_id'];
+
+        $this->db->where('id', $id);
+        $result = $this->db->delete('plant_common_name');
+        return $plant_id;
+    }
+
+    function save_synonym($data) {
+        if (!empty($data)) {
+            unset($data['save_synonym']);
+            $id = $this->db->insert('plant_synonym', $data);
             return $id;
         }
     }
+    
+    function get_synonyms($id) {
+        $this->db->where('synonym_id', $id);
+        $query = $this->db->get('plant_synonym');
+        return $query->result_array();
+    }
 
+    function delete_synonym($id) {
+        $this->db->where('id', $id);
+        $record = $this->db->get('plant_synonym')->result_array();
+        $plant_id = $record[0]['synonym_id'];
+
+        $this->db->where('id', $id);
+        $result = $this->db->delete('plant_synonym');
+        return $plant_id;
+    }
 
     function get_record($id)
     {

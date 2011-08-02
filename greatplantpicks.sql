@@ -554,6 +554,45 @@ CREATE TABLE IF NOT EXISTS `plant_common_name` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table 'plant_synonym'
+--
+
+DROP TABLE IF EXISTS `plant_synonym`;
+CREATE TABLE IF NOT EXISTS `plant_synonym` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `synonym_id` int(11) NOT NULL,
+  `family` text,
+  `family_common_name` text,
+  `genus` text NOT NULL,
+  `cross_genus` text COMMENT 'If bigeneric hybrid precede genus name with X',
+  `specific_epithet` text COMMENT 'species',
+  `infraspecific_epithet_designator` varchar(4) DEFAULT NULL COMMENT 'ssp., f., var.',
+  `infraspecific_epithet` varchar(50) DEFAULT NULL COMMENT 'preceded by infraspecific epithet designator',
+  `cross_species` varchar(50) DEFAULT NULL COMMENT 'If field is filled must be preceded with x in formatting',
+  `cultivar` varchar(200) DEFAULT NULL COMMENT 'Always enclosed in single quotes in formatting, first letter capitalized, remainder lower case',
+  `trade_name` varchar(55) DEFAULT NULL,
+  `trademark_name` varchar(50) DEFAULT NULL COMMENT 'Trademark name always upper case in formatting followed by TM symbol, use special font',
+  `registered_name` varchar(55) DEFAULT NULL COMMENT 'Registered name followed by R symbol',
+  PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table 'plant_common_name'
+--
+DROP TABLE IF EXISTS `plant_common_name`;
+CREATE TABLE IF NOT EXISTS `plant_common_name` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plant_id` int(11) NOT NULL,
+  `common_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+-- --------------------------------------------------------
+
+-- 
+--
 -- Table structure for table `plant_data`
 --
 
@@ -2489,33 +2528,6 @@ INSERT INTO `plant_sun` (`plant_id`, `sun_id`) VALUES
 (566, 2),
 (566, 3),
 (566, 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `plant_synonym`
---
-
-DROP TABLE IF EXISTS `plant_synonym`;
-CREATE TABLE IF NOT EXISTS `plant_synonym` (
-  `plant_id` int(11) NOT NULL,
-  `genus` text NOT NULL,
-  `cross_genus` text COMMENT 'If bigeneric hybrid precede genus name with X',
-  `specific_epithet` text COMMENT 'species',
-  `infraspecific_epithet_designator` varchar(4) DEFAULT NULL COMMENT 'ssp., f., var.',
-  `infraspecific_epithet` varchar(50) DEFAULT NULL COMMENT 'preceded by infraspecific epithet designator',
-  `cross_species` varchar(50) DEFAULT NULL COMMENT 'If field is filled must be preceded with x in formatting',
-  `cultivar` varchar(200) DEFAULT NULL COMMENT 'Always enclosed in single quotes in formatting, first letter capitalized, remainder lower case',
-  `trade_name` varchar(50) DEFAULT NULL COMMENT 'Trademark name always upper case in formatting followed by TM symbol, use special font',
-  `registered` varchar(5) DEFAULT NULL COMMENT 'If yes follow name with R symbol',
-  `trademark` varchar(5) DEFAULT NULL COMMENT 'If yes follow name with TM symbol',
-  `plant_patent_number` varchar(10) DEFAULT NULL COMMENT 'Plant Patent Number, if filled out triggers PP prefix',
-  `plant_patent_number_applied_for` varchar(11) DEFAULT NULL COMMENT 'PPAF following plant name',
-  `plant_breeders_rights` varchar(45) DEFAULT NULL COMMENT 'Plant Breeders Rights-Canada',
-  `plantname_group` varchar(200) DEFAULT NULL COMMENT 'eg Atropurpurea Group',
-  UNIQUE KEY `PlantId_UNIQUE` (`plant_id`),
-  KEY `genus` (`genus`(255))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
