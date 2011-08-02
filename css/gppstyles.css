@@ -161,6 +161,9 @@ div#content {
 		.thumb {
 			float: left; width: 150px; padding: 10px; margin: 10px;
 		}
+                .thumb img {
+                    border:5px #d2d26f solid;
+                }
 		.thumb:hover {
 			/*outline: 1px solid #999; */
 		}
@@ -168,8 +171,9 @@ div#content {
 			content: "."; visibility: hidden; display: block; clear: both; height: 0; font-size: 0;
 		}
 
-/* form styling */
- /* login form styling */
+/* form styling -------------------------------------- */
+
+/* login form styling */
 
  #login_form {
         width: 300px;
@@ -227,15 +231,9 @@ div#content {
        }
 #imageform label {display:inline-block; width:120px; float:left; white-space:nowrap;}
 
-.gallery-thumbs {
-    clear:both;
-    margin-left:20px;
-}
-.gallery-thumbs img {
-    border:5px #d2d26f solid;
-}
-
 #imageform .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
+
+p.category {padding-left:5px; margin-top:0; font-style:italic;}
 
 /* add and update record form styling */
 

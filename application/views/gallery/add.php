@@ -23,7 +23,7 @@
     echo form_close();
     echo image_thumb_link($image['filename']);
 	foreach ($image['categories'] as $category) {   
-		echo "<div class='category'>" . $category . "</div>";
+		echo "<p class='category'>Category: " . $category . "</p>";
 	}
      ?>
 </div>
