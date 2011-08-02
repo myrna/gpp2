@@ -126,8 +126,8 @@ class Nurseries extends CI_Controller
             $this->load->model('nurseries_model');
             $data = $_POST;
             
-            $nurseries = $this->nurseries_model->edit_nursery($data, $_POST['id']);
-            if($nurseries)
+            $status = $this->nurseries_model->edit_nursery($data, $_POST['id']);
+            if($status)
             {
                 $this->session->set_flashdata('status', 'Record Updated');
             }
@@ -135,15 +135,15 @@ class Nurseries extends CI_Controller
             {
                 $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
             }
-                    $id = $data['id'];
-            redirect("nurseries/edit_record/$id",'refresh');
+            $id = $data['id'];
+            redirect("nurseries/edit_nursery/$id",'refresh');
         }
 
         function delete($id)
     {
             $this->load->model('nurseries_model');
-            $this->nurseries_model->delete_nursery($id);
-            if($id)
+            $status = $this->nurseries_model->delete_nursery($id);
+            if($status)
             {
                 $this->session->set_flashdata('status', 'Record Has Been Deleted');
             }
