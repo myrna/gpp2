@@ -52,6 +52,7 @@ class Nurseries_model extends CI_Model
     }
     function edit_nursery($data, $id)
     {
+        unset($data['edit']);
         $result = 0;
         if(!empty($data))
         {
@@ -64,7 +65,8 @@ class Nurseries_model extends CI_Model
     function delete_nursery()
     {
         $this->db->where('id', $this->uri->segment(3));
-        $this->db->delete('nursery_directory');
+        $result = $this->db->delete('nursery_directory');
+        return $result;
     }
 }
 

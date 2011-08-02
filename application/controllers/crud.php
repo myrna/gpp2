@@ -59,25 +59,76 @@ class Crud extends CI_Controller
         redirect("crud/edit_record/$id",'refresh');
     }
     
-    function view_record($id = ''){    // not currently in use
-        // Enable Profiler.
-        //$this->output->enable_profiler(TRUE);
+    function synonym($id) {
         $this->load->model('crud_model');
 
         $record = $this->crud_model->get_record_as_array($id);
+        $fields = array(
+            'family',
+            'family_common_name',
+            'genus',
+            'cross_genus',
+            'specific_epithet',
+            'infraspecific_epithet_designator',
+            'infraspecific_epithet',            
+            'cross_species',
+            'cultivar',
+            'trade_name',
+            'registered_name'
+        );
+        
+        foreach ($fields as $field) {
+            $data['row'][$field] = $record[0][$field];
+        }
+        $data['synonym_id'] = $id;
+        $this->template->set('thispage', 'Add Synonym');
+        $this->template->set('title', 'Add Synonym - Database Administration | Great Plant Picks');
+        $this->template->load('admin_template', 'admin/synonym', $data);
 
-        $data['title'] = "View Record: ";
-        //Returned data will be put into the $row variable that will be send to the view.
-        $data['row'] = $record[0];
+        
+    }
+    
+    function common_name($id) {
+        $this->load->model('crud_model');
+        
+        $record = $this->crud_model->get_record_as_array($id);
+        $data['row']['common_name'] = "";
+        $data['plant_data'] = $record[0];
+        $data['plant_id'] = $record[0]['id'];
+        $this->template->set('thispage', 'Add Common Name');
+        $this->template->set('title', 'Add Common Name - Database Administration | Great Plant Picks');
+        $this->template->load('admin_template', 'admin/common_name', $data);
 
-        $this->template->set('thispage','View Single Record');
-        $this->template->set('title','View Single Record - Database Administration | Great Plant Picks');
-        $this->template->load('admin_template','admin/view', $data);
-
+    }
+    function save_common_name() {
+        $this->load->model('crud_model');
+        $id = $this->crud_model->save_common_name($_POST);
+        $this->session->set_flashdata('status', "Common Name Added");
+        redirect("crud/edit_record/$id", "refresh");
+    }
+    
+    function delete_common_name($id) {
+        $this->load->model('crud_model');
+        $plant_id = $this->crud_model->delete_common_name($id);
+        $this->session->set_flashdata('status', 'Common Name Deleted');
+        redirect("crud/edit_record/$plant_id", "refresh");
+    }
+    
+    function save_synonym() {
+        $this->load->model('crud_model');
+        $id = $this->crud_model->save_synonym($_POST);
+        $this->session->set_flashdata('status', "Synonym Added");
+        redirect("crud/edit_record/$id", "refresh");
+    }
+    
+    function delete_synonym($id) {
+        $this->load->model('crud_model');
+        $plant_id = $this->crud_model->delete_synonym($id);
+        $this->session->set_flashdata('status', 'Synonym Deleted');
+        redirect("crud/edit_record/$plant_id", "refresh");
     }
 
     function edit_record($id = '') {
-        // Enable Profiler.
        //$this->output->enable_profiler(TRUE);
         $this->load->model('crud_model');
         $this->load->model('gallery_model');
@@ -87,11 +138,13 @@ class Crud extends CI_Controller
         $data['title'] = "Edit Record: ";
        
         $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
-
+        $data['synonyms'] = $this->crud_model->get_synonyms($id);
+        $data['common_names'] = $this->crud_model->get_common_names($id);
         $data['plant_attributes'] = $this->get_plant_link_data($id);
 
         $row = $this->crud_model->get_record_as_array($id);
         $data['row'] = $row[0];
+        $data['id'] = $data['row']['id'];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('admin_template','admin/edit', $data);

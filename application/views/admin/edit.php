@@ -15,11 +15,33 @@
     <h4><?php echo $title ?><?php
         echo display_full_botanical_name($row);
     ?></h4>
+    
+    <?php
+        if (!empty($synonyms)) {
+            echo "<h5>Synonyms</h5>";
+            foreach ($synonyms as $synonym) {
+                echo display_full_botanical_name($synonym);
+                echo anchor('crud/delete_synonym/'.$synonym['id'], 'Delete');
+                echo "<br />";
+            }
+        }
+    ?>
+    <?php
+        if (!empty($common_names)) {
+            echo "<h5>Common Names</h5>";
+            foreach ($common_names as $common_name) {
+                echo $common_name['common_name']." ";
+                echo anchor('crud/delete_common_name/'.$common_name['id'], 'Delete');
+                echo "<br />";
+            }
+        }
+    ?>
 
+    <p class="nav">
 <?php
-
-    echo "<p class='nav'>".anchor('crud/add_record', 'Add new record')." | ";
-
+    echo anchor('crud/add_record', 'Add new record')." | ";
+    echo anchor("crud/synonym/".$id, 'Add Synonym')." | ";
+    echo anchor("crud/common_name/".$id, 'Add Common_Name')." | ";    
     echo anchor('/listplants', 'Return to Main List')."</p>";
     
 ?>
