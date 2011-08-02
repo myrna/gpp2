@@ -13,11 +13,11 @@
             <?php endforeach; ?>
         </thead>
         <tbody>
-            <?php foreach($plants as $plant): ?>
+            <?php foreach($records as $record): ?>
             <tr>
                 <?php foreach($fields as $field_name => $field_display): ?>
             <td>
-                <?php echo $plant->$field_name; ?>
+                <?php echo $record->$field_name; ?>
             </td>
                 <?php endforeach; ?>
             </tr>
