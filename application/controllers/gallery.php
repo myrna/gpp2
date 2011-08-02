@@ -77,7 +77,7 @@ class Gallery extends CI_Controller {
         $this->load->model('gallery_model');
         $image_id = $this->input->post('image_id');
         $plant_id = $this->input->post('plant_id');
-        $this->Gallery_model->delete_image($image_id);
+        $this->gallery_model->delete_image($image_id);
         $this->session->set_flashdata('status', "Image deleted.");
         redirect('gallery/upload_image/' . $plant_id);
     }
