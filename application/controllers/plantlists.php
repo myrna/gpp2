@@ -12,8 +12,9 @@
  */
 
 class Plantlists extends CI_Controller {
+    
 
-     //   var $plantname = display_full_botanical_name;
+     //  var $plantname = display_full_botanical_name;
         
         function display($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {    // determines URL - display/sortby/sortorder/offset
            //$this->output->enable_profiler(TRUE);
@@ -26,7 +27,7 @@ class Plantlists extends CI_Controller {
             $this->load->model('plantlists_model');
 
             $results = $this->plantlists_model->search($limit, $offset, $sort_by, $sort_order);
-            $data['plants'] = $results['rows'];
+            $data['records'] = $results['rows'];
             $data['num_results'] = $results['num_rows'];
 
             // pagination
