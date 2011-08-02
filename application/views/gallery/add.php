@@ -6,8 +6,8 @@
 
     echo anchor('/listplants', 'Return to Main List')."</p>";
     ?>
-    <h4><?php echo $this->session->flashdata('status'); ?>
-	<?php echo "<div>" . display_full_botanical_name($plant_data) . "</div>"; ?></h4>
+    <h4><?php echo "<div>" . display_full_botanical_name($plant_data) . "</div>"; ?></h4>
+    <p><?php echo $this->session->flashdata('status'); ?></p>
 
     <div id="gallery">
 
@@ -33,6 +33,7 @@
 </div>
 
     <div id="upload">
+       
     <?php
 $attributes = array('id' => 'imageform');
 echo form_open_multipart('gallery/add_image', $attributes);

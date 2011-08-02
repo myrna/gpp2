@@ -15,11 +15,13 @@
         <tbody>
             <?php foreach($records as $record): ?>
             <tr>
-                <?php foreach($fields as $field_name => $field_display): ?>
+                
             <td>
-                <?php echo $record->$field_name; ?>
+                <?php echo anchor('plantlists/view/'.$id, $record->genus); ?>
             </td>
-                <?php endforeach; ?>
+            <td>
+                <?php echo $record->plant_height_at_10; ?>
+            </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

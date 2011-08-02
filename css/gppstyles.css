@@ -152,7 +152,7 @@ div#content {
 
 /* admin image upload page styling */
 #gallery, #upload {
-			margin: 10px auto; width: 650px; padding: 10px;
+			margin: 10px auto; width: 650px; 
 		}
                 #blank_gallery {
 			font-family: Arial; font-size: 18px; font-weight: bold;
@@ -385,6 +385,5 @@ h4 {font-size:18px; padding:5px 0;}
 p {margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
-.category p {font-style:italic; font-weight:bold; padding-bottom:10px;}
 
 /* end */

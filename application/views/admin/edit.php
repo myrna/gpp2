@@ -16,28 +16,7 @@
         echo display_full_botanical_name($row);
     ?></h4>
     
-    <?php
-        if (!empty($synonyms)) {
-            echo "<h5>Synonyms</h5>";
-            foreach ($synonyms as $synonym) {
-                echo display_full_botanical_name($synonym);
-                echo anchor('crud/delete_synonym/'.$synonym['id'], 'Delete');
-                echo "<br />";
-            }
-        }
-    ?>
-    <?php
-        if (!empty($common_names)) {
-            echo "<h5>Common Names</h5>";
-            foreach ($common_names as $common_name) {
-                echo $common_name['common_name']." ";
-                echo anchor('crud/delete_common_name/'.$common_name['id'], 'Delete');
-                echo "<br />";
-            }
-        }
-    ?>
-
-    <p class="nav">
+       <p class="nav">
 <?php
     echo anchor('crud/add_record', 'Add new record')." | ";
     echo anchor("crud/synonym/".$id, 'Add Synonym')." | ";
@@ -46,11 +25,32 @@
     
 ?>
 
-        <div class="gallery-thumbs">
+ <?php
+        if (!empty($synonyms)) {
+            echo "<h5>Synonyms</h5><p>";
+            foreach ($synonyms as $synonym) {
+                echo display_full_botanical_name($synonym);
+                echo anchor('crud/delete_synonym/'.$synonym['id'], 'Delete Synonym');
+                echo "</p>";
+            }
+        }
+    ?>
+    <?php
+        if (!empty($common_names)) {
+            echo "<h5>Common Names</h5><p>";
+            foreach ($common_names as $common_name) {
+                echo $common_name['common_name']." ";
+                echo anchor('crud/delete_common_name/'.$common_name['id'], 'Delete Common Name');
+                echo "</p>";
+            }
+        }
+    ?>
+
+        <div class="thumb">
 <?php foreach ($images as $image) {
      echo image_thumb_link($image['filename']);
      foreach ($image['categories'] as $category) {
-		echo "<div class='category'><p>" . $category . "</p></div>";
+		echo "<p class='category'>Image: " . $category . "</p>";
      }
 }
 ?>

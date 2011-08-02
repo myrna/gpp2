@@ -37,5 +37,11 @@ class Plantlists_model extends CI_Model {
         return $ret;
     }
 
+    // view individual record
+
+    function view()
+    {
+        
+    }
    
 }

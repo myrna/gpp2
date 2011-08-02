@@ -49,6 +49,26 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/display',$data);
             
         }
+
+        function view($id = '')
+        {
+            $this->output->enable_profiler(TRUE);
+            $this->load->model('crud_model');
+            $this->load->model('gallery_model');
+            $this->load->helper('image');
+            $this->load->helper('html');
+
+            $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
+            $data['synonyms'] = $this->crud_model->get_synonyms($id);
+            $data['common_names'] = $this->crud_model->get_common_names($id);
+          
+            $row = $this->crud_model->get_record($id);
+            $data['row'] = $row[0];
+            $data['id'] = $data['row']['id'];
+            $this->template->set('thispage','View Plant');
+            $this->template->set('title','View Plant | Great Plant Picks');
+            $this->template->load('template','plantlists/view', $data);
+        }
 }
 
 /* End of file listplants.php */

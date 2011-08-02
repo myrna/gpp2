@@ -14,7 +14,7 @@
 class Gallery extends CI_Controller {
 
     function index() {
-        $this->output->enable_profiler(TRUE);
+       // $this->output->enable_profiler(TRUE);
         $data['images'] = $this->db->get('images')->result_array();
 
         $this->template->set('thispage','Images');
@@ -24,7 +24,7 @@ class Gallery extends CI_Controller {
     }
 
     function upload_image($id = ''){
-	    $this->output->enable_profiler(TRUE);
+	//    $this->output->enable_profiler(TRUE);
     
         $this->load->model('Crud_model');
         $this->load->model('Gallery_model');
@@ -68,7 +68,7 @@ class Gallery extends CI_Controller {
             unset($_POST[$linker]);
         }
         $this->gallery_model->link_image($image_id, $plant_id);
-        $this->session->set_flashdata('status', 'Image Added, Upload Another?');
+        $this->session->set_flashdata('status', 'Image upload successful');
         redirect('gallery/upload_image/' . $plant_id);
     }
     
