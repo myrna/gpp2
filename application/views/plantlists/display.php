@@ -13,14 +13,14 @@
             <?php endforeach; ?>
         </thead>
         <tbody>
-            <?php foreach($records as $name => $height): ?>
+            <?php foreach($records as $plant): ?>
             <tr>
                 
             <td>
-                <?php echo anchor('plantlists/view/'.$id, $name); ?>
+                <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
             <td>
-                <?php echo $height; ?>
+                <?php echo $plant['height']; ?>
             </td>
             </tr>
             <?php endforeach; ?>

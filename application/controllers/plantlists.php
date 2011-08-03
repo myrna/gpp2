@@ -29,7 +29,11 @@ class Plantlists extends CI_Controller {
             $results = $this->plantlists_model->search($limit, $offset, $sort_by, $sort_order);
             $plant_name_and_height = array();
             foreach ($results['rows'] as $result) {
-                $plant_name_and_height[display_full_botanical_name($result)] = $result['plant_height_at_10'] ? $result['plant_height_at_10'] : "-";
+                $plant_name_and_height[] = array(
+                    'name' => display_full_botanical_name($result),
+                    'height' => $result['plant_height_at_10'] ? $result['plant_height_at_10'] : "-",
+                    'id' => $result['id']
+                );
             }
             $data['records'] = $plant_name_and_height;
             $data['num_results'] = $results['num_rows'];
