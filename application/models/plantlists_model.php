@@ -25,13 +25,13 @@ class Plantlists_model extends CI_Model {
                 ->where('publish','yes')
                 ->limit($limit,$offset)
                 ->order_by($sort_by, $sort_order);
-        $ret['rows'] = $q->get()->result();
+        $ret['rows'] = $q->get()->result_array();
 
         // count query (function as field requires FALSE)
         $q = $this->db->select('COUNT(*) as count',FALSE)
             ->from('plant_data')
             ->where('publish','yes');
-        $tmp = $q->get()->result();
+        $tmp = $q->get()->result_array();
         $ret['num_rows'] = $tmp[0]->count;
         
         return $ret;
@@ -39,8 +39,7 @@ class Plantlists_model extends CI_Model {
 
     // view individual record
 
-    function view()
-    {
+    function view() {
         
     }
    

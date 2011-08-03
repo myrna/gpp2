@@ -11,34 +11,29 @@
 * @author		jg :)
 */
 
-class Crud_model extends CI_Model
-{
+class Crud_model extends CI_Model {
 
-    /**
-    * Get and return all records from DB table.
-    *
-    */
     public function get_id($element) {
         $values = array_values($element);
         return intval($values[0]);
     }
-    
+
     public $plant_link_tables = array(
-			'water',
-			'sun',
-			'flower_color',
-                        'foliage_color',
-                        'foliage_texture',
-                        'design_use',
-			'pest_resistance',
-			'soil',
-			'wildlife'                       
-    );
-    
+        'water',
+        'sun',
+        'flower_color',
+        'foliage_color',
+        'foliage_texture',
+        'design_use',
+        'pest_resistance',
+        'soil',
+        'wildlife'                       
+        );
+
     public function update_link_table($id, $primary, $attribute, $values) {
         $link_table_name = "$primary" . "_" . $attribute;
         $attribute_key = $attribute . "_id";
-		$primary_key = $primary . "_id";
+        $primary_key = $primary . "_id";
         if (empty($values)) {
             // if we got nothing checked, then just clear everything.
             $this->db->where($primary_key, $id)->delete($link_table_name);
@@ -62,9 +57,8 @@ class Crud_model extends CI_Model
             }
         }
     }
-    
-    public function link_table($id, $attribute, $primary) {
 
+    public function link_table($id, $attribute, $primary) {
         $join_table_name = $primary . "_" . $attribute;
         $list_table_name = $attribute;
         $list = $this->db->get($list_table_name)->result_array();
@@ -76,23 +70,12 @@ class Crud_model extends CI_Model
         } else {
             $current = array();
         }
-        return array(
-            'list' => $list,
-            'current' => $current
-        );
-
+        return array('list' => $list, 'current' => $current);
     }
 
-    /**
-    * Add new record to DB table.
-    *
-    */
-    function add_record($data)
-    {
+    function add_record($data) {
         $result = 0;
-        if(!empty($data))
-        {
-
+        if(!empty($data)) {
             foreach ($this->plant_link_tables as $link_name) {
                 if (array_key_exists($link_name, $data)) {
                     $$link_name = $data[$link_name];
@@ -110,6 +93,7 @@ class Crud_model extends CI_Model
         }
         return $id;
     }
+
     function save_common_name($data) {
         if (!empty($data)) {
             unset($data['save_common_name']);
@@ -117,7 +101,7 @@ class Crud_model extends CI_Model
             return $data['plant_id'];
         }
     }
-    
+
     function get_common_names($id) {
         $this->db->where('plant_id', $id);
         $query = $this->db->get('plant_common_name');
@@ -141,7 +125,7 @@ class Crud_model extends CI_Model
             return $data['synonym_id'];
         }
     }
-    
+
     function get_synonyms($id) {
         $this->db->where('synonym_id', $id);
         $query = $this->db->get('plant_synonym');
@@ -158,22 +142,15 @@ class Crud_model extends CI_Model
         return $plant_id;
     }
 
-    function get_record($id)
-    {
-        if(!empty($id))
-        {
+    function get_record($id) {
+        if(!empty($id)) {
             //use the where function to add a filter to our query, this time the id, with the $id value
-
             $query = $this->db->where('id', $id);
-
-            //and then execute the query
             $query = $this->db->get('plant_data');
         }
         if ($query->num_rows() > 0) {
             return $row = $query->row();
-        }
-        else
-        {
+        } else {
             $row = FALSE;
         }
         return $row;
@@ -224,17 +201,14 @@ class Crud_model extends CI_Model
 
     //Delete specified records from the DB table.
 
-    function delete_record($id)
-    {
+    function delete_record($id) {
         $return = 0;   // result?
-        if(!empty($id))
-        {
+        if(!empty($id)) {
             $this->db->where('id', $id);
             $result = $this->db->delete('plant_data');
         }
         return $result;
     }
-
 
 }
 

@@ -20,14 +20,18 @@ class Plantlists extends CI_Controller {
            //$this->output->enable_profiler(TRUE);
             $limit = 20;
             $data['fields'] = array(
-              'genus' => 'Plant Name',
+              'full_botanical_name' => 'Plant Name',
               'plant_height_at_10' => 'Plant Height'
             );
 
             $this->load->model('plantlists_model');
 
             $results = $this->plantlists_model->search($limit, $offset, $sort_by, $sort_order);
-            $data['records'] = $results['rows'];
+            $plant_name_and_height = array();
+            foreach ($results['rows'] as $result) {
+                $plant_name_and_height[display_full_botanical_name($result)] = $result['plant_height_at_10'] ? $result['plant_height_at_10'] : "-";
+            }
+            $data['records'] = $plant_name_and_height;
             $data['num_results'] = $results['num_rows'];
 
             // pagination
