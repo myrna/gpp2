@@ -113,7 +113,7 @@ class Crud_model extends CI_Model
     function save_common_name($data) {
         if (!empty($data)) {
             unset($data['save_common_name']);
-            $id = $this->db->insert('plant_common_name', $data);
+            $this->db->insert('plant_common_name', $data);
             return $data['plant_id'];
         }
     }
@@ -137,8 +137,8 @@ class Crud_model extends CI_Model
     function save_synonym($data) {
         if (!empty($data)) {
             unset($data['save_synonym']);
-            $id = $this->db->insert('plant_synonym', $data);
-            return $id;
+            $this->db->insert('plant_synonym', $data);
+            return $data['synonym_id'];
         }
     }
     
