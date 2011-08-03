@@ -2,7 +2,7 @@
 
 <div id="content" class="main">
 <p>Found <?php echo $num_results; ?> plants</p>
-    <table>
+    <table class="nursery">
         <thead>
             <?php foreach($fields as $field_name => $field_display): ?>
         <th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>

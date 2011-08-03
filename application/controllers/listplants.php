@@ -26,7 +26,8 @@ class Listplants extends CI_Controller {
     
     function setup_search_query($terms) {
         $matchwords = explode(" ", $terms);
-        $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','status','sort');
+        $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
+            'registered_name','status','sort');
         foreach ($matchfields as $field) {
             foreach ($matchwords as $match) {
                 $this->db->or_like($field, $match);

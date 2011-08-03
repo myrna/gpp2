@@ -15,7 +15,6 @@ class Crud extends CI_Controller
     
    function add_record()
     {
-        // Enable Profiler.
        // $this->output->enable_profiler(TRUE);
        if (!$this->ion_auth->logged_in())
 		{

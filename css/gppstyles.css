@@ -128,14 +128,11 @@ div#content {
     padding:10px;
 }
 .display {}
-.admin {
+.admin, .gallery, .view {
     padding:10px;
     width:994px;
     }
-.gallery {
-   padding:10px;
-   width:994px;
-}
+
 .home-image {
     float:right;
     width:780px;
@@ -324,6 +321,10 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-weight:bold;
 }
 
+/* plant fact sheet screen style */
+
+.view .thumb {float:right;}
+
 /* plant display styles */
 .genus {
     font-style: italic;
@@ -374,6 +375,7 @@ h1, h2, h3, h4 {font-weight:bold;}
 h1 {font-size:28px; margin-bottom:10px;}
 .display h1, .gallery h1, .display h4, .admin h2, .admin h4 {text-align:center; padding:5px 0;}
 .display h4 {display:block; background-color:#f8e100;}
+.view h4 {text-align:center;}
 .admin h1 {margin-top:15px; text-align:center;}
 h2 {font-size:22px;}
 h3 {font-size:18px;}
