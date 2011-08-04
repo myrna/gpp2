@@ -14,7 +14,7 @@
 class Plantlists extends CI_Controller {
     
      
-        function display($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {    // determines URL - display/sortby/sortorder/offset
+        function display($sort_by = 'name', $sort_order = 'asc', $offset = 0) {    // determines URL - display/sortby/sortorder/offset
            $this->output->enable_profiler(TRUE);
             $limit = 20;
             $data['fields'] = array(
@@ -25,6 +25,7 @@ class Plantlists extends CI_Controller {
             $this->load->model('plantlists_model');
 
             $results = $this->plantlists_model->search($limit, $offset, $sort_by, $sort_order);
+            $total = $this->db->count_all_results('plant_data');
             $plant_name_and_height = array();
             foreach ($results['rows'] as $result) {
                     $plant_name_and_height[] = array(
@@ -42,7 +43,7 @@ class Plantlists extends CI_Controller {
             $this->load->library('pagination');
             $config = array();
             $config['base_url'] = site_url("plantlists/display/$sort_by/$sort_order");
-            $config['total_rows'] = $data['num_results'];
+            $config['total_rows'] = $total;
             $config['per_page'] = $limit;
             $config['uri_segment'] = 5;
             $this->pagination->initialize($config);
