@@ -17,9 +17,9 @@
     }
 
     function image_view_link($filename) {
-        // start of swap image function ?? 
-        $thumb = "<a href='" . image_url($filename) . "'/><img src='" . image_thumb_url($filename) . "'/></a>";
-        return $thumb;
+       
+       $thumb = "<img src='" . image_thumb_url($filename) . "'/>";
+       return $thumb;
     }
 
 ?>

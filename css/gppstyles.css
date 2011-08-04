@@ -323,7 +323,15 @@ table.nursery th:first-child, table.nursery td:first-child {
 
 /* plant fact sheet screen style */
 
-.view .thumb {float:right;}
+#imageview ul {
+    float:right;
+    width:200px;
+}
+#imageview ul img  {
+    border:5px #d2d26f solid;
+}
+
+
 
 /* plant display styles */
 .genus {

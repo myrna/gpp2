@@ -25,7 +25,7 @@ class Plantlists_model extends CI_Model {
                 ->order_by($sort_by, $sort_order);
      
         $ret['rows'] = $q->get()->result_array();
-
+        
         // count query (function as field requires FALSE)
         $q = $this->db->select('COUNT(*) as count',FALSE)
             ->from('plant_data')

@@ -1,25 +1,22 @@
 <!-- display for PUBLIC plant list and search function -->
-<script type="text/javascript">
-var thumbs = document.getElementById('thumbs'),
-    links = thumbs.getElementsByTagName('a'),
-    i;
-for (i = 0; i < links.length; i += 1) {
-    links[i].onclick = imageHandler;
-}
-function imageHandler() {
-    var large = document.getElementById('large');
-    large.style.backgroundImage = 'url(' + this.href + ')';
-    return false;
-    setActiveLink(this);
-    return false;
-}
-function setActiveLink(link) {
-    var links = link.parentNode.getElementsByTagName('a'),
-    i;
-    for (i = 0; i < links.length; i += 1) {
-        links[i].className = '';
-    }
-    link.className = 'active';
+<script type="text/JavaScript">
+$(document).ready(function() {
+        $("#imageview ul li:first").addClass("active");
+
+	$("#imageview li img").click(function(){
+		$('#main-img').attr('src',$(this).attr('src').replace('thumbs/', ''));
+	});
+	var imgSwap = [];
+	 $("#imageview li img").each(function(){
+		imgUrl = this.src.replace('thumbs/', '');
+		imgSwap.push(imgUrl);
+	});
+	$(imgSwap).preload();
+});
+$.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
 }
 </script>
 <div id="content" class="view">
@@ -38,16 +35,20 @@ function setActiveLink(link) {
         echo display_full_botanical_name($row);
     ?></h4>
 <?php } ?>
-    <div class="large">
+    <div id="imageview">
  <!-- still working on image swap function -->
-    </div>
-     <div class="thumb">
-<?php foreach ($images as $image) {
-     echo image_view_link($image['filename']);
+  <img src="<?php echo image_url($filename) ?>" alt="" id="main-img" />
+     
+         <ul>
+<?php
+
+    foreach ($images as $image) {
+     echo "<li>" . image_view_link($image['filename']) . "</li>";
 
 }
 ?>
-
-     </div>
-
+         </ul>
+    
+    </div><!-- end gallery -->
 </div><!-- end content -->
+

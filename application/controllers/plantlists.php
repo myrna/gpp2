@@ -13,14 +13,54 @@
 
 class Plantlists extends CI_Controller {
     
-     
+        function index() {
+
+            $this->load->model('plantlists_model');
+
+            $this->template->set('thispage','Plant Lists');
+            $this->template->set('title','Plant Lists | Great Plant Picks');
+            $this->template->load('template','plantlists',$data);
+        }
+
+        function setup_basic_search($terms) {
+            $matchwords = explode(" ", $terms);
+            $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
+                'registered_name','plant_type'); // need to add common name and synonym
+            foreach ($matchfields as $field) {
+                foreach ($matchwords as $match) {
+                    $this->db->or_like($field, $match);
+                    }
+                }
+        }
+
+        function basic_search($page = 0) {
+
+            if ($this->input->post('searchterms')) {
+                $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
+            }
+
+            $query = $this->session->userdata('plant_search');
+
+            $this->load->model('listplants_model');
+            $this->setup_search_query($this->session->userdata('plant_search'));
+            $total = $this->db->count_all_results('plant_data');
+            $this->setup_search_query($this->session->userdata('plant_search'));
+            $records = $this->listplants_model->get_records($page);
+            $path = "listplants/display";
+            $this->display($page, $records, $total, $path, $query);
+             }
+
         function display($sort_by = 'name', $sort_order = 'asc', $offset = 0) {    // determines URL - display/sortby/sortorder/offset
-           $this->output->enable_profiler(TRUE);
+         //  $this->output->enable_profiler(TRUE);
             $limit = 20;
             $data['fields'] = array(
               'display_full_botanical_name' => 'Plant Name',
               'plant_height_at_10' => 'Plant Height'
             );
+
+            $this->input->load_query($query_id);
+
+            $data['query_id'] = $query_id;
 
             $this->load->model('plantlists_model');
 
