@@ -1,0 +1,65 @@
+/* 
+    Document   : print.css
+    Created on : Aug 4, 2011, 3:14:20 PM
+    Description:
+        Print styles
+*/
+
+    body {
+        background: #fff none !important;
+        color: #000;
+        font: normal 12px/1.1em Arial, Helvetica, sans-serif;
+    }
+    div#topbar, #navigation {display:none;}
+    #wrapper {
+        clear: both !important;
+        display: block !important;
+        float: none !important;
+        position: relative !important;
+    }
+    #wrapper,  #banner,  #footer {
+    margin: 0;
+    width: 100%;
+    }
+    #content {border:none;}
+    table.dblist tr {border-bottom:1px #D0D0D0 solid;}
+    table.dblist td {padding-right:5px;}
+
+    /* plant display styles */
+.genus {
+    font-style: italic;
+}
+
+.species {
+    font-style: italic;
+}
+
+.designate {
+    font-style:italic;
+}
+
+.subspecies {
+    font-style: normal;
+}
+
+.variety {
+    font-style: italic;
+}
+
+.cultivar {
+    font-style: normal;
+}
+
+.trade-name {
+       font-family: Arial, Helvetica, sans-serif;
+}
+.trademark-name, .registered-name {
+    /*font-variant: small-caps;*/
+}
+
+.breeders-rights {
+    vertical-align: super;
+    font-size: 10px;
+}
+
+/* end print stylesheet */

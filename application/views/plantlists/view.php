@@ -36,19 +36,14 @@ $.fn.preload = function() {
     ?></h4>
 <?php } ?>
     <div id="imageview">
- <!-- still working on image swap function -->
-  <img src="<?php echo image_url($filename) ?>" alt="" id="main-img" />
-     
+   <img src="<?php echo image_url($filename) ?>" alt="" id="main-img" />  
          <ul>
 <?php
-
     foreach ($images as $image) {
      echo "<li>" . image_view_link($image['filename']) . "</li>";
-
 }
 ?>
-         </ul>
-    
+         </ul>    
     </div><!-- end gallery -->
 </div><!-- end content -->
 
