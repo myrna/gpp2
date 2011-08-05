@@ -1,7 +1,6 @@
 Jon TODO list:
 ----------------
 
-
 Set up the plantlists/ page so that it has a “basic” search function (a single search box, as on the admin plant list page),
 and then a list of preformatted plant search list links, something like http://www.greatplantpicks.org/search.php ,
 along with a link to an “advanced search” function on a separate page. This basic search function needs to be able
