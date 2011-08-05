@@ -1,7 +1,7 @@
 <!-- display for PUBLIC plant list and search function -->
 
 <div id="content" class="main">
-<p>Found <?php echo $total; ?> plants</p>
+<p>Found <?php echo $num_results; ?> plants</p>
     <table class="nursery">
         <thead>
             <?php foreach($fields as $field_name => $field_display): ?>
