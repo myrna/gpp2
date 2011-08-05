@@ -31,7 +31,7 @@ class Plantlists_model extends CI_Model {
             ->from('plant_data')
             ->where('publish','yes');
     
-        $tmp = $q->get()->result_array();
+        $tmp = $q->get()->result();
         $ret['num_rows'] = $tmp[0]->count;
         
         return $ret;
