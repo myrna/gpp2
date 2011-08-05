@@ -175,8 +175,8 @@ class Crud_model extends CI_Model {
         }
     }
 
+    
     // Update existing record in DB table.
-
 
     function edit_record($data, $id)
     {

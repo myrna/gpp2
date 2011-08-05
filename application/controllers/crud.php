@@ -59,6 +59,14 @@ class Crud extends CI_Controller
     }
     
     function synonym($id) {
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
         $this->load->model('crud_model');
 
         $record = $this->crud_model->get_record_as_array($id);
@@ -84,10 +92,19 @@ class Crud extends CI_Controller
         $this->template->set('title', 'Add Synonym - Database Administration | Great Plant Picks');
         $this->template->load('admin_template', 'admin/synonym', $data);
 
-        
+          }
     }
     
     function common_name($id) {
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $this->load->model('crud_model');
         
         $record = $this->crud_model->get_record_as_array($id);
@@ -97,7 +114,7 @@ class Crud extends CI_Controller
         $this->template->set('thispage', 'Add Common Name');
         $this->template->set('title', 'Add Common Name - Database Administration | Great Plant Picks');
         $this->template->load('admin_template', 'admin/common_name', $data);
-
+          }
     }
     function save_common_name() {
         $this->load->model('crud_model');
@@ -129,6 +146,15 @@ class Crud extends CI_Controller
 
     function edit_record($id = '') {
        //$this->output->enable_profiler(TRUE);
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $this->load->model('crud_model');
         $this->load->model('gallery_model');
         $this->load->helper('image');
@@ -147,6 +173,7 @@ class Crud extends CI_Controller
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('admin_template','admin/edit', $data);
+          }
     }
 
     function get_plant_link_data($id) {

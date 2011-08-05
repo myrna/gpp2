@@ -55,7 +55,8 @@ class Plantlists extends CI_Controller {
             $limit = 20;
             $data['fields'] = array(
               'display_full_botanical_name' => 'Plant Name',
-              'plant_height_at_10' => 'Plant Height'
+              'family_common_name' => 'Family (Common)',
+              'plant_height_at_10' => 'Height'
             );
 
             $this->input->load_query($query_id);
@@ -70,7 +71,8 @@ class Plantlists extends CI_Controller {
             foreach ($results['rows'] as $result) {
                     $plant_name_and_height[] = array(
                     'name' => display_full_botanical_name($result),
-                    'height' => $result['plant_height_at_10'] ? $result['plant_height_at_10'] : "-",
+                    'common' => $result['family_common_name'],
+                    'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
                     'id' => $result['id']
                 );
             }
@@ -83,7 +85,7 @@ class Plantlists extends CI_Controller {
             $this->load->library('pagination');
             $config = array();
             $config['base_url'] = site_url("plantlists/display/$sort_by/$sort_order");
-            $config['total_rows'] = $total;
+            $config['total_rows'] = $data['num_results'];
             $config['per_page'] = $limit;
             $config['uri_segment'] = 5;
             $this->pagination->initialize($config);
@@ -157,8 +159,6 @@ class Plantlists extends CI_Controller {
             $row = $this->crud_model->get_record_as_array($id);
             $data['row'] = $row[0];
             $data['id'] = $data['row']['id'];
-
-            
 
             $this->template->set('thispage','View Plant');
             $this->template->set('title','View Plant | Great Plant Picks');

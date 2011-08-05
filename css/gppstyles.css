@@ -321,6 +321,14 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-weight:bold;
 }
 
+table.display {margin:40px 0 10px;border:none;border-collapse:collapse; border-spacing:0; width:800px;}
+table.display th {font-size:14px; padding-bottom:3px;}
+table.display td {font-size:12px; padding:3px;}
+table.display th:first-child, table.display td:first-child {
+    width:50%;
+    font-weight:bold;
+}
+
 /* plant fact sheet screen style */
 
 #imageview ul {
@@ -373,10 +381,10 @@ table.nursery th:first-child, table.nursery td:first-child {
 /* public table sort function */
 
 .sort_asc:after { /* add up and down arrow symbols later to signify search directions */
-    content:"";
+     content:"\21D3";
 }
 .sort_desc:after {
-    content:"";
+    content:"\21D1";
 }
 /* headers */
 h1, h2, h3, h4 {font-weight:bold;}
@@ -395,5 +403,6 @@ h4 {font-size:18px; padding:5px 0;}
 p {margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
+p.center {text-align:center;}
 
 /* end */

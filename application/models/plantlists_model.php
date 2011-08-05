@@ -15,7 +15,7 @@ class Plantlists_model extends CI_Model {
     function search($limit, $offset, $sort_by, $sort_order) {
         //prevent incorrect parameters being inserted into URL
         $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // eliminate all options except desc and asc
-        $sort_columns = array('genus','plant_height_at_10'); // determine sortable columns
+        $sort_columns = array('genus','family_common_name','plant_height_at_10'); // determine sortable columns
         $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'genus';
         
         $q = $this->db->select()

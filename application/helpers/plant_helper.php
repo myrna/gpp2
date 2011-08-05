@@ -130,8 +130,8 @@ function build_form_control($key, $value) {
     );
     switch ($key) {
          case 'plant_breeders_rights':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Yes' => "Yes");
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Yes' => "Yes");
             return form_dropdown('plant_breeders_rights', $options, $current, "id='$key'");
             break;
          case 'foliage_type':
