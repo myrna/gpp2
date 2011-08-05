@@ -38,7 +38,7 @@
                 echo "<a href='/'><div id='logo-sub'></div></a>" ;
                 }
                 ?>
-            </div>
+            </div><!-- end banner -->
         <div id="navigation">
       <a <?php if ($thispage=="Home")
       echo " id=\"currentpage\""; ?> href="/">Home</a> 
@@ -53,10 +53,10 @@
       echo " id=\"currentpage\""; ?> href="/press/">Press</a>
     <a <?php if ($thispage=="Contact")
       echo " id=\"currentpage\""; ?> href="/contact/">Contact</a>
-</div>
-        <div id="contents"><?php echo $contents ?></div>
+</div><!-- end navigation -->
+        <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
-        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div>
+        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div><!-- end footer -->
        </div><!-- end wrapper -->
     </body>
 
