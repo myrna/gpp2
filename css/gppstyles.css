@@ -230,7 +230,7 @@ div#content {
 
 #imageform .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
 
-p.category {padding-left:5px; margin-top:0; font-style:italic;}
+p.category {clear:left; padding-left:5px; margin-top:0; font-style:italic;}
 
 /* add and update record form styling */
 

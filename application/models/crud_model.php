@@ -144,7 +144,7 @@ class Crud_model extends CI_Model {
 
     function get_record($id) {
         if(!empty($id)) {
-            //use the where function to add a filter to our query, this time the id, with the $id value
+            
             $query = $this->db->where('id', $id);
             $query = $this->db->get('plant_data');
         }
@@ -161,11 +161,9 @@ class Crud_model extends CI_Model {
     {
         if(!empty($id))
         {
-            //use the where function to add a filter to our query, this time the id, with the $id value
-
+           
             $query = $this->db->where('id', $id);
 
-            //and then execute the query
             $query = $this->db->get('plant_data');
         }
         if ($query->num_rows() > 0) {
@@ -209,7 +207,6 @@ class Crud_model extends CI_Model {
         }
         return $result;
     }
-
 }
 
 /* End of file crud_model.php */

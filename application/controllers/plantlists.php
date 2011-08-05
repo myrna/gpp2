@@ -158,6 +158,8 @@ class Plantlists extends CI_Controller {
             $data['row'] = $row[0];
             $data['id'] = $data['row']['id'];
 
+            
+
             $this->template->set('thispage','View Plant');
             $this->template->set('title','View Plant | Great Plant Picks');
             $this->template->load('template','plantlists/view', $data);

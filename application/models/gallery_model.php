@@ -45,14 +45,12 @@ class Gallery_model extends CI_Model {
         $this->load->library('image_lib', $config);
         $this->image_lib->resize();
 
-
         $data = array(               
             'filename' => $image_data['file_name'],
             'season' => $this->input->post('season'),
             'description' => $this->input->post('description'),
             'copyright' => $this->input->post('copyright'),
             'photographer' => $this->input->post('photographer'),
-            // we'll do this part later.
         );
         
         $this->db->insert('images', $data);

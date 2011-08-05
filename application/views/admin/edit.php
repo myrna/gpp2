@@ -30,7 +30,7 @@
             echo "<h5>Synonyms</h5><p>";
             foreach ($synonyms as $synonym) {
                 echo display_full_botanical_name($synonym);
-                echo anchor('crud/delete_synonym/'.$synonym['id'], 'Delete Synonym');
+                echo anchor('crud/delete_synonym/'.$synonym['id'], '(Delete Synonym)');
                 echo "</p>";
             }
         }
@@ -40,21 +40,22 @@
             echo "<h5>Common Names</h5><p>";
             foreach ($common_names as $common_name) {
                 echo $common_name['common_name']." ";
-                echo anchor('crud/delete_common_name/'.$common_name['id'], 'Delete Common Name');
+                echo anchor('crud/delete_common_name/'.$common_name['id'], '(Delete Common Name)');
                 echo "</p>";
             }
         }
     ?>
 
-        <div class="thumb">
+       
 <?php foreach ($images as $image) {
-     echo image_thumb_link($image['filename']);
+
+     echo "<div class='thumb'>" . image_thumb_link($image['filename']);
      foreach ($image['categories'] as $category) {
-		echo "<p class='category'>Image: " . $category . "</p>";
+		echo "<p class='category'>Image: " . $category . "</p></div>";
      }
 }
 ?>
-    </div><!-- end gallery thumbs -->
+    
 
      <?php
         $attributes = array('class' => 'data-entry', 'id' => $row['id']);
