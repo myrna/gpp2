@@ -40,9 +40,9 @@
             <?php else :  ?>
             <a href="/auth/login/">Login</a>
             <?php endif ?>
-</div>
+</div><!-- end navigation -->
           
-        <div id="contents"><?php echo $contents ?></div>
+        <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
         <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div>
        </div><!-- end wrapper -->

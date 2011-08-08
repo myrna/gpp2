@@ -17,7 +17,6 @@ ul, li, fieldset, table, th, tr, td
 	vertical-align: baseline;
 	background: transparent;}
 ol, ul {list-style: none;}
-div {position:relative;}
 
 /* body styles */
 html {min-height:100%;}
@@ -98,6 +97,7 @@ div#navigation {
 
 #footer {
     float:left;
+    position:relative;
     margin-top:5px;
     clear:both;
     display:block;
@@ -112,6 +112,7 @@ div#navigation {
 /* container styles */
 
 div#content {
+    position:relative;
     clear:both;
     background-color:#bebe31;
     border:5px #d2d26f solid;
@@ -272,8 +273,6 @@ input[type="option"] {
 }
 /* searchform styling */
 #searchform {
-    position:relative;
-    float:left;
     padding:10px 20px;  
 }
 #searchform input[type="text"] {
@@ -287,6 +286,7 @@ input[type="option"] {
 .clear-search {padding-left:10px;}
 /* pagination styling --------- */
 #pages a, #pages strong {
+        position:relative;
 	background: #e3e3e3;
 	padding: 4px 7px;
 	text-decoration: none;
@@ -302,7 +302,7 @@ input[type="option"] {
 a#currentpage {color:#000000;}
 
 /* generic table styling (temporary) ------- */
-table {font-size:12px; line-height:14px;}
+table {position:relative; clear:both; font-size:12px; line-height:14px;}
 table th {text-align:left;}
 
 table.dblist, table.nursery {margin:10px 0;border:none;border-collapse:collapse; border-spacing:0;}

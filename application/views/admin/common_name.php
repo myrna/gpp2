@@ -21,4 +21,5 @@
     } ?>
     </ul>
     <?php echo form_submit('save_common_name', 'Add Common Name'); ?>
+      <div class="clear"></div>
 </div>

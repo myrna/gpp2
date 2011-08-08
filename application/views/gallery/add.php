@@ -80,4 +80,5 @@ foreach ($category_fields as $row) {
 echo form_close();
 ?>
     </div>
+    <div class="clear"></div>
 </div><!-- end content -->

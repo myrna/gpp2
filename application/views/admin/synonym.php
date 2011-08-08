@@ -20,4 +20,5 @@
     } ?>
     </ul>
     <?php echo form_submit('save_synonym', 'Add Synonym'); ?>
+      <div class="clear"></div>
 </div>

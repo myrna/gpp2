@@ -97,4 +97,5 @@
     <?php
     }
     ?>
+         <div class="clear"></div>
 </div><!-- end content -->

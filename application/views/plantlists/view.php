@@ -64,7 +64,7 @@ $.fn.preload = function() {
 ?>
              
          </ul>    
-    </div><!-- end gallery -->
-
+    </div><!-- end image view -->
+    <div class="clear"></div>
 </div><!-- end content -->
 
