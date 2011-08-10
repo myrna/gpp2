@@ -38,7 +38,7 @@ class Plantlists_model extends CI_Model {
     }
 
     // view individual record
-
+    
     function view() {
         
     }

@@ -46,12 +46,13 @@ $.fn.preload = function() {
     </div><!-- end image view -->
     <div class="plantinfo">
     <?php
+        echo "<p><em>" . $details->plant_type . "</em>";
         if (!empty($common_names)) {
-            echo "<p><em>Common Name(s):</em> ";
+            echo ", <em>Common Name(s):</em> ";
             foreach ($common_names as $common_name) {
                 echo $common_name['common_name']." ";
-                echo "</p>";
-            }
+                }
+        echo "</p>";
         }
     ?>
 <?php
@@ -68,11 +69,28 @@ $.fn.preload = function() {
         echo $details->qualities;
         echo "</dd></dl>";
         echo "<h3>Plant Characteristics</h3>";
-        echo "<p>" . $details->plant_type . "</p>";
+
+        /* trying to get metric conversion on feet -- not working -- */
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
         $feet = $details->plant_height_at_10;  // this doesn't work, producing 0, but view is seeing the conversion helper
         echo feet_to_meters($plant_height_at_10) . " meters)</p>";
-       
+        echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
+        $feet = $details->plant_width_at_10;  // this doesn't work, producing 0, but view is seeing the conversion helper
+        echo feet_to_meters($plant_width_at_10) . " meters)</p>";
+        echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
+
+        /* get list of foliage color(s) --- not working ----*/
+        if (!empty($foliage_color)) {
+            echo "<em>Foliage Color:</em> ";
+            foreach ($foliage_colors as $foliage_color) {
+                echo $foliage_color['foliage_color']." ";
+                }
+        echo "</p>";
+        }
+        /* end foliage color ---- */
+
+        /* need flower color(s) here --- */
+        echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
         echo "<dl><dt>Culture</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";

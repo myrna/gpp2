@@ -142,6 +142,15 @@ class Crud_model extends CI_Model {
         return $plant_id;
     }
 
+    //probably don't need to do this?  not working anyway
+     function get_foliage_color($id) {
+        $this->db->where('plant_id', $id);
+        $query = $this->db->get('plant_foliage_color');
+        return $query->result_array();
+    }
+
+
+
     function get_record($id) {
         if(!empty($id)) {
             
