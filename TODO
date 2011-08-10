@@ -7,6 +7,10 @@ along with a link to an “advanced search” function on a separate page. This 
 to search through all parts of the full botanical name, the common name table, and the plant synonym table, and then
 bring up results as shown on plantlists/display.
 
+For views/plantlists/view need to add $category to the image id so that when page is loaded initial main image loaded will be "primary";
+currently no initial main image is loaded, thumbnail needs to be clicked (I left javascript on the page for now in case that needs any
+changes).  I loaded three images into the Acer saccharum 'Green Mountain' data so that is the plant I have been looking at to test this.
+Note that I'm allowing space for a main image that is larger than the one currently loaded; Rick will be loading new and larger images.
 
 =======
 
