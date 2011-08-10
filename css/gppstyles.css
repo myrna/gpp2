@@ -66,7 +66,14 @@ div#logo-sub {
     text-indent:-9999px;
     z-index:9999;
     }
-
+div#logo-link {
+    position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    width:200px;
+    height:140px;
+    }
 /* navigation */
 
 div#navigation {
@@ -333,16 +340,25 @@ table.display th:first-child, table.display td:first-child {
 }
 
 /* plant fact sheet screen style */
-
+#imageview {
+    float:left;
+    display:block;
+    height:500px;
+    width:524px;
+}
 #imageview ul {
     float:right;
-    width:200px;
+    width:150px;
 }
-#imageview ul img  {
+
+#imageview img {
     border:5px #d2d26f solid;
 }
+.plantinfo {
 
-
+}
+.plantinfo dt {font-weight:bold;}
+.plantinfo dd {padding-bottom:8px;}
 
 /* plant display styles */
 .genus {
@@ -407,5 +423,7 @@ p {margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
 p.center {text-align:center;}
+
+em {font-style:normal; font-weight:bold;}
 
 /* end */

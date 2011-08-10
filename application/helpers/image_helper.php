@@ -16,10 +16,9 @@
         return anchor("images/$filename", $thumb);
     }
 
-    function image_view_link($filename) {
-       
-       $thumb = "<img src='" . image_thumb_url($filename) . "'/>";
-       return $thumb;
+    function image_view_link($filename) {        
+      $thumb = "<img src='" . image_thumb_url($filename) . "'/>";
+      return $thumb;
     }
 
 ?>

@@ -135,42 +135,42 @@ function build_form_control($key, $value) {
             return form_dropdown('plant_breeders_rights', $options, $current, "id='$key'");
             break;
          case 'foliage_type':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
             return form_dropdown($key, $options, $current, "id='$key'");
             break;
         case 'plant_type':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Bulb' => "Bulb", 'Conifer' => "Conifer", 'Perennial' => "Perennial",
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Bulb' => "Bulb", 'Conifer' => "Conifer", 'Perennial' => "Perennial",
                 'Shrub' => "Shrub", 'Tree' => "Tree", 'Vine' => "Vine", 'Annual' => "Annual");
             return form_dropdown('plant_type', $options, $current, "id='$key'");
             break;
          case 'flower_time':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Winter' => "Winter", 'Winter-Spring' => "Winter-Spring", 'Spring' => "Spring",
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Winter' => "Winter", 'Winter-Spring' => "Winter-Spring", 'Spring' => "Spring",
                 'Spring-Summer' => "Spring-Summer", 'Summer' => "Summer", 'Summer-Fall' => "Summer-Fall", 'Fall' => "Fall",
                 'Winter' => "Winter");
             return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
         case 'committee':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Perennials - Bulbs' => "Perennials - Bulbs",
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Perennials - Bulbs' => "Perennials - Bulbs",
                 'Shrubs - Vines' => "Shrubs - Vines", 'Trees - Conifers' => "Trees - Conifers");
             return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
         case 'fruit_seedhead_attractive':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Yes' => "Yes");
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Yes' => "Yes");
             return form_dropdown('fruit_seedhead_attractive', $options, $current, "id='$key'");
             break;
         case 'bark_interest':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Yes' => "Yes");
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Yes' => "Yes");
             return form_dropdown('bark_interest', $options, $current, "id='$key'");
             break;
         case 'flower_showy':
-            $current = $value ? $value : 'none';
-            $options = array('none' => "", 'Yes' => "Yes");
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Yes' => "Yes");
             return form_dropdown('flower_showy', $options, $current, "id='$key'");
             break;
         case 'publish':

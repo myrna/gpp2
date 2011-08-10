@@ -148,6 +148,7 @@ class Plantlists extends CI_Controller {
             $this->load->model('gallery_model');
             $this->load->helper('image');
             $this->load->helper('html');
+            $this->load->helper('conversion');
 
             $data['title'] = "";
 
@@ -155,6 +156,7 @@ class Plantlists extends CI_Controller {
             $data['synonyms'] = $this->crud_model->get_synonyms($id);
             $data['common_names'] = $this->crud_model->get_common_names($id);
             $data['plant_attributes'] = $this->get_plant_link_data($id);
+            $data['details'] = $this->crud_model->get_record($id);
 
             $row = $this->crud_model->get_record_as_array($id);
             $data['row'] = $row[0];
@@ -164,7 +166,8 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','View Plant | Great Plant Picks');
             $this->template->load('template','plantlists/view', $data);
         }
-            
+
+
            
 }
 

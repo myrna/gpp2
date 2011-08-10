@@ -35,7 +35,7 @@
                     if ($thispage=="Home")
                 echo "<div id='logo'></div>";
                     else {
-                echo "<a href='/'><div id='logo-sub'></div></a>" ;
+                echo "<div id='logo-sub'><a href='/'><div id='logo-link'></div></a></div>" ;
                 }
                 ?>
             </div><!-- end banner -->
