@@ -13,7 +13,7 @@
         <script type="text/javascript">
         
         $(function() {
-        $("#searchterm").autocomplete({
+        $("#searchterms").autocomplete({
 	minLength: 2,
 	source: function(req, add){
 		$.ajax({
