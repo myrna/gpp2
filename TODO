@@ -16,5 +16,14 @@ For views/plantlists/view please look at what I've attempted to do for foliage c
 then I can probably use that as a template to get the rest of the data that comes out of linked tables that may have more than one
 entry (ie flower color, wildlife, soil type, sun requirements...).
 
+If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
+it is only looking at the "genus" and it lists duplicate fields (so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
+there a way to get the autocomplete_model to search on all parts of the full botanical name?  Barring that, to search each "important" name field and
+not return duplicates -- I don't know if that's possible since they are all individual records.  And for the public function ideally it
+would go for common names and synonyms as well.  Maybe it would be better to have the autocomplete function pull from a static page with
+a list on it?  Don't know what is easiest....
+
+Thanks!
+
 =======
 
