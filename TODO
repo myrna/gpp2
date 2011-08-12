@@ -12,5 +12,9 @@ currently no initial main image is loaded, thumbnail needs to be clicked (I left
 changes).  I loaded three images into the Acer saccharum 'Green Mountain' data so that is the plant I have been looking at to test this.
 Note that I'm allowing space for a main image that is larger than the one currently loaded; Rick will be loading new and larger images.
 
+For views/plantlists/view please look at what I've attempted to do for foliage color; if you can show how to display a list of colors
+then I can probably use that as a template to get the rest of the data that comes out of linked tables that may have more than one
+entry (ie flower color, wildlife, soil type, sun requirements...).
+
 =======
 

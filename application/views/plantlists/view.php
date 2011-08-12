@@ -80,25 +80,37 @@ $.fn.preload = function() {
         echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
 
         /* get list of foliage color(s) --- not working ----*/
-        if (!empty($foliage_color)) {
-            echo "<em>Foliage Color:</em> ";
-            foreach ($foliage_colors as $foliage_color) {
-                echo $foliage_color['foliage_color']." ";
+        if (!empty($plant_attributes->foliage_color))
+            echo "<p><em>Foliage Color:</em> ";
+            foreach ($foliage_colors as $plant_attributes->foliage_color) {
+                echo $plant_attributes->foliage_color;
+                echo "</p>";
                 }
-        echo "</p>";
-        }
+        
+        
         /* end foliage color ---- */
 
         /* need flower color(s) here --- */
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
-        echo "<dl><dt>Culture</dt><dd>";
+        echo "<h3>Plant Culture</h3>";
+        echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high;
+        echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
+        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
+        echo "<dl><dt>Culture Notes</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";
         echo $details->growing_notes;
-        echo "</dd>";
-        echo "</dl>";
-    ?>
+        echo "</dd></dl>";
+        if (!empty($details->geek_notes)) {
+            echo "<h3>Geek Notes</h3>";
+            echo $details->geek_notes;
+        }
+        if (!empty($details->plant_origin)) {
+            echo "<p><em>Origin: " . $details->plant_origin . "</p>";
+            }
 
+    ?>
+ 
     </div><!-- end plantinfo -->
     <div class="clear"></div>
 </div><!-- end content -->

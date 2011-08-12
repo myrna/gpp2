@@ -11,7 +11,7 @@
     <?php
     $attributes = array('id' => 'searchform');
     echo form_open('listplants/search', $attributes); ?>
-    <input type="text" name="searchterms" >
+    <input type="text" name="searchterms" id="searchterms">
     <input type="submit" value="Search">
  
     <?php

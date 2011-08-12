@@ -156,7 +156,7 @@ function build_form_control($key, $value) {
             $current = $value ? $value : '';
             $options = array('' => "", 'Perennials - Bulbs' => "Perennials - Bulbs",
                 'Shrubs - Vines' => "Shrubs - Vines", 'Trees - Conifers' => "Trees - Conifers");
-            return form_dropdown('flower_time', $options, $current, "id='$key'");
+            return form_dropdown('committee', $options, $current, "id='$key'");
             break;
         case 'fruit_seedhead_attractive':
             $current = $value ? $value : '';

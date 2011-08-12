@@ -157,8 +157,7 @@ class Plantlists extends CI_Controller {
             $data['common_names'] = $this->crud_model->get_common_names($id);
             $data['plant_attributes'] = $this->get_plant_link_data($id);
             $data['details'] = $this->crud_model->get_record($id);
-            $data['foliage_color'] = $this->crud_model->get_foliage_color($id); // not working, trying to get foliage color(s)
-
+            
             $row = $this->crud_model->get_record_as_array($id);
             $data['row'] = $row[0];
             $data['id'] = $data['row']['id'];
