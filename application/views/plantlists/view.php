@@ -69,25 +69,22 @@ $.fn.preload = function() {
         echo $details->qualities;
         echo "</dd></dl>";
         echo "<h3>Plant Characteristics</h3>";
-
-        /* trying to get metric conversion on feet -- not working -- */
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
-        $feet = $details->plant_height_at_10;  // this doesn't work, producing 0, but view is seeing the conversion helper
-        echo feet_to_meters($plant_height_at_10) . " meters)</p>";
+        echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
         echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
-        $feet = $details->plant_width_at_10;  // this doesn't work, producing 0, but view is seeing the conversion helper
-        echo feet_to_meters($plant_width_at_10) . " meters)</p>";
+        echo feet_to_meters($details->plant_width_at_10) . " meters)</p>";
         echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
 
         if (!empty($plant_attributes['foliage_color'])) {
             echo "<p><em>Foliage Color:</em> ";
             echo implode($plant_attributes['foliage_color'], ', ');
         }
-        
-        
-        /* end foliage color ---- */
 
-        /* need flower color(s) here --- */
+        if (!empty($plant_attributes['flower_color'])) {
+            echo "<p><em>Flower Color:</em> ";
+            echo implode($plant_attributes['flower_color'], ', ');
+        }        
+
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
         echo "<h3>Plant Culture</h3>";
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high;
