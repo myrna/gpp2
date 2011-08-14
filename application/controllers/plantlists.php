@@ -102,41 +102,32 @@ class Plantlists extends CI_Controller {
 
         function get_plant_link_data($id) {  // copied from crud controller
             $data = array();
-            $water = $this->crud_model->link_table($id, 'water', 'plant');
-            $data['water']['fields'] = $water['list'];
-            $data['water']['requirements'] = $water['current'];
+            $water = $this->crud_model->link_table($id, 'water', 'plant', true);
+            $data['water'] = $water['values'];
 
             $sun = $this->crud_model->link_table($id, 'sun', 'plant');
-            $data['sun']['fields'] = $sun['list'];
-            $data['sun']['requirements'] = $sun['current'];
+            $data['sun'] = $sun['values'];
 
             $soil = $this->crud_model->link_table($id, 'soil', 'plant');
-            $data['soil']['fields'] = $soil['list'];
-            $data['soil']['requirements'] = $soil['current'];
+            $data['soil'] = $soil['values'];
 
             $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
-            $data['wildlife']['fields'] = $wildlife['list'];
-            $data['wildlife']['requirements'] = $wildlife['current'];
+            $data['wildlife'] = $wildlife['values'];
 
             $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
-            $data['pest_resistance']['fields'] = $pest_resistance['list'];
-            $data['pest_resistance']['requirements'] = $pest_resistance['current'];
+            $data['pest_resistance'] = $pest_resistance['values'];
 
             $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
-            $data['flower_color']['fields'] = $flower_color['list'];
-            $data['flower_color']['requirements'] = $flower_color['current'];
+            $data['flower_color'] = $flower_color['values'];
 
             $foliage_color = $this->crud_model->link_table($id, 'foliage_color', 'plant');
-            $data['foliage_color']['fields'] = $foliage_color['list'];
-            $data['foliage_color']['requirements'] = $foliage_color['current'];
+            $data['foliage_color'] = $foliage_color['values'];
 
             $foliage_texture = $this->crud_model->link_table($id, 'foliage_texture', 'plant');
-            $data['foliage_texture']['fields'] = $foliage_texture['list'];
-            $data['foliage_texture']['requirements'] = $foliage_texture['current'];
+            $data['foliage_texture'] = $foliage_texture['values'];
 
             $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
-            $data['design_use']['fields'] = $design_use['list'];
-            $data['design_use']['requirements'] = $design_use['current'];
+            $data['design_use'] = $design_use['values'];
 
             return $data;
     }

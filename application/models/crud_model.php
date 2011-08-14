@@ -70,7 +70,15 @@ class Crud_model extends CI_Model {
         } else {
             $current = array();
         }
-        return array('list' => $list, 'current' => $current);
+        $current_values = array();
+
+        foreach ($current as $setting) {
+            $a = $this->db->where('id',$setting)->select($attribute)->get($attribute)->result_array();
+            $b = array_values($a[0]);
+            $current_values[] = $b[0];
+        }
+
+        return array('list' => $list, 'current' => $current, 'values' => $current_values);
     }
 
     function add_record($data) {

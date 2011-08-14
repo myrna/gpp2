@@ -80,12 +80,9 @@ $.fn.preload = function() {
         echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
 
         /* get list of foliage color(s) --- not working ----*/
-        if (!empty($plant_attributes->foliage_color))
+        if (!empty($plant_attributes['foliage_color']))
             echo "<p><em>Foliage Color:</em> ";
-            foreach ($foliage_colors as $plant_attributes->foliage_color) {
-                echo $plant_attributes->foliage_color;
-                echo "</p>";
-                }
+            echo implode($plant_attributes['foliage_color'], ', ');
         
         
         /* end foliage color ---- */
