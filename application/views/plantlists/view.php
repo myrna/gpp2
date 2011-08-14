@@ -79,10 +79,10 @@ $.fn.preload = function() {
         echo feet_to_meters($plant_width_at_10) . " meters)</p>";
         echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
 
-        /* get list of foliage color(s) --- not working ----*/
-        if (!empty($plant_attributes['foliage_color']))
+        if (!empty($plant_attributes['foliage_color'])) {
             echo "<p><em>Foliage Color:</em> ";
             echo implode($plant_attributes['foliage_color'], ', ');
+        }
         
         
         /* end foliage color ---- */
