@@ -132,7 +132,7 @@ class Plantlists extends CI_Controller {
             return $data;
     }
 
-        function view($id = '') {
+        function view($id) {
             $this->output->enable_profiler(TRUE);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
@@ -144,6 +144,13 @@ class Plantlists extends CI_Controller {
             $data['title'] = "";
 
             $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
+            # find the primary image for this plant, set it to primary, and yank it from the list.
+            foreach ($data['images'] as $image) {
+                if (in_array('primary', $image['categories'])) {
+                    $data['primary_image'] = $image;
+                    unset($data['images'], $image);
+                }
+            }
             $data['synonyms'] = $this->crud_model->get_synonyms($id);
             $data['common_names'] = $this->crud_model->get_common_names($id);
             $data['plant_attributes'] = $this->get_plant_link_data($id);

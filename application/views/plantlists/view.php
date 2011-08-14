@@ -35,7 +35,7 @@ $.fn.preload = function() {
     
 <?php } ?>
     <div id="imageview">
-   <img src="<?php echo image_url($image['filename']) ?>" alt="" id="main-img" />
+   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
          <ul>
 <?php
         foreach ($images as $image) {
