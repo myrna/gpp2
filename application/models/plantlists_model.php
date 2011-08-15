@@ -69,8 +69,8 @@ class Plantlists_model extends CI_Model {
             $this->name_search($query);
         
             $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from('plant_data')->
-                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id')->
-                join('plant_common_name', 'plant_common_name.plant_id = plant_id')->
+                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
+                join('plant_common_name', 'plant_common_name.plant_id = plant_id', 'left')->
                 get()->result_array();
             
 
@@ -81,8 +81,8 @@ class Plantlists_model extends CI_Model {
             $this->name_search($query);
         
             $records = $this->db->select('plant_data.*')->from('plant_data')->
-                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id')->
-                join('plant_common_name', 'plant_common_name.plant_id = plant_id')->
+                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
+                join('plant_common_name', 'plant_common_name.plant_id = plant_id', 'left')->
                 distinct()->
                 limit($limit, $offset)->
                 get()->result_array();
