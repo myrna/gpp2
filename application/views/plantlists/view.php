@@ -32,15 +32,15 @@ $.fn.preload = function() {
         echo display_full_botanical_name($row);
     ?></h4>
     
-<?php } ?>
+    <?php } ?>
+    
     <div id="imageview">
    <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
          <ul>
-<?php
-        foreach ($images as $image) {
-        echo "<li>" . image_view_link($image['filename']) . "</li>";        
-}
-?>             
+    <?php foreach ($images as $image) {
+     echo "<li>" . image_view_link($image['filename']) . "</li>";
+    }
+    ?>
          </ul>    
     </div><!-- end image view -->
     <div class="plantinfo">
@@ -75,8 +75,11 @@ $.fn.preload = function() {
         echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
 
         if (!empty($plant_attributes['foliage_color'])) {
-            echo "<p><em>Foliage Color:</em> ";
+            echo "<p><em>Foliage:</em> ";
             echo implode($plant_attributes['foliage_color'], ', ');
+        }
+        if (!empty($plant_attributes['foliage_texture'])) {
+            echo ' ' . implode($plant_attributes['foliage_texture'], ', ');
         }
 
         if (!empty($plant_attributes['flower_color'])) {
@@ -86,9 +89,45 @@ $.fn.preload = function() {
 
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
         echo "<h3>Plant Culture</h3>";
-        echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high;
-        echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
+
+        if (!empty($plant_attributes['sun'])) {
+            echo "<p><em>Sun/Light Exposure:</em> ";
+            echo implode($plant_attributes['sun'], ', ');
+        }
+
+        if (!empty($plant_attributes['water'])) {
+            echo "<p><em>Water Requirements:</em> ";
+            echo implode($plant_attributes['water'], ', ');
+        }
+
+        if (!empty($plant_attributes['soil'])) {
+            echo "<p><em>Soil Requirements:</em> ";
+            echo implode($plant_attributes['soil'], ', ');
+        }
+
+        if (!empty($details->seasonal_interest))  {
+             echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
+        }
+        
+        if (!empty($plant_attributes['design_use'])) {
+            echo "<p><em>Design Use:</em> ";
+            echo implode($plant_attributes['design_use'], ', ');
+        }
+
         echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
+
+        if (!empty($plant_attributes['wildlife'])) {
+            echo "<p><em>Wildlife Associations:</em> ";
+            echo implode($plant_attributes['wildlife'], ', ');
+        }
+
+        if (!empty($plant_attributes['pest_resistance'])) {
+            echo "<p><em>Resistant to:</em> ";
+            echo implode($plant_attributes['pest_resistance'], ', ');
+        }
+
+        echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high;
+                
         echo "<dl><dt>Culture Notes</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";

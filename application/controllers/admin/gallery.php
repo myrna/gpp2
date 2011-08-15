@@ -15,17 +15,36 @@ class Gallery extends CI_Controller {
 
     function index() {
        // $this->output->enable_profiler(TRUE);
+        //user cannot access this page unless logged in, offer logout option
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $data['images'] = $this->db->get('images')->result_array();
 
         $this->template->set('thispage','Images');
         $this->template->set('title','Images - Database Administration | Great Plant Picks');
         $this->load->helper('image');
-        $this->template->load('template','gallery/index', $data);
+        $this->template->load('admin/admin_template','gallery/index', $data);
     }
-
+    }
     function upload_image($id = ''){
 	//    $this->output->enable_profiler(TRUE);
-    
+        //user cannot access this page unless logged in, offer logout option
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $this->load->model('Crud_model');
         $this->load->model('Gallery_model');
         $data['plant_id'] = $id;
@@ -41,7 +60,8 @@ class Gallery extends CI_Controller {
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
         $this->load->helper('image');
-	    $this->template->load('template','admin/gallery/add', $data);
+	    $this->template->load('admin/admin_template','admin/gallery/add', $data);
+    }
     }
 
     function thumbs($id = ''){
@@ -57,7 +77,17 @@ class Gallery extends CI_Controller {
     
     function add_image() {
         //$this->output->enable_profiler(TRUE);
-        
+
+        //user cannot access this page unless logged in, offer logout option
+        if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $this->load->model('gallery_model');
         $this->load->model('crud_model');
         $plant_id = $this->input->post('plant_id');
@@ -71,7 +101,7 @@ class Gallery extends CI_Controller {
         $this->session->set_flashdata('status', 'Image upload successful');
         redirect('admin/gallery/upload_image/' . $plant_id);
     }
-    
+    }
     function delete() {
         //$this->output->enable_profiler(TRUE);
         $this->load->model('gallery_model');

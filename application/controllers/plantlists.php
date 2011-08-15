@@ -15,7 +15,7 @@ class Plantlists extends CI_Controller {
     
         function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
 
-            $this->output->enable_profiler(TRUE);
+           // $this->output->enable_profiler(TRUE);
             $this->load->model('plantlists_model');
            // $limit = 20;
             
@@ -117,7 +117,7 @@ class Plantlists extends CI_Controller {
             foreach ($data['images'] as $image) {
                 if (in_array('primary', $image['categories'])) {
                     $data['primary_image'] = $image;
-                    unset($data['images'], $image);
+                    //unset($data['images'], $image);
                 }
             }
             $data['synonyms'] = $this->crud_model->get_synonyms($id);
