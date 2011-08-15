@@ -18,10 +18,10 @@
     
        <p class="nav">
 <?php
-    echo anchor('crud/add_record', 'Add new record')." | ";
-    echo anchor("crud/synonym/".$id, 'Add Synonym')." | ";
-    echo anchor("crud/common_name/".$id, 'Add Common_Name')." | ";    
-    echo anchor('/listplants', 'Return to Main List')."</p>";
+    echo anchor('admin/crud/add_record', 'Add new record')." | ";
+    echo anchor("admin/crud/synonym/".$id, 'Add Synonym')." | ";
+    echo anchor("admin/crud/common_name/".$id, 'Add Common_Name')." | ";    
+    echo anchor('admin/listplants', 'Return to Main List')."</p>";
     
 ?>
 
@@ -30,7 +30,7 @@
             echo "<h5>Synonyms</h5><p>";
             foreach ($synonyms as $synonym) {
                 echo display_full_botanical_name($synonym);
-                echo anchor('crud/delete_synonym/'.$synonym['id'], '(Delete Synonym)');
+                echo anchor('admin/crud/delete_synonym/'.$synonym['id'], '(Delete Synonym)');
                 echo "</p>";
             }
         }
@@ -40,7 +40,7 @@
             echo "<h5>Common Names</h5><p>";
             foreach ($common_names as $common_name) {
                 echo $common_name['common_name']." ";
-                echo anchor('crud/delete_common_name/'.$common_name['id'], '(Delete Common Name)');
+                echo anchor('admin/crud/delete_common_name/'.$common_name['id'], '(Delete Common Name)');
                 echo "</p>";
             }
         }
@@ -59,7 +59,7 @@
 
      <?php
         $attributes = array('class' => 'data-entry', 'id' => $row['id']);
-        echo form_open('crud/edit',$attributes);
+        echo form_open('admin/crud/edit',$attributes);
     ?>
     <ul>
     <?php foreach ($row as $key => $value) {

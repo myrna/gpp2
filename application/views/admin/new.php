@@ -2,7 +2,7 @@
 <div id="content" class="admin">
     <h2>GPP Database Administration: Add New Record</h2>
     <p class="nav"><?php
-       echo anchor('/listplants', 'Return to Main List');
+       echo anchor('admin/listplants', 'Return to Main List');
     ?></p>
     <?php
     $attributes = array('class' => 'data-entry');

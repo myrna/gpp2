@@ -41,7 +41,7 @@ class Gallery extends CI_Controller {
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');
         $this->load->helper('html');
         $this->load->helper('image');
-	$this->template->load('template','gallery/add', $data);
+	    $this->template->load('template','admin/gallery/add', $data);
     }
 
     function thumbs($id = ''){
@@ -69,7 +69,7 @@ class Gallery extends CI_Controller {
         }
         $this->gallery_model->link_image($image_id, $plant_id);
         $this->session->set_flashdata('status', 'Image upload successful');
-        redirect('gallery/upload_image/' . $plant_id);
+        redirect('admin/gallery/upload_image/' . $plant_id);
     }
     
     function delete() {
@@ -79,7 +79,7 @@ class Gallery extends CI_Controller {
         $plant_id = $this->input->post('plant_id');
         $this->gallery_model->delete_image($image_id);
         $this->session->set_flashdata('status', "Image deleted.");
-        redirect('gallery/upload_image/' . $plant_id);
+        redirect('admin/gallery/upload_image/' . $plant_id);
     }
 
 }
