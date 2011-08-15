@@ -3,8 +3,8 @@
 <h1>Great Plant Picks Database Administration</h1>
 
 <ul>
-    <li><a href="/crud/add_record/">Add New Record</a></li>
-    <li><a href="/listplants/">Search/Edit Records and Upload Images</a></li>
+    <li><a href="/admin/crud/add_record/">Add New Record</a></li>
+    <li><a href="/admin/listplants">Search/Edit Records and Upload Images</a></li>
 </ul>
 <h4>Committee Reports</h4>
 <ul>
@@ -17,7 +17,7 @@
     </ul>
 <h4>Nursery Directory</h4>
 <ul>
-    <li><a href="/nurseries/view/">View and Edit Nursery List</a></li>
-     <li><a href="/nurseries/add_new/">Add New Nursery</a></li>
+    <li><a href="/admin/nurseries/view/">View and Edit Nursery List</a></li>
+     <li><a href="/admin/nurseries/add_new/">Add New Nursery</a></li>
 </ul>
 </div><!-- end content -->

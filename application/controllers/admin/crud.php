@@ -37,7 +37,7 @@ class Crud extends CI_Controller
 
         $this->template->set('thispage','Add New Record');
         $this->template->set('title','Add New Record - Database Administration | Great Plant Picks');
-        $this->template->load('admin_template','admin/new', $data);
+        $this->template->load('/admin/admin_template','admin/new', $data);
          }
     }
     function add() {
@@ -55,7 +55,7 @@ class Crud extends CI_Controller
         {
             $this->session->set_flashdata('status', 'Record Addition Unsuccessful, Please Try Again');
         }
-        redirect("crud/edit_record/$id",'refresh');
+        redirect("admin/crud/edit_record/$id",'refresh');
     }
     
     function synonym($id) {
@@ -113,35 +113,35 @@ class Crud extends CI_Controller
         $data['plant_id'] = $record[0]['id'];
         $this->template->set('thispage', 'Add Common Name');
         $this->template->set('title', 'Add Common Name - Database Administration | Great Plant Picks');
-        $this->template->load('admin_template', 'admin/common_name', $data);
+        $this->template->load('admin/admin_template', 'admin/common_name', $data);
           }
     }
     function save_common_name() {
         $this->load->model('crud_model');
         $id = $this->crud_model->save_common_name($_POST);
         $this->session->set_flashdata('status', "Common Name Added");
-        redirect("crud/edit_record/$id", "refresh");
+        redirect("admin/crud/edit_record/$id", "refresh");
     }
     
     function delete_common_name($id) {
         $this->load->model('crud_model');
         $plant_id = $this->crud_model->delete_common_name($id);
         $this->session->set_flashdata('status', 'Common Name Deleted');
-        redirect("crud/edit_record/$plant_id", "refresh");
+        redirect("admin/crud/edit_record/$plant_id", "refresh");
     }
     
     function save_synonym() {
         $this->load->model('crud_model');
         $id = $this->crud_model->save_synonym($_POST);
         $this->session->set_flashdata('status', "Synonym Added");
-        redirect("crud/edit_record/$id", "refresh");
+        redirect("admin/crud/edit_record/$id", "refresh");
     }
     
     function delete_synonym($id) {
         $this->load->model('crud_model');
         $plant_id = $this->crud_model->delete_synonym($id);
         $this->session->set_flashdata('status', 'Synonym Deleted');
-        redirect("crud/edit_record/$plant_id", "refresh");
+        redirect("admin/crud/edit_record/$plant_id", "refresh");
     }
 
     function edit_record($id = '') {
@@ -172,7 +172,7 @@ class Crud extends CI_Controller
         $data['id'] = $data['row']['id'];
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
-        $this->template->load('admin_template','admin/edit', $data);
+        $this->template->load('admin/admin_template','admin/edit', $data);
           }
     }
 
@@ -237,7 +237,7 @@ class Crud extends CI_Controller
             $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
         }
 		$id = $data['id'];
-        redirect("crud/edit_record/$id",'refresh');
+        redirect("admin/crud/edit_record/$id",'refresh');
     }
 
     function delete_record($id = '')
@@ -252,7 +252,7 @@ class Crud extends CI_Controller
         {
             $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
         }
-        redirect('listplants');
+        redirect('admin/listplants');
     }
 }
 

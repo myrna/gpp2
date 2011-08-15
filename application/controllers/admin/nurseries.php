@@ -55,8 +55,8 @@ class Nurseries extends CI_Controller
          {
              
              $table[] = array($row->id,$row->nursery_name,$row->location,
-             anchor("nurseries/edit_nursery/$row->id", 'Edit/View'),
-                        anchor("nurseries/delete/$row->id", 'Delete',
+             anchor("admin/nurseries/edit_nursery/$row->id", 'Edit/View'),
+                        anchor("admin/nurseries/delete/$row->id", 'Delete',
                         array('onclick' => 'return confirm(\'Are you sure you want to delete this record?\');')));
 
          }
@@ -65,7 +65,7 @@ class Nurseries extends CI_Controller
         
         $this->template->set('thispage','Edit Nurseries');
         $this->template->set('title','Edit Nurseries | Great Plant Picks');
-        $this->template->load('admin_template','nurseries/view', $data);
+        $this->template->load('admin/admin_template','admin/nurseries/view', $data);
     }
     }
     function add_new()
@@ -80,7 +80,7 @@ class Nurseries extends CI_Controller
                );
         $this->template->set('thispage','Edit Nurseries');
         $this->template->set('title','Edit Nurseries | Great Plant Picks');
-        $this->template->load('admin_template','nurseries/new');
+        $this->template->load('admin/admin_template','admin/nurseries/new');
         }
     }
     function add()
@@ -119,7 +119,7 @@ class Nurseries extends CI_Controller
         $data['row'] = $nursery;
         $this->template->set('thispage','Edit Nursery Record');
         $this->template->set('title','Edit Nursery Record | Great Plant Picks');
-        $this->template->load('admin_template','nurseries/edit', $data);
+        $this->template->load('admin/admin_template','admin/nurseries/edit', $data);
     }
         function edit()
         {
@@ -136,7 +136,7 @@ class Nurseries extends CI_Controller
                 $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
             }
             $id = $data['id'];
-            redirect("nurseries/edit_nursery/$id",'refresh');
+            redirect("admin/nurseries/edit_nursery/$id",'refresh');
         }
 
         function delete($id)
@@ -151,7 +151,7 @@ class Nurseries extends CI_Controller
             {
                 $this->session->set_flashdata('status', 'Record Has Not Been Deleted, Please Try Again');
             }
-            redirect('nurseries/view');
+            redirect('admin/nurseries/view');
     }
 }
 /* End of file editnurseries.php */

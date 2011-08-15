@@ -2,7 +2,7 @@
 <div id="content" class="admin">
     <h2>GPP Database Administration: Edit Nursery Directory</h2>
     <p class="nav"><?php
-       echo anchor('/nurseries/add_new', 'Add New Nursery Record');
+       echo anchor('admin/nurseries/add_new', 'Add New Nursery Record');
     ?></p>
     <?php echo $this->session->flashdata('status'); ?>
 <?php

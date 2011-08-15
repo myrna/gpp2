@@ -40,8 +40,19 @@
 |
 */
 
+$route['admin'] = 'admin/admin';
+$route['admin/listplants'] = 'admin/listplants';
+$route['admin/crud'] = 'admin/crud';
+$route['admin/gallery'] = 'admin/gallery';
+$route['admin/nurseries'] = 'admin/nurseries';
+
+
+
 $route['default_controller'] = "home";
 $route['scaffolding_trigger'] = "";
+
+
+
 
 
 /* End of file routes.php */

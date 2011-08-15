@@ -16,7 +16,7 @@
     foreach($images as $image):	?>
     <div class="thumb">
     <?php
-    echo form_open('gallery/delete');
+    echo form_open('admin/gallery/delete');
     echo form_hidden('image_id', $image['id']);
     echo form_hidden('plant_id', $image['plant_id']);
     echo form_submit('delete', "Delete");
@@ -36,7 +36,7 @@
        
     <?php
 $attributes = array('id' => 'imageform');
-echo form_open_multipart('gallery/add_image', $attributes);
+echo form_open_multipart('admin/gallery/add_image', $attributes);
 echo form_upload('userfile');
 if (isset($plant_id)) {
     echo form_hidden('plant_id', $plant_id);

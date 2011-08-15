@@ -2,12 +2,12 @@
 <div id="content" class="admin">
     <h2>GPP Database Administration: Add New Nursery Record</h2>
     <p class="nav"><?php
-       echo anchor('/nurseries/view', 'Return to Main Nursery List');
+       echo anchor('admin/nurseries/view', 'Return to Main Nursery List');
     ?></p>
     <?php echo $this->session->flashdata('status'); ?>
 <?php
 $attributes = array('class' => 'data-entry');
- echo form_open('nurseries/add', $attributes);
+ echo form_open('admin/nurseries/add', $attributes);
 ?>
     <ul>
         <li><span class='labelname'>Nursery Name:</span> <?php echo form_input('nursery_name'); ?></li>
