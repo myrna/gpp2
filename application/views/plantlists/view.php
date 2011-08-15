@@ -27,8 +27,7 @@ $.fn.preload = function() {
     }
  else
     {
-     ?>
-
+        ?>
     <h4><?php echo $title ?><?php
         echo display_full_botanical_name($row);
     ?></h4>

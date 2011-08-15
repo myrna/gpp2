@@ -31,7 +31,7 @@ class Auth extends Controller {
 			//redirect them to the login page
 			$this->template->set('thispage','Database Administration');
                         $this->template->set('title','Database Administration | Great Plant Picks');
-                        $this->template->load('admin_template','admin',$data);
+                        $this->template->load('admin/admin_template','admin/admin',$data);
 		}
 		elseif (!$this->ion_auth->is_admin())
 		{
@@ -92,7 +92,7 @@ class Auth extends Controller {
 				'type' => 'password',
 			);
 
-			$this->template->load('admin_template','auth/login', $this->data);
+			$this->template->load('/admin/admin_template','auth/login', $this->data);
 		}
 	}
 

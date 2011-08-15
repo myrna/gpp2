@@ -13,79 +13,41 @@
 
 class Plantlists extends CI_Controller {
     
-        function index() {
+        function index($offset = 0, $sort_by) {
 
+            $this->output->enable_profiler(TRUE);
             $this->load->model('plantlists_model');
-
-            $this->template->set('thispage','Plant Lists');
-            $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists',$data);
-        }
-
-        function setup_basic_search($terms) {
-            $matchwords = explode(" ", $terms);
-            $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
-                'registered_name','plant_type'); // need to add common name and synonym
-            foreach ($matchfields as $field) {
-                foreach ($matchwords as $match) {
-                    $this->db->or_like($field, $match);
-                    }
-                }
-        }
-
-        function basic_search($page = 0) {
-
-            if ($this->input->post('searchterms')) {
-                $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
-            }
-
-            $query = $this->session->userdata('plant_search');
-
-            $this->load->model('listplants_model');
-            $this->setup_search_query($this->session->userdata('plant_search'));
-            $total = $this->db->count_all_results('plant_data');
-            $this->setup_search_query($this->session->userdata('plant_search'));
-            $records = $this->listplants_model->get_records($page);
-            $path = "listplants/display";
-            $this->display($page, $records, $total, $path, $query);
-             }
-
-        function display($sort_by = 'name', $sort_order = 'asc', $offset = 0) {    // determines URL - display/sortby/sortorder/offset
-         //  $this->output->enable_profiler(TRUE);
             $limit = 20;
-            $data['fields'] = array(
-              'display_full_botanical_name' => 'Plant Name',
-              'family_common_name' => 'Family (Common)',
-              'plant_height_at_10' => 'Height'
-            );
+            if ($this->input->post('searchterms')) {
+                $query = $this->input->post('searchterms');
+            } else {
+                $query = "";
+            }
+            $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
 
-            $this->input->load_query($query_id);
-
-            $data['query_id'] = $query_id;
-
-            $this->load->model('plantlists_model');
-
-            $results = $this->plantlists_model->search($limit, $offset, $sort_by, $sort_order);
-            $total = $this->db->count_all_results('plant_data');
+            $total = $this->db->count_all('plant_data');
             $plant_name_and_height = array();
             foreach ($results['rows'] as $result) {
-                    $plant_name_and_height[] = array(
-                    'name' => display_full_botanical_name($result),
-                    'common' => $result['family_common_name'],
-                    'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
-                    'id' => $result['id']
-                );
+                  $plant_name_and_height[] = array(
+                  'name' => display_full_botanical_name($result),
+                  'common' => $result['family_common_name'],
+                  'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
+                  'id' => $result['id']
+              );
             }
             $data['records'] = $plant_name_and_height;
-            $data['num_results'] = $results['num_rows'];
-    
+            if ($query != "") {
+                $data['stats'] = $results['found'] . " of " . $total;
+            } else {
+                $data['stats'] = $total;
+            }
 
             // pagination
 
             $this->load->library('pagination');
             $config = array();
-            $config['base_url'] = site_url("plantlists/display/$sort_by/$sort_order");
-            $config['total_rows'] = $data['num_results'];
+            $config['base_url'] = site_url("plantlists/$sort_by/$sort_order");
+            $config['total_rows'] = $results['found'];
             $config['per_page'] = $limit;
             $config['uri_segment'] = 5;
             $this->pagination->initialize($config);
@@ -93,11 +55,10 @@ class Plantlists extends CI_Controller {
 
             $data['sort_by'] = $sort_by;
             $data['sort_order'] = $sort_order;
-
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists/display',$data);
-            
+            $this->template->load('template','plantlists/home',$data);
+                  
         }
 
         function get_plant_link_data($id) {  // copied from crud controller

@@ -90,7 +90,7 @@ class Crud extends CI_Controller
         $data['synonym_id'] = $id;
         $this->template->set('thispage', 'Add Synonym');
         $this->template->set('title', 'Add Synonym - Database Administration | Great Plant Picks');
-        $this->template->load('admin_template', 'admin/synonym', $data);
+        $this->template->load('admin/admin_template', 'admin/synonym', $data);
 
           }
     }
