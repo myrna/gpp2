@@ -1,20 +1,8 @@
 Jon TODO list:
 ----------------
 
-Set up the plantlists/ page so that it has a “basic” search function (a single search box, as on the admin plant list page),
-and then a list of preformatted plant search list links, something like http://www.greatplantpicks.org/search.php ,
-along with a link to an “advanced search” function on a separate page. This basic search function needs to be able
-to search through all parts of the full botanical name, the common name table, and the plant synonym table, and then
-bring up results as shown on plantlists/display.
 
-For views/plantlists/view need to add $category to the image id so that when page is loaded initial main image loaded will be "primary";
-currently no initial main image is loaded, thumbnail needs to be clicked (I left javascript on the page for now in case that needs any
-changes).  I loaded three images into the Acer saccharum 'Green Mountain' data so that is the plant I have been looking at to test this.
-Note that I'm allowing space for a main image that is larger than the one currently loaded; Rick will be loading new and larger images.
 
-For views/plantlists/view please look at what I've attempted to do for foliage color; if you can show how to display a list of colors
-then I can probably use that as a template to get the rest of the data that comes out of linked tables that may have more than one
-entry (ie flower color, wildlife, soil type, sun requirements...).
 
 If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
 it is only looking at the "genus" and it lists duplicate fields (so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
@@ -27,3 +15,35 @@ Thanks!
 
 =======
 
+
+
+================FINISHED==================
+
+Set up the plantlists/ page so that it has a “basic” search function (a single search box, as on the admin plant list page),
+and then a list of preformatted plant search list links, something like http://www.greatplantpicks.org/search.php ,
+along with a link to an “advanced search” function on a separate page. This basic search function needs to be able
+to search through all parts of the full botanical name, the common name table, and the plant synonym table, and then
+bring up results as shown on plantlists/display.
+
+NOTES: This may still have some rough edges, it hasn't been completely tested, but should work
+
+----
+
+For views/plantlists/view need to add $category to the image id so that when page is loaded initial main image loaded will be "primary";
+currently no initial main image is loaded, thumbnail needs to be clicked (I left javascript on the page for now in case that needs any
+changes).  I loaded three images into the Acer saccharum 'Green Mountain' data so that is the plant I have been looking at to test this.
+Note that I'm allowing space for a main image that is larger than the one currently loaded; Rick will be loading new and larger images.
+
+NOTES: This *should* work now - have a look and see if this is what you wanted
+
+----
+
+
+
+For views/plantlists/view please look at what I've attempted to do for foliage color; if you can show how to display a list of colors
+then I can probably use that as a template to get the rest of the data that comes out of linked tables that may have more than one
+entry (ie flower color, wildlife, soil type, sun requirements...).
+
+NOTES: Added foliage_color as an example - let me know if you need me to do the others
+
+----
