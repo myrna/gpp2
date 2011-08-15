@@ -49,7 +49,7 @@ class Nurserylist_model extends CI_Model {
             $this->db->select("CONCAT(phone_area_code, '-', phone_prefix, '-', phone_number) AS phone", FALSE);
             $this->db->select("CONCAT(city, ',', state_province) AS location", FALSE);
             $query4 = $this->db->select('nursery_name,city,state_province,phone_area_code,phone_prefix,phone_number,website_url')
-                    ->from('nursery_directory')->order_by('state_province','asc')->order_by('nursery_name','asc')->
+                    ->from('nursery_directory')->order_by('nursery_name','asc')->order_by('state_province','asc')->
                     where('state_province !=',"WA")->where('state_province !=',"OR")->where('state_province !=',"BC")->
                     where('publish',"yes")->get();
              $data['query4'] = $query4;

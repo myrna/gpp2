@@ -34,4 +34,5 @@ if($row == FALSE)
         <li><span class='labelname'>Publish:</span> <?php echo form_input('publish', $row->publish); ?></li>
     </ul>
     <?php echo form_submit('edit', 'Edit Nursery'); ?>
+    <div class="clear"></div>
 </div><!-- end content -->
