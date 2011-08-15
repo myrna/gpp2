@@ -96,7 +96,9 @@ class Plantlists_model extends CI_Model {
         return $data;
     }
 
-    // view individual record
+//unused functions below ... ok to delete?
+
+// view individual record
     
     function view() {
         

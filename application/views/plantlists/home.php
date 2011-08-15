@@ -1,7 +1,7 @@
 <!-- display for PUBLIC plant list and search function -->
 
 <div id="content" class="view">
-
+    <h4>Find Your Plant</h4>
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
     <?php
     echo form_open('plantlists', $attributes); ?>
@@ -10,14 +10,14 @@
 
  
     <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/basic_search', "Clear Search")."</span>";
+    echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search")."</span>";
     echo "<p class='note'>*Search by plant name</p>";
     ?>
-    <table class="display">
+    <table id="display" class="tablesorter display">
         <thead>
-            <?php foreach($fields as $field_name => $field_display): ?>
-        <th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-                <?php echo anchor("plantlists/home/$field_name/" .
+            <?php foreach($sortfields as $field_name => $field_display): ?>
+        <th <?php if ($sort_by == $field_name) ?>>
+                <?php echo anchor("plantlists/$field_name/" .
                 (($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc'),
                         $field_display); ?>
         </th>

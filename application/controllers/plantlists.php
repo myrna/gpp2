@@ -13,11 +13,19 @@
 
 class Plantlists extends CI_Controller {
     
-        function index($offset = 0, $sort_by) {
+        function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
 
             $this->output->enable_profiler(TRUE);
             $this->load->model('plantlists_model');
-            $limit = 20;
+           // $limit = 20;
+            
+            //define sortable fields
+            $data['sortfields'] = array(
+              'genus' => 'Plant Name',
+              'family_common_name' => 'Family (Common)',
+              'plant_height_at_10' => 'Plant Height'
+            );
+
             if ($this->input->post('searchterms')) {
                 $query = $this->input->post('searchterms');
             } else {
@@ -46,7 +54,7 @@ class Plantlists extends CI_Controller {
 
             $this->load->library('pagination');
             $config = array();
-            $config['base_url'] = site_url("plantlists/$sort_by/$sort_order");
+            $config['base_url'] = site_url("plantlists/$query/$sort_by/$sort_order");
             $config['total_rows'] = $results['found'];
             $config['per_page'] = $limit;
             $config['uri_segment'] = 5;

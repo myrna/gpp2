@@ -399,12 +399,15 @@ table.display th:first-child, table.display td:first-child {
 
 /* public table sort function */
 
-.sort_asc:after { /* add up and down arrow symbols later to signify search directions */
+.headerSortUp:after { /* add up and down arrow symbols later to signify search directions */
      content:"\21D3";
 }
-.sort_desc:after {
+.headerSortDown:after {
     content:"\21D1";
 }
+th a:link {text-decoration:none; color:#000;}
+th a:hover {text-decoration:none; color:#e65925;}
+
 /* headers */
 h1, h2, h3, h4 {font-weight:bold;}
 h1 {font-size:28px; margin-bottom:10px;}
