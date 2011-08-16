@@ -68,7 +68,7 @@ class Plantlists_model extends CI_Model {
             $this->name_search($query);
         # this ugly select in the from clause is to get only the published ones for further selections.
         # I'm sure this could be made faster with other methods, but this will do for now.
-            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->
+         $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
                 get()->result_array();
@@ -80,7 +80,7 @@ class Plantlists_model extends CI_Model {
             $this->synonym_search($query);
             $this->name_search($query);
 
-            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'Yes') as plant_data")->
+           $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
                 distinct()->
