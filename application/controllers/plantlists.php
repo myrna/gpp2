@@ -102,7 +102,7 @@ class Plantlists extends CI_Controller {
     }
 
         function view($id) {
-            $this->output->enable_profiler(TRUE);
+            //$this->output->enable_profiler(TRUE);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
             $this->load->model('gallery_model');

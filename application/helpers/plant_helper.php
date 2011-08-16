@@ -16,9 +16,9 @@ function display_full_botanical_name($record) {
 }
 
 function format_genus($genus, $genus_cross) {
-    $genus_cross = $genus_cross ? "&#967;" : "";
+    $genus_cross = $genus_cross ? "&#967; " : "";
     $genus = ucfirst($genus);
-    return "<span class='genus'>$genus_cross$genus</span>";
+    return "<span class='crossgenus'>$genus_cross</span> <span class='genus'>$genus</span>";
 }
 
 function format_species($species, $cross) {
@@ -38,8 +38,7 @@ function format_cultivar($cultivar) {
     return "<span class='cultivar'>$cultivar</span>";
 }
 
-function format_trade_name($tradename) {
-    
+function format_trade_name($tradename) {    
     return "<span class='trade-name'>$tradename</span>";
 }
 

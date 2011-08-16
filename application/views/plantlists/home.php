@@ -27,7 +27,7 @@
             <?php foreach($records as $plant): ?>
             <tr>
                 
-            <td>
+            <td class="plantname">
                 <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
             <td>
