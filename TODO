@@ -1,6 +1,36 @@
 Jon TODO list:
 ----------------
 
+When tackling the "advanced search" function -- if each search result can have its own URI (my model for this is 
+http://net.tutsplus.com/tutorials/php/codeigniter-from-scratch-search-results-without-query-strings-2/)
+then I can use these search results to make links for the pre-programmed searches.  What do you think?  The
+main impetus behind getting URIs for search results is that I can set up an email function where the user can
+email the "current page URI" to him/herself or somebody else (this is my substitute, for now, for allowing people
+to log in, create accounts and save lists).  We want people to be able to search by the following fields -- 
+
+plant name (current search does this)
+
+from plant_data table
+plant_type (shrub, tree, etc.)
+foliage_type (evergreen, deciduous, semi)
+plant_height_max (giving a range --
+plant_width_max --not sure if these two are going to work...)
+growth_habit
+flower_time
+
+from linked tables
+foliage_color (probably can only let them pick one?)
+sun
+water
+soil
+
+the pre-programmed searches not covered by the above would be for (both from plant_data table):
+
+GPPs by year (gpp_year)
+GPP by theme (theme)
+
+======
+
 If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
 it is only looking at the "genus" and it lists duplicate fields (so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
 there a way to get the autocomplete_model to search on all parts of the full botanical name?  Barring that, to search each "important" name field and
@@ -32,6 +62,7 @@ changes).  I loaded three images into the Acer saccharum 'Green Mountain' data s
 Note that I'm allowing space for a main image that is larger than the one currently loaded; Rick will be loading new and larger images.
 
 NOTES: This *should* work now - have a look and see if this is what you wanted
+Yes, thanks -- working great!
 
 ----
 

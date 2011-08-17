@@ -143,9 +143,11 @@ div#content {
     margin-bottom:5px;
 }
 
-.home-text {
+.home-text { /* temporary display block to fill space */
     float:left;
+    display:block;
     width:684px;
+    height:376px;
     background-color:#bebe31;
     border:5px #d2d26f solid;
     padding:10px 20px;
@@ -288,6 +290,12 @@ input[type="option"] {
     height:20px;
     }
 
+/*search form position on public search and pre-programmed list page */
+
+div.simplesearch {
+    margin-left:250px;
+    margin-top:20px;
+}
 
 
 .clear-search {padding-left:10px;}
@@ -411,7 +419,7 @@ td .crossgenus {
 
 /* public table sort function */
 
-.headerSortUp:after { /* add up and down arrow symbols later to signify search directions */
+.headerSortUp:after { /* add up and down arrows to signify search directions */
      content:"\21D3";
 }
 .headerSortDown:after {

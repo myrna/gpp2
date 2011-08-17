@@ -55,7 +55,7 @@ class Plantlists_model extends CI_Model {
             }
         }
     }
-    
+
     function basic_search($query, $limit, $offset, $sort_by, $sort_order) {
         //prevent incorrect parameters being inserted into URL
         $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // eliminate all options except desc and asc
@@ -66,6 +66,7 @@ class Plantlists_model extends CI_Model {
             $this->common_name_search($query);
             $this->synonym_search($query);
             $this->name_search($query);
+            
         # this ugly select in the from clause is to get only the published ones for further selections.
         # I'm sure this could be made faster with other methods, but this will do for now.
          $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
@@ -79,7 +80,7 @@ class Plantlists_model extends CI_Model {
             $this->common_name_search($query);
             $this->synonym_search($query);
             $this->name_search($query);
-
+                        
            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
@@ -98,17 +99,4 @@ class Plantlists_model extends CI_Model {
         return $data;
     }
 
-//unused functions below ... ok to delete?
-
-// view individual record
-    
-    function view() {
-        
-    }
-   
-   function get_records($page) {
-        $this->db->limit(30, $page);
-        return $this->db->get('plant_data');        
-    }
-   
 }

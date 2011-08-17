@@ -12,12 +12,29 @@
  */
 
 class Plantlists extends CI_Controller {
-    
+
+        //working on search page (eventual index page?) that will list popular searches and link to advanced search
+
+        function search() {
+            $this->template->set('thispage','View Plant');
+            $this->template->set('title','View Plant | Great Plant Picks');
+            $this->template->load('template','plantlists/search');
+
+        }
+
+        // search results, or list all results (clear search)
+
         function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
 
-            $this->output->enable_profiler(TRUE);
+            // $this->output->enable_profiler(TRUE);
             $this->load->model('plantlists_model');
            // $limit = 20;
+
+            if ($this->input->post('searchterms')) {
+                $query = $this->input->post('searchterms');
+            } else {
+                $query = "";
+            }
             
             //define sortable fields
             $data['sortfields'] = array(
@@ -63,6 +80,7 @@ class Plantlists extends CI_Controller {
 
             $data['sort_by'] = $sort_by;
             $data['sort_order'] = $sort_order;
+            
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/home',$data);
@@ -138,5 +156,5 @@ class Plantlists extends CI_Controller {
            
 }
 
-/* End of file listplants.php */
-/* Location: ./application/controllers/plants.php */
+/* End of file plantlists.php */
+/* Location: ./application/controllers/plantlists.php */
