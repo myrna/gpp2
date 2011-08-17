@@ -15,7 +15,7 @@ class Plantlists extends CI_Controller {
     
         function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
 
-           // $this->output->enable_profiler(TRUE);
+            $this->output->enable_profiler(TRUE);
             $this->load->model('plantlists_model');
            // $limit = 20;
             
@@ -32,8 +32,8 @@ class Plantlists extends CI_Controller {
                 $query = "";
             }
             $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
-
-            $total = $this->db->count_all('plant_data');
+            $total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
+            $total = $total_count[0]['numrows'];
             $plant_name_and_height = array();
             foreach ($results['rows'] as $result) {
                   $plant_name_and_height[] = array(

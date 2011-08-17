@@ -90,8 +90,10 @@ class Plantlists_model extends CI_Model {
             $data['found'] = $found[0]['numrows'];
             $data['rows'] = $records;
         } else {
-            $data['found'] = $this->db->count_all('plant_data');
-            $data['rows'] = $this->db->limit($limit, $offset)->get('plant_data')->result_array();
+            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
+            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
+            $data['found'] = $found[0]['numrows'];
+            $data['rows'] = $records;
         }
         return $data;
     }
