@@ -1,7 +1,8 @@
 <?php
 function display_full_botanical_name($record) {
-    return sprintf("%s %s %s %s %s %s %s %s %s %s %s",
+    return sprintf("%s %s %s %s %s %s %s %s %s %s %s %s",
         $record['genus'] ? format_genus($record['genus'],$record['cross_genus']) : "",
+        $record['cross_specific_epithet'] ? format_cross_specific_epithet($record['cross_specific_epithet']) : "",
         $record['specific_epithet'] ? format_species($record['specific_epithet'], $record['cross_species']) : "",
         $record['infraspecific_epithet'] ? format_subspecies($record['infraspecific_epithet_designator'], $record['infraspecific_epithet']) : "",
         $record['cultivar'] ? format_cultivar($record['cultivar']) : "",
@@ -21,10 +22,14 @@ function format_genus($genus, $genus_cross) {
     return "<span class='crossgenus'>$genus_cross</span> <span class='genus'>$genus</span>";
 }
 
+function format_cross_specific_epithet() {
+    return "&times;";
+}
+
 function format_species($species, $cross) {
     $cross = $cross ? "&times; $cross" : "";
     $species = strtolower($species);
-    return "<span class='species'>$species $cross</span>";
+    return "<span class='species'>$species</span> $cross";
 }
 
 function format_subspecies($designator, $spp) {
