@@ -27,6 +27,6 @@ $attributes = array('class' => 'data-entry');
         <li><span class='labelname'>Publish:</span> <input type="radio" name="publish" value="yes">Yes <input type="radio" name="publish" value="no">No</li>
     </ul>
     <?php echo form_submit('add', 'Add Nursery'); ?>
-
+    <div class="clear"></div>
 
 </div><!-- end content -->

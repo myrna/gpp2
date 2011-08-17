@@ -331,9 +331,12 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-weight:bold;
 }
 
-table.display {margin:40px 0 10px;border:none;border-collapse:collapse; border-spacing:0; width:800px;}
+table.display {margin:40px 0 10px;border:none;border-collapse:collapse; border-spacing:0; width:900px;}
 table.display th {font-size:14px; padding-bottom:3px;}
 table.display td {font-size:12px; padding:3px;}
+table.display td.plantname {white-space:nowrap;}
+table.display td a {text-decoration:none;}
+table.display td a:hover {text-decoration:none; color:#e65925;}
 table.display th:first-child, table.display td:first-child {
     width:50%;
     font-weight:bold;
@@ -363,6 +366,15 @@ table.display th:first-child, table.display td:first-child {
 /* plant display styles */
 .genus {
     font-style: italic;
+}
+
+.crossgenus {
+    font-style:normal;
+    vertical-align: 4px;
+}
+
+td .crossgenus {
+    vertical-align:2px;
 }
 
 .species {
