@@ -8,6 +8,7 @@
     <input type="submit" value="Search" target="/plantlists/results/">
     <input type="text" name="searchterms" id="searchterms" value="<?php echo $query; ?>">
     </div>
+    <?php echo anchor('plantlists/advancedsearch/','Advanced Search','title="Advanced Search"') ?>
     <h4>Popular Searches</h4>
     <ul>
         <li>2010 Great Plant Picks</li> <!-- link to URL of search result? -->

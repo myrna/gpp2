@@ -152,7 +152,48 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
 
+        function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+            $this->output->enable_profiler(TRUE);
+            $this->input->load_query($query_id);
 
+            $query_array = array(  //radio buttons for all?
+                'plant_type' => $this->input->get('plant_type'),        //tree, shrub, vine, etc.-plant_data
+                'foliage_type'  => $this->input->get('foliage_type'),   //evergreen, deciduous, semi-plant_data
+                'plant_height_max' => $this->input->get('plant_height_max'),  //will need to offer ranges to select from? (1,1-2,2.1-5..)
+                'growth_habit' => $this->input->get('growth_habit'),    //plant_data
+                'flower_time' => $this->input->get('flower_time'),
+                //following from linked tables
+                'flower_color' => $this->input->get('flower_color'),
+                'foliage_color' => $this->input->get('foliage_color'), 
+                'sun' => $this->input->get('sun'),
+                'soil' => $this->input->get('soil'),
+                'water' => $this->input->get('water')
+            );
+
+            //$data('query_id') = $query_id; //commented out; causes "Fatal error: Can't use function return value in write context"
+
+            $this->load->model('crud_model');
+            $this->load->model('plantlists_model');
+
+            $results = $this->plantlists_model->advanced_search($query_array,
+                    $limit, $offset, $sort_by, $sort_order);
+            $data['records'] = $results['rows'];
+	    $data['num_results'] = $results['num_rows'];
+            //somehow this ends up with search results on the /plantlists page ...?
+            //or do we need a new search results page to accommodate query_id?
+            //this is the sort of URL the nettuts tutorial ends up with: $config['base_url'] =
+            //site_url("plantlists/search/$query_id/$sort_by/$sort_order") -- not so important to keep the sortby/sortorder business,
+            //this probably wouldn't work anyway because of the jquery tablesorter; just need a way to id query results
+
+            //trying to get radio button choices
+            $data['plant_type_options'] = $this->plantlists_model->plant_type_options();
+
+
+
+            $this->template->set('thispage','Advanced Search');
+            $this->template->set('title','Advanced Search | Great Plant Picks');
+            $this->template->load('template','plantlists/advanced_search');
+        }
            
 }
 

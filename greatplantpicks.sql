@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2011 at 04:11 PM
+-- Generation Time: Aug 17, 2011 at 04:17 PM
 -- Server version: 5.1.30
 -- PHP Version: 5.3.5
 
@@ -2558,6 +2558,7 @@ CREATE TABLE IF NOT EXISTS `plant_synonym` (
   `family_common_name` text,
   `genus` text NOT NULL,
   `cross_genus` text COMMENT 'If bigeneric hybrid precede genus name with X',
+  `cross_specific_epithet` varchar(10) DEFAULT NULL,
   `specific_epithet` text COMMENT 'species',
   `infraspecific_epithet_designator` varchar(4) DEFAULT NULL COMMENT 'ssp., f., var.',
   `infraspecific_epithet` varchar(50) DEFAULT NULL COMMENT 'preceded by infraspecific epithet designator',
@@ -2573,8 +2574,8 @@ CREATE TABLE IF NOT EXISTS `plant_synonym` (
 -- Dumping data for table `plant_synonym`
 --
 
-INSERT INTO `plant_synonym` (`id`, `synonym_id`, `family`, `family_common_name`, `genus`, `cross_genus`, `specific_epithet`, `infraspecific_epithet_designator`, `infraspecific_epithet`, `cross_species`, `cultivar`, `trade_name`, `trademark_name`, `registered_name`) VALUES
-(4, 88, '', '', 'Cimicifuga', '', 'simplex', 'var.', 'simplex', '', 'Brunette', '', NULL, '');
+INSERT INTO `plant_synonym` (`id`, `synonym_id`, `family`, `family_common_name`, `genus`, `cross_genus`, `cross_specific_epithet`, `specific_epithet`, `infraspecific_epithet_designator`, `infraspecific_epithet`, `cross_species`, `cultivar`, `trade_name`, `trademark_name`, `registered_name`) VALUES
+(4, 88, '', '', 'Cimicifuga', '', NULL, 'simplex', 'var.', 'simplex', '', 'Brunette', '', NULL, '');
 
 -- --------------------------------------------------------
 

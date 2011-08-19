@@ -55,7 +55,7 @@
      <a <?php if ($thispage=="Nursery Directory")
       echo " id=\"currentpage\""; ?> href="nursery_list/">Nurseries</a> 
      <a <?php if ($thispage=="Database Administration")
-      echo " id=\"currentpage\""; ?> href="/admin">Database Administration</a>
+      echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a>
           <?php if ($logged_in) :?>
            <a href="/auth/logout/">Logout</a>
             <?php else :  ?>
