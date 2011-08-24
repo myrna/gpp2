@@ -58,9 +58,14 @@ class Listplants extends CI_Controller {
          // Enable Profiler.
          //$this->output->enable_profiler(TRUE);
         //user cannot access this page unless logged in, offer logout option
-        if (!$this->ion_auth->logged_in())
+         if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');
+		}
+          elseif (!$this->ion_auth->is_group('admin'))
+                  {
+			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
+			redirect('/');
 		}
           else {
              $data = array(

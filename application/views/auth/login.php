@@ -1,6 +1,6 @@
 <div id="content" class="admin">
-<div id="login_form">
-    <h2>Administrative Login</h2>
+<div id="register_form" class="login">
+    <h2>Great Plant Picks Login</h2>
 	<p>Please log in with your email address and password below.</p>
 
 	<div id="infoMessage"><?php echo $message;?></div>
@@ -20,10 +20,10 @@
       	<?php echo form_input($password);?>
       </p>
 
- <!--    <p>
+     <p>
 	      <label for="remember">Remember Me:</label>
 	      <?php echo form_checkbox('remember', '1', FALSE);?>
-	  </p> -->
+	  </p> 
 
 
       <p><?php echo form_submit('submit', 'Login');?></p>

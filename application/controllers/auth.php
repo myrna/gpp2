@@ -67,8 +67,21 @@ class Auth extends Controller {
 			if ($this->ion_auth->login($this->input->post('email'), $this->input->post('password'), $remember))
 			{ //if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('admin','refresh');
+
+                            $user = $this->ion_auth->get_user();
+
+                            switch ($user->group)
+                            {
+                                case ('admin'):
+                                    $this->session->set_flashdata('message', $this->ion_auth->messages());
+                                    redirect(site_url('admin'), 'refresh');
+                                break;
+                                case ('pro'):
+                                    $this->session->set_flashdata('message', $this->ion_auth->messages());
+                                    redirect(site_url('professionals/futurepicks'), 'refresh');
+                                break;
+                             }
+                           
 			}
 			else
 			{ //if the login was un-successful
@@ -292,6 +305,7 @@ class Auth extends Controller {
 		$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'xss_clean|min_length[3]|max_length[3]');
 		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'xss_clean|min_length[4]|max_length[4]');
 		$this->form_validation->set_rules('company', 'Company Name', 'xss_clean');
+                $this->form_validation->set_rules('group_id', 'Group', 'xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
 
@@ -305,6 +319,7 @@ class Auth extends Controller {
 				'last_name' => $this->input->post('last_name'),
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+                                'group_id' => $this->input->post('group_id'),
 			);
 		}
 		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
@@ -353,6 +368,11 @@ class Auth extends Controller {
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('phone3'),
 			);
+                        $this->data['group_id'] = array('name' => 'group_id',
+				'id' => 'group_id',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('group_id'),
+			);
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
@@ -363,8 +383,8 @@ class Auth extends Controller {
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
-			$this->load->view('auth/create_user', $this->data);
-		}
+                        $this->template->load('/admin/admin_template','auth/create_user', $this->data);
+                }
 	}
 
 	function _get_csrf_nonce()

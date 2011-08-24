@@ -1,45 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" href="css/gppstyles.css">
-	<title></title>
-</head>
-<body>
-    <a href="/">Home</a> | <a href="/dbadmin/">Database Administration</a> | <a href="/auth/login/">Login</a>
-<div class='mainInfo'>
+<div id="content" class="admin">
+<div id="register_form" class="register">
 
-	<h2>Register</h2>
-	<p>Please enter your information below.</p>
+	<h2>Create New User</h2>
+	<p>Please enter information below.</p>
 	
 	<div id="infoMessage"><?php echo $message;?></div>
 	
-    <?php echo form_open("auth/create_user");?>
-      <p>First Name:<br />
+    <?php 
+         $attributes = array('class' => 'login_form');
+         echo form_open('auth/create_user',$attributes);?>
+
+      <p><label for="first_name">First Name:</label>
       <?php echo form_input($first_name);?>
       </p>
       
-      <p>Last Name:<br />
+       <p><label for="last_name">Last Name:</label>
       <?php echo form_input($last_name);?>
       </p>
       
-      <p>Company Name:<br />
+       <p><label for="company">Business Name:</label>
       <?php echo form_input($company);?>
       </p>
       
-      <p>Email:<br />
-      <?php echo form_input($email);?>
+      <p>
+      	<label for="email">Email:</label>
+      	<?php echo form_input($email);?>
       </p>
       
-      <p>Phone:<br />
-      <?php echo form_input($phone1);?>-<?php echo form_input($phone2);?>-<?php echo form_input($phone3);?>
+      <p><label for="group_id">User Group:</label>
+     <input type="radio" name="group_id" value="1" <?php echo set_radio('group_id', '1'); ?> /> Administrative
+<input type="radio" name="group_id" value="3" <?php echo set_radio('group_id', '3'); ?> /> Professional
       </p>
       
-      <p>Password:<br />
+      <p><label for="password">Password:</label>
       <?php echo form_input($password);?>
       </p>
       
-      <p>Confirm Password:<br />
+      <p><label for="password_confirm">Confirm Password:</label>
       <?php echo form_input($password_confirm);?>
       </p>
       

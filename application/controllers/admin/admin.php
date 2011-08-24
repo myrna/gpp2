@@ -14,19 +14,17 @@
 class Admin extends CI_Controller
 {
 
-	/**
-	* Description
-	*
-	* @access public
-	* @return void
-	*/
-
-        
+	        
 	function index()
 	{
-       if (!$this->ion_auth->logged_in())
+          if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');
+		}
+          elseif (!$this->ion_auth->is_group('admin'))
+                  {
+			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
+			redirect('/');
 		}
           else {
              $data = array(
@@ -41,5 +39,5 @@ class Admin extends CI_Controller
          
 }
 
-/* End of file some.php */
-/* Location: ./application/controllers/some.php */
+/* End of file admin.php */
+/* Location: ./application/controllers/admin/admin.php */

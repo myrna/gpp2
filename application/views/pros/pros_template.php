@@ -11,7 +11,7 @@
         <script type="text/javascript">
             $(document).ready(function()
             {
-                $("#display").tablesorter( {sortList: [[0,0]]} );
+                $("#display").tablesorter( {sortList: [[2,0]]} );
             }
         );
         </script>
@@ -38,15 +38,19 @@
      
     <a <?php if ($thispage=="Resources")
       echo " id=\"currentpage\""; ?> href="/resources/">Resources</a>
-    <a <?php if ($thispage=="Press")
-      echo " id=\"currentpage\""; ?> href="/press/">Press</a>
-    <a <?php if ($thispage=="Contact")
+        <a <?php if ($thispage=="Contact")
       echo " id=\"currentpage\""; ?> href="/contact/">Contact</a>
+             <?php if ($logged_in) :?>
+           <a href="/auth/logout/">Logout</a>
+            <?php else :  ?>
+            <a href="/auth/login/">Login</a>
+            <?php endif ?>
+            
 </div><!-- end navigation -->
-        <div id="contents"><?php echo $contents ?></div><!-- end contents -->
+        <div id="contents">
+         <?php echo $contents ?></div><!-- end contents -->
          
-        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted |
-                <a href="auth/login">Professional Login</a></p></div><!-- end footer -->
+        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div><!-- end footer -->
        </div><!-- end wrapper -->
     </body>
 

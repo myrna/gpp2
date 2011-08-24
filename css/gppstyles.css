@@ -183,10 +183,9 @@ div#content {
 
 /* form styling -------------------------------------- */
 
-/* login form styling */
+/* login/user registration form styling */
 
- #login_form {
-        width: 300px;
+ #register_form {
 	background-color: #bebe32;
 	border: 1px solid #378b36;
 	margin: 20px auto 0;
@@ -195,7 +194,13 @@ div#content {
 	-moz-border-radius: 3px;
         -webkit-border-radius: 3px;
 }
-#login_form input[type=text], #login_form input[type=password] {
+.login {
+    width: 300px;
+}
+.register {
+    width: 500px;
+}
+#register_form input[type=text], #register_form input[type=password] {
 	display: block;
         margin: 0 0 1em 0;
 	width: 280px;
@@ -205,7 +210,7 @@ div#content {
 	padding: 1em;
 }
 
-#login_form input[type=submit], #login_form form a {
+#register_form input[type=submit], #register_form form a {
 	border: none;
         clear:both;
 	margin: 1em 1em 1em 0;
@@ -220,7 +225,7 @@ div#content {
 	-webkit-box-shadow: 0 1px 0 #378b36;
 }
 
-#login_form input[type=submit]:hover, #login_form form a:hover {
+#register_form input[type=submit]:hover, #register_form form a:hover {
 	background: #378b36;
 	cursor: pointer;
 }

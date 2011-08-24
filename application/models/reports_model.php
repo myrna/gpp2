@@ -1,10 +1,9 @@
 <?php
 
 /**
- * listnurseries_model.php
+ * reports_model.php
  *
- * Connects with nursery_directory table to display nursery lists grouped by state/province
- * and sorted by nursery name ascending
+ * Administrative Committee Reports
  *
  * @package		Great Plant Picks
  * @subpackage	Models
@@ -16,7 +15,7 @@ class Reports_model extends CI_Model {
 
     function get_shrubs_status(){
             $this->db->get('plant_data');
-            $query = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -26,7 +25,7 @@ class Reports_model extends CI_Model {
         }
       function get_shrubs_by_name(){
             $this->db->get('plant_data');
-            $query2 = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query2 = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -36,7 +35,7 @@ class Reports_model extends CI_Model {
         }
       function get_trees_status(){
             $this->db->get('plant_data');
-            $query = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -46,7 +45,7 @@ class Reports_model extends CI_Model {
         }
       function get_trees_by_name(){
             $this->db->get('plant_data');
-            $query2 = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query2 = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -56,7 +55,7 @@ class Reports_model extends CI_Model {
         }
        function get_perennials_status(){
             $this->db->get('plant_data');
-            $query = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -66,7 +65,7 @@ class Reports_model extends CI_Model {
         }
       function get_perennials_by_name(){
             $this->db->get('plant_data');
-            $query2 = $this->db->select('genus,cross_genus,specific_epithet,infraspecific_epithet_designator,
+            $query2 = $this->db->select('genus,cross_genus,cross_specific_epithet,specific_epithet,infraspecific_epithet_designator,
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
@@ -76,5 +75,5 @@ class Reports_model extends CI_Model {
         }
 }
 
-/* End of file listnurseries_model.php */
-/* Location: ./application/models/listnurseries_model.php */
+/* End of file reports_model.php */
+/* Location: ./application/models/reports_model.php */
