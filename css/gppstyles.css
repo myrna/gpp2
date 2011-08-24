@@ -323,7 +323,8 @@ table th {text-align:left;}
 table.dblist, table.nursery {margin:10px 0;border:none;border-collapse:collapse; border-spacing:0;}
 table.dblist th, table.nursery th {background-color:#bebe31; padding:5px;}
 table.nursery td {padding:5px; white-space:nowrap; }
-table.dblist td {padding: 5px 20px 5px 5px;}
+table.dblist th {padding-right:40px; padding-left:10px;}
+table.dblist td {padding: 5px 40px 5px 10px;}
 table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
 
 table.nursery {}
@@ -420,10 +421,10 @@ td .crossgenus {
 /* public table sort function */
 
 .headerSortUp:after { /* add up and down arrows to signify search directions */
-     content:"\21D3";
+     content:"▼";
 }
 .headerSortDown:after {
-    content:"\21D1";
+    content:"▲";
 }
 th a:link {text-decoration:none; color:#000;}
 th a:hover {text-decoration:none; color:#e65925;}

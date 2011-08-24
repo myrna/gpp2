@@ -6,7 +6,7 @@
     <?php
     echo form_open('plantlists', $attributes); ?>
     <input type="submit" value="Search">
-    <input type="text" name="searchterms" id="searchterms" value="<?php echo $query; ?>">
+    <input type="text" name="searchterms" id="searchterms">
 
  
     <?php

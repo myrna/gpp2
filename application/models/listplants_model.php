@@ -13,7 +13,7 @@
 
 class Listplants_model extends CI_Model {
 
-    function get_records($page) {
+    function get_records($page,$query) {
         $this->db->limit(30, $page);
         return $this->db->get('plant_data');        
     }

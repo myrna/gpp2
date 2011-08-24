@@ -27,7 +27,7 @@ class Listplants extends CI_Controller {
     function setup_search_query($terms) {
         $matchwords = explode(" ", $terms);
         $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
-            'registered_name','status','sort');
+            'registered_name','status','gpp_year','sort');
         foreach ($matchfields as $field) {
             foreach ($matchwords as $match) {
                 $this->db->or_like($field, $match);
@@ -35,12 +35,12 @@ class Listplants extends CI_Controller {
         }        
     }
     
-    function search($page = 0) {
+    function search($page = 0, $query = '') {
 
         if ($this->input->post('searchterms')) {
             $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
         }
-        
+
         $query = $this->session->userdata('plant_search');
       
         $this->load->model('listplants_model');
@@ -48,7 +48,9 @@ class Listplants extends CI_Controller {
         $total = $this->db->count_all_results('plant_data');
         $this->setup_search_query($this->session->userdata('plant_search'));
         $records = $this->listplants_model->get_records($page);
-        $path = "listplants/search";
+        $path = "admin/listplants/search";
+      // $path = "admin/listplants/search/" . $query;
+      //  //this adds searchterm to URL but not on first page of search results and screws up pagination
         $this->show_plants($page, $records, $total, $path, $query);
     }
     
@@ -64,6 +66,7 @@ class Listplants extends CI_Controller {
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
                );
+
          //set table style-see stylesheet
             $this->load->library('table');           	
             $tmpl = array (
@@ -84,6 +87,7 @@ class Listplants extends CI_Controller {
                     'ID',
                     'Plant Name',
                     'Status',
+                    'GPP Year',
                     'Edit/View',
                     'Images',
                     'Delete'
@@ -92,10 +96,12 @@ class Listplants extends CI_Controller {
                 {
                     $id = $row['id'];
                     $status = $row['status'];
+                    $gpp_year = $row['gpp_year'];
                     $table[] = array(
                         $id,
                         display_full_botanical_name($row),
                         $status,
+                        $gpp_year,
                         anchor('admin/crud/edit_record/'.$id, 'Edit/View'),
                         anchor('admin/gallery/upload_image/'.$id, 'Images'),
                         anchor('admin/crud/delete_record/'.$id, 'Delete',
@@ -104,18 +110,18 @@ class Listplants extends CI_Controller {
                 $data['records'] = $table;
             }
             $data['heading'] = "GPP Database Administration";
-            $data['searchterms'] = $query;
             $data['total_rows'] = $total;
             $config = array();
             $config['base_url'] = site_url($path);
             $config['per_page'] = 30;
             $config['total_rows'] = $total;
-            $config['uri_segment'] = 3;
+            $config['uri_segment'] = 4;
             $this->pagination->initialize($config);
 
             $this->template->set('thispage','View Records');
             $this->template->set('title','Search Records - Database Administration | Great Plant Picks');
             $this->template->load('admin/admin_template','admin/listplants', $data);
+            
      }
     }
  }

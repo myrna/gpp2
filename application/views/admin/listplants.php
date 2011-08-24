@@ -11,7 +11,8 @@
     <?php
     $attributes = array('id' => 'searchform');
     echo form_open('admin/listplants/search', $attributes); ?>
-    <input type="text" name="searchterms" id="searchterms">
+    <input type="text" name="searchterms">
+        <!-- removed id="searchterms" to temporarily disable autocomplete -->
     <input type="submit" value="Search">
  
     <?php

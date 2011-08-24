@@ -15,7 +15,10 @@
     echo "<p>".anchor('crud/add_record', 'Add new record')." | ";
 
     echo anchor('/listplants', 'Return to Main List')."</p>";
+
+    echo "<a href='javascript:history.back()'>Back</a>";
     ?>
+    
     <ul>
     <?php foreach ($row as $key => $value) {
         echo "<li>";

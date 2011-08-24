@@ -31,6 +31,14 @@ GPP by theme (theme)
 
 ======
 
+"Back" to search/found list from individual plant view; need to figure out how to accomplish this (both by browser "back" button and by
+a "back to previous list" button on the page) without being asked if we want to resubmit form data.  I suspect this can be accomplished
+if we are able to create a query string in the URI, then we can direct back via that; or by using sessions, but since ultimately
+we want the query string that might be better?  I have been trying to do this with the admin plant list and edit pages (Rick requested
+this feature) and am still struggling with it... need the feature in both admin and public plant searches.
+
+======
+
 If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
 it is only looking at the "genus" and it lists duplicate fields (so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
 there a way to get the autocomplete_model to search on all parts of the full botanical name?  Barring that, to search each "important" name field and

@@ -22,9 +22,8 @@
     echo anchor("admin/crud/synonym/".$id, 'Add Synonym')." | ";
     echo anchor("admin/crud/common_name/".$id, 'Add Common_Name')." | ";    
     echo anchor('admin/listplants', 'Return to Main List')."</p>";
-    
-?>
-
+   ?>
+<a href="javascript:history.go(-1);"> [Back]</a>
  <?php
         if (!empty($synonyms)) {
             echo "<h5>Synonyms</h5><p>";
