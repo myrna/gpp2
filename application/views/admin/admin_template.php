@@ -53,7 +53,7 @@
      <a <?php if ($thispage=="Plant Lists")
       echo " id=\"currentpage\""; ?> href="plantlists/">Plant Lists</a>
      <a <?php if ($thispage=="Nursery Directory")
-      echo " id=\"currentpage\""; ?> href="nursery_list/">Nurseries</a> 
+      echo " id=\"currentpage\""; ?> href="resources/">Resources</a>
      <a <?php if ($thispage=="Database Administration")
       echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a>
           <?php if ($logged_in) :?>

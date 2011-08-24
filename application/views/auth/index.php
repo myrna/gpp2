@@ -11,6 +11,7 @@
 			<th>Email</th>
 			<th>Group</th>
 			<th>Status</th>
+                        <th>Edit</th>
 		</tr>
 		<?php foreach ($users as $user):?>
 			<tr>
@@ -19,7 +20,8 @@
 				<td><?php echo $user['email'];?></td>
 				<td><?php echo $user['group_description'];?></td>
 				<td><?php echo ($user['active']) ? anchor("auth/deactivate/".$user['id'], 'Active') : anchor("auth/activate/". $user['id'], 'Inactive');?></td>
-                                </tr>
+                                <td><?php echo (anchor("auth/edit_user/".$user['id'], 'Edit'));?></td>
+                        </tr>
 		<?php endforeach;?>
 	</table>
 	

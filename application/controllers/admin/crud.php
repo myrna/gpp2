@@ -17,14 +17,10 @@ class Crud extends CI_Controller
     {
        // $this->output->enable_profiler(TRUE);
        
-          if (!$this->ion_auth->logged_in())
+         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
-		}
-          elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
 		}
           else {
              $data = array(
@@ -66,14 +62,10 @@ class Crud extends CI_Controller
     
     function synonym($id) {
         
-          if (!$this->ion_auth->logged_in())
+         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
-		}
-          elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
 		}
           else {
              $data = array(
@@ -109,14 +101,10 @@ class Crud extends CI_Controller
     
     function common_name($id) {
         
-          if (!$this->ion_auth->logged_in())
+         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
-		}
-          elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
 		}
           else {
              $data = array(
@@ -165,14 +153,10 @@ class Crud extends CI_Controller
     function edit_record($id = '') {
        //$this->output->enable_profiler(TRUE);
         
-          if (!$this->ion_auth->logged_in())
+         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
-		}
-          elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
 		}
           else {
              $data = array(

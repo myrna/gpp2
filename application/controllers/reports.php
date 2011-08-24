@@ -66,8 +66,9 @@ function shrubs_by_name() {
 }
 
 function build_shrubs_table($results_array, $title) {
-    if (!$this->ion_auth->logged_in())
+   if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
           else {
@@ -133,8 +134,9 @@ function trees_by_name() {
 }
 
 function build_trees_table($results_array, $title) {
-    if (!$this->ion_auth->logged_in())
+    if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
           else {
@@ -200,8 +202,9 @@ function perennials_by_name() {
 }
 
 function build_perennials_table($results_array, $title) {
-    if (!$this->ion_auth->logged_in())
+   if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
           else {

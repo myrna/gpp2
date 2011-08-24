@@ -21,8 +21,9 @@ class Nurseries extends CI_Controller
     function view($id = ''){
          // Enable Profiler.
   // $this->output->enable_profiler(TRUE);
-        if (!$this->ion_auth->logged_in())
+       if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
         else {
@@ -70,8 +71,9 @@ class Nurseries extends CI_Controller
     }
     function add_new()
     {
-          if (!$this->ion_auth->logged_in())
+          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
           else {
@@ -110,8 +112,17 @@ class Nurseries extends CI_Controller
     }
         function edit_nursery($id = '')
     {
-        $this->output->enable_profiler(TRUE);
-        
+        //$this->output->enable_profiler(TRUE);
+        if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
+		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
+			redirect('auth/login');
+		}
+         else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+
         $this->load->model('nurseries_model');
             
         $nursery = $this->nurseries_model->get_nursery($id);
@@ -120,6 +131,7 @@ class Nurseries extends CI_Controller
         $this->template->set('thispage','Edit Nursery Record');
         $this->template->set('title','Edit Nursery Record | Great Plant Picks');
         $this->template->load('admin/admin_template','admin/nurseries/edit', $data);
+         }
     }
         function edit()
         {

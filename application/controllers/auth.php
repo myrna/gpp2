@@ -298,14 +298,10 @@ class Auth extends Controller {
 	//create a new user
 	function create_user()
 	{
-             if (!$this->ion_auth->logged_in())
+            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
-		}
-            elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
 		}
             else {
                          
@@ -405,6 +401,117 @@ class Auth extends Controller {
                 }
             }
 	}
+        //added edit user function not in original ion auth download
+
+        function edit_user()
+        {
+            if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
+		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
+			redirect('auth/login');
+		}
+            else {
+		$this->data['title'] = "Edit User";
+                $this->data['logged_in'] = $this->ion_auth->logged_in();
+
+                //validate form input
+		$this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
+		$this->form_validation->set_rules('phone1', 'First Part of Phone', 'xss_clean|min_length[3]|max_length[3]');
+		$this->form_validation->set_rules('phone2', 'Second Part of Phone', 'xss_clean|min_length[3]|max_length[3]');
+		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'xss_clean|min_length[4]|max_length[4]');
+		$this->form_validation->set_rules('company', 'Company Name', 'xss_clean');
+                $this->form_validation->set_rules('group_id', 'Group', 'xss_clean');
+
+                $firstName = strtolower($this->input->post('first_name'));
+                $lastName = strtolower($this->input->post('last_name'));
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+
+                $additional_data = array('first_name' => $this->input->post('first_name'),
+				'last_name' => $this->input->post('last_name'),
+				'company' => $this->input->post('company'),
+				'phone' => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+                                'group_id' => $this->input->post('group_id')
+                                );
+
+                if ($this->form_validation->run() == true)
+                {
+                $id = (int)$this->input->post('id');
+                $data = array(
+                    'first_name' => $this->input->post('first_name'),
+                    'last_name' => $this->input->post('last_name'),
+                    'email' => $this->input->post('email'),
+                    'company' => $this->input->post('company'),
+                    'phone' => $this->input->post('phone1') . '-' . $this->input->post('phone2') . '-' . $this->input->post('phone3'),
+                );
+
+                if ($this->form_validation->run() == true && $this->ion_auth->update_user($id,$data) )
+                {
+                   $this->session->set_flashdata('message', 'User has been updated');
+			redirect('auth/index', 'refresh');
+                }
+                else
+                {
+                    $this->data['message'] = (validation_errors() ? validation_errors() :
+                    ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata['ion_message']));
+                }
+
+                $this->data['first_name'] = array('name' => 'first_name',
+				'id' => 'first_name',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('first_name'),
+			);
+			$this->data['last_name'] = array('name' => 'last_name',
+				'id' => 'last_name',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('last_name'),
+			);
+			$this->data['email'] = array('name' => 'email',
+				'id' => 'email',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('email'),
+			);
+			$this->data['company'] = array('name' => 'company',
+				'id' => 'company',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('company'),
+			);
+			$this->data['phone1'] = array('name' => 'phone1',
+				'id' => 'phone1',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('phone1'),
+			);
+			$this->data['phone2'] = array('name' => 'phone2',
+				'id' => 'phone2',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('phone2'),
+			);
+			$this->data['phone3'] = array('name' => 'phone3',
+				'id' => 'phone3',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('phone3'),
+			);
+                        $this->data['group_id'] = array('name' => 'group_id',
+				'id' => 'group_id',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('group_id'),
+			);
+                         $this->data['id'] = array('name' => 'id',
+				'id' => 'id',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('id'),
+			);
+
+                        $this->template->set('thispage','Edit User');
+                        $this->template->set('title','Edit User - Database Administration | Great Plant Picks');
+                        $this->template->load('admin/admin_template','auth/edit_user', $this->data);
+                }
+            }
+        }
+
+
 
 	function _get_csrf_nonce()
 	{

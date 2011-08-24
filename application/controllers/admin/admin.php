@@ -17,15 +17,12 @@ class Admin extends CI_Controller
 	        
 	function index()
 	{
-          if (!$this->ion_auth->logged_in())
+          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
 			redirect('auth/login');
 		}
-          elseif (!$this->ion_auth->is_group('admin'))
-                  {
-			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
-			redirect('/');
-		}
+          
           else {
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
