@@ -27,5 +27,6 @@
 <h4>Manage Users</h4>
 <ul>
     <li><a href="/auth/create_user/">Create New User</a></li>
+    <li><a href="/auth/">View Users</a></li>
 </ul>
 </div><!-- end content -->

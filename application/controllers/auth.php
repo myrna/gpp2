@@ -26,28 +26,31 @@ class Auth extends Controller {
 	//redirect if needed, otherwise display the user list
 	function index()
 	{
-		if (!$this->ion_auth->logged_in())
+		 if (!$this->ion_auth->logged_in())
 		{
-			//redirect them to the login page
-			$this->template->set('thispage','Database Administration');
-                        $this->template->set('title','Database Administration | Great Plant Picks');
-                        $this->template->load('admin/admin_template','admin/admin',$data);
+			redirect('auth/login');
 		}
-		elseif (!$this->ion_auth->is_admin())
-		{
-			//redirect them to the home page because they must be an administrator to view this
-			redirect($this->config->item('base_url'), 'refresh');
+		 elseif (!$this->ion_auth->is_group('admin'))
+                  {
+			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
+			redirect('/');
 		}
                 
-		else
-		{
+		else {
+                                    
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			//list the users
 			$this->data['users'] = $this->ion_auth->get_users_array();
-			$this->load->view('auth/index', $this->data);
-		}
+                        $this->data['logged_in'] = $this->ion_auth->logged_in();
+
+                        $this->template->set('thispage','GPP User View');
+                        $this->template->set('title','GPP User View | Great Plant Picks');
+                        $this->template->load('admin/admin_template','auth/index',$this->data);
+                }
+		
+
 	}
 
 	//log the user in
@@ -295,7 +298,19 @@ class Auth extends Controller {
 	//create a new user
 	function create_user()
 	{
+             if (!$this->ion_auth->logged_in())
+		{
+			redirect('auth/login');
+		}
+            elseif (!$this->ion_auth->is_group('admin'))
+                  {
+			$this->session->set_flashdata('message', 'Administrative Access Required to View This Page');
+			redirect('/');
+		}
+            else {
+                         
 		$this->data['title'] = "Register";
+                $this->data['logged_in'] = $this->ion_auth->logged_in();
 
 		//validate form input
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
@@ -383,8 +398,12 @@ class Auth extends Controller {
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
-                        $this->template->load('/admin/admin_template','auth/create_user', $this->data);
+                        $this->template->set('thispage','Create User');
+                        $this->template->set('title','Create User - Database Administration | Great Plant Picks');
+                        $this->template->load('admin/admin_template','auth/create_user', $this->data);
+                       
                 }
+            }
 	}
 
 	function _get_csrf_nonce()
