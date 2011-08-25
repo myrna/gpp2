@@ -102,18 +102,14 @@ class Plantlists_model extends CI_Model {
     function advanced_search($query_array, $limit, $offset, $sort_by, $sort_order) {
         //magic happens here
 
-    }
-    //trying to create radio button array to choose from in advanced search form
-    //sun requirements will probably need to be listed out on the view page as Rick wants tooltips for each one -- hover over "full sun"
-    //to get definition of full sun, etc.  I can do this with javascript
+        //this is from codeigniter tutorial for height comparison, don't know if it helps:
+      //  if (strlen($query_array['plant_height_max'])) {
+	//		$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
+	//		$operator = $operators[$query_array['height_comparison']];
 
-    function plant_type_options() {
-        $rows = $this->db->select('plant_type')->from('plant_data')
-			->get()->result();
-	$plant_type_options = array('' => '');
-		foreach ($rows as $row) {
-			$plant_type_options[$row->name] = $row->name;
-		}
-		return $plant_type_options;
+	//		$q->where("plant_height_max $operator", $query_array['plant_height_max']);
+	//	}
+
     }
-}
+   
+   }

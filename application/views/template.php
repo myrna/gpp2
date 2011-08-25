@@ -10,12 +10,9 @@
         <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.tablesorter.min.js'></script>
         <script type="text/javascript">
             $(document).ready(function()
-            {
-                $("#display").tablesorter( {sortList: [[0,0]]} );
-            }
-        );
-        </script>
-</head>
+            { $("#display").tablesorter( {sortList: [[0,0]]} ); } );
+            </script>
+        </head>
     <body>
         <div id="topbar"></div>
         <div id="wrapper">

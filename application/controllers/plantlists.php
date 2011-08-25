@@ -159,7 +159,8 @@ class Plantlists extends CI_Controller {
             $query_array = array(  //radio buttons for all?
                 'plant_type' => $this->input->get('plant_type'),        //tree, shrub, vine, etc.-plant_data
                 'foliage_type'  => $this->input->get('foliage_type'),   //evergreen, deciduous, semi-plant_data
-                'plant_height_max' => $this->input->get('plant_height_max'),  //will need to offer ranges to select from? (1,1-2,2.1-5..)
+                'plant_height_max' => $this->input->get('plant_height_max'),  
+                'height_comparison' => $this->input->get('height_comparison'), //see note in plantlists_model at end
                 'growth_habit' => $this->input->get('growth_habit'),    //plant_data
                 'flower_time' => $this->input->get('flower_time'),
                 //following from linked tables
@@ -170,6 +171,16 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->get('water')
             );
 
+            $plant_type_options = array(
+                  'bulb' => 'Bulb',
+                  'conifer'  => 'Conifer',
+                  'perennial' => 'Perennial',
+                  'shrub' => 'Shrub',
+                  'tree' => 'Tree',
+                  'vine' => 'Vine',
+                );
+
+           
             //$data('query_id') = $query_id; //commented out; causes "Fatal error: Can't use function return value in write context"
 
             $this->load->model('crud_model');
@@ -185,11 +196,7 @@ class Plantlists extends CI_Controller {
             //site_url("plantlists/search/$query_id/$sort_by/$sort_order") -- not so important to keep the sortby/sortorder business,
             //this probably wouldn't work anyway because of the jquery tablesorter; just need a way to id query results
 
-            //trying to get radio button choices
-            $data['plant_type_options'] = $this->plantlists_model->plant_type_options();
-
-
-
+            
             $this->template->set('thispage','Advanced Search');
             $this->template->set('title','Advanced Search | Great Plant Picks');
             $this->template->load('template','plantlists/advanced_search');

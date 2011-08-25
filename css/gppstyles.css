@@ -269,6 +269,9 @@ form.data-entry {clear:both; width:850px;}
 .data-entry p {clear:both; font-weight:bold; padding-top:10px;}
 .data-entry textarea {width:600px; height:80px;}
 
+p.searchlabel {font-weight:bold; padding-top:10px;}
+p.radios {font-weight:normal; padding:0 0 5px 0;}
+
 /* checkbox styling -- keep checkbox label from wrapping */
 .formcheck {float:left;}
 .formcheck label {margin-right:5px; white-space:nowrap;}
@@ -279,12 +282,15 @@ input[type="text"] {
 }
 input[type="submit"] {
     clear:both;
-    float:left;
+    float:left;    
+    margin-right:5px;
 }
+.find {margin-top:10px;}
 input[type="option"] {
     display:inline-block;
     width:300px;
 }
+
 /* searchform styling */
 #searchform {
     padding:10px 20px;  
@@ -456,4 +462,49 @@ p.center {text-align:center;}
 
 em {font-style:normal; font-weight:bold;}
 
+/* tooltips for advanced search page */
+.tooltip {
+  border-bottom: 1px dotted #378b36;
+  color: #000; outline: none;
+  cursor: help; text-decoration: none;
+  position: relative;
+}
+.tooltip span {
+  margin-left: -999em;
+  position: absolute;
+}
+.tooltip:hover span {
+  font-family: Calibri, Tahoma, Geneva, sans-serif;
+  position: absolute;
+  left: 1em;
+  top: 1.5em;
+  z-index: 99;
+  margin-left: 0;
+  width: 250px;
+  border-radius: 5px 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+}
+.tooltip:hover img {
+  border: 0;
+  margin: -10px 0 0 -55px;
+  float: left;
+  position: absolute;
+}
+.tooltip:hover em {
+  font-family: Candara, Tahoma, Geneva, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  padding: 0.2em 0 0.6em 0;
+}
+.classic { 
+    padding: 0.8em 1em;
+    background-color:#b1d355;
+    border:1px #378b36 solid;
+}
+* html a:hover { background: transparent; }
 /* end */

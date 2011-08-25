@@ -156,6 +156,13 @@ function build_form_control($key, $value) {
                 'Winter' => "Winter");
             return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
+        case 'growth_habit':
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Columnar' => "Columnar", 'Compact' => "Compact", 'Mounding' => "Mounding",
+                'Narrow' => "Narrow", 'Pyramidal' => "Pyramidal", 'Round' => "Round", 'Spreading' => "Spreading",
+                'Upright' => "Upright", 'Weeping' => "Weeping");
+            return form_dropdown('growth_habit', $options, $current, "id='$key'");
+            break;
         case 'committee':
             $current = $value ? $value : '';
             $options = array('' => "", 'Perennials - Bulbs' => "Perennials - Bulbs",
