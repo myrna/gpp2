@@ -1,7 +1,11 @@
 <?php //allows use of query strings
 class MY_Input extends CI_Input {
 
-
+    function __construct()
+    {
+        parent::__construct();
+    }
+    
     function save_query($query_array) {
 
         $CI =& get_instance();

@@ -5,10 +5,11 @@
     <div class="simplesearch">
     <?php
     echo form_open('plantlists', $attributes); ?>
-    <input type="submit" value="Search" target="/plantlists/results/">
+    <input type="submit" value="Search">
     <input type="text" name="searchterms" id="searchterms" value="<?php echo $query; ?>">
     </div>
-    <?php echo anchor('plantlists/advancedsearch/','Advanced Search','title="Advanced Search"') ?>
+    <p><?php echo anchor('plantlists/','View All Plants','title="View All Plants"') ?></p>
+    <p><?php echo anchor('plantlists/advanced/','Advanced Search','title="Advanced Search"') ?></p>
     <h4>Popular Searches</h4>
     <ul>
         <li>2010 Great Plant Picks</li> <!-- link to URL of search result? -->

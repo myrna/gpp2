@@ -9,17 +9,16 @@
  * @category		Models
  */
 
-class Autocomplete_model extends CI_Model  // this works but need to extend list to include full botanical name
+class Autocomplete_model extends CI_Model  
 {
 
 	public function searchterms($keyword)
     {
-        
-        $this->db->select('id,genus');
+        $this->db->select('genus');
         $this->db->from('plant_data');
-        $this->db->like('genus', $keyword);
+        $this->db->like('genus', $keyword);  // is this where the problem is?  All autocomplete results start at "A"
         $this->db->order_by("genus", "asc");
-        $this->db->group_by('genus');
+        $this->db->group_by('genus');   // nice fix, thank you!
         $query = $this->db->get();
         foreach($query->result_array() as $row){
             $data[] = $row;
@@ -31,3 +30,4 @@ class Autocomplete_model extends CI_Model  // this works but need to extend list
 
 /* End of file autocomplete_model.php */
 /* Location: ./application/models/autocomplete_model.php */
+

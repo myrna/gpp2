@@ -6,7 +6,7 @@
     <div class="simplesearch">
         <p>Search by plant name</p>
     <?php echo form_open('plantlists', $attributes); ?>
-    <input type="submit" value="Search" target="/plantlists/results/">
+    <input type="submit" value="Search">
     <input type="text" name="searchterms" id="searchterms" value="<?php echo $query; ?>">
     <?php echo form_close(); ?>
     </div>

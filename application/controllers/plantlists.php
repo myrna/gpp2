@@ -151,13 +151,26 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','View Plant | Great Plant Picks');
             $this->template->load('template','plantlists/view', $data);
         }
+
+  // need to create previous and next links for individual plant views; need to use previous/next rows in found set...?
+        //codeigniter has previous_row(), next_row() query result functions....
+
+        function get_previous($id) {
+            $query = $this->view($row);
+            $row = $query->previous_row();
+            $data = $row;
+            
+            $this->template->set('thispage','View Plant');
+            $this->template->set('title','View Plant | Great Plant Picks');
+            $this->template->load('template','plantlists/view', $data);
+        }
         
         function advanced() {
          
             
             $this->template->set('thispage','Advanced Search');
             $this->template->set('title','Advanced Search | Great Plant Picks');
-            $this->template->load('template','plantlists/advanced_search');   
+            $this->template->load('template','plantlists/advanced_search', $data);
         }
         
 
@@ -165,14 +178,13 @@ class Plantlists extends CI_Controller {
             $this->output->enable_profiler(TRUE);
             $this->input->load_query($query_id);
 
-            $query_array = array(  //radio buttons for all?
-                'plant_type' => $this->input->post('plant_type'),        //tree, shrub, vine, etc.-plant_data
-                'foliage_type'  => $this->input->post('foliage_type'),   //evergreen, deciduous, semi-plant_data
+            $query_array = array(  
+                'plant_type' => $this->input->post('plant_type'),        
+                'foliage_type'  => $this->input->post('foliage_type'),   
                 'plant_height_max' => $this->input->post('plant_height_max'),  
                 'height_comparison' => $this->input->post('height_comparison'), //see note in plantlists_model at end
-                'growth_habit' => $this->input->post('growth_habit'),    //plant_data
+                'growth_habit' => $this->input->post('growth_habit'),   
                 'flower_time' => $this->input->post('flower_time'),
-                //following from linked tables
                 'flower_color' => $this->input->post('flower_color'),
                 'foliage_color' => $this->input->post('foliage_color'), 
                 'sun' => $this->input->post('sun'),
@@ -180,17 +192,8 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->post('water')
             );
 
-            $plant_type_options = array(
-                  'bulb' => 'Bulb',
-                  'conifer'  => 'Conifer',
-                  'perennial' => 'Perennial',
-                  'shrub' => 'Shrub',
-                  'tree' => 'Tree',
-                  'vine' => 'Vine',
-                );
-
-           
-            //$data('query_id') = $query_id; //commented out; causes "Fatal error: Can't use function return value in write context"
+                      
+            $data['query_id'] = $query_id; 
 
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
@@ -209,15 +212,18 @@ class Plantlists extends CI_Controller {
                   $plant_name_and_height[] = array(
                   'name' => display_full_botanical_name($result),
                   'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
+                  'height' => $result['plant_height_at_10'],
                   'id' => $result['id']
               );
             }
             $data['records'] = $plant_name_and_height;
             $data['stats'] = count($results);
+
+            $config['base_url'] = site_url("plantlists/results/$query_id");
+
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists/home',$data);
+            $this->template->load('template','plantlists/results',$data);
 
         }
            
