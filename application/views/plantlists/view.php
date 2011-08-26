@@ -142,7 +142,7 @@ $.fn.preload = function() {
             }
 
     ?>
-  <?php echo anchor('plantlists/view/'.$plant[get_previous('id')], $plant['name']); ?>
+ 
     </div><!-- end plantinfo -->
     <div class="clear"></div>
 </div><!-- end content -->
