@@ -143,6 +143,13 @@ class Plantlists_model extends CI_Model {
                 $this->db->where('lower(plant_data.foliage_type)', $query_array['foliage_type']);
             }
 
+            if ($query_array['gpp_year']) {
+                $this->db->where('plant_data.gpp_year', $query_array['gpp_year']);
+            }
+            if ($query_array['theme']) {
+                $this->db->where('plant_data.theme', $query_array['theme']);
+            }
+
             $found = $this->db->distinct()->get()->result_array();
             return $found;
 
