@@ -19,6 +19,7 @@ class Autocomplete_model extends CI_Model  // this works but need to extend list
         $this->db->from('plant_data');
         $this->db->like('genus', $keyword);
         $this->db->order_by("genus", "asc");
+        $this->db->group_by('genus');
         $query = $this->db->get();
         foreach($query->result_array() as $row){
             $data[] = $row;

@@ -151,24 +151,33 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','View Plant | Great Plant Picks');
             $this->template->load('template','plantlists/view', $data);
         }
+        
+        function advanced() {
+         
+            
+            $this->template->set('thispage','Advanced Search');
+            $this->template->set('title','Advanced Search | Great Plant Picks');
+            $this->template->load('template','plantlists/advanced_search');   
+        }
+        
 
         function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
             $this->output->enable_profiler(TRUE);
             $this->input->load_query($query_id);
 
             $query_array = array(  //radio buttons for all?
-                'plant_type' => $this->input->get('plant_type'),        //tree, shrub, vine, etc.-plant_data
-                'foliage_type'  => $this->input->get('foliage_type'),   //evergreen, deciduous, semi-plant_data
-                'plant_height_max' => $this->input->get('plant_height_max'),  
-                'height_comparison' => $this->input->get('height_comparison'), //see note in plantlists_model at end
-                'growth_habit' => $this->input->get('growth_habit'),    //plant_data
-                'flower_time' => $this->input->get('flower_time'),
+                'plant_type' => $this->input->post('plant_type'),        //tree, shrub, vine, etc.-plant_data
+                'foliage_type'  => $this->input->post('foliage_type'),   //evergreen, deciduous, semi-plant_data
+                'plant_height_max' => $this->input->post('plant_height_max'),  
+                'height_comparison' => $this->input->post('height_comparison'), //see note in plantlists_model at end
+                'growth_habit' => $this->input->post('growth_habit'),    //plant_data
+                'flower_time' => $this->input->post('flower_time'),
                 //following from linked tables
-                'flower_color' => $this->input->get('flower_color'),
-                'foliage_color' => $this->input->get('foliage_color'), 
-                'sun' => $this->input->get('sun'),
-                'soil' => $this->input->get('soil'),
-                'water' => $this->input->get('water')
+                'flower_color' => $this->input->post('flower_color'),
+                'foliage_color' => $this->input->post('foliage_color'), 
+                'sun' => $this->input->post('sun'),
+                'soil' => $this->input->post('soil'),
+                'water' => $this->input->post('water')
             );
 
             $plant_type_options = array(
@@ -185,21 +194,31 @@ class Plantlists extends CI_Controller {
 
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
-
+            //var_dump($query_array);
             $results = $this->plantlists_model->advanced_search($query_array,
                     $limit, $offset, $sort_by, $sort_order);
-            $data['records'] = $results['rows'];
-	    $data['num_results'] = $results['num_rows'];
+
+	    $data['num_results'] = count($results);
             //somehow this ends up with search results on the /plantlists page ...?
             //or do we need a new search results page to accommodate query_id?
             //this is the sort of URL the nettuts tutorial ends up with: $config['base_url'] =
             //site_url("plantlists/search/$query_id/$sort_by/$sort_order") -- not so important to keep the sortby/sortorder business,
             //this probably wouldn't work anyway because of the jquery tablesorter; just need a way to id query results
+            $plant_name_and_height = array();
+            foreach ($results as $result) {
+                  $plant_name_and_height[] = array(
+                  'name' => display_full_botanical_name($result),
+                  'common' => $result['family_common_name'],
+                  'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
+                  'id' => $result['id']
+              );
+            }
+            $data['records'] = $plant_name_and_height;
+            $data['stats'] = count($results);
+            $this->template->set('thispage','Display Lists');
+            $this->template->set('title','Plant Lists | Great Plant Picks');
+            $this->template->load('template','plantlists/home',$data);
 
-            
-            $this->template->set('thispage','Advanced Search');
-            $this->template->set('title','Advanced Search | Great Plant Picks');
-            $this->template->load('template','plantlists/advanced_search');
         }
            
 }

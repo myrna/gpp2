@@ -5,15 +5,15 @@
     
     <div class="simplesearch">
         <p>Search by plant name</p>
-    <?php
-    echo form_open('plantlists', $attributes); ?>
+    <?php echo form_open('plantlists', $attributes); ?>
     <input type="submit" value="Search" target="/plantlists/results/">
     <input type="text" name="searchterms" id="searchterms" value="<?php echo $query; ?>">
+    <?php echo form_close(); ?>
     </div>
     <h4>Search by plant attributes (select those that apply):</h4>
      <?php
     $attributes = array('class' => 'data-entry');
-    echo form_open('advancedsearch', $attributes); ?>
+    echo form_open('plantlists/advancedsearch', $attributes); ?>
     
     <fieldset>
       

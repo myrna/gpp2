@@ -100,10 +100,57 @@ class Plantlists_model extends CI_Model {
     }
 
     function advanced_search($query_array, $limit, $offset, $sort_by, $sort_order) {
-        //magic happens here
+        // clean out things they don't care about
+        foreach ($query_array as $attribute => $value) {
+            if (!$value) {
+                unset($query_array[$attribute]);
+            } else {
+                $query_array[$attribute] = strtolower($value);
+            }
+        }
+    
+            $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data");
 
-        //this is from codeigniter tutorial for height comparison, don't know if it helps:
-      //  if (strlen($query_array['plant_height_max'])) {
+            $this->db->join('plant_water', 'plant_water.plant_id = plant_data.id', 'left');
+            $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
+            $this->db->join('plant_sun', 'plant_sun.plant_id = plant_data.id', 'left');            
+            $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
+
+            if ($query_array['foliage_color']) {
+                $this->db->where('plant_foliage_color.foliage_color_id', "(select id from foliage_color where lower(foliage_color) = '" . $query_array['foliage_color'] . "')", false);
+            }
+            
+            if ($query_array['water']) {
+                $this->db->where('plant_water.water_id', "(select id from water where lower(water) = '" . $query_array['water'] . "')", false);
+            }
+            if ($query_array['soil']) {
+                $this->db->where('plant_soil.soil_id', "(select id from soil where lower(soil) = '" . $query_array['soil'] . "')", false);
+            }
+            if ($query_array['sun']) {
+                $this->db->where('plant_sun.sun_id', "(select id from sun where lower(sun) = '" . $query_array['sun'] . "')", false);
+            }
+
+            if ($query_array['flower_time']) {
+                $this->db->where('lower(plant_data.flower_time)', $query_array['flower_time']);
+            }
+            if ($query_array['growth_habit']) {
+                $this->db->where('lower(plant_data.growth_habit)', $query_array['growth_habit']);
+            }
+            if ($query_array['plant_type']) {
+                $this->db->where('lower(plant_data.plant_type)', $query_array['plant_type']);
+            }
+            if ($query_array['foliage_type']) {
+                $this->db->where('lower(plant_data.foliage_type)', $query_array['foliage_type']);
+            }
+
+            $found = $this->db->distinct()->get()->result_array();
+            return $found;
+
+
+            // I'll get to this part - I want to get the searches all working first...-jon
+            
+    //this is from codeigniter tutorial for height comparison, don't know if it helps:
+    //  if (strlen($query_array['plant_height_max'])) {
 	//		$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
 	//		$operator = $operators[$query_array['height_comparison']];
 
