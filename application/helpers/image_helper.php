@@ -5,9 +5,16 @@
     }
 
     function image_url($filename) {
+        if(!$filename)
+        {
+        return base_url() . "assets/image-not-available.gif";
+        }
+        else
+        {
         return base_url() . "images/$filename";
+        }
+    
     }
-
     function image_thumb_link($filename) {
         // this just opens the larger image, but you could send them to a page
         // that displays the image nicely by returning a controller in the anchor
