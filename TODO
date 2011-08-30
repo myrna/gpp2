@@ -24,10 +24,13 @@ sun
 water
 soil
 
-the pre-programmed searches not covered by the above would be for (both from plant_data table):
+the pre-programmed searches not covered by the above would be for (both from plant_data table) -- these need to be clickable
+links leading to the search results; they will be placed on the plantlists/search/ page (click on "Plant Lists"):
 
 GPPs by year (gpp_year)
 GPP by theme (theme)
+Others-- as on current site -- such as small trees (which would be a search for "tree" and "less than" --
+need to get figure from Rick)
 
 ======
 
@@ -40,11 +43,13 @@ this feature) and am still struggling with it... need the feature in both admin 
 ======
 
 If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
-it is only looking at the "genus" and it lists duplicate fields (so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
+it is only looking at the "genus" and it lists duplicate fields //you fixed this, thank you!!! //(so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
 there a way to get the autocomplete_model to search on all parts of the full botanical name?  Barring that, to search each "important" name field and
 not return duplicates -- I don't know if that's possible since they are all individual records.  And for the public function ideally it
 would go for common names and synonyms as well.  Maybe it would be better to have the autocomplete function pull from a static page with
 a list on it?  Don't know what is easiest....
+
+Addendum: autocomplete always starts at "a" no matter what is typed into the search box (ge brings up abelia, etc.)
 
 Thanks!
 

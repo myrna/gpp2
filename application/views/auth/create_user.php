@@ -45,5 +45,6 @@
 
       
     <?php echo form_close();?>
-
+      <div class="clear"></div>
+      <p><a href="<?php echo site_url('auth/');?>">Back to user list</a></p>
 </div>

@@ -1,6 +1,7 @@
 <!-- display for PUBLIC plant search results -->
 
 <div id="content" class="view">
+ 
     <h4>Advanced Search Results</h4>
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
     <?php
@@ -10,7 +11,7 @@
 
  
     <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search")."</span>";
+    echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Clear Search")."</span>";
     echo "<p class='note'>*Search by plant name</p>";
     ?>
     <table id="display" class="tablesorter display">

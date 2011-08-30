@@ -1,4 +1,4 @@
-<div id="content" class="display">
+<div id="content" class="main">
 
 	<h1>User List</h1>
 		
@@ -11,7 +11,7 @@
 			<th>Email</th>
 			<th>Group</th>
 			<th>Status</th>
-                        <th>Edit</th>
+                      <!--  <th>Edit</th> -->
 		</tr>
 		<?php foreach ($users as $user):?>
 			<tr>
@@ -20,11 +20,11 @@
 				<td><?php echo $user['email'];?></td>
 				<td><?php echo $user['group_description'];?></td>
 				<td><?php echo ($user['active']) ? anchor("auth/deactivate/".$user['id'], 'Active') : anchor("auth/activate/". $user['id'], 'Inactive');?></td>
-                                <td><?php echo (anchor("auth/edit_user/".$user['id'], 'Edit'));?></td>
+                              <!--  <td><?php echo (anchor("auth/edit_user/".$user['id'], 'Edit'));?></td> -->
                         </tr>
 		<?php endforeach;?>
 	</table>
 	
-	<p><a href="<?php echo site_url('auth/create_user');?>">Create a new user</a></p>
-		
+	<p class="center"><a href="<?php echo site_url('auth/create_user');?>">Create a new user</a></p>
+	
 </div>

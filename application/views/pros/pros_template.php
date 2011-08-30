@@ -34,7 +34,7 @@
         <a <?php if ($thispage=="About GPP")
       echo " id=\"currentpage\""; ?> href="/about/">About GPP</a> 
      <a <?php if ($thispage=="Plant Lists")
-      echo " id=\"currentpage\""; ?> href="/plantlists/">Plant Lists</a>
+      echo " id=\"currentpage\""; ?> href="/plantlists/search/">Plant Lists</a>
      
     <a <?php if ($thispage=="Resources")
       echo " id=\"currentpage\""; ?> href="/resources/">Resources</a>

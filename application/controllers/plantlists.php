@@ -180,7 +180,9 @@ class Plantlists extends CI_Controller {
 
             $query_array = array(  
                 'plant_type' => $this->input->post('plant_type'),        
-                'foliage_type'  => $this->input->post('foliage_type'),   
+                'foliage_type'  => $this->input->post('foliage_type'),
+                'gpp_year' => $this->input->post('gpp_year'),
+                'theme' => $this->input->post('theme'),
                 'plant_height_max' => $this->input->post('plant_height_max'),  
                 'height_comparison' => $this->input->post('height_comparison'), //see note in plantlists_model at end
                 'growth_habit' => $this->input->post('growth_habit'),   
@@ -190,7 +192,7 @@ class Plantlists extends CI_Controller {
                 'sun' => $this->input->post('sun'),
                 'soil' => $this->input->post('soil'),
                 'water' => $this->input->post('water')
-            );
+                 );
 
                       
             $data['query_id'] = $query_id; 

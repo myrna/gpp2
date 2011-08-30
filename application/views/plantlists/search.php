@@ -12,7 +12,7 @@
     <p><?php echo anchor('plantlists/advanced/','Advanced Search','title="Advanced Search"') ?></p>
     <h4>Popular Searches</h4>
     <ul>
-        <li>2010 Great Plant Picks</li> <!-- link to URL of search result? -->
+                  <li>2010 Great Plant Picks</li> <!-- link to URL of search result? -->
 
     </ul>
    

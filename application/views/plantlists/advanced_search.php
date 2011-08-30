@@ -122,8 +122,12 @@
         <input type="radio" name="water" value="average">Average
         <input type="radio" name="water" value="any-water">Any
         </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('GPP Year:','gpp_year'); ?></p>
+        <input type="radio" name="gpp_year" value="2001">2001
+        </fieldset>
     <div>
-        <input type="submit" class="find" value="Find My Plant" target="/plantlists/results/">
+        <input type="submit" class="find" value="Find My Plant">
     </div>
 
     <?php echo form_close() ?>
