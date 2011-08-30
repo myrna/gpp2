@@ -1,6 +1,10 @@
 Jon TODO list:
 ----------------
 
+Addendum (possible solution to "back" button problem) found this on a CodeIgniter forum (but requires query strings for
+all search results, including admin, to avoid the back button problem):
+http://codeigniter.com/forums/viewthread/177436/#841275
+
 When tackling the "advanced search" function -- if each search result can have its own URI (my model for this is 
 http://net.tutsplus.com/tutorials/php/codeigniter-from-scratch-search-results-without-query-strings-2/)
 then I can use these search results to make links for the pre-programmed searches.  What do you think?  The
