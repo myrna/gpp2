@@ -36,7 +36,7 @@ class Gallery extends CI_Controller {
     }
     }
     function upload_image($id = ''){
-	//    $this->output->enable_profiler(TRUE);
+	    $this->output->enable_profiler(TRUE);
         //user cannot access this page unless logged in, offer logout option
 
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
@@ -58,7 +58,9 @@ class Gallery extends CI_Controller {
 
 		$categories = $this->Crud_model->link_table($id, 'category', 'image');
         $data['category_fields'] = $categories['list'];
-
+        $data['description'] = $description;
+        $data['copyright'] = $copyright;
+        $data['photographer'] = $photographer;
         $data['seasons'] = array('unknown' => 'Unknown', 'spring' => 'Spring', 'summer' => 'Summer', 'fall' => 'Fall', 'winter' => 'Winter');
         $this->template->set('thispage','Upload Image');
         $this->template->set('title','Upload Image - Database Administration | Great Plant Picks');

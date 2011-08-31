@@ -74,7 +74,7 @@ class Gallery_model extends CI_Model {
 		return $categories;
 	}
 
-    function get_images($plant_id) {
+   function get_images($plant_id) {
         $images = array();
         $this->db->select('images.*,plant_images.plant_id');
         $this->db->where('plant_id', $plant_id);

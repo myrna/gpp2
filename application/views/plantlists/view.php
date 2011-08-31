@@ -42,7 +42,10 @@ $.fn.preload = function() {
     ?>
          </ul>    
    <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
-        
+   <?php
+   if (!empty($photographer))
+       echo "<p class='caption'>" . $photographer . "</p>"
+        ?>
     </div><!-- end image view -->
     <div class="plantinfo">
     <?php
@@ -65,9 +68,8 @@ $.fn.preload = function() {
         }
     ?>
 <?php
-        echo "<dl><dt>Outstanding Qualities</dt><dd>";
-        echo $details->qualities;
-        echo "</dd></dl>";
+        echo "<h3>Outstanding Qualities</h3>";
+        echo "<p>". $details->qualities . "</p>";
         echo "<h3>Plant Characteristics</h3>";
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
         echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";

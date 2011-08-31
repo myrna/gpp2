@@ -44,15 +44,15 @@ if (isset($plant_id)) {
 
         <fieldset>
             <label for="description">Description</label>
-            <textarea id="description"></textarea>
+             <?php echo form_input('description'); ?>
         </fieldset>
         <fieldset>
             <label for="copyright">Copyright</label>
-            <input id="copyright" type="text">
+             <?php echo form_input('copyright'); ?>
         </fieldset>
         <fieldset>
             <label for="photographer">Photographer</label>
-            <input id="photographer" type="text">
+            <?php echo form_input('photographer'); ?>
         </fieldset>
 <?php
 
