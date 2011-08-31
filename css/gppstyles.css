@@ -366,14 +366,13 @@ table.display th:first-child, table.display td:first-child {
 #imageview {
     float:left;
     display:block;
-    height:500px;
-    width:524px;
+    height:650px;
+    width:530px;
 }
-#imageview ul {
-    float:right;
-    width:150px;
-}
-
+img#main-img {clear:left; float:left;}
+#imageview ul {}
+#imageview ul li {display:inline-block; float:left;}
+#imageview ul li {margin:0 10px 10px 0;}
 #imageview img {
     border:5px #d2d26f solid;
 }

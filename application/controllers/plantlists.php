@@ -175,8 +175,8 @@ class Plantlists extends CI_Controller {
         
 
         function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
-            $this->output->enable_profiler(TRUE);
-            $this->input->load_query($query_id);
+         //   $this->output->enable_profiler(TRUE);
+        //    $this->input->load_query($query_id);  CAUSES ERROR on live site does not recognize load_query
 
             $query_array = array(  
                 'plant_type' => $this->input->post('plant_type'),        
@@ -195,7 +195,7 @@ class Plantlists extends CI_Controller {
                  );
 
                       
-            $data['query_id'] = $query_id; 
+       //     $data['query_id'] = $query_id;
 
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');

@@ -35,13 +35,14 @@ $.fn.preload = function() {
     <?php } ?>
     
     <div id="imageview">
-   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
          <ul>
     <?php foreach ($images as $image) {
      echo "<li>" . image_view_link($image['filename']) . "</li>";
     }
     ?>
          </ul>    
+   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
+        
     </div><!-- end image view -->
     <div class="plantinfo">
     <?php
