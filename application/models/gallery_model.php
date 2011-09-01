@@ -85,7 +85,7 @@ class Gallery_model extends CI_Model {
 		}
         return $images;
     }
-    
+       
     function delete_image($image_id) {
         $image = $this->db->get('images', array('id' => $image_id))->result();
         $this->db->delete('images', array('id' => $image_id));

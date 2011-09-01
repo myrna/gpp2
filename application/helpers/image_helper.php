@@ -27,5 +27,5 @@
       $thumb = "<img src='" . image_thumb_url($filename) . "'/>";
       return $thumb;
     }
-    
+
 ?>

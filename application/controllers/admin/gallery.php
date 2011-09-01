@@ -36,7 +36,7 @@ class Gallery extends CI_Controller {
     }
     }
     function upload_image($id = ''){
-	    $this->output->enable_profiler(TRUE);
+	 //   $this->output->enable_profiler(TRUE);
         //user cannot access this page unless logged in, offer logout option
 
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))

@@ -36,17 +36,18 @@ $.fn.preload = function() {
     
     <div id="imageview">
          <ul>
-    <?php foreach ($images as $image) {
-     echo "<li>" . image_view_link($image['filename']) . "</li>";
+    <?php  {
+        echo "<li>" . image_view_link($primary_image['filename']) . 
+         "<p>&#169; " . $primary_image['copyright'] . " " . $primary_image['photographer'] . "</p></li>";
+        echo "<li>" . image_view_link($detail_image['filename']) .
+         "<p>&#169; " . $detail_image['copyright'] . " " . $detail_image['photographer'] . "</p></li>";
+        echo "<li>" . image_view_link($landscape_image['filename']) .
+         "<p>&#169; " . $landscape_image['copyright'] . " " . $landscape_image['photographer'] . "</p></li>";
     }
     ?>
          </ul>    
    <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
-   <?php
-   if (!empty($photographer))
-       echo "<p class='caption'>" . $photographer . "</p>"
-        ?>
-    </div><!-- end image view -->
+     </div><!-- end image view -->
     <div class="plantinfo">
     <?php
         echo "<p><em>" . $details->plant_type . "</em>";

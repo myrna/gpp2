@@ -40,7 +40,7 @@ class Plantlists extends CI_Controller {
             $data['sortfields'] = array(
               'genus' => 'Plant Name',
               'family_common_name' => 'Family (Common)',
-              'plant_height_at_10' => 'Plant Height'
+              'plant_height_at_10' => 'Height'
             );
 
             if ($this->input->post('searchterms')) {
@@ -120,7 +120,7 @@ class Plantlists extends CI_Controller {
     }
 
         function view($id) {
-            //$this->output->enable_profiler(TRUE);
+           // $this->output->enable_profiler(TRUE);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
             $this->load->model('gallery_model');
@@ -131,6 +131,7 @@ class Plantlists extends CI_Controller {
             $data['title'] = "";
 
             $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
+            //  ------- PRIMARY IMAGE ------
             # find the primary image for this plant, set it to primary, and yank it from the list.
             foreach ($data['images'] as $image) {
                 if (in_array('primary', $image['categories'])) {
@@ -138,6 +139,19 @@ class Plantlists extends CI_Controller {
                     //unset($data['images'], $image);
                 }
             }
+            foreach ($data['images'] as $image) {
+                if (in_array('detail', $image['categories'])) {
+                    $data['detail_image'] = $image;
+                    //unset($data['images'], $image);
+                }
+            }
+            foreach ($data['images'] as $image) {
+                if (in_array('landscape', $image['categories'])) {
+                    $data['landscape_image'] = $image;
+                    //unset($data['images'], $image);
+                }
+            }
+
             $data['synonyms'] = $this->crud_model->get_synonyms($id);
             $data['common_names'] = $this->crud_model->get_common_names($id);
             $data['plant_attributes'] = $this->get_plant_link_data($id);

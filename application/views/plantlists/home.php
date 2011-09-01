@@ -10,7 +10,8 @@
 
  
     <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search")."</span>";
+    echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search"). " | "
+            . anchor('/plantlists/advanced/', "Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
     echo "<p class='note'>*Search by plant name</p>";
     ?>
     <table id="display" class="tablesorter display">
@@ -30,7 +31,7 @@
             <td class="plantname">
                 <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
-            <td>
+            <td class="common-name">
                 <?php echo $plant['common']; ?>
             </td>
             <td>
