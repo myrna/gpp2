@@ -1,22 +1,5 @@
 <!-- display for PUBLIC plant list and search function -->
-<script type="text/javascript">
-$(document).ready(function() {
-        $("#imageview li img").click(function(){
-		$('#main-img').attr('src',$(this).attr('src').replace('thumbs/', ''));
-	});
-	var imgSwap = [];
-	 $("#imageview li img").each(function(){
-		imgUrl = this.src.replace('thumbs/', '');
-		imgSwap.push(imgUrl);
-	});
-	$(imgSwap).preload();
-});
-$.fn.preload = function() {
-    this.each(function(){
-        $('<img/>')[0].src = this;
-    });
-}
-</script>
+
 <div id="content" class="view">
 
     <?php
@@ -37,12 +20,18 @@ $.fn.preload = function() {
     <div id="imageview">
          <ul>
     <?php  {
-        echo "<li>" . image_view_link($primary_image['filename']) . 
-         "<p>&#169; " . $primary_image['copyright'] . " " . $primary_image['photographer'] . "</p></li>";
+        if (!empty($primary_image)) {
+        echo "<li>" . image_view_link($primary_image['filename']) .
+         "<p>&#169; " . $primary_image['copyright'] . " " . $primary_image['photographer'] . "</p></li>" ;
+        }
+        if (!empty($detail_image)) {
         echo "<li>" . image_view_link($detail_image['filename']) .
          "<p>&#169; " . $detail_image['copyright'] . " " . $detail_image['photographer'] . "</p></li>";
-        echo "<li>" . image_view_link($landscape_image['filename']) .
+        }
+        if (!empty($landscape_image)) {
+         echo "<li>" . image_view_link($landscape_image['filename']) .
          "<p>&#169; " . $landscape_image['copyright'] . " " . $landscape_image['photographer'] . "</p></li>";
+        }
     }
     ?>
          </ul>    

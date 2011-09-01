@@ -16,7 +16,7 @@ class Plantlists extends CI_Controller {
         //working on search page (eventual index page?) that will list popular searches and link to advanced search
 
         function search() {
-            $this->template->set('thispage','View Plant');
+            $this->template->set('thispage','Find Your Plant');
             $this->template->set('title','View Plant | Great Plant Picks');
             $this->template->load('template','plantlists/search');
 
@@ -36,7 +36,7 @@ class Plantlists extends CI_Controller {
                 $query = "";
             }
             
-            //define sortable fields
+            //define sortable fields // this has been removed from view file in favor of tablesorter
             $data['sortfields'] = array(
               'genus' => 'Plant Name',
               'family_common_name' => 'Family (Common)',

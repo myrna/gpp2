@@ -6,24 +6,21 @@
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
     <?php
     echo form_open('plantlists', $attributes); ?>
+   <input type="text" name="searchterms" id="searchterms">
     <input type="submit" value="Search">
-    <input type="text" name="searchterms" id="searchterms">
 
- 
     <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Clear Search")."</span>";
-    echo "<p class='note'>*Search by plant name</p>";
-    ?>
+    echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
+        ?>
+    <div class="clear"></div>
+    <p class='note'>*Search by plant name</p>
     <table id="display" class="tablesorter display">
         <thead>
-            <?php foreach($sortfields as $field_name => $field_display): ?>
-        <th <?php if ($sort_by == $field_name) ?>>
-                <?php echo anchor("plantlists/$field_name/" .
-                (($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc'),
-                        $field_display); ?>
-        </th>
-            <?php endforeach; ?>
+            <th>Plant Name (Click to sort)</th>
+            <th>Family (Common)</th>
+            <th>Height</th>
         </thead>
+       
         <tbody>
             <?php foreach($records as $plant): ?>
             <tr>
@@ -31,7 +28,7 @@
             <td class="plantname">
                 <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
-            <td>
+            <td class="common-name">
                 <?php echo $plant['common']; ?>
             </td>
             <td>

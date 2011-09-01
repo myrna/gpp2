@@ -5,24 +5,21 @@
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
     <?php
     echo form_open('plantlists', $attributes); ?>
-    <input type="submit" value="Search">
-    <input type="text" name="searchterms" id="searchterms">
 
- 
+    <input type="text" name="searchterms" id="searchterms">
+    <input type="submit" value="Search">
+    
     <?php
     echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search"). " | "
             . anchor('/plantlists/advanced/', "Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
-    echo "<p class='note'>*Search by plant name</p>";
-    ?>
+        ?>
+    <div class="clear"></div>
+    <p class='note'>*Search by plant name</p>
     <table id="display" class="tablesorter display">
-        <thead>
-            <?php foreach($sortfields as $field_name => $field_display): ?>
-        <th <?php if ($sort_by == $field_name) ?>>
-                <?php echo anchor("plantlists/$field_name/" .
-                (($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc'),
-                        $field_display); ?>
-        </th>
-            <?php endforeach; ?>
+        <thead> 
+            <th>Plant Name (Click to sort)</th>
+            <th>Family (Common)</th>
+            <th>Height</th>
         </thead>
         <tbody>
             <?php foreach($records as $plant): ?>

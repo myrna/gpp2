@@ -132,7 +132,7 @@ div#content {
     padding:10px;
 }
 .display {}
-.admin, .gallery, .view {
+.admin, .gallery, .view, .advsearch {
     padding:10px;
     width:994px;
     }
@@ -205,6 +205,7 @@ div#content {
         margin: 0 0 1em 0;
 	width: 280px;
 	border: 5px;
+        border-radius: 1px;
 	-moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
 	padding: 1em;
@@ -217,10 +218,12 @@ div#content {
 	padding: 6px;
 	text-decoration: none;
 	font-size: 14px;
+        border-radius: 4px;
 	-moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
 	background: #348075;
 	color: white;
-	box-shadow: 0 px 0 #378b36;
+	box-shadow: 0 1px 0 #378b36;
 	-moz-box-shadow: 0 1px 0 #378b36;
 	-webkit-box-shadow: 0 1px 0 #378b36;
 }
@@ -282,10 +285,13 @@ input[type="text"] {
 }
 input[type="submit"] {
     clear:both;
-    float:left;    
+/*    float:left;    */
     margin-right:5px;
 }
-.find {margin-top:10px;}
+.find {   /* advanced search submit button */
+    clear:both;
+    margin-left:440px;
+}
 input[type="option"] {
     display:inline-block;
     width:300px;
@@ -300,7 +306,10 @@ input[type="option"] {
     width:300px;
     height:20px;
     }
-
+#searchform input[type="submit"] {
+    clear:both;
+    margin-left:5px;
+}
 /*search form position on public search and pre-programmed list page */
 
 div.simplesearch {
@@ -363,6 +372,18 @@ table.display th:first-child, table.display td:first-child {
     font-weight:bold;
 }
 
+/* advanced search form page layout */
+div.rightcol {
+    float:right;
+    width:482px;
+    margin:10px 0;
+}
+div.leftcol {
+    float:left;
+    width:482px;
+    margin:10px 0;
+}
+
 /* plant fact sheet screen style */
 #imageview {
     float:left;
@@ -384,12 +405,10 @@ img#main-img {clear:left; float:left;}
     padding-left:2px;
     }
 
-#imageview img {
+#imageview > img {
     border:5px #d2d26f solid;
 }
-.plantinfo {
-
-}
+.plantinfo {}
 .plantinfo dt {font-weight:bold;}
 .plantinfo dd {padding-bottom:8px;}
 
@@ -447,22 +466,32 @@ td .crossgenus {
 .headerSortDown:after {
     content:"▲";
 }
-th a:link {text-decoration:none; color:#000;}
-th a:hover {text-decoration:none; color:#e65925;}
+.tablesorter th {cursor:pointer;}
+.tablesorter th:hover {text-decoration:none; color:#e65925;}
 
 /* headers */
 h1, h2, h3, h4 {font-weight:bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
 h1 {font-size:28px; margin-bottom:10px;}
-.display h1, .gallery h1, .display h4, .admin h2, .admin h4 {text-align:center; padding:5px 0;}
-.display h4 {display:block; background-color:#f8e100;}
-.view h3 {font-size:16px; margin:5px 0;}
-.view h4 {text-align:center; margin-bottom:20px;}
-.admin h1 {margin-top:15px; text-align:center;}
 h2 {font-size:22px;}
 h3 {font-size:18px;}
+h4 {font-size:18px; padding:5px 0;}
+h5 {font-size:16px;}
+
+.display h1, .gallery h1, .display h4, .admin h2, .admin h4 {text-align:center; padding:5px 0;}
+.admin h1 {margin-top:15px; text-align:center;}
+
+.advsearch h2 {text-align:center; margin:10px 0;}
+.advsearch h3, .advsearch h4 {text-align:left;}
+.advsearch h5 {text-align:left; margin:20px 0 0;}
+
+.view h3 {font-size:16px; margin:5px 0;}
+
+.display h4 {display:block; background-color:#f8e100;}
+.view h4 {text-align:center; margin-bottom:20px;}
+
 #upload h3 {padding:15px 0 5px;}
 #login_form h2 {padding:5px 0 10px 0;}
-h4 {font-size:18px; padding:5px 0;}
+
 
 /* paragraph styles */
 p {margin-bottom:5px;}

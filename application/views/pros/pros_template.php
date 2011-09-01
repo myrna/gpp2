@@ -33,7 +33,7 @@
       echo " id=\"currentpage\""; ?> href="/">Home</a> 
         <a <?php if ($thispage=="About GPP")
       echo " id=\"currentpage\""; ?> href="/about/">About GPP</a> 
-     <a <?php if ($thispage=="Plant Lists")
+     <a <?php if ($thispage=="Find Your Plant")
       echo " id=\"currentpage\""; ?> href="/plantlists/search/">Plant Lists</a>
      
     <a <?php if ($thispage=="Resources")
