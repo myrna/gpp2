@@ -186,7 +186,13 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','Advanced Search | Great Plant Picks');
             $this->template->load('template','plantlists/advanced_search', $data);
         }
-        
+
+        //still trying to create a query string... didn't work (yet)... :)
+        function pre_search($query_id)
+         {
+        redirect('plantlists/advancedsearch/'.$this->input->post('query_id'));
+            }
+
 
         function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
          //   $this->output->enable_profiler(TRUE);
@@ -208,8 +214,7 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->post('water')
                  );
 
-                      
-       //     $data['query_id'] = $query_id;
+             $query_id = $this->input->save_query($query_array);
 
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
@@ -234,8 +239,6 @@ class Plantlists extends CI_Controller {
             }
             $data['records'] = $plant_name_and_height;
             $data['stats'] = count($results);
-
-            $config['base_url'] = site_url("plantlists/results/$query_id");
 
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');

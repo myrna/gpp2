@@ -494,10 +494,10 @@ h5 {font-size:16px;}
 
 
 /* paragraph styles */
-p {margin-bottom:5px;}
+p {clear:both; margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
-p.center {text-align:center;}
+p.center {clear:both; text-align:center;}
 
 em {font-style:normal; font-weight:bold;}
 

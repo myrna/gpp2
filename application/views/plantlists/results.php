@@ -8,12 +8,13 @@
     echo form_open('plantlists', $attributes); ?>
    <input type="text" name="searchterms" id="searchterms">
     <input type="submit" value="Search">
-
+   
     <?php
     echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
         ?>
     <div class="clear"></div>
-    <p class='note'>*Search by plant name</p>
+    <p class="note">*Search by plant name</p>
+    <p> <a href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" onclick="this.href = this.href.replace('[sub]',window.location)">Email this link</a></p>
     <table id="display" class="tablesorter display">
         <thead>
             <th>Plant Name (Click to sort)</th>
