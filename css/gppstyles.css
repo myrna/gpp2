@@ -405,13 +405,17 @@ img#main-img {clear:left; float:left;}
     padding-left:2px;
     }
 
-#imageview > img {
+#imageview img {
     border:5px #d2d26f solid;
 }
 .plantinfo {}
 .plantinfo dt {font-weight:bold;}
 .plantinfo dd {padding-bottom:8px;}
 
+#printview {
+    float:right;
+}
+.print, #printhead {display:none;}
 /* plant display styles */
 .genus {
     font-style: italic;
@@ -494,7 +498,7 @@ h5 {font-size:16px;}
 
 
 /* paragraph styles */
-p {clear:both; margin-bottom:5px;}
+p {margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
 p.center {clear:both; text-align:center;}

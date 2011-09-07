@@ -1,0 +1,84 @@
+/* 
+    Document   : gppstyles1.css
+    
+    Description:
+        Full page fact sheet print style
+*/
+
+    body {  /* white background, black text */
+        background: #fff none !important;
+        color: #000;
+        font-size:12pt;
+        line-height:16pt;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    #wrapper {
+        position: relative;
+        margin:0 auto;
+        width:960px;
+    }
+   
+
+ div#navigation, div#banner, div#footer, div#imageview > ul {display:none;} /* don't show thumbnails */
+ div#printhead {float:left; width:150px;}
+ div#imageview {float:left; margin:20px 20px 20px 0;}
+ div#content {float:right;}
+
+ h1, h2, h3, h4, h5, dt {font-weight:bold;}
+ h4 {font-size:18pt; text-align:center;}
+ #content {border:none;}
+
+.hide {display:none;}
+
+    /* plant display styles */
+.genus {
+    font-style: italic;
+}
+
+.species {
+    font-style: italic;
+}
+
+.designate {
+    font-style:italic;
+}
+
+.subspecies {
+    font-style: normal;
+}
+
+.variety {
+    font-style: italic;
+}
+
+.cultivar {
+    font-style: normal;
+}
+
+.trade-name {
+       font-family: Arial, Helvetica, sans-serif;
+}
+.trademark-name, .registered-name {
+    /*font-variant: small-caps;*/
+}
+
+.breeders-rights {
+    vertical-align: super;
+    font-size: 10px;
+}
+
+#printview {
+    float:right;
+    font-size:11px;
+}
+.web {display:none;} /* don't show print view link */
+
+em {font-style:normal; font-weight:bold;}
+p {margin:0 0 8px 0; padding:0;}
+dd {margin:0 0 8px 0;}
+
+p.copy {font-size:9pt; margin:0; padding:0; line-height:11pt;}
+
+a:link, a:hover, a:visited {text-decoration:none; color:#000;}
+/* end print stylesheet */

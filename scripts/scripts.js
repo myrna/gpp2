@@ -28,3 +28,9 @@ $.fn.preload = function() {
         $('<img/>')[0].src = this;
     });
 }
+
+// stylesheet switcher
+
+$(document).ready(function() {
+    $('#printview').styleSwitcher();
+});

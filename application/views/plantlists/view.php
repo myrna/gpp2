@@ -1,7 +1,17 @@
 <!-- display for PUBLIC plant list and search function -->
 
 <div id="content" class="view">
+    <div id="printhead">
+        <img src="../assets/logo-sub.png">
+        <p class="copy">&#169;2001-<?php echo date("Y"); ?></p>
+        <p class="copy">Great Plant Picks</p>
+        <p class="copy"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
+    </div>
+<div id="printview">
+   <a class="print" href="javascript: void(0)" title="Back to Website View" id="gppstyles">Close Print View</a>
+   <a class="web" href="javascript: void(0)" title="Print View" id="gppstyles1">Print View</a>
 
+  </div>
     <?php
     if($row == FALSE)
     {
@@ -35,7 +45,7 @@
     }
     ?>
          </ul>    
-   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
+   <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
      </div><!-- end image view -->
     <div class="plantinfo">
     <?php
