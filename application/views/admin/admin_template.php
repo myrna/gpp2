@@ -16,7 +16,7 @@
         $("#searchterms").autocomplete({
 	minLength: 2,
 	source: function(req, add){
-		$.ajax({
+                $.ajax({
 			url: '<?php echo base_url(); ?>autocomplete/admin_autocomplete', //Controller where search is performed
 			dataType: 'json',
 			type: 'POST',

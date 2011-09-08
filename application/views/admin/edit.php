@@ -20,10 +20,9 @@
 <?php
     echo anchor('admin/crud/add_record', 'Add new record')." | ";
     echo anchor("admin/crud/synonym/".$id, 'Add Synonym')." | ";
-    echo anchor("admin/crud/common_name/".$id, 'Add Common_Name')." | ";    
-    echo anchor('admin/listplants', 'Return to Main List')."</p>";
-   ?>
-<a href="javascript:history.go(-1);"> [Back]</a>
+    echo anchor("admin/crud/common_name/".$id, 'Add Common Name')." | ";
+    echo anchor('admin/listplants', 'Return to Main List')." | "; ?>
+    <a href="javascript:history.go(-1);"> [Back]</a></p>
  <?php
         if (!empty($synonyms)) {
             echo "<h5>Synonyms</h5><p>";
@@ -91,7 +90,7 @@
         }
         
     ?>
-   
+    <div class="clear"></div>
     <?php echo form_submit('edit','Edit Record'); ?>
     <?php
     }

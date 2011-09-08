@@ -164,8 +164,7 @@ class Crud_model extends CI_Model {
         return $row;
     }
 
-
-    function get_record_as_array($id)
+   function get_record_as_array($id)
     {
         if(!empty($id))
         {

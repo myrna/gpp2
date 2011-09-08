@@ -176,8 +176,10 @@ class Crud extends CI_Controller
         $data['plant_attributes'] = $this->get_plant_link_data($id);
 
         $row = $this->crud_model->get_record_as_array($id);
+        
         $data['row'] = $row[0];
         $data['id'] = $data['row']['id'];
+        
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('admin/admin_template','admin/edit', $data);
@@ -245,6 +247,7 @@ class Crud extends CI_Controller
             $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
         }
 		$id = $data['id'];
+                
         redirect("admin/crud/edit_record/$id",'refresh');
     }
 

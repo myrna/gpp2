@@ -16,7 +16,7 @@ class Autocomplete_model extends CI_Model
     {
         $this->db->select('genus');
         $this->db->from('plant_data');
-        $this->db->like('genus', $keyword);  // is this where the problem is?  All autocomplete results start at "A"
+        $this->db->where('genus', $keyword); // is this where the problem is?  All autocomplete results start at "A"
         $this->db->order_by("genus", "asc");
         $this->db->group_by('genus');   // nice fix, thank you!
         $query = $this->db->get();
@@ -27,6 +27,8 @@ class Autocomplete_model extends CI_Model
     }
 
 }
+
+
 
 /* End of file autocomplete_model.php */
 /* Location: ./application/models/autocomplete_model.php */

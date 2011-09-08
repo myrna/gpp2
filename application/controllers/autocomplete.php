@@ -14,12 +14,12 @@ class Autocomplete extends CI_Controller {
 
     function admin_autocomplete()
 {
-        $this->load->model('Autocomplete_model');
+        $this->load->model('autocomplete_model');
         $keyword = $this->input->post('searchterms');
 
         $data['response'] = 'false'; //Set default response
 
-        $query = $this->Autocomplete_model->searchterms($keyword); //Model DB search
+        $query = $this->autocomplete_model->searchterms($keyword); //Model DB search
 
         if($query->num_rows() > 0){
            $data['response'] = 'true'; //Set response
