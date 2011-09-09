@@ -502,6 +502,7 @@ p {margin-bottom:5px;}
 p.nav {clear:both; text-align:right;}
 p.note {clear:both; float:left; font-style:italic;}
 p.center {clear:both; text-align:center;}
+p.flash {clear:both; text-align:center; font-weight:bold; font-size:15px; margin-top:5px;}
 
 em {font-style:normal; font-weight:bold;}
 

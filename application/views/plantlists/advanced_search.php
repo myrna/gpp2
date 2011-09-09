@@ -2,7 +2,7 @@
 
 <div id="content" class="advsearch">
     <h2>Great Plant Picks Advanced Search</h2>
-    
+    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
    
         <h5>Search by plant name</h5>
     <?php echo form_open('plantlists', $attributes); ?>    

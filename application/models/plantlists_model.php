@@ -153,7 +153,6 @@ class Plantlists_model extends CI_Model {
             $found = $this->db->distinct()->get()->result_array();
             return $found;
 
-
             // I'll get to this part - I want to get the searches all working first...-jon
             
     //this is from codeigniter tutorial for height comparison, don't know if it helps:

@@ -43,11 +43,6 @@ class Plantlists extends CI_Controller {
               'plant_height_at_10' => 'Height'
             );
 
-            if ($this->input->post('searchterms')) {
-                $query = $this->input->post('searchterms');
-            } else {
-                $query = "";
-            }
             $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
             $total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
             $total = $total_count[0]['numrows'];
@@ -195,7 +190,7 @@ class Plantlists extends CI_Controller {
 
 
         function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
-         //   $this->output->enable_profiler(TRUE);
+          //  $this->output->enable_profiler(TRUE);
         //    $this->input->load_query($query_id);  CAUSES ERROR on live site does not recognize load_query
 
             $query_array = array(  
@@ -222,7 +217,7 @@ class Plantlists extends CI_Controller {
             $results = $this->plantlists_model->advanced_search($query_array,
                     $limit, $offset, $sort_by, $sort_order);
 
-	    $data['num_results'] = count($results);
+            $data['num_results'] = count($results);
             //somehow this ends up with search results on the /plantlists page ...?
             //or do we need a new search results page to accommodate query_id?
             //this is the sort of URL the nettuts tutorial ends up with: $config['base_url'] =
@@ -240,10 +235,16 @@ class Plantlists extends CI_Controller {
             $data['records'] = $plant_name_and_height;
             $data['stats'] = count($results);
 
+            if (!$results)
+                {
+                $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
+                redirect(site_url('plantlists/advanced'), 'refresh');
+                }
+            else {
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/results',$data);
-
+            }
         }
            
 }

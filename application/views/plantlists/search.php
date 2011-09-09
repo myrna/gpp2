@@ -2,6 +2,7 @@
 
 <div id="content" class="view">
     <h4>Find Your Plant</h4>
+    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
     <div class="simplesearch">
     <?php
     echo form_open('plantlists', $attributes); ?>
