@@ -2,13 +2,13 @@
 
 <div id="content" class="view">
     <div id="printhead">
-        <img src="../assets/logo-sub.png">
-        <p class="copy">&#169;2001-<?php echo date("Y"); ?></p>
+        <img src="../assets/logo-print.gif">
+        <p class="copy first">&#169;2001-<?php echo date("Y"); ?></p>
         <p class="copy">Great Plant Picks</p>
         <p class="copy"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
     </div>
 <div id="printview">
-   <a class="print" href="javascript: void(0)" title="Back to Website View" id="gppstyles">Close Print View</a>
+   <a class="print" href="javascript: void(0)" title="Back to Web View" id="gppstyles">Back to Web View</a>
    <a class="web" href="javascript: void(0)" title="Print View" id="gppstyles1">Print View</a>
 
   </div>
@@ -28,34 +28,34 @@
     <?php } ?>
     
     <div id="imageview">
-         <ul>
+    
     <?php  {
         if (!empty($primary_image)) {
-        echo "<li>" . image_view_link($primary_image['filename']) .
-         "<p>&#169; " . $primary_image['copyright'] . " " . $primary_image['photographer'] . "</p></li>" ;
+        echo "<div class='thumbnail'>" . image_view_link($primary_image['filename']) .
+         "<p>&#169; " . $primary_image['copyright'] . " " . $primary_image['photographer'] . "</p></div>" ;
         }
         if (!empty($detail_image)) {
-        echo "<li>" . image_view_link($detail_image['filename']) .
-         "<p>&#169; " . $detail_image['copyright'] . " " . $detail_image['photographer'] . "</p></li>";
+        echo "<div class='thumbnail'>" . image_view_link($detail_image['filename']) .
+         "<p>&#169; " . $detail_image['copyright'] . " " . $detail_image['photographer'] . "</p></div>";
         }
         if (!empty($landscape_image)) {
-         echo "<li>" . image_view_link($landscape_image['filename']) .
-         "<p>&#169; " . $landscape_image['copyright'] . " " . $landscape_image['photographer'] . "</p></li>";
+         echo "<div class='thumbnail'>" . image_view_link($landscape_image['filename']) .
+         "<p>&#169; " . $landscape_image['copyright'] . " " . $landscape_image['photographer'] . "</p></div>";
         }
     }
     ?>
-         </ul>    
+       
    <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
      </div><!-- end image view -->
     <div class="plantinfo">
     <?php
-        echo "<p><em>" . $details->plant_type . "</em>";
+        echo "<h3>" . $details->plant_type;
         if (!empty($common_names)) {
-            echo ", <em>Common Name(s):</em> ";
+            echo ", Common Name(s): ";
             foreach ($common_names as $common_name) {
                 echo $common_name['common_name']." ";
                 }
-        echo "</p>";
+        echo "</h3>";
         }
     ?>
 <?php
@@ -70,6 +70,7 @@
 <?php
         echo "<h3>Outstanding Qualities</h3>";
         echo "<p>". $details->qualities . "</p>";
+
         echo "<h3>Plant Characteristics</h3>";
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
         echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
@@ -91,6 +92,7 @@
         }        
 
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
+        
         echo "<h3>Plant Culture</h3>";
 
         if (!empty($plant_attributes['sun'])) {

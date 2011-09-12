@@ -21,7 +21,7 @@ ol, ul {list-style: none;}
 /* body styles */
 html {min-height:100%;}
 body {
-	font:normal 13px/1.3em Arial, Helvetica, sans-serif;
+	font:normal 13px/19px Verdana, Arial, Helvetica, sans-serif;
 	min-height:100%;
 	background-color:#000;
         color:#000;
@@ -105,7 +105,7 @@ div#navigation {
 #footer {
     float:left;
     position:relative;
-    margin-top:5px;
+    margin:5px 0;
     clear:both;
     display:block;
     width:1024px;
@@ -115,6 +115,7 @@ div#navigation {
 #footer p {
     text-align:center;
     font-size:11px;
+    color:white;
 }
 /* container styles */
 
@@ -157,7 +158,10 @@ div#content {
     width:210px;
     margin:0;
 }
-
+.home-text > h2 {
+    text-align:left;
+    margin:19px 0 24px;
+}
 .clear {clear:both; line-height:1px;}
 
 /* admin image upload page styling */
@@ -372,6 +376,17 @@ table.display th:first-child, table.display td:first-child {
     font-weight:bold;
 }
 
+/*leaf sprite list image format used on home page */
+
+ul.leaf{}
+ul.leaf > li {
+    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    padding:5px 0 15px 30px;
+
+}
+
+
+
 /* advanced search form page layout */
 div.rightcol {
     float:right;
@@ -388,27 +403,30 @@ div.leftcol {
 #imageview {
     float:left;
     display:block;
-    height:650px;
     width:530px;
 }
 img#main-img {clear:left; float:left;}
-#imageview > ul {}
-#imageview >  ul > li {
-    display:inline-block;
-    width:140px;
-    margin:0 20px 10px 0;
-    }
-#imageview >  ul > li > p {
+
+#imageview > .thumbnail {
+        float:left;
+        display:block;
+        width:170px;
+        height:150px;
+}
+#imageview >  .thumbnail > p {
     clear:left;
     font-size:11px;
+    line-height:13px;
     font-style:italic;
     padding-left:2px;
+    display:block;
+    width:150px;
     }
 
 #imageview img {
     border:5px #d2d26f solid;
 }
-.plantinfo {}
+.plantinfo {margin-right:20px;}
 .plantinfo dt {font-weight:bold;}
 .plantinfo dd {padding-bottom:8px;}
 
@@ -476,7 +494,7 @@ td .crossgenus {
 /* headers */
 h1, h2, h3, h4 {font-weight:bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
 h1 {font-size:28px; margin-bottom:10px;}
-h2 {font-size:22px;}
+h2 {font-size:26px;}
 h3 {font-size:18px;}
 h4 {font-size:18px; padding:5px 0;}
 h5 {font-size:16px;}

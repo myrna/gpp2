@@ -56,6 +56,7 @@ class Plantlists extends CI_Controller {
               );
             }
             $data['records'] = $plant_name_and_height;
+
             if ($query != "") {
                 $data['stats'] = $results['found'] . " of " . $total;
             } else {
@@ -191,7 +192,7 @@ class Plantlists extends CI_Controller {
 
         function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
           //  $this->output->enable_profiler(TRUE);
-        //    $this->input->load_query($query_id);  CAUSES ERROR on live site does not recognize load_query
+          // $this->input->load_query($query_id);  //live server is not recognizing this although it works locally...?
 
             $query_array = array(  
                 'plant_type' => $this->input->post('plant_type'),        
@@ -209,7 +210,7 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->post('water')
                  );
 
-             $query_id = $this->input->save_query($query_array);
+          //   $query_id = $this->input->save_query($query_array);
 
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
