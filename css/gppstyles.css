@@ -162,7 +162,10 @@ div#content {
     text-align:left;
     margin:19px 0 24px;
 }
-.clear {clear:both; line-height:1px;}
+.clear {
+    clear:both;
+    line-height:1px;
+}
 
 /* admin image upload page styling */
 #gallery, #upload {
@@ -194,9 +197,9 @@ div#content {
 	border: 1px solid #378b36;
 	margin: 20px auto 0;
 	padding: 1em 1em 7em 1em;
-        border-radius: 3px;
-	-moz-border-radius: 3px;
+        -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
+        border-radius: 3px;
 }
 .login {
     width: 300px;
@@ -209,9 +212,9 @@ div#content {
         margin: 0 0 1em 0;
 	width: 280px;
 	border: 5px;
-        border-radius: 1px;
-	-moz-border-radius: 1px;
+        -moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
+        border-radius: 1px;
 	padding: 1em;
 }
 
@@ -222,14 +225,14 @@ div#content {
 	padding: 6px;
 	text-decoration: none;
 	font-size: 14px;
-        border-radius: 4px;
-	-moz-border-radius: 4px;
+        -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
+        border-radius: 4px;
 	background: #348075;
 	color: white;
-	box-shadow: 0 1px 0 #378b36;
 	-moz-box-shadow: 0 1px 0 #378b36;
 	-webkit-box-shadow: 0 1px 0 #378b36;
+        box-shadow: 0 1px 0 #378b36;
 }
 
 #register_form input[type=submit]:hover, #register_form form a:hover {
@@ -238,8 +241,16 @@ div#content {
 }
 
 /* image gallery upload form */
-#imageform form {float:left; clear:both; width:500px;}
-#imageform label {display:block; margin: 3px 0; font-weight:bold;}
+#imageform form {
+    float:left;
+    clear:both;
+    width:500px;
+}
+#imageform label {
+    display:block;
+    margin: 3px 0;
+    font-weight:bold;
+}
 #imageform textarea, #imageform input {
     width:500px;
     padding:5px;
@@ -251,15 +262,33 @@ div#content {
         width:75px;
         height:30px;
        }
-#imageform label {display:inline-block; width:120px; float:left; white-space:nowrap;}
+#imageform label {
+    display:inline-block;
+    width:120px;
+    float:left;
+    white-space:nowrap;
+}
 
-#imageform .check label {display:inline-block; line-height:15px; width:1px; clear:both;}
+#imageform .check label {
+    display:inline-block;
+    line-height:15px;
+    width:1px;
+    clear:both;
+}
 
-p.category {clear:left; padding-left:5px; margin-top:0; font-style:italic;}
+p.category {
+    clear:left;
+    padding-left:5px;
+    margin-top:0;
+    font-style:italic;
+}
 
 /* add and update record form styling */
 
-form.data-entry {clear:both; width:850px;}
+form.data-entry {
+    clear:both;
+    width:850px;
+}
 .data-entry .labelname {
     display:inline-block;
     width:225px;
@@ -268,20 +297,40 @@ form.data-entry {clear:both; width:850px;}
     font-weight:bold;
 }
 
-.data-entry ul li {padding-bottom:5px;}
+.data-entry ul li {
+    padding-bottom:5px;
+}
 .data-entry input {
     display:inline-block; 
 }
 .data-entry checkbox {}
-.data-entry p {clear:both; font-weight:bold; padding-top:10px;}
-.data-entry textarea {width:600px; height:80px;}
+.data-entry p {
+    clear:both;
+    font-weight:bold;
+    padding-top:10px;
+}
+.data-entry textarea {
+    width:600px;
+    height:80px;
+}
 
-p.searchlabel {font-weight:bold; padding-top:10px;}
-p.radios {font-weight:normal; padding:0 0 5px 0;}
+p.searchlabel {
+    font-weight:bold;
+    padding-top:10px;
+}
+p.radios {
+    font-weight:normal;
+    padding:0 0 5px 0;
+}
 
 /* checkbox styling -- keep checkbox label from wrapping */
-.formcheck {float:left;}
-.formcheck label {margin-right:5px; white-space:nowrap;}
+.formcheck {
+    float:left;
+}
+.formcheck label {
+    margin-right:5px;
+    white-space:nowrap;
+}
 
 input[type="text"] {
     display:inline-block;
@@ -302,27 +351,82 @@ input[type="option"] {
 }
 
 /* searchform styling */
-#searchform {
+.searchform {
     padding:10px 20px;  
 }
-#searchform input[type="text"] {
-    display:block;
-    width:300px;
-    height:20px;
+.searchform input[type="text"] {
+    border: none;
+        clear:both;
+	margin: 1em;
+	padding: 8px;
+	text-decoration: none;
+	font-size: 16px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+	background: #efefcd;
+	color: black;
+	-moz-box-shadow: 0 1px 0 #378b36;
+	-webkit-box-shadow: 0 1px 0 #378b36;
+        box-shadow: 0 1px 0 #378b36;
     }
-#searchform input[type="submit"] {
-    clear:both;
-    margin-left:5px;
+
+.searchform input[type="submit"] {
+    border: none;
+        clear:both;
+	margin: 1em 1em 1em 0;
+	padding: 8px;
+	text-decoration: none;
+	font-size: 14px;
+        font-weight:bold;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+	background: #378b36;
+	color: white;
+	-moz-box-shadow: 0 1px 0 #378b36;
+	-webkit-box-shadow: 0 1px 0 #378b36;
+        box-shadow: 0 1px 0 #378b36;
 }
+
+/* centered search button at bottom of advanced search page */
+
+.searchcenter input[type="submit"] {
+    border: none;
+        clear:both;
+	margin-left:425px;;
+	padding: 8px;
+	text-decoration: none;
+	font-size: 14px;
+        font-weight:bold;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+	background: #378b36;
+	color: white;
+	-moz-box-shadow: 0 1px 0 #378b36;
+	-webkit-box-shadow: 0 1px 0 #378b36;
+        box-shadow: 0 1px 0 #378b36;
+}
+
+.searchform input[type=submit]:hover, .searchform form a:hover, .searchcenter input[type=submit]:hover, .searchcenter form a:hover {
+	background: #b1d355;
+	cursor: pointer;
+}
+.searchform > p {font-weight:bold; font-size:16px;}
+
 /*search form position on public search and pre-programmed list page */
 
 div.simplesearch {
-    margin-left:250px;
+    margin-left:150px;
     margin-top:20px;
 }
 
 
-.clear-search {padding-left:10px;}
+.clear-search {
+    padding-left:10px;
+}
+
 /* pagination styling --------- */
 #pages a, #pages strong {
         position:relative;
@@ -338,21 +442,50 @@ div.simplesearch {
 	 font-weight: normal;
 	 background: #cac9c9;
 	}
-a#currentpage {color:#000000;}
+a#currentpage {
+    color:#000000;
+}
 
 /* generic table styling (temporary) ------- */
-table {position:relative; clear:both; font-size:12px; line-height:14px;}
-table th {text-align:left;}
+table {
+    position:relative;
+    clear:both;
+    font-size:12px;
+    line-height:14px;
+}
+table th {
+    text-align:left;
+}
 
-table.dblist, table.nursery {margin:10px 0;border:none;border-collapse:collapse; border-spacing:0;}
-table.dblist th, table.nursery th {background-color:#bebe31; padding:5px;}
-table.nursery td {padding:5px; white-space:nowrap; }
-table.dblist th {padding-right:40px; padding-left:10px;}
-table.dblist td {padding: 5px 40px 5px 10px;}
-table.dblist tr.alternate, table.nursery tr.alternate {background-color:#d2d26f;}
+table.dblist, table.nursery {
+    margin:10px 0;
+    border:none;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+table.dblist th, table.nursery th {
+    background-color:#bebe31;
+    padding:5px;
+}
+table.nursery td {
+    padding:5px;
+    white-space:nowrap;
+}
+table.dblist th {
+    padding-right:40px;
+    padding-left:10px;
+}
+table.dblist td {
+    padding: 5px 40px 5px 10px;
+}
+table.dblist tr.alternate, table.nursery tr.alternate {
+    background-color:#d2d26f;
+}
 
 table.nursery {}
-table.nursery th {font-size:16px;}
+table.nursery th {
+    font-size:16px;
+}
 table.nursery th:nth-child(even) {
     width:10%;
 }
@@ -364,17 +497,42 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-weight:bold;
 }
 
-table.display {margin:40px 0 10px;border:none;border-collapse:collapse; border-spacing:0; width:900px;}
-table.display th {font-size:14px; padding-bottom:3px;}
-table.display td {font-size:12px; padding:3px;}
-table.display td.plantname {white-space:nowrap;}
-table.display td.common-name {width:20%;}
-table.display td a {text-decoration:none;}
-table.display td a:hover {text-decoration:none; color:#e65925;}
+table.display {
+    margin:40px 0 10px;
+    border:none;
+    border-collapse:collapse;
+    border-spacing:0;
+    width:900px;
+}
+table.display th {
+    font-size:14px;
+    padding-bottom:8px;
+}
+table.display td {
+    font-size:13px;
+    padding:5px;
+}
+table.display td.plantname {
+    white-space:nowrap;
+}
+table.display td.common-name {
+    width:20%;
+}
+table.display td a {
+    text-decoration:none;
+}
+table.display td a:hover {
+    text-decoration:none;
+    color:#e65925;
+}
 table.display th:first-child, table.display td:first-child {
     width:40%;
     font-weight:bold;
 }
+
+table a:link {color: #060000;}
+table a:visited {color: #113d1a;}
+table a:hover, table a:active {color: #e16f43;}
 
 /*leaf sprite list image format used on home page */
 
@@ -382,10 +540,7 @@ ul.leaf{}
 ul.leaf > li {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
-
 }
-
-
 
 /* advanced search form page layout */
 div.rightcol {
@@ -426,14 +581,22 @@ img#main-img {clear:left; float:left;}
 #imageview img {
     border:5px #d2d26f solid;
 }
-.plantinfo {margin-right:20px;}
-.plantinfo dt {font-weight:bold;}
-.plantinfo dd {padding-bottom:8px;}
+.plantinfo {
+    margin-right:20px;
+}
+.plantinfo dt {
+    font-weight:bold;
+}
+.plantinfo dd {
+    padding-bottom:8px;
+}
 
 #printview {
     float:right;
 }
-.print, #printhead {display:none;}
+.print, #printhead {
+    display:none;
+}
 /* plant display styles */
 .genus {
     font-style: italic;
@@ -488,28 +651,62 @@ td .crossgenus {
 .headerSortDown:after {
     content:"▲";
 }
-.tablesorter th {cursor:pointer;}
-.tablesorter th:hover {text-decoration:none; color:#e65925;}
+.tablesorter th {
+    cursor:pointer;
+}
+.tablesorter th:hover {
+    text-decoration:none;
+    color:#e65925;
+}
 
 /* headers */
-h1, h2, h3, h4 {font-weight:bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
-h1 {font-size:28px; margin-bottom:10px;}
+h1, h2, h3, h4 {
+    font-weight:bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h1 {
+    font-size:28px;
+    margin-bottom:10px;
+}
 h2 {font-size:26px;}
 h3 {font-size:18px;}
-h4 {font-size:18px; padding:5px 0;}
+h4 {
+    font-size:18px;
+    padding:5px 0;
+}
 h5 {font-size:16px;}
 
 .display h1, .gallery h1, .display h4, .admin h2, .admin h4 {text-align:center; padding:5px 0;}
-.admin h1 {margin-top:15px; text-align:center;}
+.admin h1 {
+    margin-top:15px;
+    text-align:center;
+}
 
-.advsearch h2 {text-align:center; margin:10px 0;}
-.advsearch h3, .advsearch h4 {text-align:left;}
-.advsearch h5 {text-align:left; margin:20px 0 0;}
+.advsearch h2 {
+    text-align:center;
+    margin:10px 0;
+}
+.advsearch h3, .advsearch h4 {
+    text-align:left;
+}
+.advsearch h5 {
+    text-align:left;
+    margin:20px 0 0;
+}
 
-.view h3 {font-size:16px; margin:5px 0;}
+.view h3 {
+    font-size:16px;
+    margin:5px 0;
+}
 
-.display h4 {display:block; background-color:#f8e100;}
-.view h4 {text-align:center; margin-bottom:20px;}
+.display h4 {
+    display:block;
+    background-color:#f8e100;
+}
+.view h4 {
+    text-align:center;
+    margin-bottom:20px;
+}
 
 #upload h3 {padding:15px 0 5px;}
 #login_form h2 {padding:5px 0 10px 0;}
@@ -517,12 +714,31 @@ h5 {font-size:16px;}
 
 /* paragraph styles */
 p {margin-bottom:5px;}
-p.nav {clear:both; text-align:right;}
-p.note {clear:both; float:left; font-style:italic;}
-p.center {clear:both; text-align:center;}
-p.flash {clear:both; text-align:center; font-weight:bold; font-size:15px; margin-top:5px;}
+p.nav {
+    clear:both;
+    text-align:right;
+}
+p.note {
+    clear:both;
+    float:left;
+    font-style:italic;
+}
+p.center {
+    clear:both;
+    text-align:center;
+}
+p.flash {
+    clear:both;
+    text-align:center;
+    font-weight:bold;
+    font-size:15px;
+    margin-top:5px;
+}
 
-em {font-style:normal; font-weight:bold;}
+em {
+    font-style:normal;
+    font-weight:bold;
+}
 
 /* tooltips for advanced search page */
 .tooltip {
@@ -569,4 +785,10 @@ em {font-style:normal; font-weight:bold;}
     border:1px #378b36 solid;
 }
 * html a:hover { background: transparent; }
+
+/* general link colors */
+
+a:link {color:#0134c5; text-decoration:none;}
+a:visited {color: #0134c5s; text-decoration:none;}
+a:hover, a:active {color:#e16f43; text-decoration:none;}
 /* end */

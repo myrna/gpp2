@@ -3,14 +3,15 @@
 <div id="content" class="advsearch">
     <h2>Great Plant Picks Advanced Search</h2>
     <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
-   
-        <h5>Search by plant name</h5>
-    <?php echo form_open('plantlists', $attributes); ?>    
-     <input type="text" name="searchterms" id="searchterms">
-    <input type="submit" value="Search">
+    <div class="simplesearch">
+      <?php $attributes = array('class' => 'searchform');
+    echo form_open('plantlists', $attributes); ?>
+    <p>Search by plant name:
+     <input type="text" name="searchterms" id="searchterms" value="Enter botanical or common name">
+    <input type="submit" value="Search"></p>
    
     <?php echo form_close(); ?>
-    
+    </div><!-- end simplesearch -->
     <h5>Search by plant attributes (select those that apply):</h5>
     <div class="leftcol">
     
@@ -145,9 +146,9 @@
         </fieldset>
        </div>
       
-
-          <input type="submit" class="find" value="Find My Plant">
-   
+    <div class="searchcenter">
+          <input type="submit" value="Find My Plant">
+    </div>
     <?php echo form_close() ?>
    
 </div>

@@ -34,3 +34,19 @@ $.fn.preload = function() {
 $(document).ready(function() {
     $('#printview').styleSwitcher();
 });
+
+// search form on focus remove text
+
+$(document).ready(function(){
+    $('form input:text, form textarea').each(function(){
+        $.data(this, 'default', this.value);
+    }).focus(function(){
+        if ($.data(this, 'default') == this.value) {
+            this.value = '';
+        }
+    }).blur(function(){
+        if (this.value == '') {
+            this.value = $.data(this, 'default');
+        }
+    });
+});

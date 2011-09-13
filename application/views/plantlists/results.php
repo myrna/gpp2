@@ -14,6 +14,7 @@
         ?>
     <div class="clear"></div>
     <p class="note">*Search by plant name</p>
+      <div class="clear"></div>
     <p> <a href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" onclick="this.href = this.href.replace('[sub]',window.location)">Email this link</a></p>
 
     <table id="display" class="tablesorter display">
@@ -21,7 +22,7 @@
             <th>Plant Name (Click to sort)</th>
             <th>Family (Common)</th>
             <th>Height</th>
-        </thead>
+            </thead>
        
         <tbody>
             <?php foreach($records as $plant): ?>
