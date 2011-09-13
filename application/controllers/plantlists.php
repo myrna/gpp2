@@ -22,7 +22,7 @@ class Plantlists extends CI_Controller {
 
         }
 
-        // search results, or list all results (clear search)
+        // LIST ALL PLANTS, or SEARCH RESULTS --- CLEAR SEARCH or NO PLANTS FOUND need to return to main search page
 
         function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
 
@@ -59,8 +59,10 @@ class Plantlists extends CI_Controller {
 
             if ($query != "") {
                 $data['stats'] = $results['found'] . " of " . $total;
+                
             } else {
                 $data['stats'] = $total;
+                              
             }
 
             // pagination
@@ -114,6 +116,8 @@ class Plantlists extends CI_Controller {
 
             return $data;
     }
+
+        // single plant fact sheet view controller
 
         function view($id) {
            // $this->output->enable_profiler(TRUE);

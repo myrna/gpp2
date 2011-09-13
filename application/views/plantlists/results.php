@@ -3,7 +3,7 @@
 <div id="content" class="view">
  
     <h4>Advanced Search Results</h4>
-<p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
+<p class="center"><?php echo $stats; ?> plants (click column to sort)</p>
     <?php
     echo form_open('plantlists', $attributes); ?>
    <input type="text" name="searchterms" id="searchterms">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta charset="UTF-8">
         <title><?php echo $title ?></title>
         <base href="<?php echo base_url();?>">
         <link rel="stylesheet" id="gppstyles" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
@@ -17,7 +17,7 @@
         <div id="wrapper">
             <div id="banner">
                 <?php
-                    if ($thispage=="Home")
+                    if ($thispage=="Home" or $thispage=="Contact")
                 echo "<div id='logo'></div>";
                     else {
                 echo "<div id='logo-sub'><a href='/'><div id='logo-link'></div></a></div>" ;

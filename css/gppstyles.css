@@ -316,6 +316,7 @@ form.data-entry {
 
 p.searchlabel {
     font-weight:bold;
+    font-size:14px;
     padding-top:10px;
 }
 p.radios {
@@ -338,13 +339,9 @@ input[type="text"] {
 }
 input[type="submit"] {
     clear:both;
-/*    float:left;    */
     margin-right:5px;
 }
-.find {   /* advanced search submit button */
-    clear:both;
-    margin-left:440px;
-}
+
 input[type="option"] {
     display:inline-block;
     width:300px;
@@ -541,8 +538,42 @@ ul.leaf > li {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
 }
+dl.leaf{}
+dl.leaf dt {
+    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    padding:5px 0 5px 30px;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:.05em;
+}
+dl.leaf dd {
+    margin-left:40px;
+    font-size:14px;
+}
+dl.leaf dd.last {
+    margin-bottom:10px;
+}
+/* list style for Plant Lists page */
 
-/* advanced search form page layout */
+dl.lists, p.listhead {
+    font-size:14px;
+    line-height:20px;
+    margin-left:20px;
+}
+p.listhead {font-weight:bold;}
+dl.lists > dt {
+    font-weight:bold;
+    margin:5px 0;
+}
+dl.lists > dt.first {
+    margin:0 0 5px 0;
+}
+dl.lists > dd {
+   margin-left:15px;
+}
+ul.lists {margin-left:40px;}
+
+/* two equal columns page layout, used on plantlists and advanced search landing pages */
 div.rightcol {
     float:right;
     width:482px;
@@ -552,6 +583,17 @@ div.leftcol {
     float:left;
     width:482px;
     margin:10px 0;
+}
+div.rightcol p {
+    padding-right:40px;
+}
+div.firstcol {
+    float:left;
+    width:150px;
+}
+div.secondcol {
+    float:right;
+    width:250px;
 }
 
 /* plant fact sheet screen style */
@@ -682,7 +724,7 @@ h5 {font-size:16px;}
     text-align:center;
 }
 
-.advsearch h2 {
+.advsearch h2, .view h2 {
     text-align:center;
     margin:10px 0;
 }
@@ -734,7 +776,10 @@ p.flash {
     font-size:15px;
     margin-top:5px;
 }
-
+p.info {
+    font-weight:bold;
+    margin:15px 0 10px;
+}
 em {
     font-style:normal;
     font-weight:bold;
@@ -753,6 +798,7 @@ em {
 }
 .tooltip:hover span {
   font-family: Calibri, Tahoma, Geneva, sans-serif;
+  font-size:16px;
   position: absolute;
   left: 1em;
   top: 1.5em;
@@ -765,6 +811,7 @@ em {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  color:#000;
 }
 .tooltip:hover img {
   border: 0;
@@ -774,7 +821,7 @@ em {
 }
 .tooltip:hover em {
   font-family: Candara, Tahoma, Geneva, sans-serif;
-  font-size: 1.2em;
+  font-size: 16px;
   font-weight: bold;
   display: block;
   padding: 0.2em 0 0.6em 0;

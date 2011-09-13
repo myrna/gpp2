@@ -10,7 +10,7 @@
     <input type="submit" value="Search">
     
     <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/', "Clear Search"). " | "
+    echo "<span class='clear-search'>".anchor('/plantlists/search', "Clear Search", 'refresh'). " | "
             . anchor('/plantlists/advanced/', "Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
         ?>
     <div class="clear"></div>

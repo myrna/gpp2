@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta charset="UTF-8">
         <title><?php echo $title ?></title>
         <base href="<?php echo base_url();?>">
         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>

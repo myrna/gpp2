@@ -15,7 +15,8 @@
         }
     
     }
-
+/* this assigns a class to primary image and hides it in factsheet print view if there is no image available */
+    
     function image_class($filename) {
         if(!$filename)
         {
