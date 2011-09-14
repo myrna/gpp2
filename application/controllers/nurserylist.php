@@ -18,7 +18,7 @@
  *
  */
 
-class Nursery_list extends CI_Controller
+class Nurserylist extends CI_Controller
 {
  function display_nurseries()
  {

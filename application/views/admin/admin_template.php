@@ -65,9 +65,4 @@
           
         <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
-        <div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted</p></div>
-       </div><!-- end wrapper -->
-    </body>
-
-
-</html>
+       <?php $this->load->view('includes/footer'); ?>

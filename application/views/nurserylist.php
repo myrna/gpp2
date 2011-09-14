@@ -1,5 +1,6 @@
 <!-- Nursery Directory View -->
 <div id="content" class="display">
+    <?php $this->load->view('includes/resources_breadcrumbs'); ?>
 <?php
 echo "<h1>".$heading."</h1>";
 echo "<h4>Washington State Nurseries</h4>";

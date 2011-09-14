@@ -40,6 +40,19 @@ class Resources extends CI_Controller
             $this->template->load('template','resources');
 	}
 
+        public function links()
+        {
+            $this->template->set('thispage','Helpful Links');
+            $this->template->set('title','Helpful Links | Great Plant Picks');
+            $this->template->load('template','resources/links');
+        }
+
+        public function glossary()
+        {
+            $this->template->set('thispage','Glossary');
+            $this->template->set('title','Glossary | Great Plant Picks');
+            $this->template->load('template','resources/glossary');
+        }
 }
 
 /* End of file some.php */

@@ -12,8 +12,9 @@
      <input type="submit" value="Search"></p>
    <?php echo form_close(); ?>
     </div><!-- end searchform -->
-    <p class="listhead"><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></p>
-   
+    <ul class="leaf">
+  <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
+    </ul>
     <h4>Popular Searches</h4>
     <div class="leftcol">
     <dl class="lists">

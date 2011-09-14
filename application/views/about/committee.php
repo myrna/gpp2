@@ -1,6 +1,6 @@
 <div id="content" class="view">
 <?php $this->load->view('includes/about_breadcrumbs'); ?>
 
-<h1>About Great Plant Picks</h1>
+    <h2>Great Plant Picks Selection Committee</h2>
 
 </div><!-- end content -->

@@ -81,7 +81,7 @@ class Plantlists extends CI_Controller {
             
             $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists/home',$data);
+            $this->template->load('template','plantlists/results',$data);
                   
         }
 

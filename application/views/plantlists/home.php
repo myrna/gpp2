@@ -2,6 +2,7 @@
 
 <div id="content" class="view">
     <h4>Find Your Plant</h4>
+    
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
     <?php
     echo form_open('plantlists', $attributes); ?>
