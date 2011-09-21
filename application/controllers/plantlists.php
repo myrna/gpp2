@@ -143,6 +143,11 @@ class Plantlists extends CI_Controller {
 			$this->process_advanced_search(array('plant_type' => $types));
 		}
 		
+		function by_texture() {
+			$texture = $this->uri->segment(3);
+			$this->process_advanced_search(array('foliage_texture' => $texture));
+		}
+		
 		function plant_array($results) {
 			$a = array();
 			foreach ($results['rows'] as $result) {
@@ -211,11 +216,11 @@ class Plantlists extends CI_Controller {
 		}
 
 		function process_advanced_search($query) {
-			$this->output->enable_profiler(true);
+			//$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
 
-            $results = $this->plantlists_model->advanced_search($query,$limit, $offset, $sort_by, $sort_order);
+            $results = $this->plantlists_model->advanced_search($query);
             if ($results['found'] == 0) {
 			    $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
                 redirect(site_url('plantlists/advanced'), 'refresh');
