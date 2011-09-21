@@ -21,9 +21,9 @@
     <dl class="lists">
         
          <dt>Drought-Tolerant Plants for Sun</dt>
-                 <dd>Perennials &#38; Bulbs</dd>
-                 <dd>Shrubs &#38; Vines</dd>
-                 <dd>Trees &#38; Conifers</dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/perennial|bulb", "Perennials &#38; Bulbs"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/shrub|vine", "Shrubs &#38; Vines"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/tree|conifer", "Trees &#38; Conifers"); ?></dd>
          <dt>Fantastic Foliage Plants</dt>
                  <dd>Bold Foliage</dd>
                  <dd>Shiny Foliage</dd>
@@ -37,21 +37,21 @@
         
         <div class="firstcol">
             <ul class="lists">
-                  <li>2001</li> <!-- link to URL of search result? -->
-                  <li>2002</li>
-                  <li>2003</li>
-                  <li>2004</li>
-                  <li>2005</li>
-                  <li>2006</li>
+                  <li><?php echo anchor("plantlists/by_year/2001","2001"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2002","2002"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2003","2003"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2004","2004"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2005","2005"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2006","2006"); ?></li>
             </ul>
         </div><div class="secondcol">
             <ul>
-                  <li>2007</li>
-                  <li>2008</li>
-                  <li>2009</li>
-                  <li>2010</li>
-                  <li>2011</li>
-                  <li>2012</li>
+                  <li><?php echo anchor("plantlists/by_year/2007","2007"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2008","2008"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2009","2009"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2010","2010"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2011","2011"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2012","2012"); ?></li>
             </ul>
         </div>
         

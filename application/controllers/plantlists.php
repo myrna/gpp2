@@ -133,6 +133,16 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
         
+		function by_year() {
+			$year = $this->uri->segment(3);
+			$this->process_advanced_search(array('gpp_year' => $year));
+		}
+		
+		function by_plant_type() {
+			$types = explode("|", urldecode($this->uri->segment(3)));
+			$this->process_advanced_search(array('plant_type' => $types));
+		}
+		
 		function plant_array($results) {
 			$a = array();
 			foreach ($results['rows'] as $result) {
@@ -211,7 +221,7 @@ class Plantlists extends CI_Controller {
 		}
 
 		function process_advanced_search($query) {
-		
+			$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
 
