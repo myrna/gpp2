@@ -158,16 +158,6 @@ class Plantlists_model extends CI_Model {
 		$data['found'] = count($data['rows']);
         return $data;
 
-        // I'll get to this part - I want to get the searches all working first...-jon
-        
-//this is from codeigniter tutorial for height comparison, don't know if it helps:
-//  if (strlen($query_array['plant_height_max'])) {
-//$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
-//$operator = $operators[$query_array['height_comparison']];
-
-//$q->where("plant_height_max $operator", $query_array['plant_height_max']);
-//}
-
    }
    
-   }
+}
