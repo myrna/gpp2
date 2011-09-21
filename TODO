@@ -1,19 +1,11 @@
 Jon TODO list:
 ----------------
 
-add height requirements searching to advanced search
 
 Addendum (possible solution to "back" button problem) found this on a CodeIgniter forum (but requires query strings for
 all search results, including admin, to avoid the back button problem):
 http://codeigniter.com/forums/viewthread/177436/#841275
 
-the pre-programmed searches not covered by the above would be for (both from plant_data table) -- these need to be clickable
-links leading to the search results; they will be placed on the plantlists/search/ page (click on "Plant Lists"):
-
-GPPs by year (gpp_year)
-GPP by theme (theme)
-Others-- as on current site -- such as small trees (which would be a search for "tree" and "less than" --
-need to get figure from Rick)
 
 ======
 
@@ -99,4 +91,15 @@ sun
 water
 soil
 
-NOTES: haven't handled height requirements yet
+------
+
+the pre-programmed searches not covered by the above would be for (both from plant_data table) -- these need to be clickable
+links leading to the search results; they will be placed on the plantlists/search/ page (click on "Plant Lists"):
+
+GPPs by year (gpp_year)
+GPP by theme (theme)
+Others-- as on current site -- such as small trees (which would be a search for "tree" and "less than" --
+need to get figure from Rick)
+
+
+----
