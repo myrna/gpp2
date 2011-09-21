@@ -56,12 +56,7 @@ class Plantlists_model extends CI_Model {
         }
     }
 
-    function basic_search($query, $limit, $offset, $sort_by, $sort_order) {
-        //prevent incorrect parameters being inserted into URL
-        $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // eliminate all options except desc and asc
-        $sort_columns = array('genus','family_common_name','plant_height_at_10'); // determine sortable columns
-        $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'genus';
-
+    function basic_search($query) {
         if ($query != "") {
             $this->common_name_search($query);
             $this->synonym_search($query);
@@ -85,7 +80,6 @@ class Plantlists_model extends CI_Model {
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
                 distinct()->
-                limit($limit, $offset)->
                 get()->result_array();
 
             $data['found'] = $found[0]['numrows'];
@@ -99,7 +93,7 @@ class Plantlists_model extends CI_Model {
         return $data;
     }
 
-    function advanced_search($query_array, $limit, $offset, $sort_by, $sort_order) {
+    function advanced_search($query_array) {
         foreach ($query_array as $attribute => $value) {
             if (!isset($value)) {
                 unset($query_array[$attribute]);
@@ -158,7 +152,7 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_data.theme', $query_array['theme']);
         }
 
-        $data['rows'] = $this->db->distinct()->limit($limit, $offset)->get()->result_array();
+        $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;
 

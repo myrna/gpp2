@@ -28,7 +28,7 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/advanced_search', $data);
         }
 
-        function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+        function index() {
             if ($this->input->post('searchterms')) {
                 $query = $this->input->post('searchterms');
 	            $query_id = $this->input->save_query($query);
@@ -175,7 +175,7 @@ class Plantlists extends CI_Controller {
 			return $stats;
 		}
 
-        function advanced_search($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+        function advanced_search() {
        		$query_array = array(  
                 'plant_type' => $this->input->post('plant_type'),        
                 'foliage_type'  => $this->input->post('foliage_type'),
@@ -198,26 +198,16 @@ class Plantlists extends CI_Controller {
 
 		function process_basic_search($query) {
 			$this->load->model('plantlists_model');
-			$this->load->library('pagination');
+            $results = $this->plantlists_model->basic_search($query);
             
-            $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
-           	$data['records'] = $this->plant_array($results);
-			$data['stats'] = $this->search_stats($results, $query);
-
-
-            $config = array();
-            $config['base_url'] = site_url("plantlists/$query/$sort_by/$sort_order");
-            $config['total_rows'] = $results['found'];
-            $config['per_page'] = $limit;
-            $config['uri_segment'] = 5;
-            $this->pagination->initialize($config);
-            $data['pagination'] = $this->pagination->create_links();
-
-            $data['sort_by'] = $sort_by;
-            $data['sort_order'] = $sort_order;
-
-			$this->display_results($data);
-
+			if (isset($query) and $query != "" and $results['found'] == 0) {
+				$this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
+			    redirect(site_url("plantlists/"), "refresh");
+			} else {
+	           	$data['records'] = $this->plant_array($results);
+				$data['stats'] = $this->search_stats($results, $query);
+				$this->display_results($data);
+			}
 		}
 
 		function process_advanced_search($query) {
@@ -226,16 +216,12 @@ class Plantlists extends CI_Controller {
             $this->load->model('plantlists_model');
 
             $results = $this->plantlists_model->advanced_search($query,$limit, $offset, $sort_by, $sort_order);
-            $data['num_results'] = count($results);
-            $data['records'] = $this->plant_array($results);
-
-            $data['stats'] = $this->search_stats($results);
-            if (!$results)
-                {
-                $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
+            if ($results['found'] == 0) {
+			    $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
                 redirect(site_url('plantlists/advanced'), 'refresh');
-                }
-            else {
+			} else {
+	            $data['records'] = $this->plant_array($results);
+	            $data['stats'] = $this->search_stats($results);
 				$this->display_results($data);
             }	
 		}
