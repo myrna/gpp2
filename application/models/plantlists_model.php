@@ -149,9 +149,10 @@ class Plantlists_model extends CI_Model {
             if ($query_array['theme']) {
                 $this->db->where('plant_data.theme', $query_array['theme']);
             }
-
-            $found = $this->db->distinct()->get()->result_array();
-            return $found;
+			
+            $data['rows'] = $this->db->distinct()->limit($limit, $offset)->get()->result_array();
+			$data['found'] = count($data['rows']);
+            return $data;
 
             // I'll get to this part - I want to get the searches all working first...-jon
             

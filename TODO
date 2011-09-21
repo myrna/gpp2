@@ -1,32 +1,11 @@
 Jon TODO list:
 ----------------
 
+add height requirements searching to advanced search
+
 Addendum (possible solution to "back" button problem) found this on a CodeIgniter forum (but requires query strings for
 all search results, including admin, to avoid the back button problem):
 http://codeigniter.com/forums/viewthread/177436/#841275
-
-When tackling the "advanced search" function -- if each search result can have its own URI (my model for this is 
-http://net.tutsplus.com/tutorials/php/codeigniter-from-scratch-search-results-without-query-strings-2/)
-then I can use these search results to make links for the pre-programmed searches.  What do you think?  The
-main impetus behind getting URIs for search results is that I can set up an email function where the user can
-email the "current page URI" to him/herself or somebody else (this is my substitute, for now, for allowing people
-to log in, create accounts and save lists).  We want people to be able to search by the following fields -- 
-
-plant name (current search does this)
-
-from plant_data table
-plant_type (shrub, tree, etc.)
-foliage_type (evergreen, deciduous, semi)
-plant_height_max (giving a range --
-plant_width_max --not sure if these two are going to work...)
-growth_habit
-flower_time
-
-from linked tables
-foliage_color (probably can only let them pick one?)
-sun
-water
-soil
 
 the pre-programmed searches not covered by the above would be for (both from plant_data table) -- these need to be clickable
 links leading to the search results; they will be placed on the plantlists/search/ page (click on "Plant Lists"):
@@ -95,3 +74,29 @@ NOTES: Added foliage_color as an example - let me know if you need me to do the 
 
 Limit public search function to published plants
 
+-----
+
+When tackling the "advanced search" function -- if each search result can have its own URI (my model for this is 
+http://net.tutsplus.com/tutorials/php/codeigniter-from-scratch-search-results-without-query-strings-2/)
+then I can use these search results to make links for the pre-programmed searches.  What do you think?  The
+main impetus behind getting URIs for search results is that I can set up an email function where the user can
+email the "current page URI" to him/herself or somebody else (this is my substitute, for now, for allowing people
+to log in, create accounts and save lists).  We want people to be able to search by the following fields -- 
+
+plant name (current search does this)
+
+from plant_data table
+plant_type (shrub, tree, etc.)
+foliage_type (evergreen, deciduous, semi)
+plant_height_max (giving a range --
+plant_width_max --not sure if these two are going to work...)
+growth_habit
+flower_time
+
+from linked tables
+foliage_color (probably can only let them pick one?)
+sun
+water
+soil
+
+NOTES: haven't handled height requirements yet

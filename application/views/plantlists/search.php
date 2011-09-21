@@ -5,8 +5,9 @@
     <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
     <div class="simplesearch">
     <?php
-    $attributes = array('class' => 'searchform');
-    echo form_open('plantlists', $attributes); ?>
+     	$attributes = array('class' => 'searchform');
+      	echo form_open('plantlists', $attributes); 
+	?>
    <p>Search by plant name: 
     <input type="text" name="searchterms" id="searchterms" value="Enter botanical or common name">
      <input type="submit" value="Search"></p>

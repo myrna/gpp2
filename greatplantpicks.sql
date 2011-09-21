@@ -51,19 +51,14 @@ INSERT INTO `category` (`id`, `category`) VALUES
 DROP TABLE IF EXISTS `ci_query`;
 CREATE TABLE IF NOT EXISTS `ci_query` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `query_string` text CHARACTER SET utf8 NOT NULL,
+  `parameters` text CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `ci_query`
 --
 
-INSERT INTO `ci_query` (`id`, `query_string`) VALUES
-(1, 'family=0&genus=acer&species=0&cultivar=0&plant_type=&height_comparison=gt&plant_height_at_10=0'),
-(2, 'family=0&genus=acer&species=0&cultivar=0&plant_type=&height_comparison=gt&plant_height_at_10='),
-(3, 'family=0&genus=acer&species=0&cultivar=0&plant_type=&height_comparison=gt&plant_height_at_10=10'),
-(4, 'family=0&genus=acer&species=0&cultivar=0&plant_type=&height_comparison=gt&plant_height_at_10=5');
 
 -- --------------------------------------------------------
 
