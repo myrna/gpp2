@@ -21,9 +21,9 @@
     <dl class="lists">
         
          <dt>Drought-Tolerant Plants for Sun</dt>
-                 <dd>Perennials &#38; Bulbs</dd>
-                 <dd>Shrubs &#38; Vines</dd>
-                 <dd>Trees &#38; Conifers</dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/perennial|bulb", "Perennials &#38; Bulbs"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/shrub|vine", "Shrubs &#38; Vines"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_plant_type/tree|conifer", "Trees &#38; Conifers"); ?></dd>
          <dt>Fantastic Foliage Plants</dt>
                  <dd>Bold Foliage</dd>
                  <dd>Shiny Foliage</dd>
