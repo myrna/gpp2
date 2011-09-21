@@ -17,7 +17,7 @@
     
      <?php
     $attributes = array('class' => 'data-entry');
-    echo form_open('plantlists/advancedsearch', $attributes); ?>
+    echo form_open('plantlists/advanced_search', $attributes); ?>
     
     <fieldset>
       

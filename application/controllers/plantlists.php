@@ -22,70 +22,24 @@ class Plantlists extends CI_Controller {
 
         }
 
-        // LIST ALL PLANTS, or SEARCH RESULTS --- CLEAR SEARCH or NO PLANTS FOUND need to return to main search page
-
-        function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
-
-            // $this->output->enable_profiler(TRUE);
-            $this->load->model('plantlists_model');
-           // $limit = 20;
-
-            if ($this->input->post('searchterms')) {
-                $query = $this->input->post('searchterms');
-            } else {
-                $query = "";
-            }
-            
-            //define sortable fields // this has been removed from view file in favor of tablesorter
-            $data['sortfields'] = array(
-              'genus' => 'Plant Name',
-              'family_common_name' => 'Family (Common)',
-              'plant_height_at_10' => 'Height'
-            );
-
-            $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
-            $total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
-            $total = $total_count[0]['numrows'];
-            $plant_name_and_height = array();
-            foreach ($results['rows'] as $result) {
-                  $plant_name_and_height[] = array(
-                  'name' => display_full_botanical_name($result),
-                  'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
-                  'id' => $result['id']
-              );
-            }
-            $data['records'] = $plant_name_and_height;
-
-            if ($query != "") {
-                $data['stats'] = $results['found'] . " of " . $total;
-                
-            } else {
-                $data['stats'] = $total;
-                              
-            }
-
-            // pagination
-
-            $this->load->library('pagination');
-            $config = array();
-            $config['base_url'] = site_url("plantlists/$query/$sort_by/$sort_order");
-            $config['total_rows'] = $results['found'];
-            $config['per_page'] = $limit;
-            $config['uri_segment'] = 5;
-            $this->pagination->initialize($config);
-            $data['pagination'] = $this->pagination->create_links();
-
-            $data['sort_by'] = $sort_by;
-            $data['sort_order'] = $sort_order;
-            
-            $this->template->set('thispage','Display Lists');
-            $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists/results',$data);
-                  
+        function advanced() {
+            $this->template->set('thispage','Advanced Search');
+            $this->template->set('title','Advanced Search | Great Plant Picks');
+            $this->template->load('template','plantlists/advanced_search', $data);
         }
 
-        function get_plant_link_data($id) {  // copied from crud controller
+        function index($sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+            if ($this->input->post('searchterms')) {
+                $query = $this->input->post('searchterms');
+	            $query_id = $this->input->save_query($query);
+				redirect("/plantlists/saved_searches/" . $query_id);
+            } else {
+				$this->search();
+            }
+               
+        }
+
+        function get_plant_link_data($id) {
             $data = array();
             $water = $this->crud_model->link_table($id, 'water', 'plant', true);
             $data['water'] = $water['values'];
@@ -115,7 +69,7 @@ class Plantlists extends CI_Controller {
             $data['design_use'] = $design_use['values'];
 
             return $data;
-    }
+    	}
 
         // single plant fact sheet view controller
 
@@ -166,7 +120,7 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
 
-  // need to create previous and next links for individual plant views; need to use previous/next rows in found set...?
+  		// need to create previous and next links for individual plant views; need to use previous/next rows in found set...?
         //codeigniter has previous_row(), next_row() query result functions....
 
         function get_previous($id) {
@@ -179,26 +133,40 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
         
-        function advanced() {
-         
-            
-            $this->template->set('thispage','Advanced Search');
-            $this->template->set('title','Advanced Search | Great Plant Picks');
-            $this->template->load('template','plantlists/advanced_search', $data);
-        }
-
-        //still trying to create a query string... didn't work (yet)... :)
-        function pre_search($query_id)
-         {
-        redirect('plantlists/advancedsearch/'.$this->input->post('query_id'));
+		function plant_array($results) {
+			$a = array();
+			foreach ($results['rows'] as $result) {
+                  $a[] = array(
+                  'name' => display_full_botanical_name($result),
+                  'common' => $result['family_common_name'],
+                  'height' => $result['plant_height_at_10'],
+                  'id' => $result['id']
+              );
             }
+			return $a;
+		}
 
+		function search_stats($results, $query) {
+			$total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
+            $total = $total_count[0]['numrows'];
+            if (isset($query)) {
+				if ($query != "") {
+					if ($results['found'] == 0) {
+						// put a message about the search not finding anything
+					}
+          			$stats = $results['found'] . " of " . $total;					 
+            	} else {
+                	$stats = $total;
+            	}
+			} else {
+      			$stats = $results['found'] . " of " . $total;					 
+			}
+			
+			return $stats;
+		}
 
-        function advancedsearch($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
-          //  $this->output->enable_profiler(TRUE);
-          // $this->input->load_query($query_id);  //live server is not recognizing this although it works locally...?
-
-            $query_array = array(  
+        function advanced_search($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+       		$query_array = array(  
                 'plant_type' => $this->input->post('plant_type'),        
                 'foliage_type'  => $this->input->post('foliage_type'),
                 'gpp_year' => $this->input->post('gpp_year'),
@@ -214,43 +182,73 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->post('water')
                  );
 
-          //   $query_id = $this->input->save_query($query_array);
+            $query_id = $this->input->save_query($query_array);
+			redirect("/plantlists/saved_searches/" . $query_id);
+        }
 
+		function process_basic_search($query) {
+			$this->load->model('plantlists_model');
+			$this->load->library('pagination');
+            
+            $results = $this->plantlists_model->basic_search($query, $limit, $offset, $sort_by, $sort_order);
+           	$data['records'] = $this->plant_array($results);
+			$data['stats'] = $this->search_stats($results, $query);
+
+
+            $config = array();
+            $config['base_url'] = site_url("plantlists/$query/$sort_by/$sort_order");
+            $config['total_rows'] = $results['found'];
+            $config['per_page'] = $limit;
+            $config['uri_segment'] = 5;
+            $this->pagination->initialize($config);
+            $data['pagination'] = $this->pagination->create_links();
+
+            $data['sort_by'] = $sort_by;
+            $data['sort_order'] = $sort_order;
+
+			$this->display_results($data);
+
+		}
+
+		function process_advanced_search($query) {
+		
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
-            //var_dump($query_array);
-            $results = $this->plantlists_model->advanced_search($query_array,
-                    $limit, $offset, $sort_by, $sort_order);
 
+            $results = $this->plantlists_model->advanced_search($query,$limit, $offset, $sort_by, $sort_order);
             $data['num_results'] = count($results);
-            //somehow this ends up with search results on the /plantlists page ...?
-            //or do we need a new search results page to accommodate query_id?
-            //this is the sort of URL the nettuts tutorial ends up with: $config['base_url'] =
-            //site_url("plantlists/search/$query_id/$sort_by/$sort_order") -- not so important to keep the sortby/sortorder business,
-            //this probably wouldn't work anyway because of the jquery tablesorter; just need a way to id query results
-            $plant_name_and_height = array();
-            foreach ($results as $result) {
-                  $plant_name_and_height[] = array(
-                  'name' => display_full_botanical_name($result),
-                  'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],
-                  'id' => $result['id']
-              );
-            }
-            $data['records'] = $plant_name_and_height;
-            $data['stats'] = count($results);
+            $data['records'] = $this->plant_array($results);
 
+            $data['stats'] = $this->search_stats($results);
             if (!$results)
                 {
                 $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
                 redirect(site_url('plantlists/advanced'), 'refresh');
                 }
             else {
-            $this->template->set('thispage','Display Lists');
+				$this->display_results($data);
+            }	
+		}
+
+		function display_results($data) {
+			$this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/results',$data);
-            }
-        }
+		}
+		
+		function saved_searches() {
+			$id = $this->uri->segment(3);
+			$query = $this->input->load_query($id);
+			if (isset($query)) {
+				if (is_string($query)) {
+					$this->process_basic_search($query);
+				} elseif (is_array($query)) {
+					$this->process_advanced_search($query);
+				}
+			} else {
+				echo "Could not find a saved search numbered " . $id;
+			}
+		}
            
 }
 
