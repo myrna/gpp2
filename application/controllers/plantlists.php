@@ -133,6 +133,12 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
         
+		function by_year() {
+			$year = $this->uri->segment(3);
+			$this->process_advanced_search(array('gpp_year' => $year));
+		}
+		
+
 		function plant_array($results) {
 			$a = array();
 			foreach ($results['rows'] as $result) {
