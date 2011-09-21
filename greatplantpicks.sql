@@ -49,7 +49,7 @@ INSERT INTO `category` (`id`, `category`) VALUES
 --
 
 DROP TABLE IF EXISTS `ci_query`;
-CREATE TABLE IF NOT EXISTS `ci_query` (
+CREATE TABLE IF NOT EXISTS `saved_searches` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parameters` text CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)

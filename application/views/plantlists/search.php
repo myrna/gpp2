@@ -25,10 +25,10 @@
                  <dd><?php echo anchor("plantlists/by_plant_type/shrub|vine", "Shrubs &#38; Vines"); ?></dd>
                  <dd><?php echo anchor("plantlists/by_plant_type/tree|conifer", "Trees &#38; Conifers"); ?></dd>
          <dt>Fantastic Foliage Plants</dt>
-                 <dd>Bold Foliage</dd>
-                 <dd>Shiny Foliage</dd>
-                 <dd>Unique Foliage</dd>
-                 <dd>Fine Foliage</dd>
+                 <dd><?php echo anchor("plantlists/by_texture/bold", "Bold Foliage"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_texture/shiny", "Shiny Foliage"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_texture/unique", "Unique Foliage"); ?></dd>
+                 <dd><?php echo anchor("plantlists/by_texture/fine", "Fine Foliage"); ?></dd>
     </dl>
     </div><!-- end left column -->
     <div class="rightcol">

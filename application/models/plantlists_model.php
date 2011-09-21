@@ -12,21 +12,6 @@
 
 class Plantlists_model extends CI_Model {
 
-    function plant_merge($a, $b) {
-        foreach ($b as $incoming) {
-            $found = false;
-            foreach ($a as $plant) {
-                if ($incoming['id'] == $plant) {
-                    $found = true;
-                }
-            }
-            if ($found == false) {
-                $a[] = $b;
-            }
-        }
-        return $a;
-    }
-
     function name_search($query) {
         $matchwords = explode(" ", $query);
         $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
@@ -56,12 +41,7 @@ class Plantlists_model extends CI_Model {
         }
     }
 
-    function basic_search($query, $limit, $offset, $sort_by, $sort_order) {
-        //prevent incorrect parameters being inserted into URL
-        $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc'; // eliminate all options except desc and asc
-        $sort_columns = array('genus','family_common_name','plant_height_at_10'); // determine sortable columns
-        $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'genus';
-
+    function basic_search($query) {
         if ($query != "") {
             $this->common_name_search($query);
             $this->synonym_search($query);
@@ -85,7 +65,6 @@ class Plantlists_model extends CI_Model {
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
                 distinct()->
-                limit($limit, $offset)->
                 get()->result_array();
 
             $data['found'] = $found[0]['numrows'];
@@ -99,7 +78,7 @@ class Plantlists_model extends CI_Model {
         return $data;
     }
 
-    function advanced_search($query_array, $limit, $offset, $sort_by, $sort_order) {
+    function advanced_search($query_array) {
         foreach ($query_array as $attribute => $value) {
             if (!isset($value)) {
                 unset($query_array[$attribute]);
@@ -107,27 +86,44 @@ class Plantlists_model extends CI_Model {
                 $query_array[$attribute] = strtolower($value);
             }
         }
-
         $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data");
 
         $this->db->join('plant_water', 'plant_water.plant_id = plant_data.id', 'left');
         $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
         $this->db->join('plant_sun', 'plant_sun.plant_id = plant_data.id', 'left');            
         $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
+		$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
 
         if ($query_array['foliage_color']) {
-            $this->db->where('plant_foliage_color.foliage_color_id', "(select id from foliage_color where lower(foliage_color) = '" . $query_array['foliage_color'] . "')", false);
+            $this->db->where('plant_foliage_color.foliage_color_id', 
+				"(select id from foliage_color where lower(foliage_color) = " . $this->db->escape($query_array['foliage_color']) . ")", false);
         }
+
+		if ($query_array['foliage_texture']) {
+			$this->db->where('plant_foliage_texture.foliage_texture_id', 
+				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
+		}
         
         if ($query_array['water']) {
-            $this->db->where('plant_water.water_id', "(select id from water where lower(water) = '" . $query_array['water'] . "')", false);
+            $this->db->where('plant_water.water_id', 
+				"(select id from water where lower(water) = " . $this->db->escape($query_array['water']) . ")", false);
         }
         if ($query_array['soil']) {
-            $this->db->where('plant_soil.soil_id', "(select id from soil where lower(soil) = '" . $query_array['soil'] . "')", false);
+            $this->db->where('plant_soil.soil_id', 
+				"(select id from soil where lower(soil) = " . $this->db->escape($query_array['soil']) . ")", false);
         }
         if ($query_array['sun']) {
-            $this->db->where('plant_sun.sun_id', "(select id from sun where lower(sun) = '" . $query_array['sun'] . "')", false);
+            $this->db->where('plant_sun.sun_id', 
+				"(select id from sun where lower(sun) = '" . $this->db->escape($query_array['sun']) . ")", false);
         }
+
+		if ($query_array['plant_height_max']) {
+			$this->db->where('plant_data.plant_height_max <= ' . intval($query_array['plant_height_max']));
+		}
+
+		if ($query_array['plant_height_min']) {
+			$this->db->where('plant_data.plant_height_max >= ' . intval($query_array['plant_height_min']));
+		}
 
         if ($query_array['flower_time']) {
             $this->db->where('lower(plant_data.flower_time)', $query_array['flower_time']);
@@ -158,20 +154,10 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_data.theme', $query_array['theme']);
         }
 
-        $data['rows'] = $this->db->distinct()->limit($limit, $offset)->get()->result_array();
+        $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;
 
-        // I'll get to this part - I want to get the searches all working first...-jon
-        
-//this is from codeigniter tutorial for height comparison, don't know if it helps:
-//  if (strlen($query_array['plant_height_max'])) {
-//$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
-//$operator = $operators[$query_array['height_comparison']];
-
-//$q->where("plant_height_max $operator", $query_array['plant_height_max']);
-//}
-
    }
    
-   }
+}
