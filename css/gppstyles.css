@@ -107,6 +107,14 @@ div#navigation {
     padding:0 0 20px 0;
 }
 
+#breadcrumbs a {
+    color:#000;
+}
+
+#breadcrumbs a:hover {
+    color:#e65925;
+}
+
 #breadcrumbs #current {
     color:#d22322;
 }
