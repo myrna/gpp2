@@ -186,8 +186,8 @@ class Plantlists extends CI_Controller {
                 'foliage_type'  => $this->input->post('foliage_type'),
                 'gpp_year' => $this->input->post('gpp_year'),
                 'theme' => $this->input->post('theme'),
-                'plant_height_max' => $this->input->post('plant_height_max'),  
-                'height_comparison' => $this->input->post('height_comparison'), //see note in plantlists_model at end
+                'plant_height_max' => $this->input->post('plant_height_max'),
+				'plant_height_min' => $this->input->post('plant_height_min'),
                 'growth_habit' => $this->input->post('growth_habit'),   
                 'flower_time' => $this->input->post('flower_time'),
                 'flower_color' => $this->input->post('flower_color'),

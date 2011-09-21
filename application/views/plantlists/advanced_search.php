@@ -90,12 +90,8 @@
     <div class="rightcol">
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Mature Plant Height:','plant_height_max'); ?></p>
-        <?php echo form_dropdown('height_comparison',
-				array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<') ,
-				set_value('height_comparison'), 'id="height_comparison"'); ?>
-	<?php echo form_input('plant_height_max', set_value('plant_height_max'), 'id="plant_height_max"'); ?>
-        <!-- this does not really work, it needs to be a range, ie less than 5 ft., 5-10 ft., etc., not sure the best
-        way to go about that?... -->
+ 		Min: <input id="plant_height_min" type="text" name="plant_height_min"></input>(ft)<br />
+ 		Max: <input id="plant_height_max" type="text" name="plant_height_max"></input>(ft)
     </fieldset>
      <fieldset>
         <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
