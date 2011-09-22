@@ -138,6 +138,11 @@ function build_form_control($key, $value) {
             $options = array('' => "", 'Yes' => "Yes");
             return form_dropdown('plant_breeders_rights', $options, $current, "id='$key'");
             break;
+        case 'cross_specific_epithet':
+            $current = $value ? $value : '';
+            $options = array('' => "", 'Yes' => "x");
+            return form_dropdown('cross_specific_epithet', $options, $current, "id='$key'");
+            break;
          case 'foliage_type':
             $current = $value ? $value : '';
             $options = array('' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
