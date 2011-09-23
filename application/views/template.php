@@ -23,6 +23,10 @@
                 echo "<div id='logo-sub'><a href='/'><div id='logo-link'></div></a></div>" ;
                 }
                 ?>
+<?php if ($this->uri->segment(1)!=="plantlists") echo
+               "<a href='/plantlists/search/'><div id='plant-link'>
+                    <p>FIND YOUR PLANT</p>
+                </div></a>" ?>
             </div><!-- end banner -->
         <div id="navigation">
       <a <?php if ($thispage=="Home")
