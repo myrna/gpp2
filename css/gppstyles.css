@@ -437,10 +437,12 @@ div.simplesearch {
     margin-top:20px;
 }
 
-
 .clear-search {
     padding-left:10px;
 }
+
+/* plant height/width input box */
+
 
 /* pagination styling --------- */
 #pages a, #pages strong {
@@ -702,6 +704,10 @@ td .crossgenus {
     vertical-align: super;
     font-size: 10px;
 }
+.super {
+    vertical-align: super;
+    font-size: 10px;
+}
 
 /* public table sort function */
 
@@ -849,6 +855,7 @@ em {
     background-color:#b1d355;
     border:1px #378b36 solid;
 }
+
 * html a:hover { background: transparent; }
 
 /* general link colors */

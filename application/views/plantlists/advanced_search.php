@@ -89,9 +89,27 @@
     </div>
     <div class="rightcol">
         <fieldset>
-        <p class="searchlabel"><?php echo form_label('Mature Plant Height:','plant_height_max'); ?></p>
- 		Min: <input id="plant_height_min" type="text" name="plant_height_min"></input>(ft)<br />
- 		Max: <input id="plant_height_max" type="text" name="plant_height_max"></input>(ft)
+        <p class="searchlabel"><?php echo form_label('Mature Plant Height (in feet):'); ?></p>
+ 		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
+                     <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select> 
+ 		Maximum: <select id="plant_height_max" type="text" name="plant_height_max">
+                    <option value=""></option>
+                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
     </fieldset>
      <fieldset>
         <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
@@ -110,7 +128,8 @@
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
         <p class="radios">
-        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun<span class="classic">Full sun from morning to evening</span></a>
+        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun
+            <span class="classic">Full sun from morning to evening</span></a>
         <input type="radio" name="sun" value="part shade">Part Shade
         <input type="radio" name="sun" value="dappled shade">Dappled Shade
         <input type="radio" name="sun" value="open shade">Open Shade</p>

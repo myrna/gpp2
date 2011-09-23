@@ -25,7 +25,6 @@ class MY_Input extends CI_Input {
 			return unserialize($rows[0]->parameters);
 		}
    	}
-
 }
 
 ?>

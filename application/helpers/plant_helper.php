@@ -54,7 +54,7 @@ function format_trademark_name($trademarkname) {
 
 function format_registered_name($registeredname) {
     $registeredname = strtoupper($registeredname);
-    return "<span class='registered-name'>$registeredname &#174;</span>";
+    return "<span class='registered-name'>$registeredname</span><span class='super'>&#174;</span>";
 }
 
 function format_patent_number($number) {
@@ -99,6 +99,9 @@ function field_to_label($field) {
             break;
         case 'fruit_seedhead_attractive':
             return "Fruit/Seedhead Attractive";
+            break;
+        case 'division_pruning_group':
+            return "Division or Pruning Group";
             break;
         case 'nominator':
             return "Nominated By";
@@ -145,27 +148,27 @@ function build_form_control($key, $value) {
             break;
          case 'foliage_type':
             $current = $value ? $value : '';
-            $options = array('' => "", 'Deciduous' => "Deciduous", 'Semi-Evergreen' => "Semi-Evergreen", 'Evergreen' => "Evergreen");
+            $options = array('' => "", 'deciduous' => "deciduous", 'semi-evergreen' => "semi-evergreen", 'evergreen' => "evergreen");
             return form_dropdown($key, $options, $current, "id='$key'");
             break;
         case 'plant_type':
             $current = $value ? $value : '';
-            $options = array('' => "", 'Bulb' => "Bulb", 'Conifer' => "Conifer", 'Perennial' => "Perennial",
-                'Shrub' => "Shrub", 'Tree' => "Tree", 'Vine' => "Vine", 'Annual' => "Annual");
+            $options = array('' => "", 'bulb' => "bulb", 'conifer' => "conifer", 'perennial' => "perennial",
+                'shrub' => "shrub", 'tree' => "tree", 'vine' => "vine", 'annual' => "annual");
             return form_dropdown('plant_type', $options, $current, "id='$key'");
             break;
          case 'flower_time':
             $current = $value ? $value : '';
-            $options = array('' => "", 'Winter' => "Winter", 'Winter-Spring' => "Winter-Spring", 'Spring' => "Spring",
-                'Spring-Summer' => "Spring-Summer", 'Summer' => "Summer", 'Summer-Fall' => "Summer-Fall", 'Fall' => "Fall",
-                'Winter' => "Winter");
+            $options = array('' => "", 'winter' => "winter", 'winter-spring' => "winter-spring", 'spring' => "spring",
+                'spring-summer' => "spring-summer", 'summer' => "summer", 'summer-fall' => "summer-fall", 'fall' => "fall",
+                'winter' => "winter");
             return form_dropdown('flower_time', $options, $current, "id='$key'");
             break;
         case 'growth_habit':
             $current = $value ? $value : '';
-            $options = array('' => "", 'Columnar' => "Columnar", 'Compact' => "Compact", 'Mounding' => "Mounding",
-                'Narrow' => "Narrow", 'Pyramidal' => "Pyramidal", 'Round' => "Round", 'Spreading' => "Spreading",
-                'Upright' => "Upright", 'Weeping' => "Weeping");
+            $options = array('' => "", 'columnar' => "columnar", 'compact' => "compact", 'mounding' => "mounding",
+                'narrow' => "narrow", 'pyramidal' => "pyramidal", 'round' => "round", 'spreading' => "spreading",
+                'upright' => "upright", 'weeping' => "weeping");
             return form_dropdown('growth_habit', $options, $current, "id='$key'");
             break;
         case 'committee':
