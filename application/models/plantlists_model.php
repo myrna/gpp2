@@ -114,7 +114,7 @@ class Plantlists_model extends CI_Model {
         }
         if ($query_array['sun']) {
             $this->db->where('plant_sun.sun_id', 
-				"(select id from sun where lower(sun) = '" . $this->db->escape($query_array['sun']) . ")", false);
+				"(select id from sun where lower(sun) = " . $this->db->escape($query_array['sun']) . ")", false);
         }
 
 		if ($query_array['plant_height_max']) {
