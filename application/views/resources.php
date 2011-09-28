@@ -4,7 +4,7 @@
 <h2>Resources &amp; Links</h2>
 
 <ul class="leaf">
-    <li><a href="/nursery_list/">Participating Nurseries</a></li>
+    <li><a href="/nurserylist/">Participating Nurseries</a></li>
 
 </ul>
 

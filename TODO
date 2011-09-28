@@ -1,6 +1,6 @@
 Jon TODO list:
 ----------------
-
+Jon, looks like you have fixed this?  I'm not seeing the "resubmit form" problem any more.
 
 Addendum (possible solution to "back" button problem) found this on a CodeIgniter forum (but requires query strings for
 all search results, including admin, to avoid the back button problem):

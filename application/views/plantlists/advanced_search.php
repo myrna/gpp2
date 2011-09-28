@@ -13,12 +13,84 @@
     <?php echo form_close(); ?>
     </div><!-- end simplesearch -->
     <h5>Search by plant attributes (select those that apply):</h5>
-    <div class="leftcol">
+   
     
      <?php
-    $attributes = array('class' => 'data-entry');
+    $attributes = array('class' => 'adv-search');
     echo form_open('plantlists/advanced_search', $attributes); ?>
-    
+    <div class="rightcol">
+        <fieldset>
+        <p class="searchlabel"><?php echo form_label('Mature Plant Height (in feet):'); ?></p>
+ 		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
+                     <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
+ 		Maximum: <select id="plant_height_max" type="text" name="plant_height_max">
+                    <option value=""></option>
+                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
+    </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
+        <p class="radios">
+        <input type="radio" name="growth_habit" value="columnar">Columnar
+        <input type="radio" name="growth_habit" value="compact">Compact
+        <input type="radio" name="growth_habit" value="mounding">Mounding
+        <input type="radio" name="growth_habit" value="narrow">Narrow
+        <input type="radio" name="growth_habit" value="pyramidal">Pyramidal</p>
+        <p class="radios">
+        <input type="radio" name="growth_habit" value="round">Round
+        <input type="radio" name="growth_habit" value="spreading">Spreading
+        <input type="radio" name="growth_habit" value="upright">Upright
+        <input type="radio" name="growth_habit" value="weeping">Weeping</p>
+    </fieldset>
+        <fieldset>
+        <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
+        <p class="radios">
+        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun
+            <span class="classic">Full sun from morning to evening</span></a>
+        <input type="radio" name="sun" value="part shade">Part Shade
+        <input type="radio" name="sun" value="dappled shade">Dappled Shade
+        <input type="radio" name="sun" value="open shade">Open Shade</p>
+        <p class="radios">
+        <input type="radio" name="sun" value="heavy shade">Heavy Shade</p>
+    </fieldset>
+    <fieldset>
+        <p class="searchlabel"><?php echo form_label('Soil Requirements:','soil'); ?></p>
+        <p class="radios">
+        <input type="radio" name="soil" value="heavy clay">Heavy Clay
+        <input type="radio" name="soil" value="clay">Clay
+        <input type="radio" name="soil" value="fertile">Fertile
+        <input type="radio" name="soil" value="humus-rich">Humus-Rich
+        <input type="radio" name="soil" value="sandy">Sandy</p>
+        <p class="radios">
+        <input type="radio" name="soil" value="well-drained">Well-Drained
+        <input type="radio" name="soil" value="any-soil">Any</p>
+    </fieldset>
+    <fieldset>
+        <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
+        <p class="radios">
+        <input type="radio" name="water" value="bog">Bog
+        <input type="radio" name="water" value="moist">Moist
+        <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry
+        <input type="radio" name="water" value="drought-tolerant">Drought Tolerant</p>
+        <p class="radios">
+        <input type="radio" name="water" value="average">Average
+        <input type="radio" name="water" value="any-water">Any</p>
+        </fieldset>
+       </div>
     <fieldset>
       
         <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
@@ -86,80 +158,8 @@
         <input type="radio" name="flower_color" value="yellow">Yellow</p>
     </fieldset>
      
-    </div>
-    <div class="rightcol">
-        <fieldset>
-        <p class="searchlabel"><?php echo form_label('Mature Plant Height (in feet):'); ?></p>
- 		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
-                     <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                </select> 
- 		Maximum: <select id="plant_height_max" type="text" name="plant_height_max">
-                    <option value=""></option>
-                     <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                </select>
-    </fieldset>
-     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
-        <p class="radios">
-        <input type="radio" name="growth_habit" value="columnar">Columnar
-        <input type="radio" name="growth_habit" value="compact">Compact
-        <input type="radio" name="growth_habit" value="mounding">Mounding
-        <input type="radio" name="growth_habit" value="narrow">Narrow
-        <input type="radio" name="growth_habit" value="pyramidal">Pyramidal</p>
-        <p class="radios">
-        <input type="radio" name="growth_habit" value="round">Round
-        <input type="radio" name="growth_habit" value="spreading">Spreading
-        <input type="radio" name="growth_habit" value="upright">Upright
-        <input type="radio" name="growth_habit" value="weeping">Weeping</p>
-    </fieldset>
-        <fieldset>
-        <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
-        <p class="radios">
-        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun
-            <span class="classic">Full sun from morning to evening</span></a>
-        <input type="radio" name="sun" value="part shade">Part Shade
-        <input type="radio" name="sun" value="dappled shade">Dappled Shade
-        <input type="radio" name="sun" value="open shade">Open Shade</p>
-        <p class="radios">
-        <input type="radio" name="sun" value="heavy shade">Heavy Shade</p>
-    </fieldset>
-    <fieldset>
-        <p class="searchlabel"><?php echo form_label('Soil Requirements:','soil'); ?></p>
-        <p class="radios">
-        <input type="radio" name="soil" value="heavy clay">Heavy Clay
-        <input type="radio" name="soil" value="clay">Clay
-        <input type="radio" name="soil" value="fertile">Fertile
-        <input type="radio" name="soil" value="humus-rich">Humus-Rich
-        <input type="radio" name="soil" value="sandy">Sandy</p>
-        <p class="radios">
-        <input type="radio" name="soil" value="well-drained">Well-Drained
-        <input type="radio" name="soil" value="any-soil">Any</p>
-    </fieldset>
-    <fieldset>
-        <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
-        <p class="radios">
-        <input type="radio" name="water" value="bog">Bog
-        <input type="radio" name="water" value="moist">Moist
-        <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry
-        <input type="radio" name="water" value="drought-tolerant">Drought Tolerant</p>
-        <p class="radios">
-        <input type="radio" name="water" value="average">Average
-        <input type="radio" name="water" value="any-water">Any</p>
-        </fieldset>
-       </div>
+ 
+    
       
     <div class="searchcenter">
           <input type="submit" value="Find My Plant">

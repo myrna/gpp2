@@ -326,7 +326,13 @@ form.data-entry {
     clear:both;
     width:850px;
 }
-.data-entry .labelname {
+form.adv-search {
+    clear:both;
+    width:994px;
+}
+
+
+.data-entry .labelname, .adv-search .labelname {
     display:inline-block;
     width:225px;
     vertical-align:top;
@@ -334,14 +340,14 @@ form.data-entry {
     font-weight:bold;
 }
 
-.data-entry ul li {
+.data-entry ul li, adv-search ul li {
     padding-bottom:5px;
 }
-.data-entry input {
+.data-entry input, adv-search input {
     display:inline-block; 
 }
 .data-entry checkbox {}
-.data-entry p {
+.data-entry p, adv-search p {
     clear:both;
     font-weight:bold;
     padding-top:10px;
@@ -616,7 +622,8 @@ ul.lists {margin-left:40px;}
 div.rightcol {
     float:right;
     width:482px;
-    margin:10px 0;
+    margin:0 0 10px 0;
+    padding:0;
 }
 div.leftcol {
     float:left;
