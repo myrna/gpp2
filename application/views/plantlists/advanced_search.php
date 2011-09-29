@@ -18,7 +18,75 @@
      <?php
     $attributes = array('class' => 'adv-search');
     echo form_open('plantlists/advanced_search', $attributes); ?>
-    <div class="rightcol">
+        <div class="col1">
+    <fieldset>
+
+        <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
+        <p class="radios">
+        <input type="radio" name="plant_type" value="bulb">Bulb
+        <input type="radio" name="plant_type" value="conifer">Conifer
+        <input type="radio" name="plant_type" value="perennial">Perennial
+        <input type="radio" name="plant_type" value="shrub">Shrub
+        <input type="radio" name="plant_type" value="tree">Tree
+        <input type="radio" name="plant_type" value="vine">Vine</p>
+    </fieldset>
+    <fieldset>
+        <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
+        <p class="radios">
+        <input type="radio" name="foliage_type" value="deciduous">Deciduous
+        <input type="radio" name="foliage_type" value="evergreen">Evergreen
+        <input type="radio" name="foliage_type" value="semi-evergreen">Semi-Evergreen</p>
+    </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Foliage Color:','foliage_color'); ?></p>
+        <p class="radios"><input type="radio" name="foliage_color" value="black">Black
+        <input type="radio" name="foliage_color" value="blue">Blue
+        <input type="radio" name="foliage_color" value="bronze">Bronze
+        <input type="radio" name="foliage_color" value="burgundy">Burgundy
+        <input type="radio" name="foliage_color" value="chartreuse">Chartreuse
+        <input type="radio" name="foliage_color" value="dark green">Dark Green</p>
+         <p class="radios">
+        <input type="radio" name="foliage_color" value="gold">Gold
+        <input type="radio" name="foliage_color" value="green">Green
+        <input type="radio" name="foliage_color" value="purple">Purple
+        <input type="radio" name="foliage_color" value="red">Red
+        <input type="radio" name="foliage_color" value="silver">Silver
+        <input type="radio" name="foliage_color" value="variegated">Variegated
+        <input type="radio" name="foliage_color" value="white">White</p>
+        </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Flower Time:','flower_time'); ?></p>
+        <p class="radios">
+        <input type="radio" name="flower_time" value="winter">Winter
+        <input type="radio" name="flower_time" value="winter-spring">Winter-Spring
+        <input type="radio" name="flower_time" value="spring">Spring
+        <input type="radio" name="flower_time" value="spring-summer">Spring-Summer
+        <input type="radio" name="flower_time" value="summer">Summer</p>
+         <p class="radios">
+        <input type="radio" name="flower_time" value="summer-fall">Summer-Fall
+        <input type="radio" name="flower_time" value="fall">Fall</p>
+    </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Flower Color:','flower_color'); ?></p>
+        <p class="radios"><input type="radio" name="flower_color" value="black">Black
+        <input type="radio" name="flower_color" value="blue">Blue
+        <input type="radio" name="flower_color" value="brown">Brown
+        <input type="radio" name="flower_color" value="cream">Cream
+        <input type="radio" name="flower_color" value="green">Green
+        <input type="radio" name="flower_color" value="lavender">Lavender
+        <input type="radio" name="flower_color" value="orange">Orange
+        </p>
+        <p class="radios">
+        <input type="radio" name="flower_color" value="pink">Pink
+        <input type="radio" name="flower_color" value="purple">Purple
+        <input type="radio" name="flower_color" value="red">Red
+        <input type="radio" name="flower_color" value="rose">Rose
+        <input type="radio" name="flower_color" value="violet">Violet
+        <input type="radio" name="flower_color" value="white">White
+        <input type="radio" name="flower_color" value="yellow">Yellow</p>
+    </fieldset>
+    </div> 
+    <div class="col2">
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Mature Plant Height (in feet):'); ?></p>
  		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
@@ -91,73 +159,7 @@
         <input type="radio" name="water" value="any-water">Any</p>
         </fieldset>
        </div>
-    <fieldset>
-      
-        <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
-        <p class="radios">
-        <input type="radio" name="plant_type" value="bulb">Bulb
-        <input type="radio" name="plant_type" value="conifer">Conifer
-        <input type="radio" name="plant_type" value="perennial">Perennial
-        <input type="radio" name="plant_type" value="shrub">Shrub
-        <input type="radio" name="plant_type" value="tree">Tree
-        <input type="radio" name="plant_type" value="vine">Vine</p>
-    </fieldset>
-    <fieldset>
-        <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
-        <p class="radios">
-        <input type="radio" name="foliage_type" value="deciduous">Deciduous
-        <input type="radio" name="foliage_type" value="evergreen">Evergreen
-        <input type="radio" name="foliage_type" value="semi-evergreen">Semi-Evergreen</p>
-    </fieldset>
-     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Foliage Color:','foliage_color'); ?></p>
-        <p class="radios"><input type="radio" name="foliage_color" value="black">Black
-        <input type="radio" name="foliage_color" value="blue">Blue
-        <input type="radio" name="foliage_color" value="bronze">Bronze
-        <input type="radio" name="foliage_color" value="burgundy">Burgundy
-        <input type="radio" name="foliage_color" value="chartreuse">Chartreuse
-        <input type="radio" name="foliage_color" value="dark green">Dark Green</p>
-         <p class="radios">
-        <input type="radio" name="foliage_color" value="gold">Gold             
-        <input type="radio" name="foliage_color" value="green">Green
-        <input type="radio" name="foliage_color" value="purple">Purple
-        <input type="radio" name="foliage_color" value="red">Red
-        <input type="radio" name="foliage_color" value="silver">Silver
-        <input type="radio" name="foliage_color" value="variegated">Variegated
-        <input type="radio" name="foliage_color" value="white">White</p>
-        </fieldset>
-     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Flower Time:','flower_time'); ?></p>
-        <p class="radios">
-        <input type="radio" name="flower_time" value="winter">Winter
-        <input type="radio" name="flower_time" value="winter-spring">Winter-Spring
-        <input type="radio" name="flower_time" value="spring">Spring
-        <input type="radio" name="flower_time" value="spring-summer">Spring-Summer
-        <input type="radio" name="flower_time" value="summer">Summer</p>
-         <p class="radios">
-        <input type="radio" name="flower_time" value="summer-fall">Summer-Fall
-        <input type="radio" name="flower_time" value="fall">Fall</p>
-    </fieldset>
-     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Flower Color:','flower_color'); ?></p>
-        <p class="radios"><input type="radio" name="flower_color" value="black">Black
-        <input type="radio" name="flower_color" value="blue">Blue
-        <input type="radio" name="flower_color" value="brown">Brown
-        <input type="radio" name="flower_color" value="cream">Cream
-        <input type="radio" name="flower_color" value="green">Green
-        <input type="radio" name="flower_color" value="lavender">Lavender
-        <input type="radio" name="flower_color" value="orange">Orange
-        </p>
-        <p class="radios">
-        <input type="radio" name="flower_color" value="pink">Pink
-        <input type="radio" name="flower_color" value="purple">Purple
-        <input type="radio" name="flower_color" value="red">Red
-        <input type="radio" name="flower_color" value="rose">Rose
-        <input type="radio" name="flower_color" value="violet">Violet
-        <input type="radio" name="flower_color" value="white">White
-        <input type="radio" name="flower_color" value="yellow">Yellow</p>
-    </fieldset>
-     
+   
  
     
       

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta charset="UTF-8">
         <title><?php echo $title ?></title>
+	<meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <base href="<?php echo base_url();?>">
         <link rel="stylesheet" id="gppstyles" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         <link rel="stylesheet" id="gppstyles1" href="<?php echo base_url();?>css/gppstyles1.css" type="text/css" media="print" />
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.tablesorter.min.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.style-switcher.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>/scripts/scripts.js'></script>
         </head>
     <body>
@@ -20,7 +17,7 @@
                     if ($thispage=="Home" or $thispage=="Contact")
                 echo "<div id='logo'></div>";
                     else {
-                echo "<div id='logo-sub'><a href='/'><div id='logo-link'></div></a></div>" ;
+                echo "<div id='logo-sub'><a href='<?php echo base_url();?>'><div id='logo-link'></div></a></div>" ;
                 }
                 ?>
 <?php if ($this->uri->segment(1)!=="plantlists") echo

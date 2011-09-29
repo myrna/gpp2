@@ -47,6 +47,7 @@
        
    <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
      </div><!-- end image view -->
+     
     <div class="plantinfo">
     <?php
         echo "<h3>" . $details->plant_type;

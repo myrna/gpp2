@@ -13,8 +13,6 @@
 
 class Plantlists extends CI_Controller {
 
-        //working on search page (eventual index page?) that will list popular searches and link to advanced search
-
         function search() {
             $this->template->set('thispage','Find Your Plant');
             $this->template->set('title','View Plant | Great Plant Picks');
@@ -147,6 +145,11 @@ class Plantlists extends CI_Controller {
 			$texture = $this->uri->segment(3);
 			$this->process_advanced_search(array('foliage_texture' => $texture));
 		}
+
+                function by_publish() {
+                    $publish = $this->uri->segment(3);
+                    $this->process_advanced_search(array('publish' => $publish));
+                }
 		
 		function plant_array($results) {
 			$a = array();

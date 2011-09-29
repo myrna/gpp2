@@ -10,7 +10,7 @@
         color: #000;
         font: normal 12px/1.1em Arial, Helvetica, sans-serif;
     }
-    div#topbar, #navigation {display:none;}
+    div#topbar, #navigation, p.center {display:none;}
     #wrapper {
         clear: both !important;
         display: block !important;

@@ -1,10 +1,13 @@
 <div id="content" class="admin">
 <div id="register_form" class="login">
-    <h2>Great Plant Picks Login</h2>
+    <h2>Professional Access</h2>
+    <p>This area is accessible to nursery and garden professionals only.  To gain access,
+        please contact <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?>
+        with your name, business name and/or profession, email address and phone number.</p>
 	<p>Please log in with your email address and password below.</p>
 
 	<div id="infoMessage"><?php echo $message;?></div>
-    <p>
+  
   <?php
      $attributes = array('class' => 'login_form');
      echo form_open('auth/login',$attributes);

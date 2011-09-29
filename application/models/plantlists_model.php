@@ -153,7 +153,9 @@ class Plantlists_model extends CI_Model {
         if ($query_array['theme']) {
             $this->db->where('plant_data.theme', $query_array['theme']);
         }
-
+        if ($query_array['publish']) {
+            $this->db->where('plant_data.publish', $query_array['publish']);
+        }
         $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;
