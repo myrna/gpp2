@@ -1,26 +1,22 @@
 Jon TODO list:
 ----------------
-Jon, looks like you have fixed this?  I'm not seeing the "resubmit form" problem any more.
+[we should talk about the time involved with these during our phonecon on Saturday]
 
-Addendum (possible solution to "back" button problem) found this on a CodeIgniter forum (but requires query strings for
-all search results, including admin, to avoid the back button problem):
-http://codeigniter.com/forums/viewthread/177436/#841275
+Found that the "back" problem is still there, but only in this situation: on the administrative side, if I do a search on the admin/listplants page and pull up a list (for example, all gpp plants); then edit
+a record from that list, then hit the "back" button, I get a "do you want to resubmit this form" notice.  What we need is to be able
+to go "back" to the found list, as in the public side.
 
-
-======
-
-"Back" to search/found list from individual plant view; need to figure out how to accomplish this (both by browser "back" button and by
-a "back to previous list" button on the page) without being asked if we want to resubmit form data.  I suspect this can be accomplished
-if we are able to create a query string in the URI, then we can direct back via that; or by using sessions, but since ultimately
-we want the query string that might be better?  I have been trying to do this with the admin plant list and edit pages (Rick requested
-this feature) and am still struggling with it... need the feature in both admin and public plant searches.
+Rick would also like a "previous record/next record" function so that from the "edit" page he can continue on his found list without
+going back to the main list each time.  He'd also like to see this function on the public side; if you do a search and come up with a list,
+and call up one plant on that list, he'd like the user to be able to walk forward or backward through that list without going back to
+the "found" list.
 
 ======
 
+Autocomplete....
 If you have time -- I have the autocomplete function working after a fashion on the administrative search function -- right now
 it is only looking at the "genus" and it lists duplicate fields //you fixed this, thank you!!! //(so if you type in "ab" you see a lot of abelia, acer, etc.).  Is
-there a way to get the autocomplete_model to search on all parts of the full botanical name?  Barring that, to search each "important" name field and
-not return duplicates -- I don't know if that's possible since they are all individual records.  And for the public function ideally it
+there a way to get the autocomplete_model to search on all parts of the full botanical name?  And for the public function ideally it
 would go for common names and synonyms as well.  Maybe it would be better to have the autocomplete function pull from a static page with
 a list on it?  Don't know what is easiest....
 
