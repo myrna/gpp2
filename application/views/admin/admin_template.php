@@ -45,21 +45,25 @@
             </div>
         <div id="navigation">
       <a <?php if ($thispage=="Home")
-      echo " id=\"currentpage\""; ?> href="/">Home</a> 
+      echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>">Home</a>
        
      <a <?php if ($thispage=="Find Your Plant")
-      echo " id=\"currentpage\""; ?> href="plantlists/search/">Plant Lists</a>
+      echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>plantlists/search/">Plant Lists</a>
      <a <?php if ($thispage=="Nursery Directory")
-      echo " id=\"currentpage\""; ?> href="resources/">Resources</a>
+      echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>resources/">Resources</a>
      <a <?php if ($thispage=="Database Administration")
-      echo " id=\"currentpage\""; ?> href="/admin/">Database Administration</a>
+      echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>admin/">Database Administration</a>
           <?php if ($logged_in) :?>
-           <a href="/auth/logout/">Logout</a>
+           <a href="<?php echo base_url();?>auth/logout/">Logout</a>
             <?php else :  ?>
-            <a href="/auth/login/">Login</a>
+            <a href="<?php echo base_url();?>auth/login/">Login</a>
             <?php endif ?>
 </div><!-- end navigation -->
           
         <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
        <?php $this->load->view('includes/footer'); ?>
+        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+        </body>
+</html>

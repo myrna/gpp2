@@ -1,12 +1,13 @@
-<div id="footer"><p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks except where otherwise noted |
-                <a href="auth/login">Professional Login</a></p></div><!-- end footer -->
+
+<div id="footer">
+    <p><a href="<?php echo base_url();?>">Home</a> | <a href="<?php echo base_url();?>about/">About GPP</a> |
+        <a href="<?php echo base_url();?>plantlists/search/">Plant Lists</a> | <a href="<?php echo base_url();?>resources/">Resources</a>
+        | <a href="<?php echo base_url();?>press/">Press</a> | <a href="<?php echo base_url();?>contact/">Contact</a> |
+        <a href="<?php echo base_url();?>press/terms/">Terms of Use</a> | <a href="auth/login">Professional Login</a></p>
+    <p>Text and photos &#169;<?php echo date("Y"); ?> Great Plant Picks/Elisabeth Carey Miller Garden except where otherwise noted</p>
+    <p>Funded by the <a href="http://www.millercharitablefoundation.org/">Pendleton and Elisabeth Carey Miller Charitable Foundation</a> |
+        Administered by the <a href="http://www.millergarden.org/">Elisabeth Carey Miller Botanical Garden</a></p>
+
+</div><!-- end footer -->
        </div><!-- end wrapper -->
-       <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.tablesorter.min.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.style-switcher.js'></script>
-        
-    </body>
-
-
-</html>
+      
