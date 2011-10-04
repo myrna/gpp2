@@ -35,12 +35,12 @@ class Listplants extends CI_Controller {
         }        
     }
     
-    function search($page = 0, $query = '') {
-
-        if ($this->input->post('searchterms')) {
-            $this->session->set_userdata('plant_search', $this->input->post('searchterms'));
+    function search($page = 0, $query_id = 0, $query = '') {
+        parse_str($_SERVER['QUERY_STRING'], $_GET);
+        if ($this->input->get('searchterms')) {
+            $this->session->set_userdata('plant_search', $this->input->get('searchterms'));
         }
-
+        
         $query = $this->session->userdata('plant_search');
       
         $this->load->model('listplants_model');
@@ -48,9 +48,8 @@ class Listplants extends CI_Controller {
         $total = $this->db->count_all_results('plant_data');
         $this->setup_search_query($this->session->userdata('plant_search'));
         $records = $this->listplants_model->get_records($page);
-        $path = "admin/listplants/search";
-      // $path = "admin/listplants/search/" . $query;
-      //  //this adds searchterm to URL but not on first page of search results and screws up pagination
+        $path = "admin/listplants/search/";
+     
         $this->show_plants($page, $records, $total, $path, $query);
     }
     
