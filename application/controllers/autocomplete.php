@@ -1,8 +1,8 @@
 <?php
 /**
-* gallery.php
+* autocomplete.php
 *
-* upload images and create thumbnails
+* jquery autocomplete
 *
 * @package		Great Plant Picks
 * @subpackage	Controllers

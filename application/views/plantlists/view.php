@@ -56,8 +56,8 @@
             foreach ($common_names as $common_name) {
                 echo $common_name['common_name']." ";
                 }
-        echo "</h3>";
-        }
+                }
+                echo "</h3>";
     ?>
 <?php
         if (!empty($synonyms)) {

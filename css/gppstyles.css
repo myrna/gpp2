@@ -190,9 +190,8 @@ div#content {
 .admin, .gallery, .view, .advsearch {
     padding:20px;
    }
-
 /* COLUMN GRID */
-	.col1,.col2,.col3, .col1-3, .col2-3, .col3-3 {display:inline; float: left}
+	.col1,.col2,.col3, .col1-3, .col2-3, .col3-3 {float: left; position:relative;}
 
 	/* 2 COLUMN GRID */
 	.col1 {width:48.0%; margin-right:2%;}
@@ -289,9 +288,9 @@ div#content {
         border-radius: 4px;
 	background: #efefcd;
 	color: black;
-	-moz-box-shadow: 0 1px 0 #378b36;
-	-webkit-box-shadow: 0 1px 0 #378b36;
-        box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0px 1px 0px #378b36;
+	-webkit-box-shadow: 0px 1px 0px #378b36;
+        box-shadow: 0px 1px 0px #378b36;
 }
 
 .login_form input[type=submit], .login_form form a {
@@ -306,9 +305,9 @@ div#content {
         border-radius: 4px;
 	background: #348075;
 	color: white;
-	-moz-box-shadow: 0 1px 0 #378b36;
-	-webkit-box-shadow: 0 1px 0 #378b36;
-        box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0px 1px 0px #378b36;
+	-webkit-box-shadow: 0px 1px 0px #378b36;
+        box-shadow: 0px 1px 0px #378b36;
 }
 
 .login_form input[type=submit]:hover, .login_form form a:hover {
@@ -444,9 +443,9 @@ input[type="option"] {
         border-radius: 4px;
 	background: #efefcd;
 	color: black;
-	-moz-box-shadow: 0 1px 0 #378b36;
-	-webkit-box-shadow: 0 1px 0 #378b36;
-        box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0px 1px 0px #378b36;
+	-webkit-box-shadow: 0px 1px 0px #378b36;
+        box-shadow: 0px 1px 0px #378b36;
     }
 
 .searchform input[type="submit"] {
@@ -462,9 +461,9 @@ input[type="option"] {
         border-radius: 4px;
 	background: #378b36;
 	color: white;
-	-moz-box-shadow: 0 1px 0 #378b36;
-	-webkit-box-shadow: 0 1px 0 #378b36;
-        box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0px 1px 0px #378b36;
+	-webkit-box-shadow: 0px 1px 0px #378b36;
+        box-shadow: 0px 1px 0px #378b36;
 }
 
 /* centered search button at bottom of advanced search page */
@@ -482,16 +481,16 @@ input[type="option"] {
         border-radius: 4px;
 	background: #378b36;
 	color: white;
-	-moz-box-shadow: 0 1px 0 #378b36;
-	-webkit-box-shadow: 0 1px 0 #378b36;
-        box-shadow: 0 1px 0 #378b36;
+	-moz-box-shadow: 0px 1px 0px #378b36;
+	-webkit-box-shadow: 0px 1px 0px #378b36;
+        box-shadow: 0px 1px 0px #378b36;
 }
 
 .searchform input[type=submit]:hover, .searchform form a:hover, .searchcenter input[type=submit]:hover, .searchcenter form a:hover {
 	background: #b1d355;
 	cursor: pointer;
 }
-.searchform > p {font-weight:bold; font-size:16px;}
+.searchform > p {font-weight:bold; font-size:16px; vertical-align:middle;}
 
 /*search form position on public search and pre-programmed list page */
 
@@ -773,7 +772,7 @@ td .crossgenus {
 h1, h2, h3, h4 {
     font-weight:bold;
     font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
-    text-shadow:1px 1px 1px rgba(0,0,0,.10);
+    text-shadow:1px 1px rgba(0,0,0,0.1);
 }
 h1 {
     font-size:28px;

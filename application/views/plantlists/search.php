@@ -8,9 +8,9 @@
      	$attributes = array('class' => 'searchform');
       	echo form_open('plantlists', $attributes); 
 	?>
-   <p>Search by plant name: 
+   <p>Search by plant name:
     <input type="text" name="searchterms" id="searchterms" value="Enter botanical or common name">
-     <input type="submit" value="Search"></p>
+   <input type="submit" value="Search"></p>
    <?php echo form_close(); ?>
     </div><!-- end searchform -->
     <ul class="leaf">
@@ -56,7 +56,7 @@
            
     </div><!-- end column 2 -->
     <div class="col2-3">
-         <p class="listhead">More pre-programmed searches here</p>
+         <p class="listhead">More pre-programmed searches</p>
         
     </div><!-- end column 3 -->
 

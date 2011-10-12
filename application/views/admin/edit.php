@@ -67,7 +67,7 @@
         echo "</span>";
         echo build_form_control($key, $value);
         echo "</li>";
-        //form_input($key, $value);        
+        form_input($key, $value);      //this was commented out can't recall why
     } ?>
      </ul>
     
