@@ -163,7 +163,8 @@ class Plantlists extends CI_Controller {
             }
 			return $a;
 		}
-
+// Warning from log files: Missing argument 2 for Plantlists::search_stats(), called in C:\vhosts\gpptest\application\controllers\plantlists.php
+// on line 234 and defined C:\vhosts\gpptest\application\controllers\plantlists.php 167
 		function search_stats($results, $query) {
 			$total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
             $total = $total_count[0]['numrows'];
@@ -189,8 +190,10 @@ class Plantlists extends CI_Controller {
                 'foliage_type'  => $this->input->post('foliage_type'),
                 'gpp_year' => $this->input->post('gpp_year'),
                 'theme' => $this->input->post('theme'),
-                'plant_height_max' => $this->input->post('plant_height_max'),
+                'plant_height_at_10' => $this->input->post('plant_height_at_10'),
 				'plant_height_min' => $this->input->post('plant_height_min'),
+                'plant_width_at_10' => $this->input->post('plant_width_at_10'),
+				'plant_width_min' => $this->input->post('plant_width_min'),
                 'growth_habit' => $this->input->post('growth_habit'),   
                 'flower_time' => $this->input->post('flower_time'),
                 'flower_color' => $this->input->post('flower_color'),

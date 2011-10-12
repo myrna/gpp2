@@ -92,17 +92,22 @@ class Plantlists_model extends CI_Model {
         $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
         $this->db->join('plant_sun', 'plant_sun.plant_id = plant_data.id', 'left');            
         $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
-		$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
+	//$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
 
         if ($query_array['foliage_color']) {
             $this->db->where('plant_foliage_color.foliage_color_id', 
 				"(select id from foliage_color where lower(foliage_color) = " . $this->db->escape($query_array['foliage_color']) . ")", false);
         }
+         if ($query_array['flower_color']) {
+            $this->db->where('plant_flower_color.flower_color_id',
+				"(select id from flower_color where lower(flower_color) = " . $this->db->escape($query_array['flower_color']) . ")", false);
+        }
 
-		if ($query_array['foliage_texture']) {
-			$this->db->where('plant_foliage_texture.foliage_texture_id', 
-				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
-		}
+	//	if ($query_array['foliage_texture']) {
+	//		$this->db->where('plant_foliage_texture.foliage_texture_id',
+	//			"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
+	//	}
         
         if ($query_array['water']) {
             $this->db->where('plant_water.water_id', 
@@ -117,12 +122,19 @@ class Plantlists_model extends CI_Model {
 				"(select id from sun where lower(sun) = " . $this->db->escape($query_array['sun']) . ")", false);
         }
 
-		if ($query_array['plant_height_max']) {
-			$this->db->where('plant_data.plant_height_max <= ' . intval($query_array['plant_height_max']));
+		if ($query_array['plant_height_at_10']) {
+			$this->db->where('plant_data.plant_height_at_10 <= ' . intval($query_array['plant_height_at_10']));
 		}
 
 		if ($query_array['plant_height_min']) {
-			$this->db->where('plant_data.plant_height_max >= ' . intval($query_array['plant_height_min']));
+			$this->db->where('plant_data.plant_height_at_10 >= ' . intval($query_array['plant_height_min']));
+		}
+                if ($query_array['plant_width_at_10']) {
+			$this->db->where('plant_data.plant_width_at_10 <= ' . intval($query_array['plant_width_at_10']));
+		}
+
+		if ($query_array['plant_width_min']) {
+			$this->db->where('plant_data.plant_width_at_10 >= ' . intval($query_array['plant_width_min']));
 		}
 
         if ($query_array['flower_time']) {
@@ -143,7 +155,7 @@ class Plantlists_model extends CI_Model {
 			if (is_array($query_array['foliage_type'])) {
 				$this->db->where_in('lower(plant_data.foliage_type)', $query_array['foliage_type']);
 			} else {
-            	$this->db->where('lower(plant_data.foliage_type)', $query_array['foliate_type']);
+            	$this->db->where('lower(plant_data.foliage_type)', $query_array['foliage_type']);
 			}	
         }
 
@@ -153,9 +165,9 @@ class Plantlists_model extends CI_Model {
         if ($query_array['theme']) {
             $this->db->where('plant_data.theme', $query_array['theme']);
         }
-        if ($query_array['publish']) {
-            $this->db->where('plant_data.publish', $query_array['publish']);
-        }
+       // if ($query_array['publish']) {
+       //     $this->db->where('plant_data.publish', $query_array['publish']);
+       // }
         $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;

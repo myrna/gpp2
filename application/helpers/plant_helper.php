@@ -1,6 +1,6 @@
 <?php
 function display_full_botanical_name($record) {
-    return sprintf("%s %s %s %s %s %s %s %s %s %s %s %s",
+    return sprintf("%s %s %s %s %s %s %s %s %s %s",
         $record['genus'] ? format_genus($record['genus'],$record['cross_genus']) : "",
         $record['cross_specific_epithet'] ? format_cross_specific_epithet($record['cross_specific_epithet']) : "",
         $record['specific_epithet'] ? format_species($record['specific_epithet'], $record['cross_species']) : "",
@@ -10,8 +10,8 @@ function display_full_botanical_name($record) {
         $record['plant_breeders_rights'] ? format_breeders_rights() : "",
         $record['trademark_name'] ? format_trademark_name($record['trademark_name']) : "",
         $record['registered_name'] ? format_registered_name($record['registered_name']) : "",      
-        $record['plant_patent_number'] ? format_patent_number($record['plant_patent_number']) : "",
-        $record['plant_patent_number_applied_for'] ? "PPAF" : "",
+      //  $record['plant_patent_number'] ? format_patent_number($record['plant_patent_number']) : "",
+      //  $record['plant_patent_number_applied_for'] ? "PPAF" : "",
         $record['plantname_group'] ? format_plantname_group($record['plantname_group']." Group") : ""
     );
 }

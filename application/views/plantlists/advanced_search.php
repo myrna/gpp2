@@ -88,7 +88,7 @@
     </div> 
     <div class="col2">
         <fieldset>
-        <p class="searchlabel"><?php echo form_label('Mature Plant Height (in feet):'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Plant Height (in feet):'); ?></p>
  		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
                      <option value=""></option>
                     <option value="1">1</option>
@@ -98,8 +98,32 @@
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
+                    </select>
+ 		Maximum: <select id="plant_height_at_10" type="text" name="plant_height_at_10">
+                    <option value=""></option>
+                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="25">100</option>
                 </select>
- 		Maximum: <select id="plant_height_max" type="text" name="plant_height_max">
+    </fieldset>
+        <fieldset>
+        <p class="searchlabel"><?php echo form_label('Plant Width (in feet):'); ?></p>
+ 		Minimum: <select id="plant_width_min" type="text" name="plant_width_min">
+                     <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
+ 		Maximum: <select id="plant_width_at_10" type="text" name="plant_width_at_10">
                     <option value=""></option>
                      <option value="1">1</option>
                     <option value="2">2</option>
