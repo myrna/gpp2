@@ -3,7 +3,7 @@
 /**
  * plantlists.php
  *PUBLIC
- * Show plant lists in sortable table, search for plants to display in table
+ * Show search results and plant 
  *
  * @package		Great Plant Picks
  * @subpackage	Controllers
@@ -118,19 +118,42 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/view', $data);
         }
 
-  		// need to create previous and next links for individual plant views; need to use previous/next rows in found set...?
-        //codeigniter has previous_row(), next_row() query result functions....
+        function print_view($id) {
+            // $this->output->enable_profiler(TRUE);
+            $this->load->model('crud_model');
+            $this->load->model('plantlists_model');
+            $this->load->model('gallery_model');
+            $this->load->helper('image');
+            $this->load->helper('html');
+            $this->load->helper('conversion');
 
-        function get_previous($id) {
-            $query = $this->view($row);
-            $row = $query->previous_row();
-            $data = $row;
+            $data['title'] = "";
+
+            $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
+            //  ------- PRIMARY IMAGE ------
+            # find the primary image for this plant, set it to primary, and yank it from the list.
+            foreach ($data['images'] as $image) {
+                if (in_array('primary', $image['categories'])) {
+                    $data['primary_image'] = $image;
+                    unset($data['images'], $image);
+                }
+            }
             
-            $this->template->set('thispage','View Plant');
-            $this->template->set('title','View Plant | Great Plant Picks');
-            $this->template->load('template','plantlists/view', $data);
+            $data['synonyms'] = $this->crud_model->get_synonyms($id);
+            $data['common_names'] = $this->crud_model->get_common_names($id);
+            $data['plant_attributes'] = $this->get_plant_link_data($id);
+            $data['details'] = $this->crud_model->get_record($id);
+
+            $row = $this->crud_model->get_record_as_array($id);
+            $data['row'] = $row[0];
+            $data['id'] = $data['row']['id'];
+
+            $this->template->set('thispage','Print View');
+            $this->template->set('title','Print View | Great Plant Picks');
+            $this->template->load('print_template','plantlists/print_view', $data);
         }
-        
+        // preconfigured searches
+
 		function by_year() {
 			$year = $this->uri->segment(3);
 			$this->process_advanced_search(array('gpp_year' => $year));
@@ -152,7 +175,7 @@ class Plantlists extends CI_Controller {
                 }
 		
 		function plant_array($results) {
-			$a = array();
+                  $a = array();
 			foreach ($results['rows'] as $result) {
                   $a[] = array(
                   'name' => display_full_botanical_name($result),
@@ -212,7 +235,8 @@ class Plantlists extends CI_Controller {
             $results = $this->plantlists_model->basic_search($query);
             
 			if (isset($query) and $query != "" and $results['found'] == 0) {
-				$this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
+				$this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.</p>
+                                    <p class="flash"><a href="#">Why isn\'t my plant listed?</a>');
 			    redirect(site_url("plantlists/"), "refresh");
 			} else {
 	           	$data['records'] = $this->plant_array($results);
@@ -228,8 +252,9 @@ class Plantlists extends CI_Controller {
 
             $results = $this->plantlists_model->advanced_search($query);
             if ($results['found'] == 0) {
-			    $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
-                redirect(site_url('plantlists/advanced'), 'refresh');
+			    $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.</p>
+                                    <p class="flash"><a href="#">Why isn\'t my plant listed?</a>');
+                redirect(site_url("plantlists/advanced"), "refresh");  // this routing is not being used, defaulting to basic search routing
 			} else {
 	            $data['records'] = $this->plant_array($results);
 	            $data['stats'] = $this->search_stats($results);

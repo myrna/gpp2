@@ -79,6 +79,7 @@ class Gallery extends CI_Controller {
 		$plants = $this->db->get_where('plant_data', array('id' => $id))->result_array();
 		$data['plant_data'] = $plants[0];
 		$data['images'] = $this->Gallery_model->get_images($id);
+                
     }
     
     function add_image() {

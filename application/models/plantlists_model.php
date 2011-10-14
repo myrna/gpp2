@@ -92,7 +92,7 @@ class Plantlists_model extends CI_Model {
         $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
         $this->db->join('plant_sun', 'plant_sun.plant_id = plant_data.id', 'left');            
         $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
-	//$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
+	$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
         $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
 
         if ($query_array['foliage_color']) {
@@ -104,10 +104,10 @@ class Plantlists_model extends CI_Model {
 				"(select id from flower_color where lower(flower_color) = " . $this->db->escape($query_array['flower_color']) . ")", false);
         }
 
-	//	if ($query_array['foliage_texture']) {
-	//		$this->db->where('plant_foliage_texture.foliage_texture_id',
-	//			"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
-	//	}
+		if ($query_array['foliage_texture']) {
+			$this->db->where('plant_foliage_texture.foliage_texture_id',
+				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
+		}
         
         if ($query_array['water']) {
             $this->db->where('plant_water.water_id', 
@@ -165,9 +165,9 @@ class Plantlists_model extends CI_Model {
         if ($query_array['theme']) {
             $this->db->where('plant_data.theme', $query_array['theme']);
         }
-       // if ($query_array['publish']) {
-       //     $this->db->where('plant_data.publish', $query_array['publish']);
-       // }
+       if ($query_array['publish']) {
+            $this->db->where('plant_data.publish', $query_array['publish']);
+        }
         $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;

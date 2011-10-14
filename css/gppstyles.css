@@ -315,42 +315,6 @@ div#content {
 	cursor: pointer;
 }
 
-/* image gallery upload form */
-#imageform form {
-    float:left;
-    clear:both;
-    width:500px;
-}
-#imageform label {
-    display:block;
-    margin: 3px 0;
-    font-weight:bold;
-}
-#imageform textarea, #imageform input {
-    width:500px;
-    padding:5px;
-    }
-#imageform textarea {display:block; height:50px;}
-    #imageform .submitimage {
-        clear:both;
-        display:block;
-        width:75px;
-        height:30px;
-       }
-#imageform label {
-    display:inline-block;
-    width:120px;
-    float:left;
-    white-space:nowrap;
-}
-
-#imageform .check label {
-    display:inline-block;
-    line-height:15px;
-    width:1px;
-    clear:both;
-}
-
 p.category {
     clear:left;
     padding-left:5px;
@@ -660,6 +624,12 @@ dl.lists > dd {
 
 
 /* plant fact sheet screen style */
+
+.titles {
+    float:left;
+    width:900px;
+}
+
 #imageview {
     float:left;
     display:block;
@@ -667,13 +637,20 @@ dl.lists > dd {
 }
 img#main-img {clear:left; float:left;}
 
+#imageview ul {}
+#imageview ul li {
+    display:inline-block;
+    float:left;
+    margin-right:10px;
+}
+
 #imageview > .thumbnail {
         float:left;
         display:block;
         width:170px;
         height:150px;
 }
-#imageview >  .thumbnail > p {
+.thumbnail > p {
     clear:left;
     font-size:11px;
     line-height:13px;
@@ -683,22 +660,35 @@ img#main-img {clear:left; float:left;}
     width:150px;
     }
 
+#imageview li img {cursor:pointer;}
+
 #imageview img {
     border:5px #d2d26f solid;
 }
 .plantinfo {
-    margin-right:20px;
+    display:inline-block;
+    width:400px;
 }
-.plantinfo dt {
+.plantdetails {
+    clear:both;
+    width:100%;
+   padding-top:20px;
+}
+.plantinfo dt, .plantdetails dt {
     font-weight:bold;
 }
-.plantinfo dd {
+.plantinfo dd, .plantdetails dd {
     padding-bottom:8px;
-}
+    }
+
+/* print view link on individual plant fact sheet */
 
 #printview {
-    float:right;
+    position:absolute;
+    top:10px;
+    left:850px;
 }
+
 .print, #printhead {
     display:none;
 }
@@ -817,6 +807,16 @@ h5 {font-size:16px;}
     text-align:center;
     margin-bottom:20px;
 }
+.titles > h5{
+    font-size:18px;
+    line-height:24px;
+    padding-bottom:5px;
+    text-align:center;
+    font-weight:bold;
+    font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
+    text-shadow:1px 1px rgba(0,0,0,0.1);
+}
+.titles > h5.common {text-transform:uppercase;}
 
 #upload h3 {padding:15px 0 5px;}
 

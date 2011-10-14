@@ -195,7 +195,7 @@ function build_form_control($key, $value) {
         case 'publish':
             $current = $value ? $value : 'No';
             $options = array('No' => "No", 'Yes' => "Yes");
-            return form_dropdown('publish', $options, $current, "id='key'");
+            return form_dropdown('publish', $options, $current, "id='$key'");
             break;
          case 'growing_notes':
              return form_textarea($attributes);
@@ -213,6 +213,9 @@ function build_form_control($key, $value) {
             return form_textarea($attributes);
             break;
         case 'gpp_history' :
+            return form_textarea($attributes);
+            break;
+        case 'geek_notes' :
             return form_textarea($attributes);
             break;
         default:

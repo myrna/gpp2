@@ -1,8 +1,14 @@
-<!-- display for PUBLIC plant list and search function -->
+<!-- print display for PUBLIC plant list and search function -->
 
 <div id="content" class="view">
-    
-<div id="printview"><?php echo anchor('plantlists/print_view/' . $id, "Printer-Friendly View"); ?></div>
+    <div id="printview"><?php echo anchor('plantlists/view/' . $id, "Back to Web View"); ?></div>
+    <div id="printhead">
+        <img src="../assets/logo-print.gif">
+        <p class="logo first">&#169;2001-<?php echo date("Y"); ?></p>
+        <p class="logo">Great Plant Picks</p>
+        <p class="logo"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
+    </div>
+
     <?php
     if($row == FALSE)
     {
@@ -12,13 +18,13 @@
  else
     {
         ?>
-    <div class="titles">
-    <h5>
+   
+    <h2>
     <?php
         echo display_full_botanical_name($row);
         }
-    ?></h5>
-    <h5 class="common">
+    ?></h2>
+    <h2 class="common">
     <?php 
         if (!empty($common_names)) {
             foreach ($common_names as $common_name) {
@@ -26,26 +32,11 @@
                 }
                 }               
     ?>
-    </h5></div>
+    </h2>
     <div id="imageview">
-        <ul>
-    <?php  {
-        if (!empty($primary_image)) {
-        echo "<li><div class='thumbnail'>" . image_view_link($primary_image['filename']) .
-         "<p>&#169; " . $primary_image['copyright'] . "</p></div></li>" ;
-        }
-        if (!empty($detail_image)) {
-        echo "<li><div class='thumbnail'>" . image_view_link($detail_image['filename']) .
-         "<p>&#169; " . $detail_image['copyright'] . "</p></div></li>";
-        }
-        if (!empty($landscape_image)) {
-         echo "<li><div class='thumbnail'>" . image_view_link($landscape_image['filename']) .
-         "<p>&#169; " . $landscape_image['copyright'] . "</p></div></li>";
-        }
-    }
-    ?>
-        </ul>
-   <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
+        
+   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" />
+   <?php echo"<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
      </div><!-- end image view -->
      
     <div class="plantinfo">
@@ -134,6 +125,6 @@
     ?>
  
     </div><!-- end plantinfo -->
-    <div class="clear"></div>
+    <div class="pagebreak"></div>
 </div><!-- end content -->
 

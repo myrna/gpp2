@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
         <link rel="stylesheet" id="gppstyles" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
-        <link rel="stylesheet" id="gppstyles1" href="<?php echo base_url();?>css/gppstyles1.css" type="text/css" media="print" />
         <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>ie7.css">
 <![endif]-->
@@ -45,11 +44,8 @@
         <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
         <?php $this->load->view('includes/footer'); ?>
-
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+ <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.tablesorter.min.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.style-switcher.js'></script>
-        <script type='text/javascript' src='<?php echo base_url();?>/scripts/scripts.js'></script>
-        
+        <script type='text/javascript' src='<?php echo base_url();?>/scripts/scripts.js'></script>        
            </body>
 </html>

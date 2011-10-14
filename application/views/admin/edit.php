@@ -88,11 +88,12 @@
                 echo "</span>";
             };
         }
-        
+     
     ?>
     <div class="clear"></div>
     <?php echo form_submit('edit','Edit Record'); ?>
     <?php
+     echo form_close();
     }
     ?>
          <div class="clear"></div>

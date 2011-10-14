@@ -4,7 +4,7 @@
  
     <h2>Great Plant Picks Search Results</h2>
 <p class="center">Found <?php echo $stats; ?> total plants (click column to sort)</p>
-    <?php  $attributes = array('class' => 'searchform');
+    <?php  $attributes = array('class' => 'advsearch');
     echo form_open('plantlists', $attributes); ?>
    <input type="text" name="searchterms" id="searchterms">
     <input type="submit" value="Search">
@@ -22,6 +22,7 @@
             <th>Plant Name (Click to sort)</th>
             <th>Family (Common)</th>
             <th>Height</th>
+           
             </thead>
        
         <tbody>
@@ -37,6 +38,7 @@
             <td>
                 <?php echo $plant['height'] . "'"; ?>
             </td>
+            
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -24,7 +24,8 @@
     echo image_thumb_link($image['filename']);
 	foreach ($image['categories'] as $category) {   
 		echo "<p class='category'>Category: " . $category . "</p>";
-	}
+                }
+        
      ?>
 </div>
 <?php endforeach; else: ?>
@@ -35,31 +36,35 @@
     <div id="upload">
        
     <?php
-$attributes = array('id' => 'imageform');
+$attributes = array('class' => 'data-entry');
 echo form_open_multipart('admin/gallery/add_image', $attributes);
 echo form_upload('userfile');
 if (isset($plant_id)) {
     echo form_hidden('plant_id', $plant_id);
 }?>
-
+        <ul>
         <fieldset>
-            <label for="description">Description</label>
-             <?php echo form_input('description'); ?>
+            <li><span class='labelname'> <label for="description">Description</label></span>
+             <?php echo form_input('description'); ?></li>
         </fieldset>
         <fieldset>
-            <label for="copyright">Copyright</label>
-             <?php echo form_input('copyright'); ?>
+            <li><span class='labelname'><label for="copyright">Copyright</label></span>
+             <?php echo form_input('copyright'); ?></li>
         </fieldset>
         <fieldset>
-            <label for="photographer">Photographer</label>
-            <?php echo form_input('photographer'); ?>
+            <li><span class='labelname'> <label for="photographer">Photographer</label></span>
+            <?php echo form_input('photographer'); ?></li>
         </fieldset>
-<?php
-
-        echo form_label('Season', 'season');
+            <fieldset>
+                <li><span class='labelname'>
+            <?php
+        echo form_label('Season', 'season'); ?>
+                    </span>
+           <?php
         echo form_dropdown('season', $seasons, '');
 
 ?>
+            </li></fieldset></ul>
 <h3>Categories</h3>
 <?php
 foreach ($category_fields as $row) {
@@ -68,13 +73,15 @@ foreach ($category_fields as $row) {
             'id' => convert_to_id($row['category']), 
             'value' => $row['id']
         ); ?>
-<span class="check">
+
 <?php
+        echo "<span class='formcheck'>";
         echo form_checkbox($category_data);
         echo form_label($row['category'], $row['category']);
+        echo "</span>";
     } ?>
-</span>
 
+<div class="clear"></div>
 <input type="submit" class="submitimage" value="Submit">
 <?php
 echo form_close();

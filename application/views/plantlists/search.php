@@ -2,7 +2,7 @@
 
 <div id="content" class="view">
     <h2>Find Your Great Plant Pick</h2>
-    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
+    
     <div class="simplesearch">
     <?php
      	$attributes = array('class' => 'searchform');
@@ -13,6 +13,7 @@
    <input type="submit" value="Search"></p>
    <?php echo form_close(); ?>
     </div><!-- end searchform -->
+    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
     <ul class="leaf">
   <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
     </ul>

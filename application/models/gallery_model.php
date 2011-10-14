@@ -85,6 +85,16 @@ class Gallery_model extends CI_Model {
 		}
         return $images;
     }
+
+    function get_image_data($image_id) {
+         $this->db->get('images');
+            $query = $this->db->select('orientation','season','description','copyright','photographer')
+                    ->from('images')
+                    ->where('id',$id)
+                    ->get();
+            $data['query'] = $query;
+            return $data;
+        }
        
     function delete_image($image_id) {
         $image = $this->db->get('images', array('id' => $image_id))->result();

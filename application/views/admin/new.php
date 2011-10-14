@@ -44,6 +44,7 @@
         
     ?>
     <div class="clear"></div>
-    <?php echo form_submit('add', 'Add Record'); ?>
+    <?php echo form_submit('add', 'Add Record');
+    echo form_close(); ?>
       <div class="clear"></div>
 </div><!-- end content -->

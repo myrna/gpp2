@@ -29,12 +29,6 @@ $.fn.preload = function() {
     });
 }
 
-// stylesheet switcher
-
-$(document).ready(function() {
-    $('#printview').styleSwitcher();
-});
-
 // search form on focus remove text
 
 $(document).ready(function(){

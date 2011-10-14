@@ -4,7 +4,7 @@
     <h4>Find Your Plant</h4>
     
 <p class="center">Found <?php echo $stats; ?> plants (click column to sort)</p>
-    <?php
+    <?php  $attributes = array('class' => 'advsearch');
     echo form_open('plantlists', $attributes); ?>
 
     <input type="text" name="searchterms" id="searchterms">
