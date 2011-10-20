@@ -44,13 +44,14 @@
         <input type="radio" name="foliage_color" value="bronze">Bronze
         <input type="radio" name="foliage_color" value="burgundy">Burgundy
         <input type="radio" name="foliage_color" value="chartreuse">Chartreuse
-        <input type="radio" name="foliage_color" value="dark green">Dark Green</p>
-         <p class="radios">
+        </p><p class="radios">
+        <input type="radio" name="foliage_color" value="dark green">Dark Green
         <input type="radio" name="foliage_color" value="gold">Gold
         <input type="radio" name="foliage_color" value="green">Green
         <input type="radio" name="foliage_color" value="purple">Purple
         <input type="radio" name="foliage_color" value="red">Red
         <input type="radio" name="foliage_color" value="silver">Silver
+        </p><p class="radios">
         <input type="radio" name="foliage_color" value="variegated">Variegated
         <input type="radio" name="foliage_color" value="white">White</p>
         </fieldset>
@@ -59,10 +60,10 @@
         <p class="radios">
         <input type="radio" name="flower_time" value="winter">Winter
         <input type="radio" name="flower_time" value="winter-spring">Winter-Spring
-        <input type="radio" name="flower_time" value="spring">Spring
-        <input type="radio" name="flower_time" value="spring-summer">Spring-Summer
-        <input type="radio" name="flower_time" value="summer">Summer</p>
+        <input type="radio" name="flower_time" value="spring">Spring</p>
          <p class="radios">
+        <input type="radio" name="flower_time" value="spring-summer">Spring-Summer
+        <input type="radio" name="flower_time" value="summer">Summer
         <input type="radio" name="flower_time" value="summer-fall">Summer-Fall
         <input type="radio" name="flower_time" value="fall">Fall</p>
     </fieldset>
@@ -74,15 +75,17 @@
         <input type="radio" name="flower_color" value="cream">Cream
         <input type="radio" name="flower_color" value="green">Green
         <input type="radio" name="flower_color" value="lavender">Lavender
-        <input type="radio" name="flower_color" value="orange">Orange
         </p>
         <p class="radios">
+        <input type="radio" name="flower_color" value="orange">Orange        
         <input type="radio" name="flower_color" value="pink">Pink
         <input type="radio" name="flower_color" value="purple">Purple
         <input type="radio" name="flower_color" value="red">Red
         <input type="radio" name="flower_color" value="rose">Rose
         <input type="radio" name="flower_color" value="violet">Violet
         <input type="radio" name="flower_color" value="white">White
+        </p>
+        <p class="radios">
         <input type="radio" name="flower_color" value="yellow">Yellow</p>
     </fieldset>
     </div> 
@@ -176,9 +179,9 @@
         <p class="radios">
         <input type="radio" name="water" value="bog">Bog
         <input type="radio" name="water" value="moist">Moist
-        <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry
-        <input type="radio" name="water" value="drought-tolerant">Drought Tolerant</p>
+        <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry</p>
         <p class="radios">
+        <input type="radio" name="water" value="drought-tolerant">Drought Tolerant
         <input type="radio" name="water" value="average">Average
         <input type="radio" name="water" value="any-water">Any</p>
         </fieldset>

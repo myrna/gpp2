@@ -154,38 +154,39 @@ class Plantlists extends CI_Controller {
         }
         // preconfigured searches
 
-		function by_year() {
-			$year = $this->uri->segment(3);
-			$this->process_advanced_search(array('gpp_year' => $year));
-		}
-		
-		function by_plant_type() {
-			$types = explode("|", urldecode($this->uri->segment(3)));
-			$this->process_advanced_search(array('plant_type' => $types));
-		}
-		
-		function by_texture() {
-			$texture = $this->uri->segment(3);
-			$this->process_advanced_search(array('foliage_texture' => $texture));
-		}
+        function by_year() {
+                $year = $this->uri->segment(3);
+                $this->process_advanced_search(array('gpp_year' => $year));
+        }
 
-                function by_publish() {
-                    $publish = $this->uri->segment(3);
-                    $this->process_advanced_search(array('publish' => $publish));
-                }
-		
-		function plant_array($results) {
-                  $a = array();
-			foreach ($results['rows'] as $result) {
-                  $a[] = array(
-                  'name' => display_full_botanical_name($result),
-                  'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],
-                  'id' => $result['id']
-              );
-            }
-			return $a;
-		}
+        function by_plant_type() {
+                $types = explode("|", urldecode($this->uri->segment(3)));
+                $this->process_advanced_search(array('plant_type' => $types));
+        }
+
+        function by_texture() {
+                $texture = $this->uri->segment(3);
+                $this->process_advanced_search(array('foliage_texture' => $texture));
+        }
+
+        function by_publish() {
+            $publish = $this->uri->segment(3);
+            $this->process_advanced_search(array('publish' => $publish));
+        }
+
+        function plant_array($results) {
+
+          $a = array();
+                foreach ($results['rows'] as $result) {
+          $a[] = array(
+          'name' => display_full_botanical_name($result),
+          'common' => $result['family_common_name'],
+          'height' => $result['plant_height_at_10'],
+          'id' => $result['id']
+      );
+    }
+                return $a;
+        }
 // Warning from log files: Missing argument 2 for Plantlists::search_stats(), called in C:\vhosts\gpptest\application\controllers\plantlists.php
 // on line 234 and defined C:\vhosts\gpptest\application\controllers\plantlists.php 167
 		function search_stats($results, $query) {
@@ -263,7 +264,8 @@ class Plantlists extends CI_Controller {
 		}
 
 		function display_results($data) {
-			$this->template->set('thispage','Display Lists');
+
+	    $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/results',$data);
 		}

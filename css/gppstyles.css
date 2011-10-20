@@ -21,7 +21,7 @@ ol, ul {list-style: none;}
 /* body styles */
 html {min-height:100%; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%}
 body {
-	font:normal 13px/19px Verdana, Arial, Helvetica, sans-serif;
+	font:normal 14px/1.4em Verdana, Arial, Helvetica, sans-serif;
 	min-height:100%;
 	background-color:#000;
         color:#000;
@@ -597,6 +597,12 @@ ul.leaf > li {
     padding:5px 0 15px 30px;
 }
 
+/*indented basic list style for selection, advisory committee lists */
+ul.normal {
+    margin-left:50px;
+    margin-top:-25px;
+}
+
 /* leaft sprite definition list format used on about page */
 dl.leaf{padding-top:10px;}
 dl.leaf dt {
@@ -842,6 +848,30 @@ h5 {font-size:16px;}
 .titles > h5.common {text-transform:uppercase;}
 
 #upload h3 {padding:15px 0 5px;}
+
+h3.perennials {
+    padding:10px 0 38px 50px;
+    background:url(../assets/committees-sprite.gif) 0 -58px no-repeat;
+}
+
+h3.shrubs {
+    padding:10px 0 38px 50px;
+    background:url(../assets/committees-sprite.gif) 0 0 no-repeat;
+}
+
+h3.trees {
+    padding:13px 0 38px 50px;
+    background:url(../assets/committees-sprite.gif) 0 -120px no-repeat;
+}
+h3.atlarge {
+    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    padding:5px 0 38px 50px;
+    margin-top:10px;
+}
+h3.clematis {
+    padding:13px 0 38px 50px;
+    background:url(../assets/committees-sprite.gif) 0 -185px no-repeat;
+}
 
 /* paragraph styles */
 p {margin-bottom:5px;}

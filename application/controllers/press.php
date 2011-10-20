@@ -37,11 +37,36 @@ class Press extends CI_Controller
         public function terms()
 
 	{
+            
             $this->template->set('thispage','Terms of Use');
             $this->template->set('title','Terms of Use | Great Plant Picks');
             $this->template->load('template','press/terms');
 	}
 
+        function download($file)
+
+        {
+            $this->load->helper('download');
+
+            $file_name='logo-main.png';
+             $file_path=realpath(APPPATH . '../assets/'.$file_name);
+
+                header('Content-Description: File Transfer');
+                header('Content-Type: image/png');
+                header('Content-Disposition: attachment; filename='.$file_name);
+                header('Content-Transfer-Encoding: base64');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($file_path));
+                ob_clean();
+                flush();
+                readfile($file_path);
+                exit;
+
+            redirect("press/terms/");
+        }
+        
 }
 
 /* End of file press.php */

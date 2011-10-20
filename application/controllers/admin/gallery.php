@@ -81,6 +81,22 @@ class Gallery extends CI_Controller {
 		$data['images'] = $this->Gallery_model->get_images($id);
                 
     }
+
+    function display_image($id) {
+        $this->load->model('Crud_model');
+        $this->load->model('Gallery_model');
+        $this->load->helper('image');
+        $this->load->helper('html');
+
+        $data = array(
+            'filename' => $filename,
+            'copyright' => $copyright,
+            'photographer' => $photographer,
+            'description' => $description,
+            'seasons' => $seasons
+            );
+
+    }
     
     function add_image() {
         //$this->output->enable_profiler(TRUE);
