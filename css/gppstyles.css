@@ -96,7 +96,6 @@ div#navigation {
     padding:3px 0 5px 24px;
     margin-right:40px;
     line-height:30px;
-    vertical-align:bottom;
 }
 #navigation #currentpage {    
     background: url(../assets/leaf-sprite.png) 0 -1px no-repeat;
@@ -107,9 +106,9 @@ div#navigation {
 }
 
 #breadcrumbs {    
-    margin-left:142px;
+    margin-left:102px;
     background: url(../assets/leaf-breadcrumb.png) 0 0 no-repeat;
-    padding:0 0 20px 20px;
+    padding:0 0 20px 30px;
 }
 
 #breadcrumbs a {
@@ -126,9 +125,10 @@ div#navigation {
 }
 
 #plant-link {
-    float:right;
+    position:absolute;
     display:block;
-    margin-top:15px;
+    top:15px;
+    right:0px;
     width:225px;
     height:38px;
     background:url(../assets/search-arrow-long.gif) 0 -38px no-repeat;
@@ -204,6 +204,14 @@ div#content {
 	.col3-3 {width:98.0%}
 
         .col1-3 > ul {margin-bottom:10px;}
+
+        .colright {
+            float:right;
+            margin:20px 0 20px 20px;
+}
+.colright img {
+        border:5px #d2d26f solid;
+        }
 
 .home-image {
     float:right;
@@ -588,20 +596,35 @@ ul.leaf > li {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
 }
-dl.leaf{}
+
+/* leaft sprite definition list format used on about page */
+dl.leaf{padding-top:10px;}
 dl.leaf dt {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
-    padding:5px 0 5px 30px;
-    font-size:15px;
+    padding:0 0 10px 30px;
+    font-size:14px;
     font-weight:bold;
-    letter-spacing:.05em;
+}
+dl.leaf dd:before {
+    content: "\00BB";
+    font-weight:bold;
+    padding-right:3px;
 }
 dl.leaf dd {
-    margin-left:40px;
+    padding-left:30px;
+    margin-left:2em;
+    text-indent:-1.2em;
     font-size:14px;
+    padding-bottom:10px;
 }
 dl.leaf dd.last {
     margin-bottom:10px;
+}
+p.leaf {
+    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    padding:0 0 10px 30px;
+    font-size:14px;
+    font-weight:bold;
 }
 /* list style for Plant Lists page */
 
@@ -841,6 +864,11 @@ p.flash {
     font-weight:bold;
     font-size:15px;
     margin-top:5px;
+}
+p.copy {
+    font-style:italic;
+    margin:0;
+    padding:0;
 }
 p.info {
     font-weight:bold;

@@ -3,15 +3,17 @@
 </div><!-- end main image -->
 
 <div class="home-text">
-    <p>Great Plant Picks originates at the Elisabeth Carey Miller Botanical Garden in Seattle, Washington.
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
-        sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    <h2>Welcome to Great Plant Picks!</h2>
+    <p><em>Great Plant Picks</em> (GPP) is an educational program of the <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> which debuted in 2001 with the first
+    recommendations for a comprehensive palette of outstanding plants for the maritime Pacific Northwest.  To date over 800 exceptional plants
+    have been selected for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada.</p>
     <h2>Looking for a plant?</h2>
     <ul class="leaf">
-       <li><em>Search on your own&#8212;</em>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-       <li><em>Great Plant Picks Lists&#8212;</em>Aliquam tincidunt mauris eu risus.</li>
-       <li><em>Take me to THIS plant&#8212;</em>Vestibulum auctor dapibus neque.</li>
+       <li><a href="<?php echo base_url();?>plantlists/advanced/">Search on your own</a>&#8212;Check out our new Advanced Search page!</li>
+       <li><a href="<?php echo base_url();?>plantlists/search/">Great Plant Picks Lists</a>&#8212;Helpful plant lists for shade, sun, small trees,
+       great foliage, and more.</li>
+       <li><a href="<?php echo base_url();?>resources/">Need more info?</a>&#8212;Participating nurseries, useful websites and organizations,
+           and more.</li>
     </ul>
 
 
