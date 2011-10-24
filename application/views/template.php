@@ -5,9 +5,6 @@
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
         <link rel="stylesheet" id="gppstyles" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
-        <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>ie7.css">
-<![endif]-->
         </head>
     <body>
         <div id="topbar"></div>

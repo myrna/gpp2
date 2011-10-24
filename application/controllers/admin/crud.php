@@ -175,9 +175,72 @@ class Crud extends CI_Controller
         $data['common_names'] = $this->crud_model->get_common_names($id);
         $data['plant_attributes'] = $this->get_plant_link_data($id);
 
-        $row = $this->crud_model->get_record_as_array($id);
+        $record = $this->crud_model->get_record_as_array($id);
+
+        $fields = array(
+            'id',
+            'family',
+            'family_common_name',
+            'genus',
+            'cross_genus',
+            'cross_specific_epithet',
+            'specific_epithet',
+            'infraspecific_epithet_designator',
+            'infraspecific_epithet',
+            'cross_species',
+            'plantname_group',
+            'cultivar',
+            'trade_name',
+            'trademark_name',
+            'registered_name',
+            'plant_patent_number',
+            'plant_patent_number_applied_for',
+            'plant_breeders_rights',
+            'qualities',
+            'growing_notes',
+            'plant_type',
+            'growth_habit',
+            'foliage_type',
+            'plant_width_at_10',
+            'plant_height_at_10',
+            'sun_exposure',
+            'water_requirements',
+            'soil_requirements',
+            'seasonal_interest',
+            'zone_low',
+            'zone_high',
+            'plant_combinations',
+            'culture_notes',
+            'geek_notes',
+            'native_to_gpp_region',
+            'flower_showy',
+            'flower_time',
+            'fruit_seedhead_attractive',
+            'fragrance',
+            'bark_interest',
+            'division_pruning_group',
+            'plant_width_max',
+            'plant_height_max',
+            'nominator',
+            'nominated_for_year',
+            'committee',
+            'advisory_group',
+            'eval_trial',
+            'gpp_references',
+            'status',
+            'evaluation_available',
+            'gpp_history',
+            'gpp_references',
+            'gpp_year',
+            'programmed_search',
+            'publish',
+            'sort'
+        );
+
+         foreach ($fields as $field) {
+            $data['row'][$field] = $record[0][$field];
+        }
         
-        $data['row'] = $row[0];
         $data['id'] = $data['row']['id'];
         
         $this->template->set('thispage','Edit Record');
@@ -223,6 +286,10 @@ class Crud extends CI_Controller
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use']['fields'] = $design_use['list'];
         $data['design_use']['requirements'] = $design_use['current'];
+        
+        $theme = $this->crud_model->link_table($id, 'theme', 'plant');
+        $data['theme']['fields'] = $theme['list'];
+        $data['theme']['requirements'] = $theme['current'];
         
         return $data;
     }

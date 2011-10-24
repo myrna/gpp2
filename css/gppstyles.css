@@ -363,7 +363,7 @@ form.adv-search {
 }
 .data-entry textarea {
     width:600px;
-    height:80px;
+    height:175px;
 }
 
 p.searchlabel {
@@ -655,8 +655,7 @@ dl.lists > dd {
 /* plant fact sheet screen style */
 
 .titles {
-    float:left;
-    width:900px;
+    margin-bottom:10px;
 }
 
 #imageview {
@@ -696,7 +695,7 @@ img#main-img {clear:left; float:left;}
 }
 .plantinfo {
     display:inline-block;
-    width:400px;
+    width:420px;
 }
 .plantdetails {
     clear:both;
@@ -709,6 +708,13 @@ img#main-img {clear:left; float:left;}
 .plantinfo dd, .plantdetails dd {
     padding-bottom:8px;
     }
+
+.quickfacts {
+    background-color:#d2d26f;
+    padding:10px 15px;
+
+}
+.quickfacts p {font-size:13px; line-height:1.3em;}
 
 /* print view link on individual plant fact sheet */
 
@@ -872,6 +878,10 @@ h3.clematis {
     padding:13px 0 38px 50px;
     background:url(../assets/committees-sprite.gif) 0 -185px no-repeat;
 }
+.quickfacts > h3{
+    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    padding:3px 0 5px 25px;
+    }
 
 /* paragraph styles */
 p {margin-bottom:5px;}

@@ -137,6 +137,14 @@ class Plantlists_model extends CI_Model {
 			$this->db->where('plant_data.plant_width_at_10 >= ' . intval($query_array['plant_width_min']));
 		}
 
+                if ($query_array['zone_low']) {
+			$this->db->where('plant_data.zone_low >= ' . intval($query_array['zone_low']));
+		}
+
+		if ($query_array['zone_low_max']) {
+			$this->db->where('plant_data.zone_low <= ' . intval($query_array['zone_low_max']));
+		}
+
         if ($query_array['flower_time']) {
             $this->db->where('lower(plant_data.flower_time)', $query_array['flower_time']);
         }

@@ -41,7 +41,7 @@
 
  .plantinfo {
     display:inline-block;
-    width:400px;
+    width:480px; /* may need to change width as images get larger */
     padding-top:10px;
 }
 .plantdetails {

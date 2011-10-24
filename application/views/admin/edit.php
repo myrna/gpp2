@@ -60,7 +60,8 @@
         echo form_open('admin/crud/edit',$attributes);
     ?>
     <ul>
-    <?php foreach ($row as $key => $value) {
+    <?php
+        foreach ($row as $key => $value) {
         echo "<li>";
         echo "<span class='labelname'>";
         echo form_label(field_to_label($key), $key);

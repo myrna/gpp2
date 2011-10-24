@@ -36,7 +36,7 @@
     <div id="imageview">
         
    <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" />
-   <?php echo"<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
+   <?php if (!empty($primary_image['copyright'])) echo"<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
      </div><!-- end image view -->
      
     <div class="plantinfo">
@@ -55,14 +55,12 @@
         echo "<p>". $details->qualities . "</p>";
 
         echo "<h3>Quick Facts</h3>";
-        echo "<p><em>Plant Type:</em> " . $details->plant_type . "</p>";
+        echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>";
         echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
         echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
         echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
         echo feet_to_meters($details->plant_width_at_10) . " meters)</p>";
-        if (!empty($growth_habit))
-        echo "<p><em>Growth Habit:</em> " . $details->growth_habit . "</p>";
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
        
         if (!empty($plant_attributes['flower_color'])) {
@@ -72,20 +70,9 @@
         if (!empty($plant_attributes['flower_time'])) {
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
         }
-        if (!empty($plant_attributes['sun'])) {
-            echo "<p><em>Sun/Light Exposure:</em> ";
-            echo implode($plant_attributes['sun'], ', ');
-        }
-
-        if (!empty($plant_attributes['water'])) {
-            echo "<p><em>Water Requirements:</em> ";
-            echo implode($plant_attributes['water'], ', ');
-        }
-
-        if (!empty($plant_attributes['soil'])) {
-            echo "<p><em>Soil Requirements:</em> ";
-            echo implode($plant_attributes['soil'], ', ');
-        }
+        echo "<p><em>Sun/Light Exposure:</em> " . $details->sun_exposure . "</p>";
+        echo "<p><em>Water Requirements:</em> " . $details->water_requirements . "</p>";
+        echo "<p><em>Soil Requirements:</em> " . $details->soil_requirements . "</p>";
 
         if (!empty($details->seasonal_interest))  {
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
@@ -118,10 +105,7 @@
             echo $details->geek_notes;
             echo "</dd><dt>";
         }
-        if (!empty($details->plant_origin)) {
-            echo "<em>Origin:</em> " . $details->plant_origin . "</dd></dl></div>";
-            }
-
+       
     ?>
  
     </div><!-- end plantinfo -->

@@ -27,7 +27,8 @@ class Crud_model extends CI_Model {
         'design_use',
         'pest_resistance',
         'soil',
-        'wildlife'                       
+        'wildlife',
+        'theme'
         );
 
     public function update_link_table($id, $primary, $attribute, $values) {
@@ -172,6 +173,7 @@ class Crud_model extends CI_Model {
             $query = $this->db->where('id', $id);
 
             $query = $this->db->get('plant_data');
+            
         }
         if ($query->num_rows() > 0) {
             return $row = $query->result_array();

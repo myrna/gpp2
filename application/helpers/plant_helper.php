@@ -101,7 +101,7 @@ function field_to_label($field) {
             return "Fruit/Seedhead Attractive";
             break;
         case 'division_pruning_group':
-            return "Division or Pruning Group";
+            return "Horticultural Classification or Pruning Group";
             break;
         case 'nominator':
             return "Nominated By";
@@ -120,6 +120,9 @@ function field_to_label($field) {
             break;
         case 'gpp_year':
             return "GPP Year";
+            break;
+        case 'foliage_texture':
+            return "Fantastic Foliage";
             break;
         default:
             return convert_to_label($field);
@@ -153,8 +156,8 @@ function build_form_control($key, $value) {
             break;
         case 'plant_type':
             $current = $value ? $value : '';
-            $options = array('' => "", 'bulb' => "bulb", 'conifer' => "conifer", 'perennial' => "perennial",
-                'shrub' => "shrub", 'tree' => "tree", 'vine' => "vine", 'annual' => "annual");
+            $options = array('' => "", 'bamboo' => "bamboo", 'bulb' => "bulb", 'conifer' => "conifer", 'fern' => "fern", 'grass' => "grass", 'perennial' => "perennial",
+                'shrub' => "shrub", 'tree' => "tree", 'vine' => "vine");
             return form_dropdown('plant_type', $options, $current, "id='$key'");
             break;
          case 'flower_time':
@@ -168,7 +171,7 @@ function build_form_control($key, $value) {
             $current = $value ? $value : '';
             $options = array('' => "", 'columnar' => "columnar", 'compact' => "compact", 'mounding' => "mounding",
                 'narrow' => "narrow", 'pyramidal' => "pyramidal", 'round' => "round", 'spreading' => "spreading",
-                'upright' => "upright", 'weeping' => "weeping");
+                'upright' => "upright", 'vase-shaped' => "vase-shaped", 'weeping' => "weeping");
             return form_dropdown('growth_habit', $options, $current, "id='$key'");
             break;
         case 'committee':

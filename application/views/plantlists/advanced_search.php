@@ -30,6 +30,16 @@
         <input type="radio" name="plant_type" value="tree">Tree
         <input type="radio" name="plant_type" value="vine">Vine</p>
     </fieldset>
+            <fieldset>
+        <p class="searchlabel"><?php echo form_label('Hardy to (USDA zone minimum):','zone_low'); ?></p>
+ 		<p class="radios">
+        <input type="radio" name="zone_low_max" value="3">3
+        <input type="radio" name="zone_low_max" value="4">4
+        <input type="radio" name="zone_low_max" value="5">5
+        <input type="radio" name="zone_low_max" value="6">6
+        <input type="radio" name="zone_low_max" value="7">7
+        <input type="radio" name="zone_low_max" value="8">8</p>
+        </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
         <p class="radios">
@@ -137,6 +147,7 @@
                     <option value="25">25</option>
                 </select>
     </fieldset>
+        
      <fieldset>
         <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
         <p class="radios">
