@@ -35,8 +35,8 @@
     </h2>
     <div id="imageview">
         
-   <img src="<?php echo image_url($primary_image['filename']) ?>" alt="" />
-   <?php if (!empty($primary_image['copyright'])) echo"<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
+   <?php if (!empty($primary_image)) echo "<img src=" . image_url($primary_image['filename']) . " alt='' />" ?>
+   <?php if (!empty($primary_image['copyright'])) echo "<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
      </div><!-- end image view -->
      
     <div class="plantinfo">
@@ -95,7 +95,7 @@
             echo implode($plant_attributes['pest_resistance'], ', ');
         }
               
-        echo "</div><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+        echo "</div><!-- end plantinfo --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";
         echo $details->growing_notes;
@@ -108,7 +108,7 @@
        
     ?>
  
-    </div><!-- end plantinfo -->
+    </div><!-- end plantdetails -->
     <div class="pagebreak"></div>
 </div><!-- end content -->
 

@@ -1,30 +1,30 @@
 <!-- PUBLIC plantlists and search page -->
 
 <div id="content" class="advsearch">
-    <h2>Great Plant Picks Advanced Search</h2>
-    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
-    <div class="simplesearch">
-      <?php $attributes = array('class' => 'searchform');
-    echo form_open('plantlists', $attributes); ?>
-    <p>Search by plant name:
-     <input type="text" name="searchterms" id="searchterms" value="Enter botanical or common name">
-    <input type="submit" value="Search"></p>
-   
-    <?php echo form_close(); ?>
-    </div><!-- end simplesearch -->
-    <h5>Search by plant attributes (select those that apply):</h5>
+ <?php
+
+    echo "<h2>Administrative Search and Queries</h2>";
+    echo "<p class='flash'>" . $this->session->flashdata('status') . "</p>";
+    echo "<p class='nav'>".anchor('admin/admin_search', 'Refresh search')."</p>";
+  ?>
+    
+   <h5>Custom query (select applicable attributes):</h5>
    
     
      <?php
     $attributes = array('class' => 'adv-search');
-    echo form_open('plantlists/advanced_search', $attributes); ?>
+    echo form_open('admin/admin_search/admin_query', $attributes); ?>
         <div class="col1">
     <fieldset>
 
-        <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Plant Type:','plant_type'); ?></p>
         <p class="radios">
+        <input type="radio" name="plant_type" value="bamboo">Bamboo
         <input type="radio" name="plant_type" value="bulb">Bulb
         <input type="radio" name="plant_type" value="conifer">Conifer
+        <input type="radio" name="plant_type" value="fern">Fern
+        <input type="radio" name="plant_type" value="grass">Grass</p>
+        <p class="radios">
         <input type="radio" name="plant_type" value="perennial">Perennial
         <input type="radio" name="plant_type" value="shrub">Shrub
         <input type="radio" name="plant_type" value="tree">Tree
@@ -40,6 +40,24 @@
         <input type="radio" name="zone_low_max" value="7">7
         <input type="radio" name="zone_low_max" value="8">8</p>
         </fieldset>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Theme:','theme'); ?></p>
+        <p class="radios">
+        <input type="radio" name="theme" value="foliage">Foliage: 2010
+        <input type="radio" name="theme" value="sun drought">Sun &amp; Drought Tolerant: 2011</p>
+        <p class="radios">
+        <input type="radio" name="theme" value="shade">Made in the Shade: 2012
+        <input type="radio" name="theme" value="small urban">Small Gardens/Urban: 2013</p>
+        <p class="radios">
+        <input type="radio" name="theme" value="fragrance">Fragrance: 2014
+        <input type="radio" name="theme" value="summer interest">Summer Interest: 2015</p>
+        <p class="radios">
+        <input type="radio" name="theme" value="autumn interest">Autumn Interest: 2016
+        <input type="radio" name="theme" value="winter interest">Winter Interest: 2017</p>
+        <p class="radios">
+        <input type="radio" name="theme" value="spring interest">Spring Interest: 2018
+        </p>
+    </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
         <p class="radios">
@@ -182,7 +200,7 @@
         <input type="radio" name="soil" value="humus-rich">Humus-Rich
         <input type="radio" name="soil" value="sandy">Sandy</p>
         <p class="radios">
-        <input type="radio" name="soil" value="well-drained">Well-Drained</p>
+        <input type="radio" name="soil" value="well-drained">Well-Drained
     </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
@@ -192,7 +210,7 @@
         <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry</p>
         <p class="radios">
         <input type="radio" name="water" value="drought-tolerant">Drought Tolerant
-        <input type="radio" name="water" value="average">Average</p>
+        <input type="radio" name="water" value="average">Average
         </fieldset>
        </div>
    
@@ -200,7 +218,7 @@
     
       
     <div class="searchcenter">
-          <input type="submit" value="Find My Plant">
+          <input type="submit" value="Submit Query">
     </div>
     <?php echo form_close() ?>
    

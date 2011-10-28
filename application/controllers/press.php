@@ -48,8 +48,32 @@ class Press extends CI_Controller
         {
             $this->load->helper('download');
 
-            $file_name='logo-main.png';
-             $file_path=realpath(APPPATH . '../assets/'.$file_name);
+            $file_name='gpp-logo-bw.png';
+             $file_path=realpath(APPPATH . '../downloads/'.$file_name);
+
+                header('Content-Description: File Transfer');
+                header('Content-Type: image/png');
+                header('Content-Disposition: attachment; filename='.$file_name);
+                header('Content-Transfer-Encoding: base64');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($file_path));
+                ob_clean();
+                flush();
+                readfile($file_path);
+                exit;
+
+            redirect("press/terms/");
+        }
+
+        function download_color($file)
+
+        {
+            $this->load->helper('download');
+
+            $file_name='gpp-logo-green-white.jpg';
+             $file_path=realpath(APPPATH . '../downloads/'.$file_name);
 
                 header('Content-Description: File Transfer');
                 header('Content-Type: image/png');

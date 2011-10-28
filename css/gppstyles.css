@@ -364,6 +364,7 @@ form.adv-search {
 .data-entry textarea {
     width:600px;
     height:175px;
+    font: normal 13px Arial, Helvetica, sans-serif;
 }
 
 p.searchlabel {

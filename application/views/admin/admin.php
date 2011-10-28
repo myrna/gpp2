@@ -5,6 +5,7 @@
 <ul>
     <li><a href="/admin/crud/add_record/">Add New Record</a></li>
     <li><a href="/admin/listplants">Search/Edit Records and Upload Images</a></li>
+    <li><a href="/admin/admin_search">Custom Queries</a></li>
 </ul>
 <h4>Committee Reports</h4>
 <ul>
