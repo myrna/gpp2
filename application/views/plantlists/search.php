@@ -17,26 +17,42 @@
     <ul class="leaf">
   <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
     </ul>
-    <h4>Popular Searches</h4>
+    <h4>Browse the GPP Plant Lists</h4>
     <div class="col1-3">
-  <p class="listhead">Drought-Tolerant Plants for Sun</p>
+  <p class="listhead"><?php echo anchor("plantlists/by_publish/yes","All Great Plant Picks &#8211; Alphabetized"); ?></p>
           <ul>
-                 <li><?php echo anchor("plantlists/by_plant_type/perennial|bulb", "Perennials &#38; Bulbs"); ?></li>
-                 <li><?php echo anchor("plantlists/by_plant_type/shrub|vine", "Shrubs &#38; Vines"); ?></li>
-                 <li><?php echo anchor("plantlists/by_plant_type/tree|conifer", "Trees &#38; Conifers"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/bamboo", "All Bamboos"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/bulb", "All Bulbs"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/conifer", "All Conifers"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/fern", "All Ferns"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/grass", "All Grasses"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/perennial", "All Perennials"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/shrub", "All Shrubs"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/tree", "All Trees"); ?></li>
+                 <li><?php echo anchor("plantlists/by_plant_type/vine", "All Vines"); ?></li>
          </ul>
-          <p class="listhead">Fantastic Foliage Plants</p>
+         <ul>
+                <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
+                <li><?php echo anchor("plantlists/by_design_use/containers", "Containers"); ?></li>
+                <li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant"); ?></li>
+         </ul>
+         
+    </div><!-- end column 1 -->
+    <div class="col1-3">
+     <p class="listhead">Fantastic Foliage Plants</p>
          <ul>
                  <li><?php echo anchor("plantlists/by_texture/bold", "Bold Foliage"); ?></li>
                  <li><?php echo anchor("plantlists/by_texture/shiny", "Shiny Foliage"); ?></li>
                  <li><?php echo anchor("plantlists/by_texture/unique", "Unique Foliage"); ?></li>
                  <li><?php echo anchor("plantlists/by_texture/fine", "Fine Foliage"); ?></li>
          </ul>
-    </div><!-- end column 1 -->
-    <div class="col1-3">
-        <p class="listhead"><?php echo anchor("plantlists/by_publish/yes","View All Great Plant Picks"); ?></p>
-        <p class="listhead">Great Plant Picks by Year</p>
+     
        
+           
+    </div><!-- end column 2 -->
+    <div class="col2-3">
+         <p class="listhead">Great Plant Picks by Year</p>
+
             <ul class="col1">
                   <li><?php echo anchor("plantlists/by_year/2001","2001"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2002","2002"); ?></li>
@@ -45,7 +61,7 @@
                   <li><?php echo anchor("plantlists/by_year/2005","2005"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2006","2006"); ?></li>
             </ul>
-      
+
             <ul class="col1">
                   <li><?php echo anchor("plantlists/by_year/2007","2007"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2008","2008"); ?></li>
@@ -54,10 +70,6 @@
                   <li><?php echo anchor("plantlists/by_year/2011","2011"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2012","2012"); ?></li>
             </ul>
-           
-    </div><!-- end column 2 -->
-    <div class="col2-3">
-         <p class="listhead">More pre-programmed searches</p>
         
     </div><!-- end column 3 -->
 

@@ -95,6 +95,8 @@ class Plantlists_model extends CI_Model {
 	$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
         $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
 
         if ($query_array['foliage_color']) {
             $this->db->where('plant_foliage_color.foliage_color_id', 
@@ -104,7 +106,10 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_flower_color.flower_color_id',
 				"(select id from flower_color where lower(flower_color) = " . $this->db->escape($query_array['flower_color']) . ")", false);
         }
-
+         if ($query_array['design_use']) {
+            $this->db->where('plant_design_use.design_use_id',
+				"(select id from design_use where lower(design_use) = " . $this->db->escape($query_array['design_use']) . ")", false);
+        }
 		if ($query_array['foliage_texture']) {
 			$this->db->where('plant_foliage_texture.foliage_texture_id',
 				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
@@ -152,12 +157,24 @@ class Plantlists_model extends CI_Model {
         if ($query_array['growth_habit']) {
             $this->db->where('lower(plant_data.growth_habit)', $query_array['growth_habit']);
         }
+        if ($query_array['pest_resistance']) {
+            $this->db->where('plant_pest_resistance.pest_resistance_id',
+				"(select id from pest_resistance where lower(pest_resistance) = " . $this->db->escape($query_array['pest_resistance']) . ")", false);
+        }
         if ($query_array['plant_type']) {
 			if (is_array($query_array['plant_type'])) {
 				
 				$this->db->where_in('lower(plant_data.plant_type)', $query_array['plant_type']);
 			} else {
             	$this->db->where('lower(plant_data.plant_type)', $query_array['plant_type']);
+			}
+        }
+         if ($query_array['genus']) {
+			if (is_array($query_array['genus'])) {
+
+				$this->db->where_in('lower(plant_data.genus)', $query_array['genus']);
+			} else {
+            	$this->db->where('lower(plant_data.genus)', $query_array['genus']);
 			}
         }
         if ($query_array['foliage_type']) {
@@ -206,6 +223,9 @@ class Plantlists_model extends CI_Model {
 	$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
         $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
+
 
         if ($query_array['foliage_color']) {
             $this->db->where('plant_foliage_color.foliage_color_id',
@@ -219,6 +239,10 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_foliage_texture.foliage_texture_id',
 				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
 		}
+        if ($query_array['design_use']) {
+            $this->db->where('plant_design_use.design_use_id',
+				"(select id from design_use where lower(design_use) = " . $this->db->escape($query_array['design_use']) . ")", false);
+        }
         if ($query_array['water']) {
             $this->db->where('plant_water.water_id',
 				"(select id from water where lower(water) = " . $this->db->escape($query_array['water']) . ")", false);
@@ -275,7 +299,10 @@ class Plantlists_model extends CI_Model {
             	$this->db->where('lower(plant_data.foliage_type)', $query_array['foliage_type']);
 			}
         }
-
+        if ($query_array['pest_resistance']) {
+            $this->db->where('plant_pest_resistance.pest_resistance_id',
+				"(select id from pest_resistance where lower(pest_resistance) = " . $this->db->escape($query_array['pest_resistance']) . ")", false);
+        }
         if ($query_array['gpp_year']) {
             $this->db->where('plant_data.gpp_year', $query_array['gpp_year']);
         }

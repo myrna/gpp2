@@ -66,6 +66,9 @@ class Plantlists extends CI_Controller {
             $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
             $data['design_use'] = $design_use['values'];
 
+            $theme = $this->crud_model->link_table($id, 'theme', 'plant');
+            $data['theme'] = $theme['values'];
+
             return $data;
     	}
 
@@ -169,6 +172,18 @@ class Plantlists extends CI_Controller {
                 $this->process_advanced_search(array('foliage_texture' => $texture));
         }
 
+        function by_genus() {
+                $genus = $this->uri->segment(3);
+                $this->process_advanced_search(array('genus' => $genus));
+        }
+         function by_design_use() {
+                $design_use = $this->uri->segment(3);
+                $this->process_advanced_search(array('design_use' => $design_use));
+        }
+         function by_pest_resistance() {
+            $pest_resistance = $this->uri->segment(3);
+            $this->process_advanced_search(array('pest_resistance' => $pest_resistance));
+        }
         function by_publish() {
             $publish = $this->uri->segment(3);
             $this->process_advanced_search(array('publish' => $publish));
@@ -226,7 +241,10 @@ class Plantlists extends CI_Controller {
                 'foliage_color' => $this->input->post('foliage_color'), 
                 'sun' => $this->input->post('sun'),
                 'soil' => $this->input->post('soil'),
-                'water' => $this->input->post('water')
+                'water' => $this->input->post('water'),
+                'genus' => $this->input->post('genus'),
+                'design_use' => $this->input->post('design_use'),
+                'pest_resistance' => $this->input->post('pest_resistance')
                  );
 
             $query_id = $this->input->save_query($query_array);
