@@ -112,9 +112,9 @@ class Admin_search extends CI_Controller {
                  );
 
              $this->load->model('crud_model');
-            $this->load->model('plantlists_model');
+            
             //var_dump($query_array);
-            $results = $this->plantlists_model->admin_query($query_array,
+            $results = $this->crud_model->admin_query($query_array,
                     $limit, $offset, $sort_by, $sort_order);
 
             $data['num_results'] = count($results);

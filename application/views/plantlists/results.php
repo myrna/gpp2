@@ -22,7 +22,7 @@
             <th>Plant Name (Click to sort)</th>
             <th>Family (Common)</th>
             <th>Height</th>
-           <!-- <th>Image</th> -->
+          
             </thead>
        
         <tbody>
@@ -38,9 +38,7 @@
             <td>
                 <?php echo $plant['height'] . "'"; ?>
             </td>
-         <!--   <td>
-                <?php echo $plant['image']; ?>
-            </td> -->
+         
             </tr>
             <?php endforeach; ?>
         </tbody>

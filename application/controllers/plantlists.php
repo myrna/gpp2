@@ -155,7 +155,7 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','Print View | Great Plant Picks');
             $this->template->load('print_template','plantlists/print_view', $data);
         }
-        // preconfigured searches
+  // preconfigured searches --------------------------------------- //
 
         function by_year() {
                 $year = $this->uri->segment(3);
@@ -176,20 +176,23 @@ class Plantlists extends CI_Controller {
                 $genus = $this->uri->segment(3);
                 $this->process_advanced_search(array('genus' => $genus));
         }
+
          function by_design_use() {
                 $design_use = $this->uri->segment(3);
                 $this->process_advanced_search(array('design_use' => $design_use));
         }
+
          function by_pest_resistance() {
             $pest_resistance = $this->uri->segment(3);
             $this->process_advanced_search(array('pest_resistance' => $pest_resistance));
         }
+
         function by_publish() {
             $publish = $this->uri->segment(3);
             $this->process_advanced_search(array('publish' => $publish));
         }
 
-        function plant_array($results) {
+  function plant_array($results) {
 
           $a = array();
                 foreach ($results['rows'] as $result) {
@@ -202,8 +205,7 @@ class Plantlists extends CI_Controller {
     }
                 return $a;
         }
-// Warning from log files: Missing argument 2 for Plantlists::search_stats(), called in C:\vhosts\gpptest\application\controllers\plantlists.php
-// on line 234 and defined C:\vhosts\gpptest\application\controllers\plantlists.php 167
+
 		function search_stats($results, $query) {
 			$total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
             $total = $total_count[0]['numrows'];
@@ -244,7 +246,8 @@ class Plantlists extends CI_Controller {
                 'water' => $this->input->post('water'),
                 'genus' => $this->input->post('genus'),
                 'design_use' => $this->input->post('design_use'),
-                'pest_resistance' => $this->input->post('pest_resistance')
+                'pest_resistance' => $this->input->post('pest_resistance'),
+                'theme' => $this->input->post('theme')
                  );
 
             $query_id = $this->input->save_query($query_array);
@@ -253,7 +256,7 @@ class Plantlists extends CI_Controller {
 
 		function process_basic_search($query) {
 			$this->load->model('plantlists_model');
-            $results = $this->plantlists_model->basic_search($query);
+                        $results = $this->plantlists_model->basic_search($query);
             
 			if (isset($query) and $query != "" and $results['found'] == 0) {
 				$this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.</p>
@@ -267,7 +270,7 @@ class Plantlists extends CI_Controller {
 		}
 
 		function process_advanced_search($query) {
-			//$this->output->enable_profiler(true);
+			$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
 
