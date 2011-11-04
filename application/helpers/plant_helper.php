@@ -124,6 +124,9 @@ function field_to_label($field) {
         case 'foliage_texture':
             return "Fantastic Foliage";
             break;
+         case 'sun':
+            return "Sun/Shade";
+            break;
         default:
             return convert_to_label($field);
             break;
@@ -171,7 +174,7 @@ function build_form_control($key, $value) {
             $current = $value ? $value : '';
             $options = array('' => "", 'columnar' => "columnar", 'compact' => "compact", 'mounding' => "mounding",
                 'narrow' => "narrow", 'pyramidal' => "pyramidal", 'round' => "round", 'spreading' => "spreading",
-                'upright' => "upright", 'vase-shaped' => "vase-shaped", 'weeping' => "weeping");
+                'upright' => "upright", 'vase-shaped' => "vase-shaped", 'vining' => "vining", 'weeping' => "weeping");
             return form_dropdown('growth_habit', $options, $current, "id='$key'");
             break;
         case 'committee':

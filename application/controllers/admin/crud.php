@@ -176,7 +176,7 @@ class Crud extends CI_Controller
         $data['plant_attributes'] = $this->get_plant_link_data($id);
 
         $record = $this->crud_model->get_record_as_array($id);
-
+// set field order for data entry
         $fields = array(
             'id',
             'family',
@@ -201,8 +201,8 @@ class Crud extends CI_Controller
             'plant_type',
             'growth_habit',
             'foliage_type',
-            'plant_width_at_10',
             'plant_height_at_10',
+            'plant_width_at_10',
             'sun_exposure',
             'water_requirements',
             'soil_requirements',
@@ -219,8 +219,8 @@ class Crud extends CI_Controller
             'fragrance',
             'bark_interest',
             'division_pruning_group',
-            'plant_width_max',
             'plant_height_max',
+            'plant_width_max',
             'nominator',
             'nominated_for_year',
             'committee',

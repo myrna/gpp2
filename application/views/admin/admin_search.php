@@ -210,7 +210,15 @@
         <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry</p>
         <p class="radios">
         <input type="radio" name="water" value="drought-tolerant">Drought Tolerant
-        <input type="radio" name="water" value="average">Average
+        <input type="radio" name="water" value="average">Average</p>
+        </fieldset>
+      <fieldset>
+        <p class="searchlabel"><?php echo form_label('Committee:','committee'); ?></p>
+        <p class="radios">
+        <input type="radio" name="committee" value="perennials - bulbs">Perennials &amp; Bulbs
+        <input type="radio" name="committee" value="shrubs - vines">Shrubs &amp; Vines
+        <input type="radio" name="committee" value="trees - conifers">Trees &amp; Conifers</p>
+
         </fieldset>
        </div>
    

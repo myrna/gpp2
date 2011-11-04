@@ -1,8 +1,9 @@
 <!-- PUBLIC plantlists and search page -->
 
 <div id="content" class="advsearch">
+    <?php $this->load->view('includes/plantlists_breadcrumbs'); ?>
     <h2>Great Plant Picks Advanced Search</h2>
-    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
+   
     <div class="simplesearch">
       <?php $attributes = array('class' => 'searchform');
     echo form_open('plantlists', $attributes); ?>
@@ -11,7 +12,9 @@
     <input type="submit" value="Search"></p>
    
     <?php echo form_close(); ?>
+ 
     </div><!-- end simplesearch -->
+        <?php echo $this->session->flashdata('message'); ?>
     <h5>Search by plant attributes (select those that apply):</h5>
    
     
@@ -160,6 +163,7 @@
         <input type="radio" name="growth_habit" value="round">Round
         <input type="radio" name="growth_habit" value="spreading">Spreading
         <input type="radio" name="growth_habit" value="upright">Upright
+        <input type="radio" name="growth_habit" value="vining">Vining
         <input type="radio" name="growth_habit" value="weeping">Weeping</p>
     </fieldset>
         <fieldset>
@@ -168,10 +172,10 @@
         <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun
             <span class="classic">Full sun from morning to evening</span></a>
         <input type="radio" name="sun" value="part shade">Part Shade
-        <input type="radio" name="sun" value="dappled shade">Dappled Shade
         <input type="radio" name="sun" value="open shade">Open Shade</p>
         <p class="radios">
-        <input type="radio" name="sun" value="heavy shade">Heavy Shade</p>
+        <input type="radio" name="sun" value="dappled shade">Dappled Shade
+         <input type="radio" name="sun" value="heavy shade">Heavy Shade</p>
     </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Soil Requirements:','soil'); ?></p>

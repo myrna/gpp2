@@ -26,6 +26,12 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/advanced_search', $data);
         }
 
+        function plant_not_listed() {
+            $this->template->set('thispage','No Plant');
+            $this->template->set('title','Why Can\'t I Find My Plant | Great Plant Picks');
+            $this->template->load('template','plantlists/plant_not_listed');
+        }
+
         function index() {
             if ($this->input->post('searchterms')) {
                 $query = $this->input->post('searchterms');
@@ -259,8 +265,8 @@ class Plantlists extends CI_Controller {
                         $results = $this->plantlists_model->basic_search($query);
             
 			if (isset($query) and $query != "" and $results['found'] == 0) {
-				$this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.</p>
-                                    <p class="flash"><a href="#">Why isn\'t my plant listed?</a>');
+				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
+                                   <a href="#">Why isn\'t my plant listed?</a></p>');
 			    redirect(site_url("plantlists/"), "refresh");
 			} else {
 	           	$data['records'] = $this->plant_array($results);
@@ -270,14 +276,14 @@ class Plantlists extends CI_Controller {
 		}
 
 		function process_advanced_search($query) {
-			$this->output->enable_profiler(true);
+	//		$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
 
             $results = $this->plantlists_model->advanced_search($query);
             if ($results['found'] == 0) {
-			    $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.</p>
-                                    <p class="flash"><a href="#">Why isn\'t my plant listed?</a>');
+			    $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
+                                    <a href="#">Why isn\'t my plant listed?</a></p>');
                 redirect(site_url("plantlists/advanced"), "refresh");  // this routing is not being used, defaulting to basic search routing
 			} else {
 	            $data['records'] = $this->plant_array($results);

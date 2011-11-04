@@ -327,6 +327,9 @@ class Crud_model extends CI_Model {
        if ($query_array['publish']) {
             $this->db->where('plant_data.publish', $query_array['publish']);
         }
+         if ($query_array['committee']) {
+            $this->db->where('plant_data.committee', $query_array['committee']);
+        }
        $found = $this->db->distinct()->get()->result_array();
             return $found;
 

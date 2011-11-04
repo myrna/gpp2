@@ -271,9 +271,9 @@ div#content {
 	border: 1px solid #378b36;
 	margin: 20px auto 0;
 	padding: 1em 1em 7em 1em;
-        border-radius: 3px;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
+        border-radius: 3px;
        
 }
 .login {
@@ -554,7 +554,7 @@ table.display {
     border:none;
     border-collapse:collapse;
     border-spacing:0;
-    width:900px;
+    width:940px;
 }
 table.display th {
     font-size:14px;
@@ -574,6 +574,10 @@ table.display th.type, table.display td.type {
     width:20%;
     padding-left:5%;
 }
+table.display td.status, table.display td.year {
+    padding-right:2%;
+}
+
 table.display td a {
     text-decoration:none;
 }
@@ -904,7 +908,16 @@ p.flash {
     text-align:center;
     font-weight:bold;
     font-size:15px;
-    margin-top:5px;
+    line-height:24px;
+    margin:5px 120px;
+    padding:10px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: #efefcd;
+    -moz-box-shadow: 0px 1px 0px #378b36;
+    -webkit-box-shadow: 0px 1px 0px #378b36;
+    box-shadow: 0px 1px 0px #378b36;
 }
 p.copy {
     font-style:italic;

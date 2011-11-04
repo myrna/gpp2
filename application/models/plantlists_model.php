@@ -201,6 +201,10 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_data.publish', $query_array['publish']);
         }
 
+        if ($query_array['committee']) {
+            $this->db->where('plant_data.committee', $query_array['committee']);
+        }
+
        $data['rows'] = $this->db->distinct()->get()->result_array();
 		$data['found'] = count($data['rows']);
         return $data;

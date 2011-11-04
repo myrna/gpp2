@@ -19,7 +19,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('status','asc')->order_by('genus','asc')->where('committee',"Shrubs - Vines")->get();
+                    order_by('status','asc')->order_by('genus','asc')->where('committee',"shrubs - vines")->get();
             $data['query'] = $query;
              return $data;
         }
@@ -29,7 +29,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('genus','asc')->where('committee',"Shrubs - Vines")->get();
+                    order_by('genus','asc')->where('committee',"shrubs - vines")->get();
             $data['query2'] = $query2;
              return $data;
         }
@@ -39,7 +39,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('status','asc')->order_by('genus','asc')->where('committee',"Trees - Conifers")->get();
+                    order_by('status','asc')->order_by('genus','asc')->where('committee',"trees - conifers")->get();
             $data['query'] = $query;
              return $data;
         }
@@ -49,7 +49,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('genus','asc')->where('committee',"Trees - Conifers")->get();
+                    order_by('genus','asc')->where('committee',"trees - conifers")->get();
             $data['query2'] = $query2;
              return $data;
         }
@@ -59,7 +59,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('status','asc')->order_by('genus','asc')->where('committee',"Perennials - Bulbs")->get();
+                    order_by('status','asc')->order_by('genus','asc')->where('committee',"perennials - bulbs")->get();
             $data['query'] = $query;
              return $data;
         }
@@ -69,7 +69,7 @@ class Reports_model extends CI_Model {
                 infraspecific_epithet,cross_species,cultivar,trade_name,registered_name,trademark_name,plant_patent_number,
                 plant_patent_number_applied_for,plant_breeders_rights,plantname_group,nominator,status,committee,gpp_history')
                     ->from('plant_data')->
-                    order_by('genus','asc')->where('committee',"Perennials - Bulbs")->get();
+                    order_by('genus','asc')->where('committee',"perennials - bulbs")->get();
             $data['query2'] = $query2;
              return $data;
         }

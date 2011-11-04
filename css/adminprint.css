@@ -10,7 +10,9 @@
         color: #000;
         font: normal 12px/1.1em Arial, Helvetica, sans-serif;
     }
-    div#topbar, #navigation, p.center {display:none;}
+    div#topbar, #navigation, p.center, p.nav, th > span, h2 {display:none;}
+    th {text-align:left;}
+    
     #wrapper {
         clear: both !important;
         display: block !important;
@@ -22,6 +24,7 @@
     width: 100%;
     }
     #content {border:none;}
+    table#display {width:100%;}
     table.dblist tr {border-bottom:1px #D0D0D0 solid;}
     table.dblist td {padding-right:5px;}
 

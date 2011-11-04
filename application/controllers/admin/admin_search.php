@@ -1,9 +1,9 @@
 <?php
 
 /**
- * plantlists.php
- *PUBLIC
- * Show search results and plant 
+ * admin_search.php
+ *PRIVATE
+ * Show administrative query results
  *
  * @package		Great Plant Picks
  * @subpackage	Controllers
@@ -14,7 +14,18 @@
 class Admin_search extends CI_Controller {
 
        function index() {
-
+           //you must be logged in to view this page
+           if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
+		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+          }
+          
             $heading = 'Administrative Search and Queries';
 
             $this->template->set('thispage','Advanced Search');
@@ -32,14 +43,16 @@ class Admin_search extends CI_Controller {
             $total = $total_count[0]['numrows'];
             $plant_name_and_height = array();
             foreach ($results['rows'] as $result) {
-                  $plant_name_and_height[] = array(
+                  $query_results[] = array(
                   'name' => display_full_botanical_name($result),
                   'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],// ? $result['plant_height_at_10'] : "-",
+                  'status' => $result['status'],
+                  'year' => $result['gpp_year'],
+                  'committee' => $result['committee'],
                   'id' => $result['id']
               );
             }
-            $data['records'] = $plant_name_and_height;
+            $data['records'] = $query_results;
 
             if ($query != "") {
                 $data['stats'] = $results['found'] . " of " . $total;
@@ -90,6 +103,17 @@ class Admin_search extends CI_Controller {
    
 
         function admin_query($query_id = 0, $sort_by = 'genus', $sort_order = 'asc', $offset = 0) {
+            //you must be logged in to view this page
+           if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
+		{
+                        $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
+			redirect('auth/login');
+		}
+          else {
+             $data = array(
+               'logged_in' => $this->ion_auth->logged_in()
+               );
+          }
            // $this->output->enable_profiler(TRUE);
        		$query_array = array(
                 'plant_type' => $this->input->post('plant_type'),
@@ -108,7 +132,8 @@ class Admin_search extends CI_Controller {
                 'foliage_color' => $this->input->post('foliage_color'),
                 'sun' => $this->input->post('sun'),
                 'soil' => $this->input->post('soil'),
-                'water' => $this->input->post('water')
+                'water' => $this->input->post('water'),
+                'committee' => $this->input->post('committee')
                  );
 
              $this->load->model('crud_model');
@@ -119,16 +144,18 @@ class Admin_search extends CI_Controller {
 
             $data['num_results'] = count($results);
 
-            $plant_name_and_height = array();
+            $query_results = array();
             foreach ($results as $result) {
-                  $plant_name_and_height[] = array(
+                  $query_results[] = array(
                   'name' => display_full_botanical_name($result),
                   'common' => $result['family_common_name'],
-                  'height' => $result['plant_height_at_10'],
+                  'status' => $result['status'],
+                  'year' => $result['gpp_year'],
+                  'committee' => $result['committee'],
                   'id' => $result['id']
               );
             }
-            $data['records'] = $plant_name_and_height;
+            $data['records'] = $query_results;
             $data['stats'] = count($results);
 
             if (!$results)
@@ -145,5 +172,5 @@ class Admin_search extends CI_Controller {
         
 }
 
-/* End of file plantlists.php */
-/* Location: ./application/controllers/plantlists.php */
+/* End of file admin_search.php */
+/* Location: ./application/controllers/admin/admin_search.php */

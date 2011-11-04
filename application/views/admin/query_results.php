@@ -2,7 +2,7 @@
 
 <div id="content" class="view">
  
-    <h2>Great Plant Picks Search Results</h2>
+    <h2>Great Plant Picks Administrative Query Results</h2>
 <p class="center">Found <?php echo $stats; ?> total plants (click column to sort)</p>
 <p class="nav">
 <?php
@@ -14,10 +14,11 @@
     
     <table id="display" class="tablesorter display">
         <thead>
-            <th>Plant Name (Click to sort)</th>
+            <th>Plant Name <span>(Click to sort)</span></th>
             <th>Family (Common)</th>
-            <th>Height</th>
-          
+            <th>Status</th>
+            <th>Year</th>
+            <th>Committee</th>
             </thead>
        
         <tbody>
@@ -30,10 +31,15 @@
             <td class="common-name">
                 <?php echo $plant['common']; ?>
             </td>
-            <td>
-                <?php echo $plant['height'] . "'"; ?>
+            <td class="status">
+                <?php echo $plant['status']; ?>
             </td>
-        
+            <td class="year">
+                <?php echo $plant['year']; ?>
+            </td>
+            <td>
+                <?php echo $plant['committee']; ?>
+            </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -1,6 +1,7 @@
 <!-- display for PUBLIC plant list and search function -->
 
 <div id="content" class="view">
+    <?php $this->load->view('includes/plantlists_breadcrumbs'); ?>
     <h2>Find Your Great Plant Pick</h2>
     
     <div class="simplesearch">
@@ -13,7 +14,7 @@
    <input type="submit" value="Search"></p>
    <?php echo form_close(); ?>
     </div><!-- end searchform -->
-    <p class="flash"><?php echo $this->session->flashdata('message'); ?></p>
+    <?php echo $this->session->flashdata('message'); ?>
     <ul class="leaf">
   <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
     </ul>
