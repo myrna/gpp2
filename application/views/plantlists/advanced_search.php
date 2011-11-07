@@ -3,8 +3,8 @@
 <div id="content" class="advsearch">
     <?php $this->load->view('includes/plantlists_breadcrumbs'); ?>
     <h2>Great Plant Picks Advanced Search</h2>
-   
-    <div class="simplesearch">
+    <?php echo $this->session->flashdata('message'); ?>
+    <div class="simplesearch adv">
       <?php $attributes = array('class' => 'searchform');
     echo form_open('plantlists', $attributes); ?>
     <p>Search by plant name:
@@ -14,7 +14,7 @@
     <?php echo form_close(); ?>
  
     </div><!-- end simplesearch -->
-        <?php echo $this->session->flashdata('message'); ?>
+       
     <h5>Search by plant attributes (select those that apply):</h5>
    
     
@@ -26,8 +26,12 @@
 
         <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
         <p class="radios">
+        <input type="radio" name="plant_type" value="bamboo">Bamboo
         <input type="radio" name="plant_type" value="bulb">Bulb
         <input type="radio" name="plant_type" value="conifer">Conifer
+        <input type="radio" name="plant_type" value="fern">Fern
+        <input type="radio" name="plant_type" value="grass">Grass</p>
+        <p class="radios">
         <input type="radio" name="plant_type" value="perennial">Perennial
         <input type="radio" name="plant_type" value="shrub">Shrub
         <input type="radio" name="plant_type" value="tree">Tree
@@ -191,12 +195,15 @@
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
         <p class="radios">
-        <input type="radio" name="water" value="bog">Bog
-        <input type="radio" name="water" value="moist">Moist
-        <input type="radio" name="water" value="winter-wet/summer-dry">Winter-Wet/Summer-Dry</p>
-        <p class="radios">
-        <input type="radio" name="water" value="drought-tolerant">Drought Tolerant
-        <input type="radio" name="water" value="average">Average</p>
+        <input type="radio" name="water" value="moist"><a class="tooltip" href="#">Moist
+            <span class="classic">Water two-three times per week during hot weather</span></a>
+         <input type="radio" name="water" value="regular"><a class="tooltip" href="#">Regular
+            <span class="classic">Water once per week during dry weather</span></a>
+        <input type="radio" name="water" value="occasional"><a class="tooltip" href="#">Occasional
+            <span class="classic">Water every 10-14 days during dry weather</span></a>
+        <input type="radio" name="water" value="drought-tolerant"><a class="tooltip" href="#">Drought Tolerant
+            <span class="classic">Once established, water once per month</span></a>
+       </p>
         </fieldset>
        </div>
    

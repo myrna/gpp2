@@ -198,7 +198,7 @@ class Plantlists extends CI_Controller {
             $this->process_advanced_search(array('publish' => $publish));
         }
 
-  function plant_array($results) {
+        function plant_array($results) {
 
           $a = array();
                 foreach ($results['rows'] as $result) {
@@ -212,7 +212,7 @@ class Plantlists extends CI_Controller {
                 return $a;
         }
 
-		function search_stats($results, $query) {
+        function search_stats($results, $query) {
 			$total_count = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
             $total = $total_count[0]['numrows'];
             if (isset($query)) {
@@ -260,14 +260,14 @@ class Plantlists extends CI_Controller {
 			redirect("/plantlists/saved_searches/" . $query_id);
         }
 
-		function process_basic_search($query) {
+	function process_basic_search($query) {
 			$this->load->model('plantlists_model');
                         $results = $this->plantlists_model->basic_search($query);
             
 			if (isset($query) and $query != "" and $results['found'] == 0) {
 				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
                                    <a href="#">Why isn\'t my plant listed?</a></p>');
-			    redirect(site_url("plantlists/"), "refresh");
+			    redirect(site_url("plantlists/search"), "refresh");
 			} else {
 	           	$data['records'] = $this->plant_array($results);
 				$data['stats'] = $this->search_stats($results, $query);
@@ -275,7 +275,7 @@ class Plantlists extends CI_Controller {
 			}
 		}
 
-		function process_advanced_search($query) {
+	function process_advanced_search($query) {
 	//		$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
@@ -292,14 +292,14 @@ class Plantlists extends CI_Controller {
             }	
 		}
 
-		function display_results($data) {
+	function display_results($data) {
 
 	    $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/results',$data);
 		}
 		
-		function saved_searches() {
+	function saved_searches() {
 			$id = $this->uri->segment(3);
 			$query = $this->input->load_query($id);
 			if (isset($query)) {

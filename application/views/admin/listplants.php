@@ -5,7 +5,7 @@
 <?php
 
     echo "<h4>$heading: $total_rows records</h4>";
-    echo "<p class='flash'>" . $this->session->flashdata('status') . "</p>";
+    echo $this->session->flashdata('status');
     echo "<p class='nav'>".anchor('admin/crud/add_record', 'Add new record')."</p>";
   ?>
 
