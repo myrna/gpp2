@@ -203,6 +203,10 @@ div#content {
 	.col2-3 {width:31.333%;}
 	.col3-3 {width:98.0%}
 
+        /* centered -- for logo download */
+
+        .indent {margin-left:120px;}
+
         .col1-3 > ul {margin-bottom:10px;}
 
         .colright {
@@ -218,19 +222,33 @@ div#content {
     /*width:780px;*/
     margin-bottom:5px;
 }
+#home-caption {
+    position:absolute;
+    color:#e3e3e3;
+    top:280px;
+    left:105px;
+    width:120px;
+    font-style:italic;
+    font-weight:bold;
+    font-size:16px;
+    line-height:20px;
+    text-align:right;
+}
 
 .home-text { /* temporary display block to fill space */
     float:left;
     display:block;
-    width:684px;
-    height:376px;
-    background-color:#bebe31;
-    border:5px #d2d26f solid;
+    width:695px;
+    height:379px;
+    background-color:#e3e3e3;
+    border:5px #977b97 solid;
     padding:10px 20px;
    }
-.home-poster {
-    float:right;
-    width:210px;
+#home-poster {
+    position:absolute;
+    top:391px;
+    right:0;
+    width:270px;
     margin:0;
 }
 .home-text > h2 {
@@ -602,7 +620,7 @@ table a:hover, table a:active {color: #e16f43;}
 /*leaf sprite list image format used on home page */
 
 ul.leaf{}
-ul.leaf > li {
+ul.leaf > li, {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
 }
@@ -613,9 +631,9 @@ ul.normal {
     margin-top:-25px;
 }
 
-/* leaft sprite definition list format used on about page */
-dl.leaf{padding-top:10px;}
-dl.leaf dt {
+/* leaf sprite definition list format used on about page */
+dl.leaf, dl.contact{padding-top:10px;}
+dl.leaf dt, dl.contact dt {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:0 0 10px 30px;
     font-size:14px;
@@ -633,7 +651,7 @@ dl.leaf dd {
     font-size:14px;
     padding-bottom:10px;
 }
-dl.leaf dd.last {
+dl.leaf dd.last, dl.contact dd.last {
     margin-bottom:10px;
 }
 p.leaf {
@@ -641,6 +659,10 @@ p.leaf {
     padding:0 0 10px 30px;
     font-size:14px;
     font-weight:bold;
+}
+
+dl.contact dd {
+	margin-left:30px;
 }
 /* list style for Plant Lists page */
 
@@ -893,6 +915,13 @@ h3.clematis {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:3px 0 5px 25px;
     }
+
+/* miscellaneous image styles */
+
+.logo-download {
+    margin-left:40px;    
+}
+
 
 /* paragraph styles */
 p {margin-bottom:5px;}

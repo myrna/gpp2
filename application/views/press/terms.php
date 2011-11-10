@@ -11,13 +11,13 @@
 <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?> or (206) 362-8612.</li>
 <li>Click on the text links below to download the logo you would like to use.</li>
     </ul>
-     <div class="col1-3">
-      <img src="../assets/gpp-logo-bw.gif">
-<p><a href="<?php echo base_url();?>press/download/logo-main.png">Download black-and-white (275kb)</a></p>
+     <div class="col1-3 indent">
+      <img class="logo-download" src="../assets/gpp-in-bw.png">
+<p><a href="<?php echo base_url();?>press/download/gpp-logo-bw.png">Download black-and-white (421kb)</a></p>
     </div>
     <div class="col1-3">
-      <img src="../assets/gpp-logo-green-white.jpg">
-<p><a href="<?php echo base_url();?>press/download_color/gpp-logo-green-white.jpg">Download color on white (3Mb)</a></p>
+      <img class="logo-download" src="../assets/gpp-in-color.png">
+<p><a href="<?php echo base_url();?>press/download_color/gpp-logo-color.jpg">Download color (1.01Mb)</a></p>
     </div>
     <div class="clear"></div>
     <h3>Image Use</h3>

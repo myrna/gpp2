@@ -11,7 +11,7 @@
         <div id="wrapper">
             <div id="banner">
                 <?php
-                    if ($thispage=="Home" or $thispage=="Contact")
+                    if ($thispage=="Home")
                 echo "<div id='logo'></div>";
                     else {
                         ?>

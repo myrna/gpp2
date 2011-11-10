@@ -72,7 +72,7 @@ class Press extends CI_Controller
         {
             $this->load->helper('download');
 
-            $file_name='gpp-logo-green-white.jpg';
+            $file_name='gpp-logo-color.png';
              $file_path=realpath(APPPATH . '../downloads/'.$file_name);
 
                 header('Content-Description: File Transfer');

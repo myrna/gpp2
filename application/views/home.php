@@ -1,7 +1,10 @@
 <div class="home-image">
-    <img src="../assets/home-maple.jpg">
+    <img src="../assets/home-shade.jpg">
 </div><!-- end main image -->
-
+<div id="home-caption">
+    <p>New for 2012!</p>
+    <p>&#8220;Made in the Shade&#8221;</p>
+</div>
 <div class="home-text">
     <h2>Welcome to Great Plant Picks!</h2>
     <p><em>Great Plant Picks</em> (GPP) is an educational program of the <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> which debuted in 2001 with the first
@@ -18,6 +21,6 @@
 
 
 </div><!-- end text -->
-<div class="home-image">
-    <img src="../assets/fun-in-the-sun.jpg">
+<div id="home-poster">
+    <img src="../assets/made-in-the-shade.jpg">
 </div><!-- end poster -->

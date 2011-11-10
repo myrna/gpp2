@@ -1,13 +1,10 @@
-<div class="home-image">
-    <img src="../assets/home-maple.jpg">
-</div><!-- end main image -->
 <div id="content" class="view">
 
 <h2>Contact Great Plant Picks</h2>
  <p class="info">Great Plant Picks originates at the Elisabeth C. Miller Botanical Garden in Seattle, Washington.</p>
 <div class="col1">
    
-    <dl class="leaf">
+    <dl class="contact">
         <dt>By Mail</dt>
         <dd>The Elisabeth C. Miller Botanical Garden</dd>
         <dd>Great Plant Picks</dd>
