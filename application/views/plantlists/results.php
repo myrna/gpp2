@@ -15,7 +15,9 @@
     <div class="clear"></div>
     <p class="note">*Search by plant name</p>
       <div class="clear"></div>
-    <p> <a href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" onclick="this.href = this.href.replace('[sub]',window.location)">Email this link</a></p>
+    <p> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" 
+           onclick="this.href = this.href.replace('[sub]',window.location)">Email this list</a>
+        or copy and paste the address at the top of your browser into your favorite email program to share it</p>
 
     <table id="display" class="tablesorter display">
         <thead>

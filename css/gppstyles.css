@@ -499,6 +499,16 @@ div.simplesearch {
     padding-left:10px;
 }
 
+a.email {
+    padding:5px 0 20px 60px;
+    background:url(../assets/email.gif) 0 0 no-repeat;
+    font-weight:bold;
+}
+
+a.email:hover {
+    opacity:0.8;
+}
+
 /* plant height/width input box */
 
 
@@ -933,6 +943,7 @@ p.note {
     clear:both;
     float:left;
     font-style:italic;
+    margin-bottom:10px;
 }
 p.center {
     clear:both;
