@@ -4,7 +4,7 @@
  <?php
 
     echo "<h2>Administrative Search and Queries</h2>";
-    echo "<p class='flash'>" . $this->session->flashdata('status') . "</p>";
+    echo $this->session->flashdata('message');
     echo "<p class='nav'>".anchor('admin/admin_search', 'Refresh search')."</p>";
   ?>
     
@@ -183,8 +183,7 @@
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
         <p class="radios">
-        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun
-            <span class="classic">Full sun from morning to evening</span></a>
+        <input type="radio" name="sun" value="full sun">Full Sun
         <input type="radio" name="sun" value="part shade">Part Shade
         <input type="radio" name="sun" value="dappled shade">Dappled Shade
         <input type="radio" name="sun" value="open shade">Open Shade</p>

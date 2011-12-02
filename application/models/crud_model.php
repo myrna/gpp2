@@ -28,8 +28,7 @@ class Crud_model extends CI_Model {
         'pest_resistance',
         'soil',
         'wildlife',
-        'theme',
-        'common_name'
+        'theme'
         );
 
     public function update_link_table($id, $primary, $attribute, $values) {

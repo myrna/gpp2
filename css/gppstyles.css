@@ -630,7 +630,7 @@ table a:hover, table a:active {color: #e16f43;}
 /*leaf sprite list image format used on home page */
 
 ul.leaf{}
-ul.leaf > li, {
+ul.leaf > li {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
 }
@@ -945,6 +945,12 @@ p.note {
     font-style:italic;
     margin-bottom:10px;
 }
+p.adsearch {
+    clear:both;
+    font-style:italic;
+    font-size:12px;
+}
+
 p.center {
     clear:both;
     text-align:center;
@@ -998,7 +1004,7 @@ em {
   top: 1.5em;
   z-index: 99;
   margin-left: 0;
-  width: 250px;
+  width: 200px;
   border-radius: 5px 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1021,7 +1027,7 @@ em {
   padding: 0.2em 0 0.6em 0;
 }
 .classic { 
-    padding: 0.8em 1em;
+    padding: 0.3em 1em;
     background-color:#b1d355;
     border:1px #378b36 solid;
 }

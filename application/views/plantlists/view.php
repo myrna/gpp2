@@ -22,7 +22,7 @@
     <?php
         if (!empty($common_names)) {
             foreach ($common_names as $common_name) {
-                echo $common_name['common_name'];
+                echo $common_name['common_name'] . "&nbsp;";
                 }
                 }
     ?>

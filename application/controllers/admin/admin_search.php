@@ -160,7 +160,7 @@ class Admin_search extends CI_Controller {
 
             if (!$results)
                 {
-                $this->session->set_flashdata('message', 'Sorry, no plants meet your criteria.  Please try again.');
+                $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.</p>');
                 redirect(site_url('admin/admin_search'), 'refresh');
                 }
             else {
