@@ -24,6 +24,9 @@
 <p>Visit the <a href="http://depts.washington.edu/hortlib/collections/pal.shtml">Plant Answer Line</a>, a wonderful resource provided by the
     Elisabeth C. Miller Library at the Center for Urban Horticulture, or visit our <a href="/resources/">Resources</a> page for a list
 of helpful links and information sources.</p>
+ <img src="../assets/adiantum-venustum.jpg">
+        <p class="caption">Adiantum venustum</p>
+        <p class="caption">&#169; Richie Steffen / Great Plant Picks</p>
 </div>
 <div class="clear"></div>
 </div><!-- end content -->

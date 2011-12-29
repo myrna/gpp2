@@ -18,8 +18,14 @@
                 <div id='logo-sub'><a href='<?php echo base_url();?>'><div id='logo-link'></div></a></div>;
                <?php }
                 ?>
-<?php if ($this->uri->segment(1)!=="plantlists") echo
-               "<a href='/plantlists/search/'><div id='plant-link'>
+<?php if ($thispage=="Home")
+    echo
+               "<a href='/plantlists/search/'><div id='plant-link-home'>
+                    <p>FIND YOUR PLANT</p>
+                </div></a>";
+                elseif
+    ($this->uri->segment(1)!=="plantlists") echo
+               "<a href='/plantlists/search/'><div id='plant-link-all'>
                     <p>FIND YOUR PLANT</p>
                 </div></a>" ?>
             </div><!-- end banner -->

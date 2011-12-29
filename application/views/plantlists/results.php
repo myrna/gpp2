@@ -4,17 +4,22 @@
  
     <h2>Great Plant Picks Search Results</h2>
 <p class="center">Found <?php echo $stats; ?> total plants (click column to sort)</p>
-    <?php  $attributes = array('class' => 'advsearch');
-    echo form_open('plantlists', $attributes); ?>
-   <input type="text" name="searchterms" id="searchterms">
-    <input type="submit" value="Search">
-   
-    <?php
+ <?php
     echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
         ?>
-    <div class="clear"></div>
-    <p class="note">*Search by plant name</p>
-      <div class="clear"></div>
+    <div class="simplesearch">
+    <?php
+     	$attributes = array('class' => 'searchform');
+      	echo form_open('plantlists', $attributes);
+	?>
+   <p>Search by plant name:
+    <input type="text" name="searchterms" id="searchterms" value="Enter botanical or common name">
+   <input type="submit" value="Search"></p>
+   <?php echo form_close(); ?>
+    </div><!-- end searchform -->
+   
+   
+   
     <p> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" 
            onclick="this.href = this.href.replace('[sub]',window.location)">Email this list</a>
         or copy and paste the address at the top of your browser into your favorite email program to share it</p>

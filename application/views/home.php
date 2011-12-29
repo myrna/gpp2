@@ -2,8 +2,8 @@
     <img src="../assets/home-shade.jpg">
 </div><!-- end main image -->
 <div id="home-caption">
-    <p>New for 2012!</p>
-    <p>&#8220;Made in the Shade&#8221;</p>
+    <a href="<?php echo base_url();?>plantlists/search/"><p>New for 2012!</p>
+    <p>&#8220;Made in the Shade&#8221;</p></a>
 </div>
 <div class="home-text">
     <h2>Welcome to Great Plant Picks!</h2>
@@ -21,6 +21,6 @@
 
 
 </div><!-- end text -->
-<div id="home-poster">
-    <img src="../assets/made-in-the-shade.jpg">
-</div><!-- end poster -->
+<a href="<?php echo base_url();?>plantlists/search/"><div id="home-poster">
+    <img title="Made In The Shade: Link to Great Plant Picks Lists and Search Page" src="../assets/made-in-the-shade.jpg">
+</div></a><!-- end poster -->

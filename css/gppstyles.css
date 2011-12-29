@@ -124,7 +124,7 @@ div#navigation {
     color:#d22322;
 }
 
-#plant-link {
+#plant-link-all {
     position:absolute;
     display:block;
     top:15px;
@@ -133,16 +133,36 @@ div#navigation {
     height:38px;
     background:url(../assets/search-arrow-long.gif) 0 -38px no-repeat;
     }
-    #plant-link p {
+ #plant-link-home {
+    position:absolute;
+    display:block;
+    top:15px;
+    right:0px;
+    width:225px;
+    height:38px;
+    background:url(../assets/search-arrow-home.gif) 0 -38px no-repeat;
+    }
+    #plant-link-all p {
         color:#fff;
         font-weight:bold;
         font-size:16px;
         padding:9px 0 0 10px;
         text-shadow:1px 1px 1px rgba(55,139,54,.60);
 }
+#plant-link-home p {
+        color:#000;
+        font-weight:bold;
+        font-size:16px;
+        padding:9px 0 0 10px;
+        text-shadow:1px 1px 1px rgba(255,255,255,.60);
+}
 
-#plant-link:hover {
+#plant-link-all:hover {
     background:url(../assets/search-arrow-long.gif) 0 0 no-repeat;
+    cursor:pointer;
+}
+#plant-link-home:hover {
+    background:url(../assets/search-arrow-home.gif) 0 0 no-repeat;
     cursor:pointer;
 }
 
@@ -213,9 +233,10 @@ div#content {
             float:right;
             margin:20px 0 20px 20px;
 }
-.colright img {
+.colright img, img.left, .col1-3 img, .col2-3 img, .col2 img  {
         border:5px #d2d26f solid;
         }
+.left {float:left; margin:0 20px 20px 0;}
 
 .home-image {
     float:right;
@@ -234,13 +255,14 @@ div#content {
     line-height:20px;
     text-align:right;
 }
-
+#home-caption a {color:#FFFFFF;}
+#home-caption a:hover {color:#e7dde6;}
 .home-text { /* temporary display block to fill space */
     float:left;
     display:block;
     width:695px;
     height:379px;
-    background-color:#e3e3e3;
+    background-color:#e7dde6;
     border:5px #977b97 solid;
     padding:10px 20px;
    }
@@ -250,6 +272,9 @@ div#content {
     right:0;
     width:270px;
     margin:0;
+}
+#home-poster:hover {
+    opacity:0.9;
 }
 .home-text > h2 {
     text-align:left;
@@ -492,7 +517,6 @@ div.simplesearch {
 
 .adv {
     border:3px #d2d26f solid;
-
 }
 
 .clear-search {
@@ -661,6 +685,13 @@ dl.leaf dd {
     font-size:14px;
     padding-bottom:10px;
 }
+dl.leaf dd.sub {
+    padding-left:80px;
+    padding-bottom:3px;
+}
+dl.leaf dd.sub:before {
+    content: "";
+}
 dl.leaf dd.last, dl.contact dd.last {
     margin-bottom:10px;
 }
@@ -692,6 +723,22 @@ dl.lists > dt.first {
 dl.lists > dd {
    margin-left:15px;
 }
+
+dl.glossary {padding:20px 0 10px;}
+dl.glossary dt {
+    float:left;
+    width:28%;
+    clear:both;
+    font-weight:bold;
+    padding-bottom:15px;
+}
+dl.glossary dd {
+    width:65%;
+    float:right;
+    padding-bottom:15px;
+    margin-right:7%;
+}
+
 
 
 /* plant fact sheet screen style */
@@ -879,12 +926,15 @@ h5 {font-size:16px;}
 
 .display h4 {
     display:block;
-    background-color:#f8e100;
+    background:url(../assets/topbar.jpg) 0 0;
+    color:#fff;
+    text-shadow:2px 2px rgba(0,0,0,0.1);
 }
 .view h4 {
     text-align:center;
     margin-bottom:20px;
 }
+h5.staff {clear:left; margin-bottom:10px;}
 .titles > h5{
     font-size:18px;
     line-height:24px;
@@ -929,7 +979,8 @@ h3.clematis {
 /* miscellaneous image styles */
 
 .logo-download {
-    margin-left:40px;    
+    margin-left:40px;
+    padding:10px;
 }
 
 
@@ -939,7 +990,7 @@ p.nav {
     clear:both;
     text-align:right;
 }
-p.note {
+p.note, span.note {
     clear:both;
     float:left;
     font-style:italic;
@@ -976,9 +1027,22 @@ p.copy {
     margin:0;
     padding:0;
 }
+p.caption {
+    font-style:italic;
+    text-align:right;
+    margin:0 10px 0 0;
+    font-size:12px;
+    line-height:15px;
+}
 p.info {
     font-weight:bold;
     margin:15px 0 10px;
+}
+p.intro {   /* used for intro to full-width tables such as nursery directory */
+    padding:5px 20px;
+}
+.drop {  /* when you just need some extra space, used on resources page */
+    padding:10px 0 15px;
 }
 em {
     font-style:normal;

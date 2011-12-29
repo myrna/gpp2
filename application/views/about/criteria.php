@@ -4,8 +4,8 @@
     <h2>Great Plant Picks Selection Criteria</h2>
     <div class="colright">
         <img src="../assets/epimedium-warleyense.jpg">
-        <p class="genus">Epimedium warleyense<br />
-        &#169; Richie Steffen / Great Plant Picks</p>
+        <p class="caption">Epimedium warleyense</p>
+         <p class="caption">&#169; Richie Steffen / Great Plant Picks</p>
     </div>
     <dl class="leaf">
         <dt>All Great Plant Picks selections should:</dt>

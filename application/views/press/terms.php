@@ -17,7 +17,7 @@
     </div>
     <div class="col1-3">
       <img class="logo-download" src="../assets/gpp-in-color.png">
-<p><a href="<?php echo base_url();?>press/download_color/gpp-logo-color.jpg">Download color (1.01Mb)</a></p>
+<p><a href="<?php echo base_url();?>press/download_color/gpp-logo-color.jpg">Download color logo (1.01Mb)</a></p>
     </div>
     <div class="clear"></div>
     <h3>Image Use</h3>

@@ -198,7 +198,7 @@ class Plantlists extends CI_Controller {
             $this->process_advanced_search(array('publish' => $publish));
         }
 
-        function plant_array($results) {
+       function plant_array($results) {
 
           $a = array();
                 foreach ($results['rows'] as $result) {
@@ -266,7 +266,7 @@ class Plantlists extends CI_Controller {
             
 			if (isset($query) and $query != "" and $results['found'] == 0) {
 				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
-                                   <a href="#">Why isn\'t my plant listed?</a></p>');
+                                   <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
 			    redirect(site_url("plantlists/search"), "refresh");
 			} else {
 	           	$data['records'] = $this->plant_array($results);
@@ -283,7 +283,7 @@ class Plantlists extends CI_Controller {
             $results = $this->plantlists_model->advanced_search($query);
             if ($results['found'] == 0) {
 			    $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
-                                    <a href="#">Why isn\'t my plant listed?</a></p>');
+                                    <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
                 redirect(site_url("plantlists/advanced"), "refresh");  // this routing is not being used, defaulting to basic search routing
 			} else {
 	            $data['records'] = $this->plant_array($results);

@@ -4,7 +4,7 @@
     <?php $this->load->view('includes/plantlists_breadcrumbs'); ?>
     <h2>Great Plant Picks Advanced Search</h2>
     <?php echo $this->session->flashdata('message'); ?>
-    <div class="simplesearch adv">
+   <!-- <div class="simplesearch adv">
       <?php $attributes = array('class' => 'searchform');
     echo form_open('plantlists', $attributes); ?>
     <p>Search by plant name:
@@ -13,7 +13,7 @@
    
     <?php echo form_close(); ?>
  
-    </div><!-- end simplesearch -->
+    </div>--><!-- end simplesearch -->
        
     <h5>Search by plant attributes (select those that apply):</h5>
    
@@ -21,6 +21,9 @@
      <?php
     $attributes = array('class' => 'adv-search');
     echo form_open('plantlists/advanced_search', $attributes); ?>
+    <div class="searchcenter">
+          <input type="submit" value="Find My Plant">
+    </div>
         <div class="col1">
     <fieldset>
 

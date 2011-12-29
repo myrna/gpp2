@@ -3,7 +3,8 @@
 <?php $this->load->view('includes/about_breadcrumbs'); ?>
 
     <h2>Great Plant Picks Staff</h2>
-    <h5>Richie Steffen, Curator</h5>
+    <h5 class="staff">Richie Steffen, Curator</h5>
+    <img class="left" title="Richie Steffen, Miller Garden Curator" src="../assets/richie-steffen.jpg">
 <p>A well-known personality on the Pacific Northwest horticulture scene, Richie joined the Miller Garden in 2000,
     bringing with him a variety of horticultural expertise.  After moving from Maryland to Seattle in 1989, he worked
     at Sky Nursery in Shoreline, as propagator/nursery manager for the Rhododendron Species Botanical Garden and as a
@@ -17,9 +18,9 @@
     His photos can be seen in many regional publications, on this website and on the
     <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> website.</p>
 <div class="colright">
-    <img title="Rick Peterson with Rhododendron parmalutaum 'Ocelot'" src="../assets/rick-peterson.jpg">
+    <img title="Rick Peterson, Great Plant Picks Manager, with Rhododendron parmalutaum 'Ocelot'" src="../assets/rick-peterson.jpg">
 </div>
-<h5>Rick Peterson, Great Plant Picks Manager</h5>
+<h5 class="staff">Rick Peterson, Great Plant Picks Manager</h5>
 <p>Rick joined the staff of the E.C. Miller Botanical Garden as the Great Plant Picks Manager in October 2009 after working at
         the Rhododendron Species Foundation in Federal Way, Washington for 24 years as garden manager, including ten years as
         co-executive director.</p>
