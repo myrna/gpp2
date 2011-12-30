@@ -3,7 +3,7 @@
 
 <h2>Press</h2>
 <p>Great Plant Picks is a great resource for garden writers!  We make many of our high resolution <a href="<?php echo base_url();?>press/terms/">photos and logo</a> available for free or
-at a minimum cost.  Please see the <a href="<?php echo base_url();?>about/">About GPP page</a> to learn more about the GPP mission and goals.</p>
+at a minimal cost.  Please see the <a href="<?php echo base_url();?>about/">About GPP page</a> to learn more about the GPP mission and goals.</p>
 <h2 class="drop">GPP Announces 2012 Great Plant Picks</h2>
 <div class="colright">
     <img src="../assets/made-in-the-shade.jpg">

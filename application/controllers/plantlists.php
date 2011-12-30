@@ -198,8 +198,7 @@ class Plantlists extends CI_Controller {
             $this->process_advanced_search(array('publish' => $publish));
         }
 
-       function plant_array($results) {
-
+       function plant_array($results) { /* format plant results page ------- */
           $a = array();
                 foreach ($results['rows'] as $result) {
           $a[] = array(

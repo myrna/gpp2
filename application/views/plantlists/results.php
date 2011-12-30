@@ -26,9 +26,9 @@
 
     <table id="display" class="tablesorter display">
         <thead>
-            <th>Plant Name (Click to sort)</th>
-            <th>Family (Common)</th>
-            <th>Height</th>
+            <th title="Click to Sort">Plant Name</th>
+            <th title="Click to Sort">Family (Common)</th>
+            <th title="Click to Sort">Height</th>
           
             </thead>
        

@@ -10,7 +10,7 @@
     at Sky Nursery in Shoreline, as propagator/nursery manager for the Rhododendron Species Botanical Garden and as a
     part-time instructor for the horticulture program at Edmonds Community College.  He currently serves as a board member
     of the Rhododendron Species Foundation and the Hardy Fern Foundation (past president).</p>
-<p>At the Miller Garden, Richie oversees the plant record database, general horticulture and manages the garden&#8217;s special
+<p class="last">At the Miller Garden, Richie oversees the plant record database, general horticulture and manages the garden&#8217;s special
     collections, including rare plants, ferns, hepaticas, woodland plants, rare bulbs, and alpine plants.  Richie keeps ahead of
     horticulture trends throughout the country by traveling, plant collecting, visiting gardens and networking with other
     horticulture professionals.  He regularly lectures and writes and is always ready to share his enthusiasm for plants and

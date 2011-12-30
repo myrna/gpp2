@@ -8,9 +8,9 @@ echo "<h1>".$heading."</h1>"; ?>
 <p class="intro"><em>Note to Nurseries:</em> Listing in the GPP Nursery Directory is free.  If you would like to be added to the GPP Nursery Directory,
  please contact the GPP manager at <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?> or phone 206-362-8612.</p>
 <?php
-echo "<h4>Washington State Nurseries</h4>";
+echo "<h4>Washington Nurseries</h4>";
 if(!empty($nurseries_wa)) echo $this->table->generate($nurseries_wa);
-echo "<h4>Oregon State Nurseries</h4>";
+echo "<h4>Oregon Nurseries</h4>";
 if(!empty($nurseries_or)) echo $this->table->generate($nurseries_or);
 echo "<h4>British Columbia Nurseries</h4>";
 if(!empty($nurseries_bc)) echo $this->table->generate($nurseries_bc);

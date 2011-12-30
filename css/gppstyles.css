@@ -727,10 +727,12 @@ dl.lists > dd {
 dl.glossary {padding:20px 0 10px;}
 dl.glossary dt {
     float:left;
-    width:28%;
+    width:25%;
     clear:both;
     font-weight:bold;
     padding-bottom:15px;
+    padding-right:2%;
+    text-align:right;
 }
 dl.glossary dd {
     width:65%;
@@ -1041,8 +1043,17 @@ p.info {
 p.intro {   /* used for intro to full-width tables such as nursery directory */
     padding:5px 20px;
 }
+p.link {    /* resources link headers */
+    font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    margin:5px 0;
+}
 .drop {  /* when you just need some extra space, used on resources page */
     padding:10px 0 15px;
+}
+.last {
+    padding-bottom:10px;
 }
 em {
     font-style:normal;

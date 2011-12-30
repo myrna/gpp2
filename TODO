@@ -10,7 +10,7 @@ or
 
 and, perhaps more complicated:
 
-(1)common_name = azalea (this is from the common_name table, not the family common name field in plant_data),
+(1)common_name = azalea (this is from the plant_common_name table, not the family common name field in plant_data),
 (2)foliage_type = evergreen
 
 I  haven't been able to figure this out; the alternative (if this is easier) would be to set up a theme search field in the public "advanced
@@ -18,6 +18,13 @@ search" page, do the search so that it becomes a "saved search", and use that li
 off of the "advanced search" page.  I can do this, but I think the way you have set up pre-programmed searches is much cleaner.  However if
 time-wise it is wiser to do it my quick-and-dirty way, at least for now, I can do that. I don't know that I can do this with the common_name/
 foliage_type search, though.
+
+12/30/11 addition:
+
+On the "results" page -- for example, ...plantlists/by_texture/bold -- we list the family common name from the plant_data table.
+Richie really wants this to list the individual common names from the plant_common_name table (as we do on the individual plant fact sheets).
+ Please consider budget before tackling this -- if this is more than 1-2 hours and/or if the above task took
+more than a couple of hours we should probably talk before tackling this. But, it's a pretty high priority for Richie.
 
 Thanks!
 

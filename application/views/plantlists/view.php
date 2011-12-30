@@ -82,16 +82,16 @@
         }
         echo "<p><em>Sun/Light Exposure:</em> " . $details->sun_exposure . "</p>";
         echo "<p><em>Water Requirements:</em> " . $details->water_requirements . "</p>";
-        echo "<p><em>Soil Requirements:</em> " . $details->soil_requirements . "</p>";
+        /*echo "<p><em>Soil Requirements:</em> " . $details->soil_requirements . "</p>";*/
         
         if (!empty($details->seasonal_interest))  {
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
         }
         
-        if (!empty($plant_attributes['design_use'])) {
+       /* if (!empty($plant_attributes['design_use'])) {
             echo "<p><em>Design Use:</em> ";
             echo implode($plant_attributes['design_use'], ', ');
-        }
+        }*/
 
         echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
 

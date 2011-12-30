@@ -1,13 +1,10 @@
 <!-- print display for PUBLIC plant list and search function -->
-
+ <div class="printview"><input class="print-this" type="button" onClick="window.print()" value="Print Fact Sheet" /></div>
+ <div class="clear"></div>
 <div id="content" class="view">
-    <div id="printview"><?php echo anchor('plantlists/view/' . $id, "Back to Web View"); ?></div>
-    <div id="printhead">
-        <img src="../assets/logo-print.gif">
-        <p class="logo first">&#169;2001-<?php echo date("Y"); ?></p>
-        <p class="logo">Great Plant Picks</p>
-        <p class="logo"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
-    </div>
+    <div id="backtoweb"><?php echo anchor('plantlists/view/' . $id, "Back to Web View"); ?></div>
+   
+    
 
     <?php
     if($row == FALSE)
@@ -33,13 +30,14 @@
                 }               
     ?>
     </h2>
+    <div class="plantinfo">
     <div id="imageview">
         
    <?php if (!empty($primary_image)) echo "<img src=" . image_url($primary_image['filename']) . " alt='' />" ?>
    <?php if (!empty($primary_image['copyright'])) echo "<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
      </div><!-- end image view -->
      
-    <div class="plantinfo">
+    
    
 <?php
             if (!empty($synonyms)) {
@@ -54,7 +52,7 @@
         echo "<h3>Outstanding Qualities</h3>";
         echo "<p>". $details->qualities . "</p>";
 
-        echo "<h3>Quick Facts</h3>";
+        echo "<div class='quickfacts'><h3>Quick Facts</h3>";
         echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>";
         echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
         echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
@@ -72,18 +70,12 @@
         }
         echo "<p><em>Sun/Light Exposure:</em> " . $details->sun_exposure . "</p>";
         echo "<p><em>Water Requirements:</em> " . $details->water_requirements . "</p>";
-        echo "<p><em>Soil Requirements:</em> " . $details->soil_requirements . "</p>";
-
+       
         if (!empty($details->seasonal_interest))  {
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
         }
-        
-        if (!empty($plant_attributes['design_use'])) {
-            echo "<p><em>Design Use:</em> ";
-            echo implode($plant_attributes['design_use'], ', ');
-        }
-
-        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
+       
+        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations . "</p></div><!-- end quickfacts -->";
 
         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";
@@ -95,7 +87,7 @@
             echo implode($plant_attributes['pest_resistance'], ', ');
         }
               
-        echo "</div><!-- end plantinfo --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+        echo "<div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";
         echo $details->growing_notes;
@@ -107,8 +99,16 @@
         }
        
     ?>
- 
-    </div><!-- end plantdetails -->
+    </div><!-- end plant details -->
+    </div><!-- end plantinfo -->
+    <div id="printhead">
+        <div id="logo">
+            <img src="../assets/logo-print.gif">
+        </div>
+        <p class="logo first">&#169;2001-<?php echo date("Y"); ?></p>
+        <p class="logo">Great Plant Picks</p>
+        <p class="logo"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
+    </div>
     <div class="pagebreak"></div>
 </div><!-- end content -->
 

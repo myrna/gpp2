@@ -6,7 +6,7 @@
         <base href="<?php echo base_url();?>">
         <link rel="stylesheet" href="<?php echo base_url();?>css/print.css" type="text/css" media="screen, projection, print" />
         <style type="text/css" media="print">
-            #printview {display:none;}
+            .printview {display:none;}
         </style>
                </head>
     <body>
