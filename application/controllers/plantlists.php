@@ -200,10 +200,11 @@ class Plantlists extends CI_Controller {
 
        function plant_array($results) { /* format plant results page ------- */
           $a = array();
-                foreach ($results['rows'] as $result) {
+          foreach ($results['rows'] as $result) {
           $a[] = array(
           'name' => display_full_botanical_name($result),
-          'common' => $result['family_common_name'],
+          'common_family_name' => $result['family_common_name'],
+          'common_names' => join($result['common_names'], ", "),
           'height' => $result['plant_height_at_10'],
           'id' => $result['id']
       );
@@ -293,10 +294,10 @@ class Plantlists extends CI_Controller {
 		}
 
 	function display_results($data) {
-            $this->template->set('thispage','Display Lists');
-            $this->template->set('title','Plant Lists | Great Plant Picks');
-            $this->template->load('template','plantlists/results',$data);
-		}
+        $this->template->set('thispage','Display Lists');
+        $this->template->set('title','Plant Lists | Great Plant Picks');
+        $this->template->load('template','plantlists/results',$data);
+	}
 		
 	function saved_searches() {
 			$id = $this->uri->segment(3);
