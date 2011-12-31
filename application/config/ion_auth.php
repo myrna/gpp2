@@ -27,22 +27,22 @@
 	/**
 	 * Site Title, example.com
 	 */
-	$config['site_title']		   = "Example.com";
+	$config['site_title']		   = "greatplantpicks.org";
 	
 	/**
 	 * Admin Email, admin@example.com
 	 */
-	$config['admin_email']		   = "admin@example.com";
+	$config['admin_email']		   = "info@greatplantpicks.org";
 	
 	/**
 	 * Default group, use name
 	 */
-	$config['default_group']       = 'members';
+	$config['default_group']       = 'professional';
 	
 	/**
 	 * Default administrators group, use name
 	 */
-	$config['admin_group']         = 'admin';
+	$config['admin_group']         = 'administrator';
 	 
 	/**
 	 * Meta table column you want to join WITH.

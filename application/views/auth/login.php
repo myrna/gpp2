@@ -33,7 +33,7 @@
 
           <?php echo form_close();?>
 
-  <!--   <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>-->
+    <p><a href="/auth/forgot_password">Forgot your password?  Reset.</a></p>
 </div><!-- end form -->
 
 
