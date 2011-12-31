@@ -86,17 +86,18 @@ class Plantlists_model extends CI_Model {
                 $query_array[$attribute] = strtolower($value);
             }
         }
-        $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data");
+        $this->db->select('plant_data.*', 'plant_common_name.common_name')->from("(select * from plant_data where publish = 'yes') as plant_data");
 
         $this->db->join('plant_water', 'plant_water.plant_id = plant_data.id', 'left');
         $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
         $this->db->join('plant_sun', 'plant_sun.plant_id = plant_data.id', 'left');            
         $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
-	$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
+	    $this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
         $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
         $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
 
         if ($query_array['foliage_color']) {
             $this->db->where('plant_foliage_color.foliage_color_id', 
@@ -127,7 +128,18 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_sun.sun_id', 
 				"(select id from sun where lower(sun) = " . $this->db->escape($query_array['sun']) . ")", false);
         }
+        
+        if ($query_array['theme']) {
+            $this->db->where('plant_theme.theme_id', 
+				"(select id from theme where lower(theme) = " . $this->db->escape($query_array['theme']) . ")", false);
+        }
 
+        if ($query_array['common_name']) {
+            $this->db->where('plant_common_name.common_name', 
+				"(select common_name from plant_common_name where lower(common_name) = " . $this->db->escape($query_array['common_name']) . ")", false);
+        }
+
+        
         if ($query_array['plant_height_at_10']) {
                 $this->db->where('plant_data.plant_height_at_10 <= ' . intval($query_array['plant_height_at_10']));
         }
@@ -184,17 +196,9 @@ class Plantlists_model extends CI_Model {
             	$this->db->where('lower(plant_data.foliage_type)', $query_array['foliage_type']);
 			}	
         }
-
+        
         if ($query_array['gpp_year']) {
             $this->db->where('plant_data.gpp_year', $query_array['gpp_year']);
-        }
-
-        if ($query_array['theme']) {
-			if (is_array($query_array['theme'])) {
-				$this->db->where_in('lower(plant_data.theme)', $query_array['theme']);
-			} else {
-            	$this->db->where('lower(plant_data.theme)', $query_array['theme']);
-			}
         }
         
        if ($query_array['publish']) {
