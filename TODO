@@ -1,23 +1,4 @@
-NEW ITEM (10-31-2011)
 
-We need to set up pre-configured searches that will search two or three tables -- for example:
-
-Search for plants where (1) plant type=perennial, (2) theme=foliage, (3) sun requirements=light shade
-
-or
-
-(1)theme = foliage, (2) foliage_color = blue
-
-and, perhaps more complicated:
-
-(1)common_name = azalea (this is from the plant_common_name table, not the family common name field in plant_data),
-(2)foliage_type = evergreen
-
-I  haven't been able to figure this out; the alternative (if this is easier) would be to set up a theme search field in the public "advanced
-search" page, do the search so that it becomes a "saved search", and use that link for the pre-programmed search, then pull the theme option
-off of the "advanced search" page.  I can do this, but I think the way you have set up pre-programmed searches is much cleaner.  However if
-time-wise it is wiser to do it my quick-and-dirty way, at least for now, I can do that. I don't know that I can do this with the common_name/
-foliage_type search, though.
 
 12/30/11 addition:
 
@@ -27,6 +8,8 @@ Richie really wants this to list the individual common names from the plant_comm
 more than a couple of hours we should probably talk before tackling this. But, it's a pretty high priority for Richie.
 
 Thanks!
+
+NOTES:  This shouldn't be a huge deal, but designwise, it might be hard to fit common names in that column.  I guess that isn't my problem though...:)  I'd estimate 30-45 minutes to get this done.
 
 
 IGNORE THESE FOR NOW...
@@ -52,6 +35,36 @@ Thanks!
 
 
 ================FINISHED==================
+
+NEW ITEM (10-31-2011)
+
+We need to set up pre-configured searches that will search two or three tables -- for example:
+
+Search for plants where (1) plant type=perennial, (2) theme=foliage, (3) sun requirements=light shade
+
+or
+
+(1)theme = foliage, (2) foliage_color = blue
+
+and, perhaps more complicated:
+
+(1)common_name = azalea (this is from the plant_common_name table, not the family common name field in plant_data),
+(2)foliage_type = evergreen
+
+I  haven't been able to figure this out; the alternative (if this is easier) would be to set up a theme search field in the public "advanced
+search" page, do the search so that it becomes a "saved search", and use that link for the pre-programmed search, then pull the theme option
+off of the "advanced search" page.  I can do this, but I think the way you have set up pre-programmed searches is much cleaner.  However if
+time-wise it is wiser to do it my quick-and-dirty way, at least for now, I can do that. I don't know that I can do this with the common_name/
+foliage_type search, though.
+
+NOTES: 
+
+I prototyped one up for you in the search page called "Trees".  The list of attributes you can use in that form is in the advanced_search() function in the plantlists.php controller.  If you need other attributes, we should talk about what you need, and I can add support for them.
+
+
+
+-----
+
 
 Found that the "back" problem is still there, but only in this situation: on the administrative side, if I do a search on the admin/listplants page and pull up a list (for example, all gpp plants); then edit
 a record from that list, then hit the "back" button, I get a "do you want to resubmit this form" notice.  What we need is to be able
