@@ -1115,3 +1115,13 @@ a:link {color:#0134c5; text-decoration:none;}
 a:visited {color: #0134c5; text-decoration:none;}
 a:hover, a:active {color:#e16f43; text-decoration:none;}
 /* end */
+
+/* this is temporary to make it look like a link  -- jong*/
+.text-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    text-decoration: underline;
+    color: #00c;
+    cursor: pointer;
+}
