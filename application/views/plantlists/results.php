@@ -27,7 +27,7 @@
     <table id="display" class="tablesorter display">
         <thead>
             <th title="Click to Sort">Plant Name</th>
-            <th title="Click to Sort">Family (Common)</th>
+            <th title="Click to Sort">Common Name(s)</th>
             <th title="Click to Sort">Height</th>
           
             </thead>
@@ -40,7 +40,7 @@
                 <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
             <td class="common-name">
-                <?php echo $plant['common']; ?>
+                <?php echo $plant['common_names']; ?>
             </td>
             <td>
                 <?php echo $plant['height'] . "'"; ?>

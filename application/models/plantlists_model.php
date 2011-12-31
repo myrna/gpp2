@@ -42,6 +42,7 @@ class Plantlists_model extends CI_Model {
     }
 
     function basic_search($query) {
+        $data = array();
         if ($query != "") {
             $this->common_name_search($query);
             $this->synonym_search($query);
@@ -68,12 +69,13 @@ class Plantlists_model extends CI_Model {
                 get()->result_array();
 
             $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $records;
+            $data['rows'] = $this->add_common_names($records);
         } else {
             $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
             $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
+            
             $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $records;
+            $data['rows'] = $this->add_common_names($records);
         }
         return $data;
     }
@@ -86,7 +88,7 @@ class Plantlists_model extends CI_Model {
                 $query_array[$attribute] = strtolower($value);
             }
         }
-        $this->db->select('plant_data.*', 'plant_common_name.common_name')->from("(select * from plant_data where publish = 'yes') as plant_data");
+        $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data");
 
         $this->db->join('plant_water', 'plant_water.plant_id = plant_data.id', 'left');
         $this->db->join('plant_soil', 'plant_soil.plant_id = plant_data.id', 'left');
@@ -209,10 +211,23 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_data.committee', $query_array['committee']);
         }
 
-       $data['rows'] = $this->db->distinct()->get()->result_array();
-		$data['found'] = count($data['rows']);
+        $records = $this->db->distinct()->get()->result_array();
+        $data['found'] = count($records);
+        $data['rows'] = $this->add_common_names($records);
         return $data;
+   }
 
+   function add_common_names($collection) {
+       function extract_name($record) {
+           return $record['common_name'];
+       }
+  
+       foreach($collection as $index => $plant) {
+           $this->db->select('plant_common_name.common_name')->from('plant_common_name')->where('plant_id', $plant['id']);
+           $common_names = $this->db->get()->result_array();
+           $collection[$index]['common_names'] = array_map("extract_name", $common_names);
+       }
+       return $collection;
    }
 
 }
