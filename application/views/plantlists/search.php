@@ -17,6 +17,28 @@
 
     <ul class="leaf">
   <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
+  <li>this is a giant hassle without GET support...
+      <form action="plantlists/advanced_search" method="post">
+      <input type="hidden" name="common_name" value="black bamboo"/>
+      <input type="submit" value="Black Bamboo" class="text-button" />
+      </form>
+    </li>
+    <li>
+        <form action="plantlists/advanced_search" method="post">
+            <input type="hidden" name="plant_type" value="shrub" />
+            <input type="hidden" name="sun" value="full sun" />
+            <input type="hidden" name="foliage_color" value="blue"/>
+            <input type="submit" value="full sun shrubs" class="text-button"/>
+        </form>
+    </li>
+    <li>
+        <form action="plantlists/advanced_search" method="post">
+            <input type="hidden" name="common_name" value="purple-leaf grape vine" />
+            <input type="submit" value="grape vine" class="text-button"/>
+        </form>
+    </li>
+    
+      
     </ul>
     <h4>Browse the GPP Plant Lists</h4>
     <div class="col1-3">

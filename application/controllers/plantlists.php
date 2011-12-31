@@ -231,31 +231,33 @@ class Plantlists extends CI_Controller {
 		}
 
         function advanced_search() {
+            $this->output->enable_profiler(TRUE);
        		$query_array = array(  
-                'plant_type' => $this->input->post('plant_type'),        
-                'foliage_type'  => $this->input->post('foliage_type'),
-                'gpp_year' => $this->input->post('gpp_year'),
-                'theme' => $this->input->post('theme'),
-                'plant_height_at_10' => $this->input->post('plant_height_at_10'),
-				'plant_height_min' => $this->input->post('plant_height_min'),
-                'plant_width_at_10' => $this->input->post('plant_width_at_10'),
-				'plant_width_min' => $this->input->post('plant_width_min'),
-                'zone_low' => $this->input->post('zone_low'),
-				'zone_low_max' => $this->input->post('zone_low_max'),
-                'growth_habit' => $this->input->post('growth_habit'),
-                'flower_time' => $this->input->post('flower_time'),
-                'flower_color' => $this->input->post('flower_color'),
-                'foliage_color' => $this->input->post('foliage_color'), 
-                'sun' => $this->input->post('sun'),
-                'soil' => $this->input->post('soil'),
-                'water' => $this->input->post('water'),
-                'genus' => $this->input->post('genus'),
-                'design_use' => $this->input->post('design_use'),
-                'pest_resistance' => $this->input->post('pest_resistance'),
-                'theme' => $this->input->post('theme')
+                'plant_type' => $this->input->get_post('plant_type'),        
+                'foliage_type'  => $this->input->get_post('foliage_type'),
+                'gpp_year' => $this->input->get_post('gpp_year'),
+                'theme' => $this->input->get_post('theme'),
+                'plant_height_at_10' => $this->input->get_post('plant_height_at_10'),
+				'plant_height_min' => $this->input->get_post('plant_height_min'),
+                'plant_width_at_10' => $this->input->get_post('plant_width_at_10'),
+				'plant_width_min' => $this->input->get_post('plant_width_min'),
+                'zone_low' => $this->input->get_post('zone_low'),
+				'zone_low_max' => $this->input->get_post('zone_low_max'),
+                'growth_habit' => $this->input->get_post('growth_habit'),
+                'flower_time' => $this->input->get_post('flower_time'),
+                'flower_color' => $this->input->get_post('flower_color'),
+                'foliage_color' => $this->input->get_post('foliage_color'), 
+                'sun' => $this->input->get_post('sun'),
+                'soil' => $this->input->get_post('soil'),
+                'water' => $this->input->get_post('water'),
+                'genus' => $this->input->get_post('genus'),
+                'design_use' => $this->input->get_post('design_use'),
+                'pest_resistance' => $this->input->get_post('pest_resistance'),
+                'theme' => $this->input->get_post('theme'),
+                'common_name' => $this->input->get_post('common_name')
                  );
-
             $query_id = $this->input->save_query($query_array);
+            
 			redirect("/plantlists/saved_searches/" . $query_id);
         }
 
@@ -275,7 +277,6 @@ class Plantlists extends CI_Controller {
 		}
 
 	function process_advanced_search($query) {
-	//		$this->output->enable_profiler(true);
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
 
@@ -292,8 +293,7 @@ class Plantlists extends CI_Controller {
 		}
 
 	function display_results($data) {
-
-	    $this->template->set('thispage','Display Lists');
+            $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('template','plantlists/results',$data);
 		}
