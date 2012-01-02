@@ -198,6 +198,11 @@ class Plantlists extends CI_Controller {
             $this->process_advanced_search(array('publish' => $publish));
         }
 
+         function by_common_name() {
+                $common_name = $this->uri->segment(3);
+                $this->process_advanced_search(array('common_name' => $common_name));
+        }
+
        function plant_array($results) { /* format plant results page ------- */
           $a = array();
           foreach ($results['rows'] as $result) {

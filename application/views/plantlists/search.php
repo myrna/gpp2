@@ -37,6 +37,12 @@
             <input type="submit" value="grape vine" class="text-button"/>
         </form>
     </li>
+      <li>
+        <form action="plantlists/advanced_search" method="post">
+            <input type="hidden" name="common_name" value="azalea" />
+            <input type="submit" value="azalea" class="text-button"/>
+        </form>
+    </li>
     
       
     </ul>
@@ -58,6 +64,13 @@
                 <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
                 <li><?php echo anchor("plantlists/by_design_use/containers", "Containers"); ?></li>
                 <li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant"); ?></li>
+                 <li>
+        <form action="plantlists/advanced_search" method="post">
+            <input type="hidden" name="common_name" value="azalea" />
+           
+            <input type="submit" value="Evergreen Azalea" class="text-button"/>
+        </form>
+    </li>
          </ul>
          
     </div><!-- end column 1 -->
