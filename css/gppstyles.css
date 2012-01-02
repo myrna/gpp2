@@ -227,7 +227,7 @@ div#content {
 
         .indent {margin-left:120px;}
 
-        .col1-3 > ul {margin-bottom:10px;}
+        .col1-3 > ul, .col2-3 > ul {margin-bottom:10px;}
 
         .colright {
             float:right;

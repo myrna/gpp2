@@ -178,6 +178,11 @@ class Plantlists extends CI_Controller {
                 $this->process_advanced_search(array('foliage_texture' => $texture));
         }
 
+         function by_theme() {
+                $theme = $this->uri->segment(3);
+                $this->process_advanced_search(array('theme' => $theme));
+        }
+
         function by_genus() {
                 $genus = $this->uri->segment(3);
                 $this->process_advanced_search(array('genus' => $genus));
@@ -198,9 +203,66 @@ class Plantlists extends CI_Controller {
             $this->process_advanced_search(array('publish' => $publish));
         }
 
-         function by_common_name() {
+        function by_common_name() {
                 $common_name = $this->uri->segment(3);
                 $this->process_advanced_search(array('common_name' => $common_name));
+        }
+        function evergreen_azalea() {
+                $common_name = $this->uri->segment(3);
+                $common_name = "evergreen azalea";
+                $this->process_advanced_search(array('common_name' => $common_name));
+        }
+        function small_tree() {
+                $small_tree = $this->uri->segment(3);
+                $small_tree = $this->process_advanced_search(array(
+                  'plant_type' => "tree",
+                  'plant_height_at_10' => "20"
+                ));
+        }
+        function made_in_the_shade() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "shade",
+                  'plant_type' => $type
+                ));
+        }
+        function shade_type() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "shade",
+                  'sun' => $type
+                ));
+        }
+      
+        function dry_shade() {
+                $dry_shade = $this->uri->segment(3);
+                $dry_shade = $this->process_advanced_search(array(
+                  'theme' => "shade",
+                  'water' => "drought-tolerant"
+                ));
+        }
+
+        function fun_in_the_sun() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "sun_drought",
+                  'plant_type' => $type
+                ));
+        }
+
+        function fantastic_foliage() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "foliage",
+                  'foliage_texture' => $type
+                ));
+        }
+         function fantastic_foliage_color() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "foliage",
+                  'foliage_color' => $type
+                ));
         }
 
        function plant_array($results) { /* format plant results page ------- */
@@ -237,7 +299,7 @@ class Plantlists extends CI_Controller {
 		}
 
         function advanced_search() {
-            $this->output->enable_profiler(TRUE);
+            //$this->output->enable_profiler(TRUE);
        		$query_array = array(  
                 'plant_type' => $this->input->get_post('plant_type'),        
                 'foliage_type'  => $this->input->get_post('foliage_type'),
