@@ -28,8 +28,7 @@
         <thead>
             <th title="Click to Sort">Plant Name</th>
             <th title="Click to Sort">Common Name(s)</th>
-            <th title="Click to Sort">Height</th>
-          
+            <th title="Click to Sort">Height (ft.)</th>
             </thead>
        
         <tbody>
@@ -40,12 +39,14 @@
                 <?php echo anchor('plantlists/view/'.$plant['id'], $plant['name']); ?>
             </td>
             <td class="common-name">
-                <?php echo $plant['common_names']; ?>
+                <?php 
+               if (!empty($plant['common_names'])) {
+                echo anchor('plantlists/view/'.$plant['id'], $plant['common_names']);
+               } ?>
             </td>
             <td>
                 <?php echo $plant['height'] . "'"; ?>
             </td>
-         
             </tr>
             <?php endforeach; ?>
         </tbody>

@@ -21,15 +21,14 @@
         echo display_full_botanical_name($row);
         }
     ?></h2>
-    <h2 class="common">
+   
     <?php 
         if (!empty($common_names)) {
             foreach ($common_names as $common_name) {
-                echo $common_name['common_name'] . "&nbsp;";
+                echo " <h2 class='common'>" . $common_name['common_name'] . "</h2>";
                 }
                 }               
     ?>
-    </h2>
     <div class="plantinfo">
     <div id="imageview">
         
@@ -72,11 +71,11 @@
         echo "<p><em>Water Requirements:</em> " . $details->water_requirements . "</p>";
        
         if (!empty($details->seasonal_interest))  {
-             echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
+             echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest . "</p>";
         }
-       
-        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations . "</p></div><!-- end quickfacts -->";
-
+        if (!empty($details->plant_combinations))  {
+        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations . "</p>";
+        }
         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";
             echo implode($plant_attributes['wildlife'], ', ');
@@ -87,7 +86,7 @@
             echo implode($plant_attributes['pest_resistance'], ', ');
         }
               
-        echo "<div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+        echo "</div><!-- end quickfacts --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
         echo $details->culture_notes;
         echo "</dd><dt>Growing Habit</dt><dd>";
         echo $details->growing_notes;

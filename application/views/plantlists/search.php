@@ -17,28 +17,6 @@
 
     <ul class="leaf">
   <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
-  <li>this is a giant hassle without GET support...
-      <form action="plantlists/advanced_search" method="post">
-      <input type="hidden" name="common_name" value="black bamboo"/>
-      <input type="submit" value="Black Bamboo" class="text-button" />
-      </form>
-    </li>
-    <li>
-        <form action="plantlists/advanced_search" method="post">
-            <input type="hidden" name="plant_type" value="shrub" />
-            <input type="hidden" name="sun" value="full sun" />
-            <input type="hidden" name="foliage_color" value="blue"/>
-            <input type="submit" value="full sun shrubs" class="text-button"/>
-        </form>
-    </li>
-    <li>
-        <form action="plantlists/advanced_search" method="post">
-            <input type="hidden" name="common_name" value="purple-leaf grape vine" />
-            <input type="submit" value="grape vine" class="text-button"/>
-        </form>
-    </li>
-    
-      
     </ul>
     <h4>Browse the GPP Plant Lists</h4>
     <div class="col1-3">
@@ -54,27 +32,7 @@
                  <li><?php echo anchor("plantlists/by_plant_type/tree", "All Trees"); ?></li>
                  <li><?php echo anchor("plantlists/by_plant_type/vine", "All Vines"); ?></li>
          </ul>
-         <ul>
-                <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
-                <li><?php echo anchor("plantlists/by_design_use/containers", "Containers"); ?></li>
-                <li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant"); ?></li>
-         </ul>
-         
-    </div><!-- end column 1 -->
-    <div class="col1-3">
-     <p class="listhead">Fantastic Foliage Plants</p>
-         <ul>
-                 <li><?php echo anchor("plantlists/by_texture/bold", "Bold Foliage"); ?></li>
-                 <li><?php echo anchor("plantlists/by_texture/shiny", "Shiny Foliage"); ?></li>
-                 <li><?php echo anchor("plantlists/by_texture/unique", "Unique Foliage"); ?></li>
-                 <li><?php echo anchor("plantlists/by_texture/fine", "Fine Foliage"); ?></li>
-         </ul>
-     
-       
-           
-    </div><!-- end column 2 -->
-    <div class="col2-3">
-         <p class="listhead">Great Plant Picks by Year</p>
+   <p class="listhead">Great Plant Picks by Year</p>
 
             <ul class="col1">
                   <li><?php echo anchor("plantlists/by_year/2001","2001"); ?></li>
@@ -94,6 +52,60 @@
                   <li><?php echo anchor("plantlists/by_year/2012","2012"); ?></li>
             </ul>
         
+         
+    </div><!-- end column 1 -->
+    <div class="col1-3">
+     <p class="listhead"><?php echo anchor("plantlists/by_theme/shade", "Made in the Shade&#8212;Plants for Shade"); ?></p>
+         <ul>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/bulb", "Bulbs for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/conifer", "Conifers for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/grass", "Grasses for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/perennial", "Perennials for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/shrub", "Shrubs for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/made_in_the_shade/tree", "Trees for Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/shade_type/light_shade", "Plants for Light Shade"); ?></li>
+                  <li><?php echo anchor("plantlists/shade_type/open_shade", "Plants for Open Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/shade_type/dappled_shade", "Plants for Dappled Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/shade_type/deep_shade", "Plants for Deep Shade"); ?></li>
+                 <li><?php echo anchor("plantlists/dry_shade", "Plants for Dry Shade"); ?></li>
+         </ul>
+     <p class="listhead"><?php echo anchor("plantlists/by_theme/foliage", "Fantastic Foliage&#8212;Plants with Striking Foliage"); ?></p>
+         <ul>
+                 <li><?php echo anchor("plantlists/fantastic_foliage/bold", "Bold Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage/shiny", "Shiny Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage/unique", "Unique Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage/fine", "Fine Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage_color/burgundy", "Burgundy Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage_color/gold", "Gold Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage_color/purple", "Purple Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage_color/silver", "Silver Foliage"); ?></li>
+                 <li><?php echo anchor("plantlists/fantastic_foliage_color/white", "White Foliage"); ?></li>
+         </ul>
+     
+       
+           
+    </div><!-- end column 2 -->
+    <div class="col2-3">
+   <p class="listhead"><?php echo anchor("plantlists/by_theme/sun_drought", "Fun in the Sun&#8212;Drought Tolerant Plants for Sun"); ?></p>
+        <ul>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/bulb", "Bulbs for Sun"); ?></li>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/conifer", "Conifers for Sun"); ?></li>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/grass", "Grasses for Sun"); ?></li>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/perennial", "Perennials for Sun"); ?></li>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/shrub", "Shrubs for Sun"); ?></li>
+                 <li><?php echo anchor("plantlists/fun_in_the_sun/tree", "Trees for Sun"); ?></li>
+                  <li><?php echo anchor("plantlists/fun_in_the_sun/vine", "Vines for Sun"); ?></li>
+        </ul>
+   <p class="listhead">Miscellaneous Lists</p>
+   <ul>
+                <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
+                <li><?php echo anchor("plantlists/by_design_use/containers", "Plants for Containers"); ?></li>
+                <li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant Plants"); ?></li>
+                <li><?php echo anchor("plantlists/evergreen_azalea", "Evergreen Azaleas"); ?></li>
+                <li><?php echo anchor("plantlists/by_genus/rhododendron", "Rhododendrons"); ?></li>
+                <li><?php echo anchor("plantlists/by_genus/rosa", "Roses"); ?></li>
+                <li><?php echo anchor("plantlists/small_tree", "Small Trees (under 20')"); ?></li>
+          </ul>
     </div><!-- end column 3 -->
 
     <div class="clear"></div>

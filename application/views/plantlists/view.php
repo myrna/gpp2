@@ -18,15 +18,15 @@
         echo display_full_botanical_name($row);
         }
     ?></h5>
-    <h5 class="common">
+   
     <?php
         if (!empty($common_names)) {
             foreach ($common_names as $common_name) {
-                echo $common_name['common_name'] . "&nbsp;";
+                echo "<h5 class='common'>" . $common_name['common_name'] . "</h5>";
                 }
                 }
     ?>
-    </h5></div>
+    </div>
     <div id="imageview">
         <ul>
     <?php  {
@@ -92,8 +92,9 @@
             echo "<p><em>Design Use:</em> ";
             echo implode($plant_attributes['design_use'], ', ');
         }*/
-
+        if (!empty($details->plant_combinations))  {
         echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
+        }
 
         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";

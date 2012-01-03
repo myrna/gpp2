@@ -44,12 +44,12 @@
         <p class="searchlabel"><?php echo form_label('Hardy to (USDA zone minimum):','zone_low'); ?></p>
         <p class="adsearch">USDA Zones 7 and 8 generally cover the maritime Pacific Northwest.</p>
  		<p class="radios">
-        <input type="radio" name="zone_low_max" value="3"><a class="tooltip" href="#">zone 3<span class="classic">-40&#176;F to -30&#176;F</span></a>
-        <input type="radio" name="zone_low_max" value="4"><a class="tooltip" href="#">zone 4<span class="classic">-30&#176;F to -20&#176;F</span></a>
-        <input type="radio" name="zone_low_max" value="5"><a class="tooltip" href="#">zone 5<span class="classic">-20&#176;F to -10&#176;F</span></a>
-        <input type="radio" name="zone_low_max" value="6"><a class="tooltip" href="#">zone 6<span class="classic">-10&#176;F to 0&#176;F</span></a>
-        <input type="radio" name="zone_low_max" value="7"><a class="tooltip" href="#">zone 7<span class="classic">0&#176;F to 10&#176;F</span></a>
-        <input type="radio" name="zone_low_max" value="8"><a class="tooltip" href="#">zone 8<span class="classic">10&#176;F to 20&#176;F</span></a></p>
+        <input type="radio" name="zone_low_max" value="3"><span class="tooltip">zone 3<span class="classic">-40&#176;F to -30&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="4"><span class="tooltip">zone 4<span class="classic">-30&#176;F to -20&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="5"><span class="tooltip">zone 5<span class="classic">-20&#176;F to -10&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="6"><span class="tooltip">zone 6<span class="classic">-10&#176;F to 0&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="7"><span class="tooltip">zone 7<span class="classic">0&#176;F to 10&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="8"><span class="tooltip">zone 8<span class="classic">10&#176;F to 20&#176;F</span></span></p>
         </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
@@ -177,14 +177,14 @@
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
         <p class="radios">
-        <input type="radio" name="sun" value="full sun"><a class="tooltip" href="#">Full Sun<span class="classic">6 or more hours of sun</span></a>
-        <input type="radio" name="sun" value="part shade"><a class="tooltip" href="#">Light Shade<span class="classic">4 to 6 hours of sun</span></a>
-        <input type="radio" name="sun" value="dappled shade"><a class="tooltip" href="#">Dappled Shade<span class="classic">2 to 4 hours of sun
-            under a canopy of trees</span></a></p>
+        <input type="radio" name="sun" value="full_sun"><span class="tooltip">Full Sun<span class="classic">6 or more hours of sun</span></span>
+        <input type="radio" name="sun" value="light_shade"><span class="tooltip">Light Shade<span class="classic">4 to 6 hours of sun</span></span>
+        <input type="radio" name="sun" value="dappled_shade"><span class="tooltip">Dappled Shade<span class="classic">2 to 4 hours of sun
+            under a canopy of trees</span></span></p>
             <p class="radios">
-        <input type="radio" name="sun" value="open shade"><a class="tooltip" href="#">Open Shade<span class="classic">Bright light, but no direct sun</span></a>        
-        <input type="radio" name="sun" value="heavy shade"><a class="tooltip" href="#">Heavy Shade<span class="classic">No direct sun
-             under a canopy of trees</span></a></p>
+        <input type="radio" name="sun" value="open_shade"><span class="tooltip">Open Shade<span class="classic">Bright light, but no direct sun</span></span>
+        <input type="radio" name="sun" value="deep_shade"><span class="tooltip">Heavy Shade<span class="classic">No direct sun
+             under a canopy of trees</span></span></p>
     </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Soil Type:','soil'); ?></p>
@@ -200,10 +200,10 @@
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
         <p class="radios">
-        <input type="radio" name="water" value="moist"><a class="tooltip" href="#">Moist<span class="classic">Water two-three times per week during hot weather</span></a>
-         <input type="radio" name="water" value="regular"><a class="tooltip" href="#">Regular<span class="classic">Water once per week during dry weather</span></a>
-        <input type="radio" name="water" value="occasional"><a class="tooltip" href="#">Occasional<span class="classic">Water every 10-14 days during dry weather</span></a>
-        <input type="radio" name="water" value="drought-tolerant"><a class="tooltip" href="#">Drought Tolerant<span class="classic">Once established, water once per month</span></a>
+        <input type="radio" name="water" value="moist"><span class="tooltip">Moist<span class="classic">Water two-three times per week during hot weather</span></span>
+         <input type="radio" name="water" value="regular"><span class="tooltip">Regular<span class="classic">Water once per week during dry weather</span></span>
+        <input type="radio" name="water" value="occasional"><span class="tooltip">Occasional<span class="classic">Water every 10-14 days during dry weather</span></span>
+        <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant<span class="classic">Once established, water once per month</span></span>
        </p>
         </fieldset>
        </div>
