@@ -11,7 +11,7 @@
 
     <form method="get" id="searchform" accept-charset="utf-8" action="<?php echo base_url();?>admin/listplants/search" />
     <input type="text" name="searchterms" id="searchterms">
-        <!-- removed id="searchterms" to temporarily disable autocomplete -->
+       
     <input type="submit" value="Search">
  
     <?php

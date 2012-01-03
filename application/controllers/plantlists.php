@@ -332,15 +332,26 @@ class Plantlists extends CI_Controller {
 	function process_basic_search($query) {
 			$this->load->model('plantlists_model');
                         $results = $this->plantlists_model->basic_search($query);
-            
-			if (isset($query) and $query != "" and $results['found'] == 0) {
+                        if ($query == "Enter botanical or common name") {
+                            $this->session->set_flashdata('message', '<p class="flash">Sorry, no search term was entered.  Please enter a search term.</p>');
+			    redirect(site_url("plantlists/search"), "refresh");
+                        }
+			elseif (isset($query) and $query != "" and $results['found'] == 0) {
 				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
                                    <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
 			    redirect(site_url("plantlists/search"), "refresh");
-			} else {
+			}
+                        elseif (isset($query) and $query == "") {
+				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
+                                   <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
+			    redirect(site_url("plantlists/search"), "refresh");
+			}
+                        else  {
+                        
 	           	$data['records'] = $this->plant_array($results);
 				$data['stats'] = $this->search_stats($results, $query);
 				$this->display_results($data);
+
 			}
 		}
 
