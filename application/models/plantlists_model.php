@@ -13,31 +13,34 @@
 class Plantlists_model extends CI_Model {
 
     function name_search($query) {
-        $matchwords = explode(" ", $query);
         $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
             'registered_name','plant_type'); 
+        // $matchwords = explode(" ", $query);
         foreach ($matchfields as $field) {
-            foreach ($matchwords as $match) {
-                $this->db->or_like('plant_data.' . $field, $match);
-            }
+            // foreach ($matchwords as $match) {
+            //     $this->db->or_like('plant_data.' . $field, $match);
+            // }
+            $this->db->or_like('LOWER(plant_data.' . $field . ')', strtolower($query));
         }
     }
     
     function common_name_search($query) {
-        $matchwords = explode(" ", $query);
-        foreach ($matchwords as $match) {
-            $this->db->or_like('plant_common_name.common_name', $match);
-        }
+        $this->db->or_like('LOWER(plant_common_name.common_name)', strtolower($query));        
+        // $matchwords = explode(" ", $query);
+        // foreach ($matchwords as $match) {
+        //     $this->db->like('plant_common_name.common_name', $this->db->escape($query));
+        // }
     }
     
     function synonym_search($query) {
-        $matchwords = explode(" ", $query);
         $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
             'registered_name'); 
+        //$matchwords = explode(" ", $query);
         foreach ($matchfields as $field) {
-            foreach ($matchwords as $match) {
-                $this->db->or_like('plant_synonym.' . $field, $match);
-            }
+            $this->db->or_like('LOWER(plant_synonym.' . $field . ')', strtolower($query));
+            // foreach ($matchwords as $match) {
+            //     $this->db->or_like('plant_synonym.' . $field, $match);
+            // }
         }
     }
 
@@ -47,10 +50,10 @@ class Plantlists_model extends CI_Model {
             $this->common_name_search($query);
             $this->synonym_search($query);
             $this->name_search($query);
-            
+
         # this ugly select in the from clause is to get only the published ones for further selections.
         # I'm sure this could be made faster with other methods, but this will do for now.
-         $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
+            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
                 join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
                 join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
                 get()->result_array();
@@ -62,11 +65,11 @@ class Plantlists_model extends CI_Model {
             $this->synonym_search($query);
             $this->name_search($query);
                         
-           $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
-                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
-                join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
-                distinct()->
-                get()->result_array();
+            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
+            join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
+            join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
+            distinct()->
+            get()->result_array();
 
             $data['found'] = $found[0]['numrows'];
             $data['rows'] = $this->add_common_names($records);
