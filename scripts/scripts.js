@@ -1,6 +1,15 @@
 //tablesorter
 $(document).ready(function()
-            { $("#display").tablesorter( {sortList: [[0,0]]} ); } );
+            { $("#display").tablesorter( {
+               
+              textExtraction: {
+                0: function(node) {
+                return $(node).find('span:not(.crossgenus)').text().replace(/\'/g,'');
+                }
+},
+               sortList: [[0,0]]
+                } );
+            } );
 
 // unclick radio buttons
 $(document).ready(function() {

@@ -659,6 +659,12 @@ ul.leaf > li {
     background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
     padding:5px 0 15px 30px;
 }
+ul.leaf > li > ul {
+    margin:10px 0 0 20px;
+}
+ul.leaf > li > ul > li{
+    padding-bottom:10px;
+}
 
 /*indented basic list style for selection, advisory committee lists */
 ul.normal {

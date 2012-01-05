@@ -2,8 +2,12 @@
 <html>
     <head>
         <title><?php echo $title ?></title>
+        <meta name="description" content="Great Plant Picks is an educational program of the Elisabeth C. Miller Botanical Garden,
+            recommending outstanding plants for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada." />
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico">
+	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>images/apple-touch-icon.png">
         <link rel="stylesheet" id="gppstyles" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         </head>
     <body>

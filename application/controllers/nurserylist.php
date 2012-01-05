@@ -58,7 +58,7 @@ class Nurserylist extends CI_Controller
              
          }
          $data['nurseries_wa'] = $table;
-         $data['heading'] = 'Nursery Directory';
+         $data['heading'] = 'Participating Nurseries';
      }
      if ($nurseries_or['query2']->num_rows() > 0)
      {
@@ -105,6 +105,7 @@ class Nurserylist extends CI_Controller
 
         $this->template->set('thispage','Nursery Directory');
         $this->template->set('title','Nursery Directory | Great Plant Picks');
+        $this->template->set('description','Great Plant Picks is an educational program of the Elisabeth C. Miller Botanical Garden, recommending outstanding plants for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada.');
         $this->template->load('template','nurserylist', $data);
     
  }

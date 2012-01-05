@@ -2,7 +2,7 @@
 
 <?php $this->load->view('includes/resources_breadcrumbs'); ?>
 
-    <h2>Helpful Links</h2>
+    <h2>Helpful Links &amp; Resources</h2>
     <dl class="leaf">
         <dt><a href="http://depts.washington.edu/hortlib/collections/pal.shtml">Plant Answer Line</a></dt>
         <dd>This unique resource is provided by the Elisabeth C. Miller Library at the Center for Urban Horticulture in Seattle, Washington.

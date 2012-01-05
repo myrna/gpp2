@@ -7,7 +7,7 @@
     <img title="Link to Nursery Directory (Rhododendron pseudochrysanthemum, dwarf form)" src="../assets/rhododendron-pseudochrysanthum-dwarf.jpg">
 </div></a>
 <a href="<?php echo base_url();?>resources/links/"><div class="col1-3">
-    <p class="link">Helpful Links</p>
+    <p class="link">Helpful Links &amp; Resources</p>
     <img title="Helpful Links and Resources (Trillium chloropetalum, red form)" src="../assets/trillium-chloropetalum-red.jpg">
     </div></a>
 <a href="<?php echo base_url();?>resources/glossary/"><div class="col2-3">
