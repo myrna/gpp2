@@ -32,6 +32,48 @@ class Plantlists extends CI_Controller {
             $this->template->load('template','plantlists/plant_not_listed');
         }
 
+        function autocomplete_set() {
+            // this should probably be a closure for DRY.
+            function flatten_common_names($record) {
+                return $record['common_name'];
+            }
+            
+            function flatten_botanical_names($record) {
+                $str = preg_replace("/\s\s+/", " ", $record['botanical_name']);
+                return trim($str);
+            }
+            
+            function flatten_botanical_parts($records) {
+                $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name', 'registered_name');
+                $a = array();
+                foreach ($records as $record) {
+                    foreach ($matchfields as $field) {
+                        if ($record[$field] != NULL) {
+                            $a[] = $record[$field];
+                        }
+                    }
+                }
+                return array_unique($a);
+            }
+            $botanical_query = $this->db->query("select distinct(lower(concat_ws(' ', trim(genus), trim(specific_epithet), trim(family),trim(cultivar), trim(cross_species),trim(trade_name),trim(trademark_name), trim(registered_name)) )) as botanical_name from (select * from plant_data where publish = 'yes') as plant_data order by botanical_name");
+            $botanical_data = $botanical_query->result_array();
+            $botanical_names = array_map("flatten_botanical_names", $botanical_data);
+            
+            $this->db->select('lower(trim(plant_common_name.common_name)) as common_name')->from('plant_common_name')->distinct()->order_by('common_name');
+            $common_name_data = $this->db->get()->result_array();
+            $common_names = array_map("flatten_common_names", $common_name_data);
+            
+            $this->db->select("trim(lower(genus)) as genus, trim(lower(specific_epithet)) as specific_epithet, trim(lower(family)) as family ,trim(lower(cultivar)) as cultivar, trim(lower(cross_species)) as cross_species, trim(lower(trade_name)) as trade_name, trim(lower(trademark_name)) as trademark_name, trim(lower(registered_name)) as registered_name")->from('plant_data');
+            $botanical_parts_data = $this->db->get()->result_array();
+            $botanical_parts = flatten_botanical_parts($botanical_parts_data);
+            $data = array_merge($common_names, $botanical_names, $botanical_parts);
+            sort($data);
+            // $this->output->enable_profiler(TRUE);
+            // $this->output->set_output("hey");
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode($data));
+        }
+
         function index() {
             if ($this->input->post('searchterms')) {
                 $query = $this->input->post('searchterms');
@@ -330,29 +372,31 @@ class Plantlists extends CI_Controller {
         }
 
 	function process_basic_search($query) {
-			$this->load->model('plantlists_model');
-                        $results = $this->plantlists_model->basic_search($query);
-                        if ($query == "Enter botanical or common name") {
-                            $this->session->set_flashdata('message', '<p class="flash">Sorry, no search term was entered.  Please enter a search term.</p>');
-			    redirect(site_url("plantlists/search"), "refresh");
-                        }
-			elseif (isset($query) and $query != "" and $results['found'] == 0) {
-				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
-                                   <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
-			    redirect(site_url("plantlists/search"), "refresh");
-			}
-                        elseif (isset($query) and $query == "") {
-				$this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
-                                   <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
-			    redirect(site_url("plantlists/search"), "refresh");
-			}
-                        else  {
+        //$this->output->enable_profiler(TRUE);
+		$this->load->model('plantlists_model');
+        $results = $this->plantlists_model->basic_search($query);
+
+        //         if ($query == "Enter botanical or common name") {
+        //             $this->session->set_flashdata('message', '<p class="flash">Sorry, no search term was entered.  Please enter a search term.</p>');
+        //             redirect(site_url("plantlists/search"), "refresh");
+        //         }
+        // elseif (isset($query) and $query != "" and $results['found'] == 0) {
+        //         $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
+        //                                    <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
+        //         redirect(site_url("plantlists/search"), "refresh");
+        //     }
+        //                         elseif (isset($query) and $query == "") {
+        //         $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
+        //                                    <a href="plantlists/plant_not_listed/">Why isn\'t my plant listed?</a></p>');
+        //         redirect(site_url("plantlists/search"), "refresh");
+        //     }
+        //                         else  {
                         
 	           	$data['records'] = $this->plant_array($results);
 				$data['stats'] = $this->search_stats($results, $query);
 				$this->display_results($data);
 
-			}
+//			}
 		}
 
 	function process_advanced_search($query) {

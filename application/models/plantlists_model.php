@@ -46,40 +46,20 @@ class Plantlists_model extends CI_Model {
 
     function basic_search($query) {
         $data = array();
-        if ($query != "") {
-            $this->common_name_search($query);
-            $this->synonym_search($query);
-            $this->name_search($query);
+        $botanical_query = "select * from (select *,lower(concat_ws(' ', trim(genus), trim(specific_epithet), trim(family),trim(cultivar), trim(cross_species),trim(trade_name),trim(trademark_name), trim(registered_name)) ) as botanical_name from (select * from plant_data where publish = 'yes') as plant_data) as bot where botanical_name like ? or genus like ? or specific_epithet like ? or family like ? or cultivar like ? or cross_species like ? or trade_name like ? or trademark_name like ? or registered_name like ?;";
+        $param = $query."%";
+        $q = $this->db->query($botanical_query, array($param, $param, $param, $param, $param, $param, $param, $param, $param));
+        $botanical_names = $q->result_array();
+        
+        $this->db->select('plant_data.*, plant_common_name.common_name as common_name')->from("(select * from plant_data where publish = 'yes') as plant_data");
+        $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
+        $this->db->like('common_name', $query, 'after');
 
-        # this ugly select in the from clause is to get only the published ones for further selections.
-        # I'm sure this could be made faster with other methods, but this will do for now.
-            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
-                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
-                join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
-                get()->result_array();
-            
+        $common_names = $this->db->get()->result_array();
 
-            // this seems crazy that we have to set this up twice, but whatever.
-
-            $this->common_name_search($query);
-            $this->synonym_search($query);
-            $this->name_search($query);
-                        
-            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
-            join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
-            join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
-            distinct()->
-            get()->result_array();
-
-            $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $this->add_common_names($records);
-        } else {
-            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
-            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
-            
-            $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $this->add_common_names($records);
-        }
+        $found = array_merge($botanical_names, $common_names);
+        sort($found);
+        $data['rows'] = $this->add_common_names($found);
         return $data;
     }
 
