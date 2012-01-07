@@ -626,7 +626,7 @@ table.display td.plantname {
 }
 table.display td.common-name {
     width:45%;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 table.display th.type, table.display td.type {
     width:20%;
