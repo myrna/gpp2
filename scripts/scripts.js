@@ -80,27 +80,26 @@ $(document).ready(function() {
         success: set_possibilities,
         dataType: 'json'
     });
-    var field_sep = new RegExp("\s+")
+    var field_sep = new RegExp("\\s+");
     function search_cb(request, result_cb) {
-        var matcher = new RegExp( "^" + request.term, "i");
-        var f = [];
-        $(possibilities).each(function(index, item) {
-            var found = false;
-            var a = item.split(field_sep);
-            $(a).each(function(idx, itm) {
-                var re = $.ui.autocomplete.escapeRegex(itm);
-                if (matcher.test(re)) {
-                    f.push(item);
-                    found = true;
+        var found = [];
+        var terms = request.term.split(/\s+/);
+        //console.debug(terms + " : " + terms.length);
+        $(possibilities).each(function(pindex,possibility) {
+            var found_count = 0;
+            $(terms).each(function(idx, term) {
+                var matcher = new RegExp("\\b" + term, "i");
+                //console.debug("  " + matcher + " : " + possibility)
+                if (matcher.test(possibility)) {
+                    found_count++;
                 }
             });
-            if (!found) {    
-                if (matcher.test(item)) {
-                    f.push(item);
-                }
+            if (found_count == terms.length) {
+                found.push(possibility);
             }
         });
-        result_cb(f);
+        //console.debug(found);
+        result_cb(found);
     }
     
     $( '#searchterms' ).autocomplete({
