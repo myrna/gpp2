@@ -4,6 +4,9 @@
         <title><?php echo $title ?></title>
         <meta name="description" content="Great Plant Picks is an educational program of the Elisabeth C. Miller Botanical Garden,
             recommending outstanding plants for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada." />
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
         <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico">
@@ -19,7 +22,7 @@
                 echo "<div id='logo'></div>";
                     else {
                         ?>
-                <div id='logo-sub'><a href='<?php echo base_url();?>'><div id='logo-link'></div></a></div>;
+                <div id='logo-sub'><a href='<?php echo base_url();?>'><div id='logo-link'></div></a></div>
                <?php }
                 ?>
 <?php if ($thispage=="Home")
@@ -51,7 +54,8 @@
         <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          
         <?php $this->load->view('includes/footer'); ?>
- <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+
+ 
         <script type='text/javascript' src='<?php echo base_url();?>/scripts/jquery.tablesorter.min.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>/scripts/scripts.js'></script>        
            </body>

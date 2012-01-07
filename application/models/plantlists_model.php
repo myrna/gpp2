@@ -12,74 +12,76 @@
 
 class Plantlists_model extends CI_Model {
 
-    function name_search($query) {
-        $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
-            'registered_name','plant_type'); 
-        // $matchwords = explode(" ", $query);
-        foreach ($matchfields as $field) {
-            // foreach ($matchwords as $match) {
-            //     $this->db->or_like('plant_data.' . $field, $match);
-            // }
-            $this->db->or_like('LOWER(plant_data.' . $field . ')', strtolower($query));
-        }
-    }
-    
-    function common_name_search($query) {
-        $this->db->or_like('LOWER(plant_common_name.common_name)', strtolower($query));        
-        // $matchwords = explode(" ", $query);
-        // foreach ($matchwords as $match) {
-        //     $this->db->like('plant_common_name.common_name', $this->db->escape($query));
-        // }
-    }
-    
-    function synonym_search($query) {
-        $matchfields = array('genus', 'specific_epithet', 'family', 'cultivar', 'cross_species', 'trade_name','trademark_name',
-            'registered_name'); 
-        //$matchwords = explode(" ", $query);
-        foreach ($matchfields as $field) {
-            $this->db->or_like('LOWER(plant_synonym.' . $field . ')', strtolower($query));
-            // foreach ($matchwords as $match) {
-            //     $this->db->or_like('plant_synonym.' . $field, $match);
-            // }
-        }
+    // this seems overly complex, but now if we need to adjust what is in the botanical name frag,
+    // we just add or subtract the fields from this array
+    public function botanical_name_parts() {
+        return array(
+            "genus",
+            "specific_epithet",
+            "cultivar",
+            "cross_species",
+            "trade_name",
+            "trademark_name",
+            "registered_name",
+            "family"
+        );
     }
 
+    public function consolidate_name_fields($name_parts) {
+        $fields = array();
+        foreach ($name_parts as $field) {
+            $fields[] = "trim(".$field.") ";
+        }
+        return join($fields, ", ");
+    }
+    
+    function where_fragment($query_parts, $field_name) {
+        $a = array();
+        foreach ($query_parts as $term) {
+            $a[] = "($field_name like ? or $field_name like ?)";
+        }
+        return join($a, " and ");
+    }
+    
+    function params($query_parts) {
+        $a = array();
+        foreach ($query_parts as $term) {
+            $a[] = "$term%";
+            $a[] = "% $term%";
+        }
+        return $a;
+    }
+
+    public function autocomplete_consolidate_botanical_name($name_parts) {
+        return "(select distinct(lower(concat_ws(' ', " . $this->consolidate_name_fields($name_parts) . "))) as botanical_name from (select * from plant_data where publish = 'yes') as plant_data)";
+    }
+
+    public function consolidate_botanical_name($name_parts) {
+        return "(select *,lower(concat_ws(' ', " . $this->consolidate_name_fields($name_parts) . ")) as botanical_name from (select * from plant_data where publish = 'yes') as plant_data)";
+    }
+        
     function basic_search($query) {
+        // codeignitors activerecord is too dumb to use for these queries
+        // so I build the sql by hand
         $data = array();
-        if ($query != "") {
-            $this->common_name_search($query);
-            $this->synonym_search($query);
-            $this->name_search($query);
+        $query_parts = explode(" ", $query);
+        $name_parts = $this->botanical_name_parts();
+        $params = $this->params($query_parts);
 
-        # this ugly select in the from clause is to get only the published ones for further selections.
-        # I'm sure this could be made faster with other methods, but this will do for now.
-            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'yes') as plant_data")->
-                join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
-                join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
-                get()->result_array();
-            
+        $botanical_consolidated_fragment = $this->consolidate_botanical_name($name_parts);
+        $botanical_where_fragment = $this->where_fragment($query_parts, 'botanical_name');
+        $botanical_query = "select * from $botanical_consolidated_fragment as b where $botanical_where_fragment;";
+        $q = $this->db->query($botanical_query, $params);
+        $botanical_names = $q->result_array();
+        
+        $common_name_fragment = "select plant_data.*, plant_common_name.common_name as common_name from (select * from plant_data where publish = 'yes') as plant_data left join plant_common_name on plant_common_name.plant_id = plant_data.id";
+        $common_name_where_fragment = $this->where_fragment($query_parts, 'common_name');
+        $q = $this->db->query("$common_name_fragment where $common_name_where_fragment;", $params);
+        $common_names = $q->result_array();
 
-            // this seems crazy that we have to set this up twice, but whatever.
-
-            $this->common_name_search($query);
-            $this->synonym_search($query);
-            $this->name_search($query);
-                        
-            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'yes') as plant_data")->
-            join('plant_synonym', 'plant_synonym.synonym_id = plant_data.id', 'left')->
-            join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left')->
-            distinct()->
-            get()->result_array();
-
-            $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $this->add_common_names($records);
-        } else {
-            $found = $this->db->select('COUNT(DISTINCT plant_data.id) as numrows')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
-            $records = $this->db->select('plant_data.*')->from("(select * from plant_data where publish = 'Yes') as plant_data")->get()->result_array();
-            
-            $data['found'] = $found[0]['numrows'];
-            $data['rows'] = $this->add_common_names($records);
-        }
+        $found = array_merge($botanical_names, $common_names);
+        sort($found);
+        $data['rows'] = $this->add_common_names($found);
         return $data;
     }
 
