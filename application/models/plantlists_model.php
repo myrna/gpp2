@@ -62,7 +62,8 @@ class Plantlists_model extends CI_Model {
         
     function basic_search($query) {
         // codeignitors activerecord is too dumb to use for these queries
-        // so I build the sql by hand
+        // so I build the sql by hand.
+        // It might be better to use a regexp here, not sure performance wise how it will pan out.
         $data = array();
         $query_parts = explode(" ", $query);
         $name_parts = $this->botanical_name_parts();
