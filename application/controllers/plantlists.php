@@ -75,13 +75,13 @@ class Plantlists extends CI_Controller {
         $common_name_data = $this->db->get()->result_array();
         $common_names = array_map("flatten_common_names", $common_name_data);
             
-        $this->db->select(botanical_parts($name_parts))->from('plant_data');
+        $this->db->select(botanical_parts($name_parts))->from('plant_data')->where('publish',"yes");
         $botanical_parts_data = $this->db->get()->result_array();
         $botanical_parts = flatten_botanical_parts($botanical_parts_data, $name_parts);
         $test = array();
         $data = array_merge($common_names, $botanical_names, $botanical_parts, $test);
         sort($data);
-        // $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         // $this->output->set_output("hey");
         $this->output->set_content_type('application/json');
         $this->output->set_output(json_encode($data));
