@@ -74,10 +74,16 @@ class Plantlists_model extends CI_Model {
         $botanical_query = "select * from $botanical_consolidated_fragment as b where $botanical_where_fragment;";
         $q = $this->db->query($botanical_query, $params);
         $botanical_names = $q->result_array();
+        // we have to grab the IDs out, so we don't get the same thing in the common name search.
+        $botanical_ids = array();
+        foreach ($botanical_names as $botanical_name) {
+            $botanical_ids[] = $botanical_name['id'];
+        }
+        $already_found = "(" . implode(", ", $botanical_ids) . ")";
         
         $common_name_fragment = "select plant_data.*, plant_common_name.common_name as common_name from (select * from plant_data where publish = 'yes') as plant_data left join plant_common_name on plant_common_name.plant_id = plant_data.id";
         $common_name_where_fragment = $this->where_fragment($query_parts, 'common_name');
-        $q = $this->db->query("$common_name_fragment where $common_name_where_fragment;", $params);
+        $q = $this->db->query("$common_name_fragment where $common_name_where_fragment and plant_id not in $already_found;", $params);
         $common_names = $q->result_array();
 
         $found = array_merge($botanical_names, $common_names);

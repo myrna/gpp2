@@ -82,7 +82,6 @@ class Plantlists extends CI_Controller {
         $data = array_merge($common_names, $botanical_names, $botanical_parts, $test);
         sort($data);
         //$this->output->enable_profiler(TRUE);
-        // $this->output->set_output("hey");
         $this->output->set_content_type('application/json');
         $this->output->set_output(json_encode($data));
     }
