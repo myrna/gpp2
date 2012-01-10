@@ -46,6 +46,10 @@ $route['admin/crud'] = 'admin/crud';
 $route['admin/gallery'] = 'admin/gallery';
 $route['admin/nurseries'] = 'admin/nurseries';
 
+// Sets the 404_override to call the controller Errors
+// And calls its method error_404()
+$route['404_override'] = 'errors/error_404';
+
 $route['default_controller'] = "home";
 $route['scaffolding_trigger'] = "";
 
