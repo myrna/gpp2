@@ -19,7 +19,6 @@ class Errors extends CI_Controller {
            $this->load->view('errors/error_404');
 	}
 }
-
 // ------------------------------------------------------------------------
 /* End of file errors.php
  * Location: ./application/controllers/errors.php
