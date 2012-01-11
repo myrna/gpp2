@@ -95,6 +95,7 @@ class Plantlists_model extends CI_Model {
         $found = array_merge($botanical_names, $common_names);
         sort($found);
         $data['rows'] = $this->add_common_names($found);
+        $data['found'] = count($found);
         return $data;
     }
 
