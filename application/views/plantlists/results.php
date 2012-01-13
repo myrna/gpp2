@@ -3,7 +3,7 @@
 <div id="content" class="view">
  
     <h2>Great Plant Picks Search Results</h2>
-<p class="center">Found <?php echo $stats; ?> total plants (click column to sort)</p>
+<p class="center">Found <?php echo $stats; ?> total plants <span class="click">(click column to sort)</span></p>
  <?php
     echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
         ?>
@@ -20,7 +20,7 @@
    
    
    
-    <p> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]" 
+    <p class="mail"> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]"
            onclick="this.href = this.href.replace('[sub]',window.location)">Email this list</a>
         or copy and paste the address at the top of your browser into your favorite email program to share it</p>
 

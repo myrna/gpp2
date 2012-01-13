@@ -1,0 +1,85 @@
+/* 
+    Document   : print.css
+    
+    Description:
+        Print style sheet instructions for general public pages
+*/
+
+    body {  /* white background, black text */
+        background: #fff none !important;
+        color: #000;
+        font-size:13px;
+        line-height:16px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    #wrapper {
+        position: relative;
+        margin:0 auto;
+        width:860px;
+         }
+
+ div#content {
+    position:relative;
+    clear:both;
+    /*border:1px #000 solid;*/
+    margin-top:5px;
+    padding:10px;
+    }
+
+ div#topbar, div#banner, div#navigation, div.simplesearch, span.clear-search, p.mail, p.footer-nav, span.click, div#breadcrumbs {display:none;}
+ a:link, a:visited {text-decoration:none; color:#000;}
+
+ td {padding-right:20px;}
+ td.common-name {text-transform:uppercase;}
+
+ /* plant display styles */
+.genus {
+    font-style: italic;
+}
+
+.crossgenus {
+    font-style:normal;
+    vertical-align: 4px;
+}
+
+td .crossgenus {
+    vertical-align:2px;
+}
+
+.species {
+    font-style: italic;
+}
+
+.designate {
+    font-style:italic;
+}
+
+.subspecies {
+    font-style: normal;
+}
+
+.variety {
+    font-style: italic;
+}
+
+.cultivar {
+    font-style: normal;
+}
+
+.trade-name {
+       font-family: Arial, Helvetica, sans-serif;
+}
+.trademark-name, .registered-name {
+    /*font-variant: small-caps;*/
+}
+
+.breeders-rights {
+    vertical-align: super;
+    font-size: 10px;
+}
+.super {
+    vertical-align: super;
+    font-size: 10px;
+}
+/* end print stylesheet */

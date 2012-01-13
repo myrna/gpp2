@@ -1,6 +1,6 @@
 
 <div id="footer">
-    <p><a href="<?php echo base_url();?>">Home</a> | <a href="<?php echo base_url();?>about/">About GPP</a> |
+    <p class="footer-nav"><a href="<?php echo base_url();?>">Home</a> | <a href="<?php echo base_url();?>about/">About GPP</a> |
         <a href="<?php echo base_url();?>plantlists/search/">Plant Lists</a> | <a href="<?php echo base_url();?>resources/">Resources</a>
         | <a href="<?php echo base_url();?>press/">Press</a> | <a href="<?php echo base_url();?>contact/">Contact</a> |
         <a href="<?php echo base_url();?>press/terms/">Image and Logo Use</a> | <a href="sitemap">Site Map</a> | <a href="auth/login">Professional Login</a></p>

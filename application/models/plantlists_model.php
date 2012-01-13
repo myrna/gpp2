@@ -22,8 +22,7 @@ class Plantlists_model extends CI_Model {
             "cross_species",
             "trade_name",
             "trademark_name",
-            "registered_name",
-            "family"
+            "registered_name"
         );
     }
 
