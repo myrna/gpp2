@@ -42,17 +42,22 @@ class Crud extends CI_Controller
         $this->template->load('/admin/admin_template','admin/new', $data);
          }
     }
-    function add() {
-        $this->load->model('crud_model');
-        foreach ($data as $key => $value){  // does not work, I'm missing something here....
-            if ($value == '') {
+
+    function nullify_empty_string_fields($data) {
+        foreach ($data as $key => $value) {
+            if ($value == '' or $value == ' ') {
                 $data[$key] = NULL;
             }
-            else {
-                $data[$key] = $value;
-            }
         }
+        return $data;
+    }
+    function add() {
+        $this->load->model('crud_model');
+        
         $data = $_POST;
+
+        $data = $this->nullify_empty_string_fields($data);
+
 
         unset($data['add']); // get rid of the submit button
 
@@ -312,6 +317,8 @@ class Crud extends CI_Controller
         $data = $_POST;
 
         unset($data['edit']); // get rid of the submit button
+        $data = $this->nullify_empty_string_fields($data);
+        
         $records = $this->crud_model->edit_record($data, $_POST['id']);
         if($records)
         {
