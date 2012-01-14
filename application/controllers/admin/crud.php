@@ -46,7 +46,7 @@ class Crud extends CI_Controller
         $this->load->model('crud_model');
         foreach ($data as $key => $value){  // does not work, I'm missing something here....
             if ($value == '') {
-                $data[$key] = NULL;
+                $data[$key] = "NULL";
             }
             else {
                 $data[$key] = $value;
