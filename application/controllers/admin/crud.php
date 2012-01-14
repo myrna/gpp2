@@ -12,11 +12,11 @@
 
 class Crud extends CI_Controller
 {
-    
+
    function add_record()
     {
        // $this->output->enable_profiler(TRUE);
-       
+
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
                         $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
@@ -26,7 +26,7 @@ class Crud extends CI_Controller
              $data = array(
                'logged_in' => $this->ion_auth->logged_in()
                );
-             
+
         $this->load->model('crud_model');
 		$id = "";
         $data['row'] = array();
@@ -42,17 +42,22 @@ class Crud extends CI_Controller
         $this->template->load('/admin/admin_template','admin/new', $data);
          }
     }
-    function add() {
-        $this->load->model('crud_model');
-        foreach ($data as $key => $value){  // does not work, I'm missing something here....
-            if ($value == '') {
-                $data[$key] = "NULL";
-            }
-            else {
-                $data[$key] = $value;
+
+    function nullify_empty_string_fields($data) {
+        foreach ($data as $key => $value) {
+            if ($value == '' or $value == ' ') {
+                $data[$key] = NULL;
             }
         }
+        return $data;
+    }
+    function add() {
+        $this->load->model('crud_model');
+
         $data = $_POST;
+
+        $data = $this->nullify_empty_string_fields($data);
+
 
         unset($data['add']); // get rid of the submit button
 
@@ -67,9 +72,9 @@ class Crud extends CI_Controller
         }
         redirect("admin/crud/edit_record/$id",'refresh');
     }
-    
+
     function synonym($id) {
-        
+
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
                         $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
@@ -89,13 +94,13 @@ class Crud extends CI_Controller
             'cross_genus',
             'specific_epithet',
             'infraspecific_epithet_designator',
-            'infraspecific_epithet',            
+            'infraspecific_epithet',
             'cross_species',
             'cultivar',
             'trade_name',
             'registered_name'
         );
-        
+
         foreach ($fields as $field) {
             $data['row'][$field] = $record[0][$field];
         }
@@ -106,9 +111,9 @@ class Crud extends CI_Controller
 
           }
     }
-    
+
     function common_name($id) {
-        
+
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
                         $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
@@ -120,7 +125,7 @@ class Crud extends CI_Controller
                );
 
         $this->load->model('crud_model');
-        
+
         $record = $this->crud_model->get_record_as_array($id);
         $data['row']['common_name'] = "";
         $data['plant_data'] = $record[0];
@@ -136,21 +141,21 @@ class Crud extends CI_Controller
         $this->session->set_flashdata('status', "Common Name Added");
         redirect("admin/crud/edit_record/$id", "refresh");
     }
-    
+
     function delete_common_name($id) {
         $this->load->model('crud_model');
         $plant_id = $this->crud_model->delete_common_name($id);
         $this->session->set_flashdata('status', 'Common Name Deleted');
         redirect("admin/crud/edit_record/$plant_id", "refresh");
     }
-    
+
     function save_synonym() {
         $this->load->model('crud_model');
         $id = $this->crud_model->save_synonym($_POST);
         $this->session->set_flashdata('status', "Synonym Added");
         redirect("admin/crud/edit_record/$id", "refresh");
     }
-    
+
     function delete_synonym($id) {
         $this->load->model('crud_model');
         $plant_id = $this->crud_model->delete_synonym($id);
@@ -160,7 +165,7 @@ class Crud extends CI_Controller
 
     function edit_record($id = '') {
        //$this->output->enable_profiler(TRUE);
-        
+
          if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_group('admin'))
 		{
                         $this->session->set_flashdata('message', 'You Must Be Logged In To View This Page');
@@ -175,9 +180,9 @@ class Crud extends CI_Controller
         $this->load->model('gallery_model');
         $this->load->helper('image');
         $this->load->helper('html');
-                      
+
         $data['title'] = "Edit Record: ";
-       
+
         $data['images'] = $this->gallery_model->get_images($id); //get image thumbnail(s) and display
         $data['synonyms'] = $this->crud_model->get_synonyms($id);
         $data['common_names'] = $this->crud_model->get_common_names($id);
@@ -248,9 +253,9 @@ class Crud extends CI_Controller
          foreach ($fields as $field) {
             $data['row'][$field] = $record[0][$field];
         }
-        
+
         $data['id'] = $data['row']['id'];
-        
+
         $this->template->set('thispage','Edit Record');
         $this->template->set('title','Edit Record - Database Administration | Great Plant Picks');
         $this->template->load('admin/admin_template','admin/edit', $data);
@@ -262,7 +267,7 @@ class Crud extends CI_Controller
         $water = $this->crud_model->link_table($id, 'water', 'plant');
         $data['water']['fields'] = $water['list'];
         $data['water']['requirements'] = $water['current'];
-        
+
         $sun = $this->crud_model->link_table($id, 'sun', 'plant');
         $data['sun']['fields'] = $sun['list'];
         $data['sun']['requirements'] = $sun['current'];
@@ -270,11 +275,11 @@ class Crud extends CI_Controller
         $soil = $this->crud_model->link_table($id, 'soil', 'plant');
         $data['soil']['fields'] = $soil['list'];
         $data['soil']['requirements'] = $soil['current'];
-        
+
         $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
         $data['wildlife']['fields'] = $wildlife['list'];
         $data['wildlife']['requirements'] = $wildlife['current'];
-        
+
         $pest_resistance = $this->crud_model->link_table($id, 'pest_resistance', 'plant');
         $data['pest_resistance']['fields'] = $pest_resistance['list'];
         $data['pest_resistance']['requirements'] = $pest_resistance['current'];
@@ -290,15 +295,15 @@ class Crud extends CI_Controller
         $foliage_texture = $this->crud_model->link_table($id, 'foliage_texture', 'plant');
         $data['foliage_texture']['fields'] = $foliage_texture['list'];
         $data['foliage_texture']['requirements'] = $foliage_texture['current'];
-         
+
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use']['fields'] = $design_use['list'];
         $data['design_use']['requirements'] = $design_use['current'];
-        
+
         $theme = $this->crud_model->link_table($id, 'theme', 'plant');
         $data['theme']['fields'] = $theme['list'];
         $data['theme']['requirements'] = $theme['current'];
-        
+
         return $data;
     }
 
@@ -312,6 +317,8 @@ class Crud extends CI_Controller
         $data = $_POST;
 
         unset($data['edit']); // get rid of the submit button
+        $data = $this->nullify_empty_string_fields($data);
+
         $records = $this->crud_model->edit_record($data, $_POST['id']);
         if($records)
         {
@@ -322,7 +329,7 @@ class Crud extends CI_Controller
             $this->session->set_flashdata('status', 'Record Update Unsuccessful, Please Try Again');
         }
 		$id = $data['id'];
-                
+
         redirect("admin/crud/edit_record/$id",'refresh');
     }
 
