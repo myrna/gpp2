@@ -44,6 +44,14 @@ class Crud extends CI_Controller
     }
     function add() {
         $this->load->model('crud_model');
+        foreach ($data as $key => $value){  // does not work, I'm missing something here....
+            if ($value == '') {
+                $data[$key] = NULL;
+            }
+            else {
+                $data[$key] = $value;
+            }
+        }
         $data = $_POST;
 
         unset($data['add']); // get rid of the submit button
