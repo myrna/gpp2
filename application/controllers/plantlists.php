@@ -352,6 +352,8 @@ class Plantlists extends CI_Controller {
 			return $stats;
 		}
 
+        
+       
         function advanced_search() {
             //$this->output->enable_profiler(TRUE);
        		$query_array = array(  
@@ -404,10 +406,11 @@ class Plantlists extends CI_Controller {
         }
     }
 
+
 	function process_advanced_search($query) {
             $this->load->model('crud_model');
             $this->load->model('plantlists_model');
-
+            
             $results = $this->plantlists_model->advanced_search($query);
             if ($results['found'] == 0) {
 			    $this->session->set_flashdata('message', '<p class="flash">Sorry, no plants meet your criteria.  Please try again.<br />
@@ -421,6 +424,7 @@ class Plantlists extends CI_Controller {
 		}
 
 	function display_results($data) {
+        
         $this->template->set('thispage','Display Lists');
         $this->template->set('title','Plant Lists | Great Plant Picks');
         $this->template->load('template','plantlists/results',$data);

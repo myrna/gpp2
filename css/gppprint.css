@@ -33,6 +33,12 @@
  td {padding-right:20px;}
  td.common-name {text-transform:uppercase;}
 
+ h5.results-head {
+     text-transform:capitalize;
+     text-align:center;
+     font-size:18px;
+ }
+
  /* plant display styles */
 .genus {
     font-style: italic;

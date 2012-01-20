@@ -1,26 +1,13 @@
 <?php
 
 /**
- * Program Name
- *
- * @package		Program Name
- * @author		Author name
- * @copyright		Copyright (c) 2009
- * @link			http://www.your-url.com
- * @since			Version 1.0
- */
-
-// ------------------------------------------------------------------------
-
-/**
  * Flash Helper
  *
  * Provide helper functions for common flash message operations.
  *
- * @package		Program Name
+ * @package		Great Plant Picks
  * @subpackage	Helpers
  * @category		Helpers
- * @author		Author name
  */
 
 

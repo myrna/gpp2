@@ -1,5 +1,5 @@
 <div class="home-image">
-    <img src="../assets/home-shade.jpg">
+    <img alt="" title="Left to right: Hydrangea macrophylla 'Blaumeise', Trillium luteum, Pulmonaria longifolia ssp. cevennensis" src="../assets/shade-header.jpg">
 </div><!-- end main image -->
 <div id="home-caption">
     <a href="<?php echo base_url();?>plantlists/search/"><p>New for 2012!</p>
@@ -22,5 +22,5 @@
 
 </div><!-- end text -->
 <a href="<?php echo base_url();?>plantlists/search/"><div id="home-poster">
-    <img title="Made In The Shade: Link to Great Plant Picks Lists and Search Page" src="../assets/made-in-the-shade.jpg">
+    <img alt="" title="Made In The Shade: Link to Great Plant Picks Lists and Search Page" src="../assets/made-in-the-shade.jpg">
 </div></a><!-- end poster -->

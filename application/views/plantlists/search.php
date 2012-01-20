@@ -16,7 +16,7 @@
     </div><!-- end searchform -->
 
     <ul class="leaf">
-  <li><em><?php echo anchor('plantlists/advanced/','Go To Advanced Search Options','title="Go To Advanced Search Options"') ?></em></li>
+  <li><em><?php echo anchor('plantlists/advanced/','To Refine Your Search, Go To Advanced Search Options','title="To Refine Your Search, Go To Advanced Search Options"') ?></em></li>
     </ul>
     <h4>Browse the GPP Plant Lists</h4>
     <div class="col1-3">

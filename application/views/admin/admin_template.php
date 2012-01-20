@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
         <title><?php echo $title ?></title>
         <base href="<?php echo base_url();?>">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/favicon.ico">
+	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/apple-touch-icon.png">
          <link rel="stylesheet" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         <link rel="stylesheet" href="<?php echo base_url();?>css/adminprint.css" type="text/css" media="print" />
         

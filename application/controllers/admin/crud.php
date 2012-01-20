@@ -223,6 +223,8 @@ class Crud extends CI_Controller
             'zone_low',
             'zone_high',
             'plant_combinations',
+            'color_contrast',
+            'color_partners',
             'culture_notes',
             'geek_notes',
             'native_to_gpp_region',

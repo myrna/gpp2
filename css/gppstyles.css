@@ -206,9 +206,11 @@ div#content {
     width:780px;
     padding:10px;
 }
-.display {}
+.display {width:1014px;}
 .admin, .gallery, .view, .advsearch {
+    float:left;
     padding:20px;
+    width:974px;
    }
 /* COLUMN GRID */
 	.col1,.col2,.col3, .col1-3, .col2-3, .col3-3 {float: left; position:relative;}
@@ -243,10 +245,13 @@ div#content {
     /*width:780px;*/
     margin-bottom:5px;
 }
+.home-image img {
+    border: 1px #928090 solid;
+}
 #home-caption {
     position:absolute;
     color:#e3e3e3;
-    top:280px;
+    top:290px;
     left:105px;
     width:120px;
     font-style:italic;
@@ -276,6 +281,7 @@ div#content {
 #home-poster:hover {
     opacity:0.9;
 }
+
 .home-text > h2 {
     text-align:left;
     margin:19px 0 24px;
@@ -606,44 +612,43 @@ table.nursery th:first-child, table.nursery td:first-child {
     font-weight:bold;
 }
 
-table.display {
-    margin:40px 0 10px;
+table#display {
+    margin:25px 0 10px;
     border:none;
     border-collapse:collapse;
     border-spacing:0;
     width:940px;
 }
-table.display th {
+table#display th {
     font-size:14px;
     padding-bottom:8px;
 }
-table.display td {
+table#display td {
     font-size:13px;
     padding:5px;
 }
-table.display td.plantname {
+table#display td.plantname {
+    width:40%;
+    padding-right:3%;
     white-space:nowrap;
 }
-table.display td.common-name {
-    width:45%;
+table#display td.common-name {
+    width:40%;
+    padding-right:2%;
     text-transform: uppercase;
 }
-table.display th.type, table.display td.type {
-    width:20%;
-    padding-left:5%;
-}
-table.display td.status, table.display td.year {
-    padding-right:2%;
+table#display th.height, table#display td.height {
+    width:10%;
 }
 
-table.display td a {
+table#display td a {
     text-decoration:none;
 }
-table.display td a:hover {
+table#display td a:hover {
     text-decoration:none;
     color:#e65925;
 }
-table.display th:first-child, table.display td:first-child {
+table#display th:first-child, table#display td:first-child {
     width:40%;
     font-weight:bold;
 }
@@ -735,15 +740,13 @@ dl.glossary {padding:20px 0 10px;}
 dl.glossary dt {
     float:left;
     width:25%;
-    clear:both;
     font-weight:bold;
-    padding-bottom:15px;
     padding-right:2%;
     text-align:right;
 }
 dl.glossary dd {
     width:65%;
-    float:right;
+    float:left;
     padding-bottom:15px;
     margin-right:7%;
 }
@@ -943,6 +946,10 @@ h5 {font-size:16px;}
     text-align:center;
     margin-bottom:20px;
 }
+.view h5 {
+    text-align:center;
+    margin:20px 0 0;
+}
 h5.staff {clear:left; margin-bottom:10px;}
 .titles > h5{
     font-size:18px;
@@ -954,6 +961,7 @@ h5.staff {clear:left; margin-bottom:10px;}
     text-shadow:1px 1px rgba(0,0,0,0.1);
 }
 .titles > h5.common {text-transform:uppercase;}
+h5.results-head {text-transform:capitalize;}
 
 #upload h3 {padding:15px 0 5px;}
 

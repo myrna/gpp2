@@ -93,7 +93,15 @@
             echo implode($plant_attributes['design_use'], ', ');
         }*/
         if (!empty($details->plant_combinations))  {
-        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations;
+        echo "<p><em>Plant Partners:</em> " . $details->plant_combinations;
+        }
+
+        if (!empty($details->color_contrast))  {
+        echo "<p><em>Contrasting Colors:</em> " . $details->color_contrast;
+        }
+
+         if (!empty($details->color_partners))  {
+        echo "<p><em>Color Partners:</em> " . $details->color_partners;
         }
 
         if (!empty($plant_attributes['wildlife'])) {

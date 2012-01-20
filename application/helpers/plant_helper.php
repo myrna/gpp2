@@ -215,6 +215,12 @@ function build_form_control($key, $value) {
         case 'plant_combinations' :
             return form_textarea($attributes);
             break;
+         case 'color_contrast' :
+            return form_textarea($attributes);
+            break;
+         case 'color_partners' :
+            return form_textarea($attributes);
+            break;
         case 'gpp_references' :
             return form_textarea($attributes);
             break;

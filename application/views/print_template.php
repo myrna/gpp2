@@ -4,6 +4,8 @@
         <title><?php echo $title ?></title>
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/favicon.ico">
+	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/apple-touch-icon.png">
         <link rel="stylesheet" href="<?php echo base_url();?>css/print.css" type="text/css" media="screen, projection, print" />
         <style type="text/css" media="print">
             .printview {display:none;}

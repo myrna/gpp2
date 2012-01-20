@@ -2,6 +2,15 @@
 <?php $this->load->view('includes/about_breadcrumbs'); ?>
 
 <h2>About Great Plant Picks</h2>
+<div class="col1-3">
+    <a href="<?php echo base_url();?>plantlists/view/266"><img alt="" title="Made in the Shade Plant Pick: Camellia x williamsii 'Brigadoon'" src="../assets/plants/camellia-williamsii-brigadoon.jpg"></a>
+</div>
+<div class="col1-3">
+     <a href="<?php echo base_url();?>plantlists/view/727"><img alt="" title="Made in the Shade Plant Pick: Hakonechloa macra 'All Gold'" src="../assets/plants/hakonechloa-macra-allgold.jpg"></a>
+</div>
+<div class="col2-3 last">
+    <a href="<?php echo base_url();?>plantlists/view/1566"><img alt="" title="Made in the Shade Plant Pick: Tricyrtis formosana 'Samurai'" src="../assets/plants/tricyrtis-formosana-samurai.jpg"></a>
+</div>
 <h3>Our Mission</h3>
 <p>Great Plant Picks is an education program committed to building a comprehensive palette of outstanding plants for maritime Pacific Northwest gardens.
     Great Plant Picks is one of the educational outreach programs for the Elisabeth C. Miller Botanical Garden, providing a forum for sharing horticultural

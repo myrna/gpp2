@@ -2,6 +2,15 @@
 <?php $this->load->view('includes/about_breadcrumbs'); ?>
 
     <h2>Great Plant Picks Selection Committee</h2>
+    <div class="col1-3">
+    <a href="<?php echo base_url();?>plantlists/view/410"><img alt="" title="Made in the Shade Plant Pick: Cornus alternifolia 'Argentea'" src="../assets/plants/cornus-alternifolia-argentea.jpg"></a>
+</div>
+<div class="col1-3">
+     <a href="<?php echo base_url();?>plantlists/view/1232"><img alt="" title="Made in the Shade Plant Pick: Primula japonica 'Miller's Crimson'" src="../assets/plants/primula-japonica-millerscrimson.jpg"></a>
+</div>
+<div class="col2-3 last">
+    <a href="<?php echo base_url();?>plantlists/view/46"><img alt="" title="Made in the Shade Plant Pick: Acer palmatum 'Shaina'" src="../assets/plants/acer-palmatum-shaina.jpg"></a>
+</div>
     <p>The GPP selection committee is made up of horticulturists from Oregon, Washington, and British Columbia, west of the Cascade Mountains.
         Members represent wholesale and retail nurseries, garden designers, arboreta, and botanical gardens.
         The committee is divided into three subcommittees: Shrubs and Vines, Trees and Conifers, and Perennials and Bulbs.  Each subcommittee has a
@@ -55,5 +64,6 @@
         <li><em>Daniel J. Hinkley</em>, Elisabeth C. Miller Botanical Garden board liaison, Washington</li>
         <li><em>Roger Gossler</em>, Gossler Farms Nursery, Oregon</li>
         <li><em>Eric Hammond</em>, Heritage Seedlings, Oregon</li>
+        <li><em>David Mason</em>, Hedgerows Nursery, Oregon</li>
     </ul>
 </div><!-- end content -->

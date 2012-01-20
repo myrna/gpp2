@@ -18,6 +18,7 @@ class Plantlists_model extends CI_Model {
         return array(
             "genus",
             "specific_epithet",
+            "infraspecific_epithet",
             "cultivar",
             "cross_species",
             "trade_name",

@@ -15,7 +15,8 @@
  
     </div>--><!-- end simplesearch -->
        
-    <h5>Search by plant attributes (select those that apply):</h5>
+    <h5>Search by plant attributes</h5>
+    <p class="note">Select those that apply&#8212;we recommend 1-4 selections to start</p>
    
     
      <?php
@@ -27,7 +28,7 @@
         <div class="col1">
     <fieldset>
 
-        <p class="searchlabel"><?php echo form_label('I\'m looking for a:','plant_type'); ?></p>
+        <p class="searchlabel"><?php echo form_label('I\'m looking for a (leave blank if no preference):','plant_type'); ?></p>
         <p class="radios">
         <input type="radio" name="plant_type" value="bamboo">Bamboo
         <input type="radio" name="plant_type" value="bulb">Bulb
@@ -40,8 +41,8 @@
         <input type="radio" name="plant_type" value="tree">Tree
         <input type="radio" name="plant_type" value="vine">Vine</p>
     </fieldset>
-            <fieldset>
-        <p class="searchlabel"><?php echo form_label('Hardy to (USDA zone minimum):','zone_low'); ?></p>
+     <fieldset>
+        <p class="searchlabel"><?php echo form_label('Hardy to (USDA zone minimum, leave blank if no preference):','zone_low'); ?></p>
         <p class="adsearch">USDA Zones 7 and 8 generally cover the maritime Pacific Northwest.</p>
  		<p class="radios">
         <input type="radio" name="zone_low_max" value="3"><span class="tooltip">zone 3<span class="classic">-40&#176;F to -30&#176;F</span></span>
@@ -52,14 +53,14 @@
         <input type="radio" name="zone_low_max" value="8"><span class="tooltip">zone 8<span class="classic">10&#176;F to 20&#176;F</span></span></p>
         </fieldset>
     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Foliage Type:','foliage_type'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Foliage Type (leave blank if no preference):','foliage_type'); ?></p>
         <p class="radios">
         <input type="radio" name="foliage_type" value="deciduous">Deciduous
         <input type="radio" name="foliage_type" value="evergreen">Evergreen
         <input type="radio" name="foliage_type" value="semi-evergreen">Semi-Evergreen</p>
     </fieldset>
      <fieldset>
-        <p class="searchlabel"><?php echo form_label('Foliage Color:','foliage_color'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Foliage Color (leave blank if no preference):','foliage_color'); ?></p>
         <p class="radios"><input type="radio" name="foliage_color" value="black">Black
         <input type="radio" name="foliage_color" value="blue">Blue
         <input type="radio" name="foliage_color" value="bronze">Bronze
@@ -77,7 +78,7 @@
         <input type="radio" name="foliage_color" value="white">White</p>
         </fieldset>
      <fieldset>
-        <p class="searchlabel"><?php echo form_label('Flower Time:','flower_time'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Flower Time (leave blank if no preference):','flower_time'); ?></p>
         <p class="radios">
         <input type="radio" name="flower_time" value="winter">Winter
         <input type="radio" name="flower_time" value="winter-spring">Winter-Spring
@@ -89,7 +90,7 @@
         <input type="radio" name="flower_time" value="fall">Fall</p>
     </fieldset>
      <fieldset>
-        <p class="searchlabel"><?php echo form_label('Flower Color:','flower_color'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Flower Color (leave blank if no preference):','flower_color'); ?></p>
         <p class="radios"><input type="radio" name="flower_color" value="black">Black
         <input type="radio" name="flower_color" value="blue">Blue
         <input type="radio" name="flower_color" value="brown">Brown
@@ -112,7 +113,7 @@
     </div> 
     <div class="col2">
         <fieldset>
-        <p class="searchlabel"><?php echo form_label('Plant Height (in feet):'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Plant Height (in feet, leave blank if no preference):'); ?></p>
  		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
                      <option value=""></option>
                     <option value="1">1</option>
@@ -136,7 +137,7 @@
                 </select>
     </fieldset>
         <fieldset>
-        <p class="searchlabel"><?php echo form_label('Plant Width (in feet):'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Plant Width (in feet, leave blank if no preference):'); ?></p>
  		Minimum: <select id="plant_width_min" type="text" name="plant_width_min">
                      <option value=""></option>
                     <option value="1">1</option>
@@ -160,7 +161,7 @@
     </fieldset>
         
      <fieldset>
-        <p class="searchlabel"><?php echo form_label('Growth Habit:','growth_habit'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Growth Habit (leave blank if no preference):','growth_habit'); ?></p>
         <p class="radios">
         <input type="radio" name="growth_habit" value="columnar">Columnar
         <input type="radio" name="growth_habit" value="compact">Compact
@@ -175,7 +176,7 @@
         <input type="radio" name="growth_habit" value="weeping">Weeping</p>
     </fieldset>
         <fieldset>
-        <p class="searchlabel"><?php echo form_label('Sun Requirements:','sun'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Sun Requirements (leave blank if no preference):','sun'); ?></p>
         <p class="radios">
         <input type="radio" name="sun" value="full_sun"><span class="tooltip">Full Sun<span class="classic">6 or more hours of sun</span></span>
         <input type="radio" name="sun" value="light_shade"><span class="tooltip">Light Shade<span class="classic">4 to 6 hours of sun</span></span>
@@ -187,7 +188,7 @@
              under a canopy of trees</span></span></p>
     </fieldset>
     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Soil Type:','soil'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Soil Type (leave blank if no preference):','soil'); ?></p>
         <p class="radios">
         <input type="radio" name="soil" value="heavy clay">Heavy Clay
         <input type="radio" name="soil" value="clay">Clay
@@ -198,7 +199,7 @@
         <input type="radio" name="soil" value="well-drained">Well-Drained</p>
     </fieldset>
     <fieldset>
-        <p class="searchlabel"><?php echo form_label('Water Requirements:','water'); ?></p>
+        <p class="searchlabel"><?php echo form_label('Water Requirements (leave blank if no preference):','water'); ?></p>
         <p class="radios">
         <input type="radio" name="water" value="moist"><span class="tooltip">Moist<span class="classic">Water two-three times per week during hot weather</span></span>
          <input type="radio" name="water" value="regular"><span class="tooltip">Regular<span class="classic">Water once per week during dry weather</span></span>

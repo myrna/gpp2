@@ -74,7 +74,14 @@
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest . "</p>";
         }
         if (!empty($details->plant_combinations))  {
-        echo "<p><em>Plant Combinations:</em> " . $details->plant_combinations . "</p>";
+        echo "<p><em>Plant Partners:</em> " . $details->plant_combinations . "</p>";
+        }
+        if (!empty($details->color_contrast))  {
+        echo "<p><em>Contrasting Colors:</em> " . $details->color_contrast;
+        }
+
+        if (!empty($details->color_partners))  {
+        echo "<p><em>Color Partners:</em> " . $details->color_partners;
         }
         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";

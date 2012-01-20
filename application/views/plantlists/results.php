@@ -3,9 +3,11 @@
 <div id="content" class="view">
  
     <h2>Great Plant Picks Search Results</h2>
+   
 <p class="center">Found <?php echo $stats; ?> total plants <span class="click">(click column to sort)</span></p>
  <?php
-    echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") . "</span>";
+    echo "<span class='clear-search'>".anchor('/plantlists/advanced/', "Back to Advanced Search") . " | " . anchor('/plantlists/search', "Back to Lists") .
+            " | <a href='#' onclick='window.print();return false;'>Print List</a></span>";
         ?>
     <div class="simplesearch">
     <?php
@@ -23,7 +25,34 @@
     <p class="mail"> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]"
            onclick="this.href = this.href.replace('[sub]',window.location)">Email this list</a>
         or copy and paste the address at the top of your browser into your favorite email program to share it</p>
-
+ <h5 class="results-head"><?php
+        $sort = $this->uri->segment(2);
+        $name = $this->uri->segment(3);
+        if ($name=="yes") echo "All Great Plant Picks";
+        elseif ($sort=="by_plant_type") echo "All " . $name . "s";
+        elseif ($sort=="by_year") echo "Great Plant Picks for " . $name;
+        elseif ($sort=="by_theme" && $name=="shade") echo "Made in the Shade Plant Picks";
+        elseif ($sort=="made_in_the_shade") echo "Made in the Shade: " . $name . "s";
+        elseif ($name=="light_shade") echo "Plants for Light Shade";
+        elseif ($name=="open_shade") echo "Plants for Open Shade";
+        elseif ($name=="dappled_shade") echo "Plants for Dappled Shade";
+        elseif ($name=="deep_shade") echo "Plants for Deep Shade";
+        elseif ($sort=="dry_shade") echo "Plants for Dry Shade";
+        elseif ($sort=="by_theme" && $name=="foliage") echo "Fantastic Foliage Plant Picks";
+        elseif ($sort=="fantastic_foliage") echo "Fantastic " . $name . " Foliage";
+        elseif ($sort=="fantastic_foliage_color") echo "Fantastic " . $name . " Foliage";
+        elseif ($sort=="by_theme" && $name=="sun_drought") echo "Fun in the Sun Plant Picks";
+        elseif ($sort=="fun_in_the_sun") echo "Fun in the Sun: " . $name . "s";
+        elseif ($name=="rosa") echo "Roses";
+        elseif ($name=="rhododendron") echo "Rhododendrons";
+        elseif ($name=="clematis") echo "Clematis";
+        elseif ($sort=="by_design_use") echo "Plants for " . $name;
+        elseif ($sort=="by_pest_resistance") echo $name . " Resistant Plants";
+        elseif ($sort=="evergreen_azalea") echo "Evergreen Azaleas";
+        elseif ($sort=="small_tree") echo "Small Trees (Less Than 20 feet or 6.1 meters)";
+        else ;
+            ?>
+        </h5>
     <table id="display" class="tablesorter display">
         <thead>
             <th title="Click to Sort">Plant Name</th>

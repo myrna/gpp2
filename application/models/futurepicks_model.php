@@ -18,7 +18,7 @@ class Futurepicks_model extends CI_Model {
         $sort_columns = array('genus','plant_type','gpp_year'); // determine sortable columns
         $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'gpp_year';
                                       
-        $records = $this->db->select()->from('plant_data')->where('gpp_year >','2011')->
+        $records = $this->db->select()->from('plant_data')->where('gpp_year >','2012')->
                 limit($limit, $offset)->
                 get()->result_array();
 

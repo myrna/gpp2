@@ -9,8 +9,8 @@
 
 	<meta charset="UTF-8">
         <base href="<?php echo base_url();?>">
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.ico">
-	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>images/apple-touch-icon.png">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/favicon.ico">
+	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>assets/apple-touch-icon.png">
         <link rel="stylesheet" href="<?php echo base_url();?>css/gppstyles.css" type="text/css" media="screen, projection" />
         <link rel="stylesheet" href="<?php echo base_url();?>css/gppprint.css" type="text/css" media="print" />
         </head>
