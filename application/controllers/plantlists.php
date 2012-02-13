@@ -215,7 +215,8 @@ class Plantlists extends CI_Controller {
             $this->template->set('title','Print View | Great Plant Picks');
             $this->template->load('print_template','plantlists/print_view', $data);
         }
-  // preconfigured searches --------------------------------------- //
+  // preconfigured searches ---------------------------------------
+  // remember to add these to the plantlists_model as well start line 131 //
 
         function by_year() {
                 $year = $this->uri->segment(3);
@@ -255,6 +256,11 @@ class Plantlists extends CI_Controller {
         function by_publish() {
             $publish = $this->uri->segment(3);
             $this->process_advanced_search(array('publish' => $publish));
+        }
+
+         function nw_native() {
+            $nativity = $this->uri->segment(3);
+            $this->process_advanced_search(array('native_to_gpp_region' => $nativity));
         }
 
         function by_common_name() {
@@ -327,6 +333,7 @@ class Plantlists extends CI_Controller {
           'common_family_name' => $result['family_common_name'],
           'common_names' => join($result['common_names'], ", "),
           'height' => $result['plant_height_at_10'],
+          'type' => $result['plant_type'],
           'id' => $result['id']
       );
     }

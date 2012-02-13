@@ -1,6 +1,21 @@
+<IfModule mod_rewrite.c>
 DirectoryIndex index.php
 RewriteEngine on
 RewriteCond $1 !^(index\.php|(.*)\.swf|forums|images|css|downloads|js|robots\.txt|favicon\.ico)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ ./index.php?$1 [L,QSA] 
+RewriteRule ^(.*)$ ./index.php?$1 [L,QSA]
+# Enforce www
+# If you have subdomains, you can add them to
+# the list using the "|" (OR) regex operator uncomment next two lines when going live
+# RewriteCond %{HTTP_HOST} !^(www|dev) [NC]
+# RewriteRule ^(.*)$ http://www.greatplantpicks.org/$1 [L,R=301]
+# Redirect 301 /search.php http://www.greatplantpicks.org/plantlists/search/
+# Redirect 301 /staff http://www.greatplantpicks.org/about/staff/
+# Redirect 301 /committee http://www.greatplantpicks.org/about/committee/
+# Redirect 301 /advisory http://www.greatplantpicks.org/about/advisory/
+# Redirect 301 /criteria http://www.greatplantpicks.org/about/criteria/
+# Redirect 301 /evaluations http://www.greatplantpicks.org/
+# Redirect 301 /nurseries http://www.greatplantpicks.org/nurserylist/
+# Redirect 301 /logo http://www.greatplantpicks.org/press/terms/
+</IfModule>

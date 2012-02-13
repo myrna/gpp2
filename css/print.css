@@ -30,7 +30,7 @@
  div#printhead {
      display:block;
      position:relative;
-     float:right;
+     float:left;
      width:160px;
      height:110px;
      padding:0;}
@@ -42,21 +42,18 @@
  
  div#printhead > p {font-family: Arial, Helvetica, sans-serif; text-align:right; font-size:11px;}
  div#printhead > p.first {padding-top:60px;}
- div#imageview {float:left;}
+ div#imageview {clear:both; float:left;}
  div#imageview img {margin-right:20px; border: 1px #000 solid;}
  div.quickfacts {
      clear:right;
      float:left;
 }
+div.quickfacts h3 {text-decoration:underline; padding-bottom:5px;}
  div.pagebreak {display:block; page-break-before:avoid;}
- 
- div#content {float:right;}
 
- div.printview {float:left;}
- div#backtoweb {
-     position:absolute;
-     top:3px;
-     left:10px;
+ div.printview {
+     float:left;
+     width:100%;
 }
 
  .plantinfo {
@@ -78,7 +75,7 @@
 h2 {font-size:24px;
     text-align:center;
 }
-h2.common {text-transform:capitalize;}
+h2.common {text-transform:uppercase;}
 h3 {font-size:18px; margin:5px 0;}
 h4 {
     font-size:18px;
@@ -100,11 +97,11 @@ h5 {font-size:16px;}
 }
 
 .subspecies {
-    font-style: normal;
+    font-style: italic;
 }
 
 .variety {
-    font-style: italic;
+    font-style: normal;
 }
 
 .cultivar {
@@ -130,6 +127,7 @@ h5 {font-size:16px;}
 
 em {font-style:normal; font-weight:bold;}
 p {margin:0 0 8px 0; padding:0;}
+dt.lead {font-size:18px; padding-bottom:5px;}
 dd {margin:0 0 8px 0;}
 
 p.copy {font-size:8pt; margin:0 0 10px 0; padding:0; font-style:italic; line-height:11pt;}
@@ -140,4 +138,5 @@ a:visited {color: #0134c5; text-decoration:none;}
 a:hover, a:active {color:#e16f43; text-decoration:none;}
 
 div.clear {clear:both;}
+div.clear-right {clear:right; display:block; height:1px;}
 /* end print stylesheet */

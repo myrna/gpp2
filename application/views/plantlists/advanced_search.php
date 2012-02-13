@@ -49,8 +49,10 @@
         <input type="radio" name="zone_low_max" value="4"><span class="tooltip">zone 4<span class="classic">-30&#176;F to -20&#176;F</span></span>
         <input type="radio" name="zone_low_max" value="5"><span class="tooltip">zone 5<span class="classic">-20&#176;F to -10&#176;F</span></span>
         <input type="radio" name="zone_low_max" value="6"><span class="tooltip">zone 6<span class="classic">-10&#176;F to 0&#176;F</span></span>
-        <input type="radio" name="zone_low_max" value="7"><span class="tooltip">zone 7<span class="classic">0&#176;F to 10&#176;F</span></span>
-        <input type="radio" name="zone_low_max" value="8"><span class="tooltip">zone 8<span class="classic">10&#176;F to 20&#176;F</span></span></p>
+        <input type="radio" name="zone_low_max" value="7"><span class="tooltip">zone 7<span class="classic">0&#176;F to 10&#176;F</span></span></p>
+                <p class="radios">
+        <input type="radio" name="zone_low_max" value="8"><span class="tooltip">zone 8<span class="classic">10&#176;F to 20&#176;F</span></span>
+        <input type="radio" name="zone_low_max" value="9"><span class="tooltip">zone 9<span class="classic">20&#176;F to 30&#176;F</span></span></p>
         </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Foliage Type (leave blank if no preference):','foliage_type'); ?></p>
@@ -118,22 +120,46 @@
                      <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                     <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
                     </select>
  		Maximum: <select id="plant_height_at_10" type="text" name="plant_height_at_10">
                     <option value=""></option>
-                     <option value="1">1</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                     <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
-                    <option value="25">100</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                    <option value="200">or larger</option>
                 </select>
     </fieldset>
         <fieldset>
@@ -142,36 +168,58 @@
                      <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                     <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
+                    <option value="30">30</option>
                 </select>
  		Maximum: <select id="plant_width_at_10" type="text" name="plant_width_at_10">
                     <option value=""></option>
-                     <option value="1">1</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                     <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="200">or more</option>
                 </select>
     </fieldset>
         
      <fieldset>
         <p class="searchlabel"><?php echo form_label('Growth Habit (leave blank if no preference):','growth_habit'); ?></p>
         <p class="radios">
+        <input type="radio" name="growth_habit" value="clumping">Clumping
         <input type="radio" name="growth_habit" value="columnar">Columnar
         <input type="radio" name="growth_habit" value="compact">Compact
         <input type="radio" name="growth_habit" value="mounding">Mounding
         <input type="radio" name="growth_habit" value="narrow">Narrow
-        <input type="radio" name="growth_habit" value="pyramidal">Pyramidal</p>
-        <p class="radios">
+        </p><p class="radios">
+        <input type="radio" name="growth_habit" value="pyramidal">Pyramidal
         <input type="radio" name="growth_habit" value="round">Round
         <input type="radio" name="growth_habit" value="spreading">Spreading
         <input type="radio" name="growth_habit" value="upright">Upright
+        <input type="radio" name="growth_habit" value="vase-shaped">Vase Shaped
+        </p><p class="radios">
         <input type="radio" name="growth_habit" value="vining">Vining
         <input type="radio" name="growth_habit" value="weeping">Weeping</p>
     </fieldset>
@@ -183,17 +231,17 @@
         <input type="radio" name="sun" value="dappled_shade"><span class="tooltip">Dappled Shade<span class="classic">2 to 4 hours of sun
             under a canopy of trees</span></span></p>
             <p class="radios">
-        <input type="radio" name="sun" value="open_shade"><span class="tooltip">Open Shade<span class="classic">Bright light, but no direct sun</span></span>
-        <input type="radio" name="sun" value="deep_shade"><span class="tooltip">Heavy Shade<span class="classic">No direct sun
+        <input type="radio" name="sun" value="open_shade"><span class="tooltip">Open Shade<span class="classic">Bright light, but no direct sun, no overhanging trees</span></span>
+        <input type="radio" name="sun" value="deep_shade"><span class="tooltip">Deep Shade<span class="classic">No direct sun
              under a canopy of trees</span></span></p>
     </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Soil Type (leave blank if no preference):','soil'); ?></p>
         <p class="radios">
-        <input type="radio" name="soil" value="heavy clay">Heavy Clay
         <input type="radio" name="soil" value="clay">Clay
-        <input type="radio" name="soil" value="fertile">Fertile
-        <input type="radio" name="soil" value="humus-rich">Humus-Rich
+        <input type="radio" name="soil" value="wet">Wet
+        <input type="radio" name="soil" value="Moist">Moist
+        <input type="radio" name="soil" value="dry">Dry
         <input type="radio" name="soil" value="sandy">Sandy</p>
         <p class="radios">
         <input type="radio" name="soil" value="well-drained">Well-Drained</p>
@@ -201,10 +249,11 @@
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Water Requirements (leave blank if no preference):','water'); ?></p>
         <p class="radios">
-        <input type="radio" name="water" value="moist"><span class="tooltip">Moist<span class="classic">Water two-three times per week during hot weather</span></span>
-         <input type="radio" name="water" value="regular"><span class="tooltip">Regular<span class="classic">Water once per week during dry weather</span></span>
-        <input type="radio" name="water" value="occasional"><span class="tooltip">Occasional<span class="classic">Water every 10-14 days during dry weather</span></span>
-        <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant<span class="classic">Once established, water once per month</span></span>
+        <input type="radio" name="water" value="moist"><span class="tooltip">Frequent Watering<span class="classic">Water two-three times per week during dry weather</span></span>
+         <input type="radio" name="water" value="regular"><span class="tooltip">Regular Watering<span class="classic">Water once per week during dry weather</span></span>
+        </p><p class="radios">
+        <input type="radio" name="water" value="occasional"><span class="tooltip">Occasional Watering<span class="classic">Water every 10-14 days during dry weather</span></span>
+        <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant Once Established<span class="classic">Once established, water once per month</span></span>
        </p>
         </fieldset>
        </div>

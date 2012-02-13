@@ -63,7 +63,5 @@
     <ul class="normal">
         <li><em>Daniel J. Hinkley</em>, Elisabeth C. Miller Botanical Garden board liaison, Washington</li>
         <li><em>Roger Gossler</em>, Gossler Farms Nursery, Oregon</li>
-        <li><em>Eric Hammond</em>, Heritage Seedlings, Oregon</li>
-        <li><em>David Mason</em>, Hedgerows Nursery, Oregon</li>
     </ul>
 </div><!-- end content -->

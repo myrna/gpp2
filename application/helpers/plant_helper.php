@@ -172,8 +172,8 @@ function build_form_control($key, $value) {
             break;
         case 'growth_habit':
             $current = $value ? $value : '';
-            $options = array('' => "", 'columnar' => "columnar", 'compact' => "compact", 'mounding' => "mounding",
-                'narrow' => "narrow", 'pyramidal' => "pyramidal", 'round' => "round", 'spreading' => "spreading",
+            $options = array('' => "", 'clumping' => "clumping", 'columnar' => "columnar", 'compact' => "compact", 'mounding' => "mounding",
+                'narrow' => "narrow", 'oval' => "oval", 'pyramidal' => "pyramidal", 'round' => "round", 'spreading' => "spreading",
                 'upright' => "upright", 'vase-shaped' => "vase-shaped", 'vining' => "vining", 'weeping' => "weeping");
             return form_dropdown('growth_habit', $options, $current, "id='$key'");
             break;

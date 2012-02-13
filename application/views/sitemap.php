@@ -24,7 +24,7 @@
     <ul class="leaf drop">
         <li><a href="<?php echo base_url();?>resources/">Resources</a>
             <ul>
-                <li><a href="<?php echo base_url();?>nurserylist/">Participating Nurseries</a></li>
+                <li><a href="<?php echo base_url();?>nurserylist/">Nursery Directory</a></li>
                 <li><a href="<?php echo base_url();?>resources/links/">Helpful Links &amp; Resources</a></li>
                 <li><a href="<?php echo base_url();?>resources/glossary/">Glossary of Common Terms</a></li>
             </ul>
@@ -36,7 +36,6 @@
         </li>
         <li><a href="<?php echo base_url();?>contact/">Contact</a></li>
         
-        <li><a href="auth/login">Professional Login</a></li>
     </ul>
 </div>
 

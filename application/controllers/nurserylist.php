@@ -58,7 +58,7 @@ class Nurserylist extends CI_Controller
              
          }
          $data['nurseries_wa'] = $table;
-         $data['heading'] = 'Participating Nurseries';
+         $data['heading'] = 'Nursery Directory';
      }
      if ($nurseries_or['query2']->num_rows() > 0)
      {

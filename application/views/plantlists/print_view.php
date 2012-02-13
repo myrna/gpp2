@@ -1,11 +1,14 @@
 <!-- print display for PUBLIC plant list and search function -->
- <div class="printview"><input class="print-this" type="button" onClick="window.print()" value="Print Fact Sheet" /></div>
- <div class="clear"></div>
-<div id="content" class="view">
-    <div id="backtoweb"><?php echo anchor('plantlists/view/' . $id, "Back to Web View"); ?></div>
-   
-    
+ <div class="printview"><input class="print-this" type="button" onClick="window.print()" value="Print Fact Sheet" />
+     <input class="print-this" type="button" onClick="history.go(-1)" value="Back to Web View" />
+</div>
+<div id="content" class="view">  
+ <div id="printhead">
+        <div id="logo">
+            <img src="../assets/logo-print.gif">
+        </div>
 
+    </div><!-- end logo -->
     <?php
     if($row == FALSE)
     {
@@ -15,7 +18,7 @@
  else
     {
         ?>
-   
+ 
     <h2>
     <?php
         echo display_full_botanical_name($row);
@@ -36,8 +39,7 @@
    <?php if (!empty($primary_image['copyright'])) echo "<p class='copy'>&#169; " . $primary_image['copyright'] . "</p>" ?>
      </div><!-- end image view -->
      
-    
-   
+     
 <?php
             if (!empty($synonyms)) {
             echo "<p><em>Synonyms:</em> ";
@@ -73,17 +75,7 @@
         if (!empty($details->seasonal_interest))  {
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest . "</p>";
         }
-        if (!empty($details->plant_combinations))  {
-        echo "<p><em>Plant Partners:</em> " . $details->plant_combinations . "</p>";
-        }
-        if (!empty($details->color_contrast))  {
-        echo "<p><em>Contrasting Colors:</em> " . $details->color_contrast;
-        }
-
-        if (!empty($details->color_partners))  {
-        echo "<p><em>Color Partners:</em> " . $details->color_partners;
-        }
-        if (!empty($plant_attributes['wildlife'])) {
+         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";
             echo implode($plant_attributes['wildlife'], ', ');
         }
@@ -92,12 +84,23 @@
             echo "<p><em>Resistant to:</em> ";
             echo implode($plant_attributes['pest_resistance'], ', ');
         }
+        echo "</div><!-- end quick facts -->
+            <div class='clear'></div>
+            <div class='quickfacts'><h3>Colors &amp; Combos</h3>";
+        if (!empty($details->plant_combinations))  {
+        echo "<p><em>Great Plant Combinations:</em> " . $details->plant_combinations . "</p>";
+        }
+        if (!empty($details->color_contrast))  {
+        echo "<p><em>Great Color Contrasts:</em> " . $details->color_contrast;
+        }
+
+        if (!empty($details->color_partners))  {
+        echo "<p><em>Great Color Partners:</em> " . $details->color_partners;
+        }
+       
               
-        echo "</div><!-- end quickfacts --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+        echo "</div><div class='plantdetails'><dl><dt class='lead'>Culture Notes</dt><dd>";
         echo $details->culture_notes;
-        echo "</dd><dt>Growing Habit</dt><dd>";
-        echo $details->growing_notes;
-        echo "</dd>";
         if (!empty($details->geek_notes)) {
             echo "<dt>Geek Notes</dt><dd>";
             echo $details->geek_notes;
@@ -107,14 +110,7 @@
     ?>
     </div><!-- end plant details -->
     </div><!-- end plantinfo -->
-    <div id="printhead">
-        <div id="logo">
-            <img src="../assets/logo-print.gif">
-        </div>
-        <p class="logo first">&#169;2001-<?php echo date("Y"); ?></p>
-        <p class="logo">Great Plant Picks</p>
-        <p class="logo"><a href="http://www.greatplantpicks.org">www.greatplantpicks.org</a></p>
-    </div>
+   
     <div class="pagebreak"></div>
 </div><!-- end content -->
 

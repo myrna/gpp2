@@ -24,6 +24,7 @@ class Crud_model extends CI_Model {
         'flower_color',
         'foliage_color',
         'foliage_texture',
+        'flower_time',
         'design_use',
         'pest_resistance',
         'soil',
@@ -235,6 +236,7 @@ class Crud_model extends CI_Model {
         $this->db->join('plant_foliage_color', 'plant_foliage_color.plant_id = plant_data.id', 'left');
 	$this->db->join('plant_foliage_texture', 'plant_foliage_texture.plant_id = plant_data.id', 'left');
         $this->db->join('plant_flower_color', 'plant_flower_color.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_flower_time', 'plant_flower_time.plant_id = plant_data.id', 'left');
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
         $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
@@ -247,6 +249,10 @@ class Crud_model extends CI_Model {
          if ($query_array['flower_color']) {
             $this->db->where('plant_flower_color.flower_color_id',
 				"(select id from flower_color where lower(flower_color) = " . $this->db->escape($query_array['flower_color']) . ")", false);
+        }
+         if ($query_array['flower_time']) {
+            $this->db->where('plant_flower_time.flower_time_id',
+				"(select id from flower_time where lower(flower_time) = " . $this->db->escape($query_array['flower_time']) . ")", false);
         }
         if ($query_array['foliage_texture']) {
             $this->db->where('plant_foliage_texture.foliage_texture_id',

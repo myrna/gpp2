@@ -3,8 +3,8 @@
    <?php $this->load->view('includes/resources_breadcrumbs'); ?>
 <h2>Resources &amp; Links</h2>
 <a href="<?php echo base_url();?>nurserylist/"><div class="col1-3">
-    <p class="link">Participating Nurseries</p>
-    <img title="Link to Nursery Directory (Rhododendron pseudochrysanthemum, dwarf form)" src="../assets/rhododendron-pseudochrysanthum-dwarf.jpg">
+    <p class="link">Nursery Directory</p>
+    <img title="Link to Nursery Directory (Liriodendron tulipifera 'Fastigiatum')" src="../assets/liriodendron-tulipifera.jpg">
 </div></a>
 <a href="<?php echo base_url();?>resources/links/"><div class="col1-3">
     <p class="link">Helpful Links &amp; Resources</p>

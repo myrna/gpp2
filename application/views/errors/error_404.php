@@ -36,8 +36,9 @@
 
 <h2>Sorry, the page cannot be found</h2>
 
-<p class="intro">The page you are looking for could not be found. It may have just been renamed, so please check our <a href="<?php echo base_url();?>sitemap/">Site Map</a> for a complete
-    listing of pages on this, or check out our <a href="<?php echo base_url();?>plantlists/search/">Plant Lists/Search by Name</a> page.</p>
+<p class="intro">The page you are looking for could not be found. The Great Plant Picks website has recently been revised, and the page you are looking for may have been renamed, so please check our <a href="<?php echo base_url();?>sitemap/">Site Map</a> for a complete
+    listing of pages, or check out our <a href="<?php echo base_url();?>plantlists/search/">Plant Lists/Search by Name</a> page, where you can find helpful lists of plants by type or for various garden situations, as well as our plant search function and a link to our
+    <a href="<?php echo base_url();?>plantlists/advanced/">Advanced Search</a> page.</p>
 </div><!-- end content -->
  <?php $this->load->view('includes/footer'); ?>
            </body>

@@ -29,7 +29,6 @@
     <ul class="normal">
         <li><em>Linda Beutler</em>, Friends of the Rogerson Clematis Collection, Oregon</li>
         <li><em>Maurice Horn</em>, Joy Creek Nursery, Oregon</li>
-        <li><em>Van Skip</em>, clematis enthusiast, Washington</li>
     </ul>
     <div class="clear"></div>
 </div><!-- end content -->

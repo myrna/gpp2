@@ -28,7 +28,7 @@
  <h5 class="results-head"><?php
         $sort = $this->uri->segment(2);
         $name = $this->uri->segment(3);
-        if ($name=="yes") echo "All Great Plant Picks";
+        if ($sort=="by_publish" && $name=="yes") echo "All Great Plant Picks";
         elseif ($sort=="by_plant_type") echo "All " . $name . "s";
         elseif ($sort=="by_year") echo "Great Plant Picks for " . $name;
         elseif ($sort=="by_theme" && $name=="shade") echo "Made in the Shade Plant Picks";
@@ -50,6 +50,7 @@
         elseif ($sort=="by_pest_resistance") echo $name . " Resistant Plants";
         elseif ($sort=="evergreen_azalea") echo "Evergreen Azaleas";
         elseif ($sort=="small_tree") echo "Small Trees (Less Than 20 feet or 6.1 meters)";
+        elseif ($sort=="nw_native" && $name=="yes") echo "GPP Northwest Native Plants";
         else ;
             ?>
         </h5>
@@ -58,6 +59,7 @@
             <th title="Click to Sort">Plant Name</th>
             <th title="Click to Sort">Common Name(s)</th>
             <th title="Click to Sort">Height (ft.)</th>
+             <th title="Click to Sort">Type</th>
             </thead>
        
         <tbody>
@@ -73,8 +75,11 @@
                 echo anchor('plantlists/view/'.$plant['id'], $plant['common_names']);
                } ?>
             </td>
-            <td>
+            <td class="height">
                 <?php echo $plant['height'] . "'"; ?>
+            </td>
+            <td class="type">
+                <?php echo $plant['type']; ?>
             </td>
             </tr>
             <?php endforeach; ?>

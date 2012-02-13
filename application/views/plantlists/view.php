@@ -22,13 +22,15 @@
     <?php
         if (!empty($common_names)) {
             foreach ($common_names as $common_name) {
-                echo "<h5 class='common'>" . $common_name['common_name'] . "</h5>";
+                echo "<p class='common-name'>" . $common_name['common_name'] . "</p>";
                 }
                 }
     ?>
     </div>
     <div id="imageview">
-        <ul>
+        
+   <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
+    <ul>
     <?php  {
         if (!empty($primary_image)) {
         echo "<li><div class='thumbnail'>" . image_view_link($primary_image['filename']) .
@@ -45,8 +47,7 @@
     }
     ?>
         </ul>
-   <img class="<?php echo image_class($primary_image['filename']) ?>" src="<?php echo image_url($primary_image['filename']) ?>" alt="" id="main-img" />
-     </div><!-- end image view -->
+    </div><!-- end image view -->
      
     <div class="plantinfo">
    
@@ -67,7 +68,9 @@
         echo "<h3>Quick Facts</h3>";
         echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>";
         echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
-        echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
+        echo "<p><em>
+            <span class='tooltip'>Plant Height:<span class='classic'>Heights represent a 10-year-old woody plant or a
+            5-year-old perennial or bulb</span></span></em> " . $details->plant_height_at_10 . " ft. (";
         echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
         echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
         echo feet_to_meters($details->plant_width_at_10) . " meters)</p>";
@@ -88,22 +91,6 @@
              echo "<p><em>Seasonal Interest:</em> " . $details->seasonal_interest;
         }
         
-       /* if (!empty($plant_attributes['design_use'])) {
-            echo "<p><em>Design Use:</em> ";
-            echo implode($plant_attributes['design_use'], ', ');
-        }*/
-        if (!empty($details->plant_combinations))  {
-        echo "<p><em>Plant Partners:</em> " . $details->plant_combinations;
-        }
-
-        if (!empty($details->color_contrast))  {
-        echo "<p><em>Contrasting Colors:</em> " . $details->color_contrast;
-        }
-
-         if (!empty($details->color_partners))  {
-        echo "<p><em>Color Partners:</em> " . $details->color_partners;
-        }
-
         if (!empty($plant_attributes['wildlife'])) {
             echo "<p><em>Wildlife Associations:</em> ";
             echo implode($plant_attributes['wildlife'], ', ');
@@ -113,8 +100,26 @@
             echo "<p><em>Resistant to:</em> ";
             echo implode($plant_attributes['pest_resistance'], ', ');
         }
-              
-        echo "</div><!-- end quickfacts --></div><!-- end plantinfo --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+        echo "</div><!-- end quickfacts -->";
+
+        if (!empty($details->plant_combinations) || !empty($details->color_contrast) || !empty($details->color_partners))
+        echo "<div class='quickfacts colors'><h3>Colors &amp; Combos</h3>";
+
+        if (!empty($details->plant_combinations))  {
+        echo "<p><em>Great Plant Combinations:</em> " . $details->plant_combinations . "</p>";
+        }
+
+        if (!empty($details->color_contrast))  {
+        echo "<p><em>Great Color Contrasts:</em> " . $details->color_contrast . "</p>";
+        }
+
+         if (!empty($details->color_partners))  {
+        echo "<p><em>Great Color Partners:</em> " . $details->color_partners . "</p>";
+        }
+         if (!empty($details->plant_combinations) || !empty($details->color_contrast) || !empty($details->color_partners))
+        echo "</div><!-- end quickfacts -->";
+        echo "</div><!-- end plantinfo --><div class='plantdetails'><dl><dt>Culture Notes</dt><dd>";
+         
         echo $details->culture_notes;
         echo "</dd>";
         if (!empty($details->geek_notes)) {

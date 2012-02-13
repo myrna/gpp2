@@ -213,7 +213,7 @@ div#content {
     width:974px;
    }
 /* COLUMN GRID */
-	.col1,.col2,.col3, .col1-3, .col2-3, .col3-3 {float: left; position:relative;}
+	.col1,.col2,.col3, .col1-3, .col2-3, .col3-3, .col2-2 {float: left; position:relative;}
 
 	/* 2 COLUMN GRID */
 	.col1 {width:48.0%; margin-right:2%;}
@@ -223,6 +223,7 @@ div#content {
         /* 3 COLUMN GRID */
         .col1-3 {width:31.333%; margin-right:3%;}
 	.col2-3 {width:31.333%;}
+        .col2-2 {width:62.66%; margin-right: 3%;}
 	.col3-3 {width:98.0%}
 
         /* centered -- for logo download */
@@ -262,22 +263,18 @@ div#content {
 }
 #home-caption a {color:#FFFFFF;}
 #home-caption a:hover {color:#e7dde6;}
-.home-text { /* temporary display block to fill space */
+.home-text { 
     float:left;
-    display:block;
-    width:695px;
-    height:379px;
+    width:984px;
     background-color:#e7dde6;
     border:5px #977b97 solid;
-    padding:10px 20px;
+    padding:10px 10px 10px 20px;
    }
 #home-poster {
-    position:absolute;
-    top:391px;
-    right:0;
-    width:270px;
-    margin:0;
+    float:right;   
+    margin-left:20px;
 }
+#home-poster img { border:5px #000 solid;}
 #home-poster:hover {
     opacity:0.9;
 }
@@ -628,17 +625,22 @@ table#display td {
     padding:5px;
 }
 table#display td.plantname {
-    width:40%;
-    padding-right:3%;
-    white-space:nowrap;
+    width:35%;
+    padding-right:2%;
+   /* white-space:nowrap;*/
 }
 table#display td.common-name {
-    width:40%;
+    width:35%;
     padding-right:2%;
     text-transform: uppercase;
 }
 table#display th.height, table#display td.height {
     width:10%;
+    padding-right:3%;
+}
+table#display th.type, table#display td.type {
+    width:10%;
+    text-transform:capitalize;
 }
 
 table#display td a {
@@ -725,6 +727,16 @@ dl.lists, p.listhead {
     /*margin-left:20px;*/
 }
 p.listhead {font-weight:bold;}
+p.listnote {
+    font-size:14px;
+    font-weight:bold;
+    line-height:16px;
+}
+p.listsub {
+    font-style:italic;
+    text-indent:5px;
+}
+
 dl.lists > dt {
     font-weight:bold;
     /*margin:5px 0;*/
@@ -764,9 +776,9 @@ dl.glossary dd {
     display:block;
     width:530px;
 }
-img#main-img {clear:left; float:left;}
+img#main-img {clear:left; float:left; margin-bottom:10px;}
 
-#imageview ul {}
+#imageview ul {clear:both;}
 #imageview ul li {
     display:inline-block;
     float:left;
@@ -816,6 +828,8 @@ img#main-img {clear:left; float:left;}
 
 }
 .quickfacts p {font-size:13px; line-height:1.3em;}
+
+.colors {margin-top:20px;}
 
 /* print view link on individual plant fact sheet */
 
@@ -946,11 +960,20 @@ h5 {font-size:16px;}
     text-align:center;
     margin-bottom:20px;
 }
+.view h4.press {font-size:22px;}
 .view h5 {
     text-align:center;
     margin:20px 0 0;
 }
 h5.staff {clear:left; margin-bottom:10px;}
+p.common-name {
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    line-height:24px;
+    margin:0; padding:0;
+    text-transform:uppercase;
+}
 .titles > h5{
     font-size:18px;
     line-height:24px;
@@ -1055,6 +1078,11 @@ p.info {
     font-weight:bold;
     margin:15px 0 10px;
 }
+p.toplink {
+    font-weight:bold;
+    text-align:center;
+}
+
 p.intro {   /* used for intro to full-width tables such as nursery directory */
     padding:5px 20px;
 }
@@ -1063,6 +1091,11 @@ p.link {    /* resources link headers */
     font-size:16px;
     font-weight:bold;
     margin:5px 0;
+}
+
+div.col2-2 p {    /* press release page */
+    padding-right:40px;
+    padding-bottom:10px;
 }
 .drop {  /* when you just need some extra space, used on resources page */
     padding:10px 0 15px;

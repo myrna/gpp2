@@ -6,7 +6,7 @@
    
     <dl class="contact">
         <dt>By Mail</dt>
-        <dd>The Elisabeth C. Miller Botanical Garden</dd>
+        <dd>Elisabeth C. Miller Botanical Garden</dd>
         <dd>Great Plant Picks</dd>
         <dd>PO Box 77377</dd>
         <dd class="last">Seattle, WA 98177</dd>
@@ -16,8 +16,10 @@
     <dt>By Fax</dt>
     <dd class="last">(206) 362-4136</dd>
     <dt>By Email</dt>
-    <dd>Email: <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?></dd>
-     </dl>
+    <dd class="last">Email: <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?></dd>
+    <dt>Website Questions?</dt>
+    <dd><a href="http://spiderlilyweb.com">SpiderLily Web Design</a>, <?php echo safe_mailto('info@spiderlilyweb.com', 'info@spiderlilyweb.com'); ?></dd>
+    </dl>
 </div>
 <div class="col2">
 <p><em>For other gardening questions:</em></p>

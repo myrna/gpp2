@@ -226,6 +226,10 @@ class Plantlists_model extends CI_Model {
         if ($query_array['gpp_year']) {
             $this->db->where('plant_data.gpp_year', $query_array['gpp_year']);
         }
+
+        if ($query_array['native_to_gpp_region']) {
+            $this->db->where('plant_data.native_to_gpp_region', $query_array['native_to_gpp_region']);
+        }
         
        if ($query_array['publish']) {
             $this->db->where('plant_data.publish', $query_array['publish']);
