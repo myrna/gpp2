@@ -22,8 +22,10 @@
            and more.</li>
     </ul>
     <h2>&#8220;Made in the Shade&#8221; posters available!</h2>
-    <p>The <em>new &#8220;Made in the Shade&#8221; posters</em> will be available for free at the <em>Northwest Flower &amp; Garden Show
-     in Seattle February 8-12</em> and the <em>Yard, Garden &amp; Patio Show in Portland February 17-19</em>.  Visit the Great Plant Picks booths at either show for your free poster!</p>
+    <p>The <em>new &#8220;Made in the Shade&#8221; poster</em> is available for free (pictured above right)&#8212;we only request reimbursement for
+        postage and handling: $3 folded and mailed flat or $5 rolled and sent in a mailing tube. Make check out to
+        &#8220;GPP&#8221; and mail to the address on the <a href="<?php echo base_url();?>contact/">Contact</a> page.
+     Please be sure to include your name and mailing address.</p>
 
 </div><!-- end text -->
 

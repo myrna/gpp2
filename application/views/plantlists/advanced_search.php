@@ -117,7 +117,7 @@
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Plant Height (in feet, leave blank if no preference):'); ?></p>
  		Minimum: <select id="plant_height_min" type="text" name="plant_height_min">
-                     <option value=""></option>
+                    <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -165,7 +165,7 @@
         <fieldset>
         <p class="searchlabel"><?php echo form_label('Plant Width (in feet, leave blank if no preference):'); ?></p>
  		Minimum: <select id="plant_width_min" type="text" name="plant_width_min">
-                     <option value=""></option>
+                    <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -250,7 +250,7 @@
         <p class="searchlabel"><?php echo form_label('Water Requirements (leave blank if no preference):','water'); ?></p>
         <p class="radios">
         <input type="radio" name="water" value="moist"><span class="tooltip">Frequent Watering<span class="classic">Water two-three times per week during dry weather</span></span>
-         <input type="radio" name="water" value="regular"><span class="tooltip">Regular Watering<span class="classic">Water once per week during dry weather</span></span>
+        <input type="radio" name="water" value="regular"><span class="tooltip">Regular Watering<span class="classic">Water once per week during dry weather</span></span>
         </p><p class="radios">
         <input type="radio" name="water" value="occasional"><span class="tooltip">Occasional Watering<span class="classic">Water every 10-14 days during dry weather</span></span>
         <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant Once Established<span class="classic">Once established, water once per month</span></span>

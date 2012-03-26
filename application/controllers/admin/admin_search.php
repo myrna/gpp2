@@ -61,7 +61,7 @@ class Admin_search extends CI_Controller {
                 $data['stats'] = $total;
 
             }
-             $this->template->set('thispage','Display Lists');
+            $this->template->set('thispage','Display Lists');
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('admin/admin_template','admin/query_results',$data);
        }
@@ -86,6 +86,9 @@ class Admin_search extends CI_Controller {
 
             $flower_color = $this->crud_model->link_table($id, 'flower_color', 'plant');
             $data['flower_color'] = $flower_color['values'];
+
+            $flower_time = $this->crud_model->link_table($id, 'flower_time', 'plant');
+            $data['flower_time'] = $flower_time['values'];
 
             $foliage_color = $this->crud_model->link_table($id, 'foliage_color', 'plant');
             $data['foliage_color'] = $foliage_color['values'];
@@ -149,6 +152,7 @@ class Admin_search extends CI_Controller {
                   $query_results[] = array(
                   'name' => display_full_botanical_name($result),
                   'common' => $result['family_common_name'],
+                  'common_names' => join($result['common_names'], ", "), /* not functioning yet */
                   'status' => $result['status'],
                   'year' => $result['gpp_year'],
                   'committee' => $result['committee'],

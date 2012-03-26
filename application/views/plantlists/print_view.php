@@ -42,10 +42,10 @@
      
 <?php
             if (!empty($synonyms)) {
-            echo "<p><em>Synonyms:</em> ";
+            echo "<h6><em>Synonyms:</em> ";
             foreach ($synonyms as $synonym) {
                 echo display_full_botanical_name($synonym);
-                echo "</p>";
+                echo "</h6>";
             }
         }
     ?>

@@ -228,6 +228,15 @@ class Crud_model extends CI_Model {
                 $query_array[$attribute] = strtolower($value);
             }
         }
+/* working on adding common name to administrative query results but not functioning yet */
+         if ($query_array['common_name']) {
+            $this->db->select('plant_id')->from('plant_common_name')->where('common_name', $query_array['common_name']);
+            $a = $this->db->get()->result_array();
+            foreach ($a as $plant) {
+                $common_name_array[] = $plant['plant_id'];
+            }
+        }
+        
         $this->db->select('plant_data.*')->from("(select * from plant_data) as plant_data");
 
         $this->db->join('plant_water', 'plant_water.plant_id = plant_data.id', 'left');
@@ -240,8 +249,12 @@ class Crud_model extends CI_Model {
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
         $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
 
-
+        if ($common_name_array) {
+            $this->db->where_in('plant_data.id', $common_name_array);
+        }
+        
         if ($query_array['foliage_color']) {
             $this->db->where('plant_foliage_color.foliage_color_id',
 				"(select id from foliage_color where lower(foliage_color) = " . $this->db->escape($query_array['foliage_color']) . ")", false);
@@ -298,9 +311,9 @@ class Crud_model extends CI_Model {
 			$this->db->where('plant_data.zone_low <= ' . intval($query_array['zone_low_max']));
 		}
 
-        if ($query_array['flower_time']) {
+        /*if ($query_array['flower_time']) {
             $this->db->where('lower(plant_data.flower_time)', $query_array['flower_time']);
-        }
+        }*/
         if ($query_array['growth_habit']) {
             $this->db->where('lower(plant_data.growth_habit)', $query_array['growth_habit']);
         }
