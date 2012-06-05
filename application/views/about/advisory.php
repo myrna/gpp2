@@ -11,8 +11,7 @@
 <div class="col2-3 last">
  <a href="<?php echo base_url();?>plantlists/view/391"><img alt="" title="Clematis 'Betty Corning'" src="../assets/plants/clematis-bettycorning.jpg"></a>
 </div>
-    <p>For very large groups of plants such as ferns, rhododendrons, or roses, GPP forms advisory groups composed of specialty plant experts who work together to prepare a list of recommendations for GPP selections.
-    The list is then submitted to the appropriate subcommittee for discussion and approval.</p>
+    <p>For very large groups of plants such as ferns, rhododendrons, or roses, GPP forms advisory groups composed of specialty plant experts who work together to prepare a list of recommendations for GPP selections. The list is then submitted to the appropriate subcommittee for discussion and approval.</p>
     
     <h3>Current active Advisory Groups include:</h3>
 

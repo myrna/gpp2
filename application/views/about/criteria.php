@@ -11,6 +11,7 @@
 <div class="col2-3 last">
     <a href="<?php echo base_url();?>plantlists/view/1584"><img alt="" title="Made in the Shade Plant Pick: Tsuga canadensis 'Jervis'" src="../assets/plants/tsuga-canadensis-jervis.jpg"></a>
 </div>
+    <div class="clear"></div>
     <dl class="leaf">
         <dt>All Great Plant Picks selections should:</dt>
         <dd>Be hardy in USDA zones 7 and 8 (0&#176; to 10&#176;F/-18&#176; to -12&#176;C).

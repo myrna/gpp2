@@ -22,10 +22,7 @@
            and more.</li>
     </ul>
     <h2>&#8220;Made in the Shade&#8221; posters available!</h2>
-    <p>The <em>new &#8220;Made in the Shade&#8221; poster</em> is available for free (pictured above right)&#8212;we only request reimbursement for
-        postage and handling: $3 folded and mailed flat or $5 rolled and sent in a mailing tube. Make check out to
-        &#8220;GPP&#8221; and mail to the address on the <a href="<?php echo base_url();?>contact/">Contact</a> page.
-     Please be sure to include your name and mailing address.</p>
+    <p>The <em>new &#8220;Made in the Shade&#8221; poster</em> is available for free (pictured above right)&#8212;we only request reimbursement for postage and handling.  To order, please visit our <a href="<?php echo base_url();?>press/#poster">Press</a> page.</p>
 
 </div><!-- end text -->
 

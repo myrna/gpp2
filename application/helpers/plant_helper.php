@@ -19,42 +19,42 @@ function display_full_botanical_name($record) {
 function format_genus($genus, $genus_cross) {
     $genus_cross = $genus_cross ? "&#967; " : "";
     $genus = ucfirst($genus);
-    return "<span class='crossgenus'>$genus_cross</span> <span class='genus'>$genus</span>";
+    return "<span class='crossgenus'>$genus_cross</span> <span class='genus'>$genus </span>";
 }
 
 function format_cross_specific_epithet() {
-    return "&times;";
+    return "&times; ";
 }
 
 function format_species($species, $cross) {
     $cross = $cross ? "&times; $cross" : "";
     $species = strtolower($species);
-    return "<span class='species'>$species</span> $cross";
+    return "<span class='species'>$species </span> $cross ";
 }
 
 function format_subspecies($designator, $spp) {
     $spp = strtolower($spp);
     $designator = strtolower($designator);
-    return "<span class='subspecies'>$designator</span> <span class='designate'>$spp</span>";
+    return "<span class='subspecies'>$designator </span> <span class='designate'>$spp </span>";
 }
 
 function format_cultivar($cultivar) {
     $cultivar = "&#8216;" . $cultivar . "&#8217;";
-    return "<span class='cultivar'>$cultivar</span>";
+    return "<span class='cultivar'>$cultivar </span>";
 }
 
 function format_trade_name($tradename) {    
-    return "<span class='trade-name'>$tradename</span>";
+    return "<span class='trade-name'>$tradename </span>";
 }
 
 function format_trademark_name($trademarkname) {
     $trademarkname = strtoupper($trademarkname);
-    return "<span class='trademark-name'>$trademarkname &#8482;</span>";
+    return "<span class='trademark-name'>$trademarkname &#8482; </span>";
 }
 
 function format_registered_name($registeredname) {
     $registeredname = strtoupper($registeredname);
-    return "<span class='registered-name'>$registeredname</span><span class='super'>&#174;</span>";
+    return "<span class='registered-name'>$registeredname</span><span class='super'>&#174; </span>";
 }
 
 function format_patent_number($number) {
@@ -67,7 +67,7 @@ function format_breeders_rights() {
 
 function format_plantname_group($name) {
     $name = ucwords($name);
-    return "<span class='plantname-group'>$name</span>";
+    return "<span class='plantname-group'>$name </span>";
 }
 
 function convert_to_id($string) {

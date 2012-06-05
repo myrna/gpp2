@@ -12,9 +12,7 @@
     <a href="<?php echo base_url();?>plantlists/view/1566"><img alt="" title="Made in the Shade Plant Pick: Tricyrtis formosana 'Samurai'" src="../assets/plants/tricyrtis-formosana-samurai.jpg"></a>
 </div>
 <h3>Our Mission</h3>
-<p>Great Plant Picks is an educational program committed to building a comprehensive palette of outstanding plants for maritime Pacific Northwest gardens.
-    Great Plant Picks is one of the educational outreach programs for the Elisabeth C. Miller Botanical Garden, providing a forum for sharing horticultural
-    information with the wider gardening community.</p>
+<p>Great Plant Picks is an educational program committed to building a comprehensive palette of outstanding plants for maritime Pacific Northwest gardens. Great Plant Picks is one of the educational outreach programs for the Elisabeth C. Miller Botanical Garden, providing a forum for sharing horticultural information with the wider gardening community.</p>
 <h3>Goals &amp; Objectives</h3>
 <dl class="leaf">
 <dt>Create a comprehensive list of hardy, reliable plants for home gardeners and industry professionals specifically focused on the maritime Northwest.</dt>

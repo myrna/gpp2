@@ -11,15 +11,9 @@
 <div class="col2-3 last">
     <a href="<?php echo base_url();?>plantlists/view/46"><img alt="" title="Made in the Shade Plant Pick: Acer palmatum 'Shaina'" src="../assets/plants/acer-palmatum-shaina.jpg"></a>
 </div>
-    <p>The GPP selection committee is made up of horticulturists from Oregon, Washington, and British Columbia, west of the Cascade Mountains.
-        Members represent wholesale and retail nurseries, garden designers, arboreta, and botanical gardens.
-        The committee is divided into three subcommittees: Shrubs and Vines, Trees and Conifers, and Perennials and Bulbs.  Each subcommittee has a
-    chair who is responsible for steering their subcommittee toward the final plant selections and ensuring that sufficient information on each
-    selection has been recorded.  Selections are made by a majority vote after a series of roundtable discussions.</p>
+    <p>The GPP selection committee is made up of horticulturists from Oregon, Washington, and British Columbia, west of the Cascade Mountains. Members represent wholesale and retail nurseries, garden designers, arboreta, and botanical gardens. The committee is divided into three subcommittees: Shrubs and Vines, Trees and Conifers, and Perennials and Bulbs.  Each subcommittee has a chair who is responsible for steering their subcommittee toward the final plant selections and ensuring that sufficient information on each selection has been recorded.  Selections are made by a majority vote after a series of roundtable discussions.</p>
     <h3>Field Evaluations</h3>
-    <p>In addition to committee meetings, selection committee members visit special collections to survey particular genera, especially those genera containing numerous species or cultivars.
-    Participating members fill out evaluation sheets, rating the merits of each plant.  The compiled results of these evaluations are provided to selection committee members.
-    This aspect of the program is of great value to home gardeners and nursery and educational professionals alike.</p>
+    <p>In addition to committee meetings, selection committee members visit special collections to survey particular genera, especially those genera containing numerous species or cultivars. Participating members fill out evaluation sheets, rating the merits of each plant.  The compiled results of these evaluations are provided to selection committee members. This aspect of the program is of great value to home gardeners and nursery and educational professionals alike.</p>
 
     <h3 class="perennials">Perennials and Bulbs</h3>
     <ul class="normal">

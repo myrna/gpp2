@@ -61,6 +61,8 @@
       echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>press/">Press</a>
     <a <?php if ($thispage=="Contact")
       echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>contact/">Contact</a>
+    <a class="last" <?php if ($thispage=="Donate")
+      echo " id=\"currentpage\""; ?> href="<?php echo base_url();?>donate/">Donate</a>        
 </div><!-- end navigation -->
         <div id="contents"><?php echo $contents ?></div><!-- end contents -->
          

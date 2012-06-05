@@ -47,7 +47,9 @@ div#banner {
         height:70px;
         background: url(../assets/greatplantpicks.png) 270px 21px no-repeat;
 }
-/* logo for all pages except home */
+/***********************************
+/logo for all pages except home
+***********************************/
 div#logo {
     position:absolute;
     display:block;
@@ -78,7 +80,10 @@ div#logo-link {
     width:150px;
     height:125px;
     }
-/* navigation */
+
+/***********************************
+/navigation 
+/***********************************/
 
 div#navigation {
     display:block;
@@ -94,9 +99,10 @@ div#navigation {
     text-decoration:none;
     background: url(../assets/leaf-sprite.png) 0 -31px no-repeat;
     padding:3px 0 5px 24px;
-    margin-right:40px;
+    margin-right:30px;
     line-height:30px;
 }
+#navigation a.last {margin-right:5px;}
 #navigation #currentpage {    
     background: url(../assets/leaf-sprite.png) 0 -1px no-repeat;
 }
@@ -123,6 +129,10 @@ div#navigation {
 #breadcrumbs #current {
     color:#d22322;
 }
+
+/***********************************
+/FIND YOUR PLANT
+/***********************************/
 
 #plant-link-all {
     position:absolute;
@@ -166,6 +176,10 @@ div#navigation {
     cursor:pointer;
 }
 
+/***********************************
+/FOOTER
+/***********************************/
+
 #footer {
     float:left;
     position:relative;
@@ -191,7 +205,9 @@ div#navigation {
     color:#0134c5;
 }
 
-/* container styles */
+/***********************************
+/CONTAINER STYLES
+/***********************************/
 
 div#content {
     position:relative;
@@ -236,10 +252,23 @@ div#content {
             float:right;
             margin:20px 0 20px 20px;
 }
-.colright img, img.left, .col1-3 img, .col2-3 img, .col2 img  {
+.colrighttop {
+    float:right;
+    margin:0 0 20px 20px;
+}
+.colright img, .colrighttop img, img.left, .col1-3 img, .col2-3 img, .col2 img, .col2-2 img  {
         border:5px #d2d26f solid;
-        }
+        }        
 .left {float:left; margin:0 20px 20px 0;}
+img.left-donate {
+    float:left;
+    border:none;
+    padding:0 40px 10px 20px;
+}
+
+/***********************************
+/HOME PAGE SPECIAL STYLES
+/***********************************/
 
 .home-image {
     float:right;
@@ -288,7 +317,10 @@ div#content {
     line-height:1px;
 }
 
-/* admin image upload page styling */
+/***********************************
+/ADMIN PAGE IMAGE UPLOAD GALLERY
+/***********************************/
+
 #gallery, #upload {
 			margin: 10px auto; width: 650px; 
 		}
@@ -311,7 +343,10 @@ div#content {
 
 /* form styling -------------------------------------- */
 
-/* login/user registration form styling */
+/***********************************
+/  login/user registration form styling
+/***********************************/
+
 
  #register_form {	
 	border: 1px solid #378b36;
@@ -376,7 +411,9 @@ p.category {
     font-style:italic;
 }
 
-/* add and update record form styling */
+/*******************************************
+/* add and update record form styling
+/*******************************************/
 
 form.data-entry {
     clear:both;
@@ -423,7 +460,10 @@ p.radios {
     padding:0 0 5px 0;
 }
 
-/* checkbox styling -- keep checkbox label from wrapping */
+/********************************************************
+/* checkbox styling -- keep checkbox label from wrapping 
+/********************************************************/
+
 .formcheck {
     float:left;
 }
@@ -446,7 +486,10 @@ input[type="option"] {
     width:300px;
 }
 
-/* searchform styling */
+/*********************************************
+/*searchform styling
+/*********************************************/
+
 .searchform {
     padding:10px 20px;  
 }
@@ -485,7 +528,9 @@ input[type="option"] {
         box-shadow: 0px 1px 0px #378b36;
 }
 
-/* centered search button at bottom of advanced search page */
+/**********************************************************
+/* centered search button at bottom of advanced search page
+/**********************************************************/
 
 .searchcenter input[type="submit"] {
     border: none;
@@ -663,7 +708,10 @@ table a:hover, table a:active {color: #e16f43;}
 
 ul.leaf{}
 ul.leaf > li {
-    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    /*background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;*/
+    background-image: url(../assets/leaf-sprite.png);
+    background-position: 0 -60px;
+    background-repeat:no-repeat;
     padding:5px 0 15px 30px;
 }
 ul.leaf > li > ul {
@@ -671,6 +719,14 @@ ul.leaf > li > ul {
 }
 ul.leaf > li > ul > li{
     padding-bottom:10px;
+}
+ul.leaf > li.space {
+    background-color:#bdbf30;
+    padding-bottom:30px;
+}
+.center {
+    font-size:16px;
+    margin-top:30px;
 }
 
 /*indented basic list style for selection, advisory committee lists */
@@ -686,6 +742,9 @@ dl.leaf dt, dl.contact dt {
     padding:0 0 10px 30px;
     font-size:14px;
     font-weight:bold;
+}
+dl.leaf dt.big {
+    font-size:18px;
 }
 dl.leaf dd:before {
     content: "\00BB";
@@ -763,8 +822,70 @@ dl.glossary dd {
     margin-right:7%;
 }
 
+/***********************************
+/* DONATE BUTTON STYLES
+/***********************************/
+
+form.donation {
+    float:left;
+    margin-left:30px;
+}
+form.donate-tour {
+    float:left;
+    clear:both;
+    margin-left:30px;
+    margin-top:10px;
+    width:100%;
+}
+input.donate {float:left;}
+input.donate-block {float:left; padding-bottom:50px;}
+input.donate:hover {opacity:0.8;}
+input.buynow { /* poster purchase button on Press page */
+    padding:10px 0 0 200px;
+}
+form.poster > em {padding-right:10px;}
+p.donate {
+    float:left;
+    padding:10px 0 0 5px;
+    font-weight:bold;
+}
+form.donate-tour label {
+    float:left;
+    display:inline;
+    padding:10px 0 0 5px;
+}
+.narrow {
+    width:560px;
+}
+.wide {
+    width:720px;
+}
+div.donate-tour {
+    float:left;
+    width:730px; 
+}
+dl.donate {margin-left:300px;}
+dl.donate dt {font-weight:bold;}
+p.paypal {
+    border:5px solid #d2d263;
+    padding:8px;
+    margin:0 auto;
+    font-size:12px;
+    line-height:14px;
+}
 
 
+h2.donate {
+    clear:both;
+    font-size:24px;
+    padding:40px 0 10px;
+}
+
+h4.donate {
+    clear:both;
+}
+
+a#direct:hover, a#garden:hover, a#sunset:hover {color:#000;}
 /* plant fact sheet screen style */
 
 .titles {
@@ -917,6 +1038,11 @@ h1, h2, h3, h4 {
 h1 {
     font-size:28px;
     margin-bottom:10px;
+}
+h1.donate {
+    font-size:36px;
+    text-align:center;
+    margin:10px 0 30px;
 }
 h2 {font-size:26px;}
 h3 {font-size:18px;}
@@ -1102,6 +1228,11 @@ div.col2-2 p {    /* press release page */
 }
 .last {
     padding-bottom:10px;
+}
+.soldout {
+    text-transform:uppercase;
+    color:#E65925;
+    font-weight:bold;
 }
 em {
     font-style:normal;
