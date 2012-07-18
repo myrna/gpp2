@@ -10,9 +10,12 @@
     <img alt="" title="Made In The Shade: Link to Great Plant Picks Lists and Search Page" src="../assets/made-in-the-shade.jpg">
 </div></a><!-- end poster -->
     <h2>Welcome to Great Plant Picks!</h2>
-    <p><em>Great Plant Picks</em> (GPP) is an educational program of the <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> which debuted in 2001 with the first
-    recommendations for a comprehensive palette of outstanding plants for the maritime Pacific Northwest.  To date over 800 exceptional plants
-    have been selected for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada.</p>
+    <p><em>Great Plant Picks</em> (GPP) is an educational program of the <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> which debuted in 2001 with the first recommendations for a comprehensive palette of outstanding plants for the maritime Pacific Northwest.  To date over 800 exceptional plants have been selected for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada.</p>
+    <h2>Upcoming Events:</h2>
+    <ul class="leaf">
+        <li><a href="<?php echo base_url();?>donate#tours">Sauvie Island Garden Tour</a></li>
+        <li><a href="<?php echo base_url();?>donate#sunset">Special Dinner at the Miller Garden</a></li>
+    </ul>
     <h2>Looking for a plant?</h2>
     <ul class="leaf">
        <li><a href="<?php echo base_url();?>plantlists/advanced/">Search on your own</a>&#8212;Check out our new Advanced Search page!</li>

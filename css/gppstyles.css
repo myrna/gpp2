@@ -99,10 +99,10 @@ div#navigation {
     text-decoration:none;
     background: url(../assets/leaf-sprite.png) 0 -31px no-repeat;
     padding:3px 0 5px 24px;
-    margin-right:30px;
+    margin-right:25px;
     line-height:30px;
 }
-#navigation a.last {margin-right:5px;}
+#navigation a.last {margin-right:0;}
 #navigation #currentpage {    
     background: url(../assets/leaf-sprite.png) 0 -1px no-repeat;
 }
@@ -738,7 +738,7 @@ ul.normal {
 /* leaf sprite definition list format used on about page */
 dl.leaf, dl.contact{padding-top:10px;}
 dl.leaf dt, dl.contact dt {
-    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    background: url('../assets/leaf-sprite.png') 0 -60px no-repeat;
     padding:0 0 10px 30px;
     font-size:14px;
     font-weight:bold;
@@ -769,7 +769,7 @@ dl.leaf dd.last, dl.contact dd.last {
     margin-bottom:10px;
 }
 p.leaf {
-    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    background: url('../assets/leaf-sprite.png') 0 -60px no-repeat;
     padding:0 0 10px 30px;
     font-size:14px;
     font-weight:bold;
@@ -1078,7 +1078,7 @@ h5 {font-size:16px;}
 
 .display h4 {
     display:block;
-    background:url(../assets/topbar.jpg) 0 0;
+    background:url('../assets/topbar.jpg') 0 0;
     color:#fff;
     text-shadow:2px 2px rgba(0,0,0,0.1);
 }
@@ -1116,29 +1116,33 @@ h5.results-head {text-transform:capitalize;}
 
 h3.perennials {
     padding:10px 0 38px 50px;
-    background:url(../assets/committees-sprite.gif) 0 -58px no-repeat;
+    background:url('../assets/committees-sprite.gif') 0 -58px no-repeat;
 }
 
 h3.shrubs {
     padding:10px 0 38px 50px;
-    background:url(../assets/committees-sprite.gif) 0 0 no-repeat;
+    background:url('../assets/committees-sprite.gif') 0 0 no-repeat;
 }
 
 h3.trees {
     padding:13px 0 38px 50px;
-    background:url(../assets/committees-sprite.gif) 0 -120px no-repeat;
+    background:url('../assets/committees-sprite.gif') 0 -120px no-repeat;
 }
 h3.atlarge {
-    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    background: url('../assets/leaf-sprite.png') 0 -60px no-repeat;
     padding:5px 0 38px 50px;
     margin-top:10px;
 }
 h3.clematis {
     padding:13px 0 38px 50px;
-    background:url(../assets/committees-sprite.gif) 0 -185px no-repeat;
+    background:url('../assets/committees-sprite.gif') 0 -185px no-repeat;
 }
+h3.donate-link a img, img.donation {float:left; border:5px solid #d2d263; margin-right:10px;}
+img.donation-last {float:left; border:5px solid #d2d263; margin:0 0 10px 0;}
+h3.donate-link a img:hover {opacity:0.8;}
+h3.donate-link {clear:left; line-height:80px; margin-bottom:20px; vertical-align:middle; text-shadow:none;}
 .quickfacts > h3{
-    background: url(../assets/leaf-sprite.png) 0 -60px no-repeat;
+    background: url('../assets/leaf-sprite.png') 0 -60px no-repeat;
     padding:3px 0 5px 25px;
     }
 
@@ -1207,6 +1211,12 @@ p.info {
 p.toplink {
     font-weight:bold;
     text-align:center;
+}
+p.startlink { /* for donation page */
+    clear:both;
+    text-align:left;
+    font-style:italic;
+    padding-top:10px;
 }
 
 p.intro {   /* used for intro to full-width tables such as nursery directory */
