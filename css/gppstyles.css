@@ -734,7 +734,12 @@ ul.normal {
     margin-left:50px;
     margin-top:-25px;
 }
-
+ul.donate {
+    margin-left:20px;
+}
+ul.donate li {
+    padding-bottom:5px;
+}
 /* leaf sprite definition list format used on about page */
 dl.leaf, dl.contact{padding-top:10px;}
 dl.leaf dt, dl.contact dt {
