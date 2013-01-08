@@ -42,20 +42,42 @@
                   <li><?php echo anchor("plantlists/by_year/2004","2004"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2005","2005"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2006","2006"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2007","2007"); ?></li>
             </ul>
 
             <ul class="col1">
-                  <li><?php echo anchor("plantlists/by_year/2007","2007"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2008","2008"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2009","2009"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2010","2010"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2011","2011"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2012","2012"); ?></li>
+                  <li><?php echo anchor("plantlists/by_year/2013","2013"); ?></li>
             </ul>
-        
          
-    </div><!-- end column 1 -->
+    <p class="listhead">Miscellaneous Lists</p>
+   <ul>
+                <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
+                <li><?php echo anchor("plantlists/by_design_use/containers", "Plants for Containers"); ?></li>
+                <!--<li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant Plants"); ?></li>-->
+                <li><?php echo anchor("plantlists/evergreen_azalea", "Evergreen Azaleas"); ?></li>
+                <li><?php echo anchor("plantlists/by_genus/rhododendron", "Rhododendrons"); ?></li>
+                <li><?php echo anchor("plantlists/by_genus/rosa", "Roses"); ?></li>
+                <li><?php echo anchor("plantlists/small_tree", "Small Trees (under 20')"); ?></li>
+                <li><?php echo anchor("plantlists/nw_native/yes", "GPP Northwest Native Plants"); ?></li>
+          </ul>
+     </div><!-- end column 1 -->
     <div class="col1-3">
+     <p class="listnote">Small Spaces&#8212;Big Impact!</p>
+          <ul>
+                <li><?php echo anchor("plantlists/by_theme/small_urban", "All Small Spaces&#8212;Big Impact! Selections"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/bulb", "Bulbs for Small Spaces"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/conifer", "Conifers for Small Spaces"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/grass", "Grasses for Small Spaces"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/perennial", "Perennials for Small Spaces"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/shrub", "Shrubs for Small Spaces"); ?></li>
+                 <li><?php echo anchor("plantlists/small_spaces_big_impact/tree", "Trees for Small Spaces"); ?></li>
+            </ul>
+     
      <p class="listnote">Made in the Shade&#8212;Plants for Shade</p>
      <p class="listsub"><?php echo anchor("resources/glossary", "Shade Guidelines and Definitions"); ?></p>
          <ul>
@@ -71,8 +93,12 @@
                  <li><?php echo anchor("plantlists/shade_type/dappled_shade", "Plants for Dappled Shade"); ?></li>
                  <li><?php echo anchor("plantlists/shade_type/deep_shade", "Plants for Deep Shade"); ?></li>
                  <li><?php echo anchor("plantlists/dry_shade", "Plants for Dry Shade"); ?></li>
-         </ul>
-     <p class="listhead">Fantastic Foliage&#8212;Plants with Striking Foliage</p>
+         </ul>  
+       
+           
+    </div><!-- end column 2 -->
+    <div class="col2-3">
+   <p class="listhead">Fantastic Foliage&#8212;Plants with Striking Foliage</p>
          <ul>
                 <li><?php echo anchor("plantlists/by_theme/foliage", "All Fantastic Foliage Selections"); ?></li>
                  <li><?php echo anchor("plantlists/fantastic_foliage/bold", "Bold Foliage"); ?></li>
@@ -85,11 +111,7 @@
                  <li><?php echo anchor("plantlists/fantastic_foliage_color/silver", "Silver Foliage"); ?></li>
                  <li><?php echo anchor("plantlists/fantastic_foliage_color/white", "White Foliage"); ?></li>
          </ul>
-     
-       
-           
-    </div><!-- end column 2 -->
-    <div class="col2-3">
+   
    <p class="listnote">Fun in the Sun&#8212;Drought Tolerant Plants for Sun</p>
     <p class="listsub"><?php echo anchor("resources/glossary", "Watering Guidelines and Definitions"); ?></p>
         <ul>
@@ -102,17 +124,7 @@
                  <li><?php echo anchor("plantlists/fun_in_the_sun/tree", "Trees for Sun"); ?></li>
                   <li><?php echo anchor("plantlists/fun_in_the_sun/vine", "Vines for Sun"); ?></li>
         </ul>
-   <p class="listhead">Miscellaneous Lists</p>
-   <ul>
-                <li><?php echo anchor("plantlists/by_genus/clematis", "Clematis"); ?></li>
-                <li><?php echo anchor("plantlists/by_design_use/containers", "Plants for Containers"); ?></li>
-                <!--<li><?php echo anchor("plantlists/by_pest_resistance/deer", "Deer Resistant Plants"); ?></li>-->
-                <li><?php echo anchor("plantlists/evergreen_azalea", "Evergreen Azaleas"); ?></li>
-                <li><?php echo anchor("plantlists/by_genus/rhododendron", "Rhododendrons"); ?></li>
-                <li><?php echo anchor("plantlists/by_genus/rosa", "Roses"); ?></li>
-                <li><?php echo anchor("plantlists/small_tree", "Small Trees (under 20')"); ?></li>
-                <li><?php echo anchor("plantlists/nw_native/yes", "GPP Northwest Native Plants"); ?></li>
-          </ul>
+   
     </div><!-- end column 3 -->
 
     <div class="clear"></div>

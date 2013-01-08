@@ -1,13 +1,13 @@
 <div class="home-image">
-    <img alt="" title="Left to right: Hydrangea macrophylla 'Blaumeise', Trillium luteum, Pulmonaria longifolia ssp. cevennensis" src="../assets/shade-header.jpg">
+    <img alt="" title="Left to right: Acer shirasawanum 'Aureum', Hamamelis intermedia 'Diane', Sedum kamschaticum" src="../assets/home-2013-main-image.jpg">
 </div><!-- end main image -->
 <div id="home-caption">
-    <a href="<?php echo base_url();?>plantlists/search/"><p>New for 2012!</p>
-    <p>&#8220;Made in the Shade&#8221;</p></a>
+    <a href="<?php echo base_url();?>plantlists/search/"><p>New for 2013!</p>
+    <p>&#8220;Small Spaces&#8212;Big Impact!&#8221;</p></a>
 </div>
 <div class="home-text">
     <a href="<?php echo base_url();?>plantlists/search/"><div id="home-poster">
-    <img alt="" title="Made In The Shade: Link to Great Plant Picks Lists and Search Page" src="../assets/made-in-the-shade.jpg">
+    <img alt="" title="Small Spaces, Big Impact: Link to Great Plant Picks Lists and Search Page" src="../assets/2013-GPP-Poster.jpg">
 </div></a><!-- end poster -->
     <h2>Welcome to Great Plant Picks!</h2>
     <p><em>Great Plant Picks</em> (GPP) is an educational program of the <a href="http://www.millergarden.org/">Elisabeth C. Miller Botanical Garden</a> which debuted in 2001 with the first recommendations for a comprehensive palette of outstanding plants for the maritime Pacific Northwest.  To date over 800 exceptional plants have been selected for gardeners living west of the Cascade Mountains from Eugene, Oregon, USA to Vancouver, British Columbia, Canada.</p>
@@ -25,8 +25,8 @@
        <li><a href="<?php echo base_url();?>resources/">Need more info?</a>&#8212;Participating nurseries, useful websites and organizations,
            and more.</li>
     </ul>
-    <h2>&#8220;Made in the Shade&#8221; posters available!</h2>
-    <p>The <em>&#8220;Made in the Shade&#8221; poster</em> is available for free (pictured above right)&#8212;we only request reimbursement for postage and handling.  To order, please visit our <a href="<?php echo base_url();?>press/#poster">Press</a> page.</p>
+    <h2>&#8220;Small Spaces&#8212;Big Impact!&#8221; posters available soon!</h2>
+    <p>The <em>&#8220;Small Spaces&#8212;Big Impact!&#8221; poster</em> will be available for free (pictured above right) at the Yard, Garden&amp; Patio Show and the Pacific Northwest Flower &amp; Garden Show in February (see above). Posters will also be available for free by mail beginning March 1; we only request reimbursement for postage and handling.  To order, please visit our <a href="<?php echo base_url();?>press/#poster">Press</a> page.</p>
 
 </div><!-- end text -->
 

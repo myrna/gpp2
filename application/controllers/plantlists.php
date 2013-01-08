@@ -324,6 +324,14 @@ class Plantlists extends CI_Controller {
                   'foliage_color' => $type
                 ));
         }
+        
+        function small_spaces_big_impact() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "small_urban",
+                  'plant_type' => $type
+                ));
+        }
 
        function plant_array($results) { /* format plant results page ------- */
           $a = array();

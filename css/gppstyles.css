@@ -276,34 +276,34 @@ img.left-donate {
     margin-bottom:5px;
 }
 .home-image img {
-    border: 1px #928090 solid;
+    border: 1px #fef200 solid;
 }
 #home-caption {
     position:absolute;
     color:#e3e3e3;
     top:290px;
-    left:105px;
-    width:120px;
+    left:90px;
+    width:130px;
     font-style:italic;
     font-weight:bold;
     font-size:16px;
     line-height:20px;
     text-align:right;
 }
-#home-caption a {color:#FFFFFF;}
-#home-caption a:hover {color:#e7dde6;}
+#home-caption a {color:#fef200;}
+#home-caption a:hover {color:#FDB928;}
 .home-text { 
     float:left;
     width:984px;
-    background-color:#e7dde6;
-    border:5px #977b97 solid;
+    background-color:#b3d236;
+    border:5px #FEF200 solid;
     padding:10px 10px 10px 20px;
    }
 #home-poster {
     float:right;   
     margin-left:20px;
 }
-#home-poster img { border:5px #000 solid;}
+#home-poster img { border:5px #FEF200 solid;}
 #home-poster:hover {
     opacity:0.9;
 }
@@ -790,7 +790,7 @@ dl.lists, p.listhead {
     line-height:20px;
     /*margin-left:20px;*/
 }
-p.listhead {font-weight:bold;}
+p.listhead {font-weight:bold; clear:both;}
 p.listnote {
     font-size:14px;
     font-weight:bold;

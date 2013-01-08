@@ -14,8 +14,8 @@ Over 350 outstanding trees, shrubs, and perennials for shade can be found on the
 
 <p>Are you, your publication, your garden group, or nursery business on the GPP email list?  If not, please send your email address to <?php echo safe_mailto('info@greatplantpicks.org', 'info@greatplantpicks.org'); ?>
     for the latest press releases and GPP news information.</p>
-<h4><a name="poster" id="poster">Order your Great Plant Picks &#8220;Made in the Shade&#8221; Poster</a></h4>
-<p>The 2012 &#8220;Made in the Shade&#8221; poster is available for free, we only request reimbursement for shipping and handling.  Cost within the U.S. is $3 folded and mailed flat or $5 rolled and sent in a mailing tube; in Canada, cost is $5 folded and mailed flat, and $7 rolled.  <em>Order via PayPal</em> below (no PayPal account required) or you may <em>pay by check (U.S. dollars)</em>. Make check out to &#8220;GPP&#8221; and mail to the address on the <a href="<?php echo base_url();?>contact/">Contact</a> page. Please be sure to include your name and mailing address.</p>
+<h4>Order your Great Plant Picks &#8220;Small Spaces&#8212;Big Impact!&#8221; Poster</h4>
+<p>The 2013 &#8220;Small Spaces&#8212;Big Impact!&#8221; poster is available for free, we only request reimbursement for shipping and handling.  Cost within the U.S. is $3 folded and mailed flat or $5 rolled and sent in a mailing tube; in Canada, cost is $5 folded and mailed flat, and $7 rolled.  <em>Order via PayPal</em> below (no PayPal account required) or you may <em>pay by check (U.S. dollars)</em>. Make check out to &#8220;GPP&#8221; and mail to the address on the <a href="<?php echo base_url();?>contact/">Contact</a> page. Please be sure to include your name and mailing address.</p>
         
 <form class="poster" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -32,7 +32,7 @@ Over 350 outstanding trees, shrubs, and perennials for shade can be found on the
 
 </div>
 <div class="col2-3">
-    <img alt="" title="Great Plant Picks presents 'Made in the Shade', an assortment of select plants for shade" src="../assets/made-in-the-shade.jpg">
+    <img alt="" title="Great Plant Picks presents 'Small Spaces, Big Impact', an assortment of select plants for small spaces" src="../assets/2013-GPP-Poster.jpg">
 </div><!-- end poster -->
 <div class="clear"></div>
 </div><!-- end content -->
