@@ -402,9 +402,10 @@ class Plantlists extends CI_Controller {
 
     function process_basic_search($query) {
         //$this->output->enable_profiler(TRUE);
+        
         $this->load->model('plantlists_model');
         $results = $this->plantlists_model->basic_search($query);
-
+        
         if ($query == "Enter botanical or common name") {
             $this->session->set_flashdata('message', '<p class="flash">Sorry, no search term was entered.  Please enter a search term.</p>');
             redirect(site_url("plantlists/search"), "refresh");
@@ -434,6 +435,7 @@ class Plantlists extends CI_Controller {
 			} else {
 	            $data['records'] = $this->plant_array($results);
 	            $data['stats'] = $this->search_stats($results);
+                    $this->output->cache(1440); /* set caching time in minutes */
 				$this->display_results($data);
             }	
 		}

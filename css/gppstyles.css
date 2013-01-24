@@ -276,7 +276,7 @@ img.left-donate {
     margin-bottom:5px;
 }
 .home-image img {
-    border: 1px #fef200 solid;
+    border: 1px #fdb928 solid;
 }
 #home-caption {
     position:absolute;
@@ -295,15 +295,15 @@ img.left-donate {
 .home-text { 
     float:left;
     width:984px;
-    background-color:#b3d236;
-    border:5px #FEF200 solid;
+    background-color:#fef200;
+    border:5px #fdb928 solid;
     padding:10px 10px 10px 20px;
    }
 #home-poster {
     float:right;   
     margin-left:20px;
 }
-#home-poster img { border:5px #FEF200 solid;}
+#home-poster img { border:5px #fdb928 solid;}
 #home-poster:hover {
     opacity:0.9;
 }
