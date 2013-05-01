@@ -127,6 +127,7 @@ class Plantlists_model extends CI_Model {
         $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
         $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_wildlife', 'plant_wildlife.plant_id = plant_data.id', 'left');
 
         if ($common_name_array) {
             $this->db->where_in('plant_data.id', $common_name_array);
@@ -161,7 +162,10 @@ class Plantlists_model extends CI_Model {
             $this->db->where('plant_sun.sun_id', 
 				"(select id from sun where lower(sun) = " . $this->db->escape($query_array['sun']) . ")", false);
         }
-        
+        if ($query_array['wildlife']) {
+            $this->db->where('plant_wildlife.wildlife_id', 
+				"(select id from wildlife where lower(wildlife) = " . $this->db->escape($query_array['wildlife']) . ")", false);
+        }
         if ($query_array['theme']) {
             $this->db->where('plant_theme.theme_id', 
 				"(select id from theme where lower(theme) = " . $this->db->escape($query_array['theme']) . ")", false);

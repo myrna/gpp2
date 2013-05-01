@@ -249,6 +249,7 @@ class Crud_model extends CI_Model {
         $this->db->join('plant_theme', 'plant_theme.plant_id = plant_data.id', 'left');
         $this->db->join('plant_design_use', 'plant_design_use.plant_id = plant_data.id', 'left');
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_wildlife', 'plant_wildlife.plant_id = plant_data.id', 'left');
         $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
 
         if ($common_name_array) {
@@ -286,6 +287,10 @@ class Crud_model extends CI_Model {
         if ($query_array['sun']) {
             $this->db->where('plant_sun.sun_id',
 				"(select id from sun where lower(sun) = " . $this->db->escape($query_array['sun']) . ")", false);
+        }
+         if ($query_array['wildlife']) {
+            $this->db->where('plant_wildlife.wildlife_id',
+				"(select id from wildlife where lower(wildlife) = " . $this->db->escape($query_array['wildlife']) . ")", false);
         }
 
 		if ($query_array['plant_height_at_10']) {

@@ -136,6 +136,7 @@ class Admin_search extends CI_Controller {
                 'sun' => $this->input->post('sun'),
                 'soil' => $this->input->post('soil'),
                 'water' => $this->input->post('water'),
+                'wildlife' => $this->input->post('wildlife'),
                 'committee' => $this->input->post('committee')
                  );
 

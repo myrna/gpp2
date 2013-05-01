@@ -246,12 +246,10 @@
         <p class="radios">
         <input type="radio" name="sun" value="full_sun"><span class="tooltip">Full Sun<span class="classic">6 or more hours of sun</span></span>
         <input type="radio" name="sun" value="light_shade"><span class="tooltip">Light Shade<span class="classic">4 to 6 hours of sun</span></span>
-        <input type="radio" name="sun" value="dappled_shade"><span class="tooltip">Dappled Shade<span class="classic">2 to 4 hours of sun
-            under a canopy of trees</span></span></p>
+        <input type="radio" name="sun" value="dappled_shade"><span class="tooltip">Dappled Shade<span class="classic">2 to 4 hours of sun under a canopy of trees</span></span></p>
             <p class="radios">
         <input type="radio" name="sun" value="open_shade"><span class="tooltip">Open Shade<span class="classic">Bright light, but no direct sun, no overhanging trees</span></span>
-        <input type="radio" name="sun" value="deep_shade"><span class="tooltip">Deep Shade<span class="classic">No direct sun
-             under a canopy of trees</span></span></p>
+        <input type="radio" name="sun" value="deep_shade"><span class="tooltip">Deep Shade<span class="classic">No direct sun under a canopy of trees</span></span></p>
     </fieldset>
     <fieldset>
         <p class="searchlabel"><?php echo form_label('Soil Type:','soil'); ?></p>
@@ -274,6 +272,14 @@
         <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant Once Established<span class="classic">Once established, water once per month</span></span>
         </p>
         </fieldset>
+       <fieldset>
+        <p class="searchlabel"><?php echo form_label('Wildlife Assocations:','wildlife'); ?></p>
+        <p class="radios">
+        <input type="radio" name="wildlife" value="bees">Bees
+        <input type="radio" name="wildlife" value="birds">Birds
+        <input type="radio" name="wildlife" value="butterflies">Butterflies
+        <input type="radio" name="wildlife" value="hummingbirds">Hummingbirds</p>
+    </fieldset>  
       <fieldset>
         <p class="searchlabel"><?php echo form_label('Committee:','committee'); ?></p>
         <p class="radios">
