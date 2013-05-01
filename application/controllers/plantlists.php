@@ -435,7 +435,7 @@ class Plantlists extends CI_Controller {
 			} else {
 	            $data['records'] = $this->plant_array($results);
 	            $data['stats'] = $this->search_stats($results);
-                    $this->output->cache(1440); /* set caching time in minutes */
+                    $this->output->cache(1440);  /*set caching time in minutes */
 				$this->display_results($data);
             }	
 		}

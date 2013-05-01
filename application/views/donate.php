@@ -2,16 +2,20 @@
 
 <h1 class="donate">Support Great Plant Picks</h1>
 
-    <div class="col1">
-        <h3 class="donate-link"><a href="<?php echo base_url();?>donate#direct"><img title="Donate" src="../assets/donation-page/make-a-donation.jpg">Make a direct fully tax-deductible donation</a></h3>
+ <!--    <div class="col1">
+       <h3 class="donate-link"><a href="<?php echo base_url();?>donate#direct"><img title="Donate" src="../assets/donation-page/make-a-donation.jpg">Make a direct fully tax-deductible donation</a></h3>
         </div>
 <div class="col2">
         <h3 class="donate-link"><a href="<?php echo base_url();?>donate#tours"><img title="Donate" src="../assets/donation-page/donate-and-tour.jpg">Donate and tour the Miller Garden</a></h3>
 </div>
-<div class="colright">
-        <p class="caption">Visa, MasterCard, Discover and debit cards accepted.  All transactions processed securely via PayPal, or <a href="<?php echo base_url();?>donate#pdf">donate via mail or phone.</a></p>
-    </div>
+<div class="colright">-->
+        
+    <!--</div>-->
+     <img title="Sedum trial beds are reviewed by a Great Plant Picks committee" class="donation" src="../assets/donation-page/donate-two.jpg">
+        <img title="A Great Plant Picks committee meets to discuss plant trials" class="donation" src="../assets/donation-page/donate-one.jpg">            
+        <img title="Great Plant Picks Manager Rick Peterson staffs a GPP booth" class="donation-last" src="../assets/donation-page/donate-three.jpg">
     <div class="clear"></div>
+    <p class="caption">Visa, MasterCard, Discover and debit cards accepted.  All transactions processed securely via PayPal, or <a href="<?php echo base_url();?>donate#pdf">donate via mail or phone.</a></p>
     <dl class="leaf">
         <dt class="big">How is my donation going to be used?</dt>
     <dd>Your contribution helps fund the research and selection process to pick the best performing plants for the maritime Pacific Northwest.</dd>
@@ -21,10 +25,8 @@
     <dd>Your contribution supports plant trials and evaluations.</dd>
     <dd>Your contribution helps to maintain GPP as one of the premier plant education programs in the country.</dd>
     </dl>
-     <h2 class="donate"><a name="direct" id="direct">1. I would like to help Great Plant Picks with a tax-deductible contribution of:</a></h2>
-        <img title="Sedum trial beds are reviewed by a Great Plant Picks committee" class="donation" src="../assets/donation-page/donate-two.jpg">
-        <img title="A Great Plant Picks committee meets to discuss plant trials" class="donation" src="../assets/donation-page/donate-one.jpg">            
-        <img title="Great Plant Picks Manager Rick Peterson staffs a GPP booth" class="donation-last" src="../assets/donation-page/donate-three.jpg">
+     <h2 class="donate"><a name="direct" id="direct">I would like to help Great Plant Picks with a tax-deductible contribution of:</a></h2>
+       
 
         <form class="donation" action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <input type="hidden" name="cmd" value="_s-xclick">
@@ -62,7 +64,7 @@
             <input class="donate" type="image" src="../assets/donate-button.png" name="submit" alt="" title="Donate to Help Support Great Plant Picks">
             </form>
             <p class="donate">Other</p>
-            <p class="startlink"><a href="<?php echo base_url();?>donate#top">Back to top</a></p>
+            <!--<p class="startlink"><a href="<?php echo base_url();?>donate#top">Back to top</a></p>
        
                 <h2 class="donate drop"><a name="tours" id="tours">2. Donate and Tour the Miller Garden</a></h2>
        <p><em>Make early bird reservations for 2013 tours by donating $20 per person to GPP, begins September 14, 2012! Limited spaces available!!!</em></p>
@@ -79,10 +81,10 @@
 <li>Three possible dates on a Wednesday or a Thursday (not all in the same month) between April and October, excluding August</li>
 <li>Your preferred time of 10:00 a.m. or 1:00 p.m.</li>
 </ul>
-<p><em>We will contact you to schedule your tour date and arrange for your donation. Tours will be confirmed once the donation has been processed.</em></p>
-                              
-            <h4><a name="pdf" id="pdf">Donate by phone or mail</a></h4>     
-            <p>If you have any questions or would prefer to donate by phone, please call Great Plant Picks Manager Rick Peterson at (206) 362-8612.  To donate by mail, <a href="<?php echo base_url();?>donate/download/GPP_donation_form.pdf">print out our PDF here</a>.  Visa, MasterCard, Discover, and check accepted for your donation.</p>
+<p><em>We will contact you to schedule your tour date and arrange for your donation. Tours will be confirmed once the donation has been processed.</em></p>-->
+  <div class="clear"></div>                             
+            <h2 class="donate"><a name="pdf" id="pdf">Donate by phone or mail</a></h2>     
+            <p>If you have any questions or would prefer to donate by phone, please call Great Plant Picks Manager Rick Peterson at (206) 362-8612.  Visa, MasterCard, Discover, and check accepted for your phone donation.  To donate by mail, <!--<a href="<?php echo base_url();?>donate/download/GPP_donation_form.pdf">print out our PDF here</a>.-->send a check payable to the Miller Garden to the address below.</p>
             
              <dl class="donate">
         <dt>Great Plant Picks</dt>

@@ -256,10 +256,11 @@ div#content {
     float:right;
     margin:0 0 20px 20px;
 }
-.colright img, .colrighttop img, img.left, .col1-3 img, .col2-3 img, .col2 img, .col2-2 img  {
+.colright img, .colrighttop img, img.left, .col1-3 img, .col2-3 img, .col2 img, .col2-2 img, img.border  {
         border:5px #d2d26f solid;
         }        
 .left {float:left; margin:0 20px 20px 0;}
+img.border {margin-top:10px;}
 img.left-donate {
     float:left;
     border:none;
@@ -295,7 +296,7 @@ img.left-donate {
 .home-text { 
     float:left;
     width:984px;
-    background-color:#fef200;
+    background-color:#EFE85E;
     border:5px #fdb928 solid;
     padding:10px 10px 10px 20px;
    }
