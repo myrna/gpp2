@@ -28,8 +28,8 @@
 
 ?>
     
-<div id="pages">
+<!--<div id="pages">
 	<?php echo $this->pagination->create_links(); ?>
-</div>
+</div>-->
 
 </div><!-- end content -->

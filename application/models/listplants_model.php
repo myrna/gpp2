@@ -13,8 +13,8 @@
 
 class Listplants_model extends CI_Model {
 
-    function get_records($page,$query) {
-        $this->db->limit(30, $page);
+    function get_records($query) {
+        //$this->db->limit(30, $page);
         $this->db->order_by("genus", "asc")->order_by("specific_epithet", "asc")->order_by("cultivar", "asc");
         return $this->db->get('plant_data');        
     }

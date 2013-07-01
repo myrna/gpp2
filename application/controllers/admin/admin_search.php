@@ -65,6 +65,8 @@ class Admin_search extends CI_Controller {
             $this->template->set('title','Plant Lists | Great Plant Picks');
             $this->template->load('admin/admin_template','admin/query_results',$data);
        }
+       /* make sure your tables are linked, your query output is set below, and your crud_model updated for new adds */
+       /* then add to the admin_search view form */
        function get_plant_link_data($id) {
             $this->load->model('crud_model');
 
