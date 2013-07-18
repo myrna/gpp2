@@ -71,9 +71,9 @@
         echo "<p><em>
             <span class='tooltip'>Plant Height:<span class='classic'>Heights represent a 10-year-old woody plant or a
             5-year-old perennial or bulb</span></span></em> " . feet_to_feet_inches($details->plant_height_at_10) . " (";
-        echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
+        echo feet_to_meters2($details->plant_height_at_10) . " meters)</p>";
         echo "<p><em>Plant Width/Spread:</em> " . feet_to_feet_inches($details->plant_width_at_10) . " (";
-        echo feet_to_meters($details->plant_width_at_10) . " meters)</p>";
+        echo feet_to_meters2($details->plant_width_at_10) . " meters)</p>";
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
        
         if (!empty($plant_attributes['flower_color'])) {

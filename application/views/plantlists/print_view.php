@@ -70,10 +70,10 @@
       <?php
         echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>";
         echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
-        echo "<p><em>Plant Height:</em> " . $details->plant_height_at_10 . " ft. (";
-        echo feet_to_meters($details->plant_height_at_10) . " m.)</p>";
-        echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
-        echo feet_to_meters($details->plant_width_at_10) . " m.)</p>";
+        echo "<p><em>Plant Height:</em> " . feet_to_feet_inches($details->plant_height_at_10) . " (";
+        echo feet_to_meters2($details->plant_height_at_10) . " m.)</p>";
+        echo "<p><em>Plant Width/Spread:</em> " . feet_to_feet_inches($details->plant_width_at_10) . " (";
+        echo feet_to_meters2($details->plant_width_at_10) . " m.)</p>";
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
        
         if (!empty($plant_attributes['flower_color'])) {
