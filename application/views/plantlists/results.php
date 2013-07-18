@@ -1,5 +1,4 @@
-<!-- display for PUBLIC plant search results -->
-
+<?php //display for PUBLIC plant search results see CONTROLLER plantlists.php and MODEL plantlists_model.php ?>
 <div id="content" class="view">
  
     <h2>Great Plant Picks Search Results</h2>
@@ -25,7 +24,7 @@
     <p class="mail"> <a class="email" href="mailto:?subject=Great Plant Picks Plant List&body=[sub]"
            onclick="this.href = this.href.replace('[sub]',window.location)">Email this list</a>
         or copy and paste the address at the top of your browser into your favorite email program to share it</p>
- <h5 class="results-head"><?php
+ <h5 class="results-head"><?php // customize heading to search terms 
         $sort = $this->uri->segment(2);
         $name = $this->uri->segment(3);
         if ($sort=="by_publish" && $name=="yes") echo "All Great Plant Picks";
@@ -59,6 +58,7 @@
             <th title="Click to Sort">Plant Name</th>
             <th title="Click to Sort">Common Name(s)</th>
             <th title="Click to Sort">Height (ft.)</th>
+            <th title="Click to Sort">(m.)</th>
              <th title="Click to Sort">Type</th>
             </thead>
        
@@ -77,6 +77,9 @@
             </td>
             <td class="height">
                 <?php echo $plant['height'] . "'"; ?>
+            </td>
+          <td class="meters">
+                <?php echo feet_to_meters($plant['height']); ?>
             </td>
             <td class="type">
                 <?php echo $plant['type']; ?>

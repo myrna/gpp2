@@ -29,7 +29,8 @@ class Crud_model extends CI_Model {
         'pest_resistance',
         'soil',
         'wildlife',
-        'theme'
+        'theme',
+        'habit'
         );
 
     public function update_link_table($id, $primary, $attribute, $values) {
@@ -251,6 +252,7 @@ class Crud_model extends CI_Model {
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
         $this->db->join('plant_wildlife', 'plant_wildlife.plant_id = plant_data.id', 'left');
         $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_habit', 'plant_habit.plant_id = plant_data.id', 'left');
 
         if ($common_name_array) {
             $this->db->where_in('plant_data.id', $common_name_array);
@@ -267,6 +269,10 @@ class Crud_model extends CI_Model {
          if ($query_array['flower_time']) {
             $this->db->where('plant_flower_time.flower_time_id',
 				"(select id from flower_time where lower(flower_time) = " . $this->db->escape($query_array['flower_time']) . ")", false);
+        }
+        if ($query_array['habit']) {
+            $this->db->where('plant_habit.habit_id',
+				"(select id from habit where lower(habit) = " . $this->db->escape($query_array['habit']) . ")", false);
         }
         if ($query_array['foliage_texture']) {
             $this->db->where('plant_foliage_texture.foliage_texture_id',
@@ -319,7 +325,7 @@ class Crud_model extends CI_Model {
         /*if ($query_array['flower_time']) {
             $this->db->where('lower(plant_data.flower_time)', $query_array['flower_time']);
         }*/
-        if ($query_array['growth_habit']) {
+        if ($query_array['growth_habit']) { //remove this when habit table info is filled
             $this->db->where('lower(plant_data.growth_habit)', $query_array['growth_habit']);
         }
         if ($query_array['plant_type']) {

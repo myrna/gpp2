@@ -70,9 +70,9 @@
         echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
         echo "<p><em>
             <span class='tooltip'>Plant Height:<span class='classic'>Heights represent a 10-year-old woody plant or a
-            5-year-old perennial or bulb</span></span></em> " . $details->plant_height_at_10 . " ft. (";
+            5-year-old perennial or bulb</span></span></em> " . feet_to_feet_inches($details->plant_height_at_10) . " (";
         echo feet_to_meters($details->plant_height_at_10) . " meters)</p>";
-        echo "<p><em>Plant Width/Spread:</em> " . $details->plant_width_at_10 . " ft. (";
+        echo "<p><em>Plant Width/Spread:</em> " . feet_to_feet_inches($details->plant_width_at_10) . " (";
         echo feet_to_meters($details->plant_width_at_10) . " meters)</p>";
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
        

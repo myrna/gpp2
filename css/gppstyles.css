@@ -680,9 +680,9 @@ table#display td.common-name {
     padding-right:2%;
     text-transform: uppercase;
 }
-table#display th.height, table#display td.height {
+table#display td.height {
     width:10%;
-    padding-right:3%;
+    padding:0 2% 0 4%;
 }
 table#display th.type, table#display td.type {
     width:10%;

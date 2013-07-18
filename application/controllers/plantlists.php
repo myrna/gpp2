@@ -334,6 +334,7 @@ class Plantlists extends CI_Controller {
         }
 
        function plant_array($results) { /* format plant results page ------- */
+          $this->load->helper('conversion');
           $a = array();
           foreach ($results['rows'] as $result) {
           $a[] = array(

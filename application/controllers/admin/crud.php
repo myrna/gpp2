@@ -215,6 +215,7 @@ class Crud extends CI_Controller
             'growing_notes',
             'plant_type',
             'growth_habit',
+            'habit',
             'foliage_type',
             'plant_height_at_10',
             'plant_width_at_10',
@@ -279,6 +280,10 @@ class Crud extends CI_Controller
         $soil = $this->crud_model->link_table($id, 'soil', 'plant');
         $data['soil']['fields'] = $soil['list'];
         $data['soil']['requirements'] = $soil['current'];
+        
+        $habit = $this->crud_model->link_table($id, 'habit', 'plant');
+        $data['habit']['fields'] = $habit['list'];
+        $data['habit']['requirements'] = $habit['current'];
 
         $wildlife = $this->crud_model->link_table($id, 'wildlife', 'plant');
         $data['wildlife']['fields'] = $wildlife['list'];
