@@ -22,7 +22,25 @@
     echo anchor("admin/crud/synonym/".$id, 'Add Synonym')." | ";
     echo anchor("admin/crud/common_name/".$id, 'Add Common Name')." | ";
     echo anchor('admin/listplants', 'Return to Main List')." | "; ?>
-    <a href="javascript:history.go(-1);"> Back to Found List</a></p>
+ <?php
+     if(isset($_SERVER['HTTP_REFERER'])) {
+            $prev = $_SERVER['HTTP_REFERER'];
+            if ($urlParts = parse_url($prev)) 
+                $baseUrl = $urlParts["scheme"] . "://" . $urlParts["host"] . "/" . $urlParts["path"];
+            }
+            if (false !== strpos($baseUrl,'/delete_common_name')) {
+                echo '<a href="javascript:history.go(-2);"> Back to Found List</a></p>';
+            }          
+            elseif (false !== strpos($baseUrl,'/common_name')) {
+                echo '<a href="javascript:history.go(-3);"> Back to Found List</a></p>';
+            }
+            elseif (false !== strpos($baseUrl,'/save_common_name')) {
+                echo '<a href="javascript:history.go(-3);"> Back to Found List</a></p>';    
+            } else  {
+                echo '<a href="javascript:history.go(-1);"> Back to Found List</a></p>';
+            }
+ ?>
+    
  <?php
         if (!empty($synonyms)) {
             echo "<h5>Synonyms</h5><p>";

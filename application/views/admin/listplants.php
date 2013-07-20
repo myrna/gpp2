@@ -1,7 +1,7 @@
 <!-- list plants view -->
 
 <div id="content" class="admin">
-
+    <a name="list-top"></a>
 <?php
 
     echo "<h4>$heading: $total_rows records</h4>";
@@ -26,7 +26,8 @@
         echo "No records found.";
     }
 
-?>
+?>   
+   <a href="<?php echo current_url(); ?>">Back to Top</a>
     
 <!--<div id="pages">
 	<?php echo $this->pagination->create_links(); ?>

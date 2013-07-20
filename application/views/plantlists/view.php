@@ -74,6 +74,16 @@
         echo feet_to_meters2($details->plant_height_at_10) . " meters)</p>";
         echo "<p><em>Plant Width/Spread:</em> " . feet_to_feet_inches($details->plant_width_at_10) . " (";
         echo feet_to_meters2($details->plant_width_at_10) . " meters)</p>";
+        $category = $details->plant_type;
+        if ($category==tree || $category==shrub || $category==conifer || $category==bamboo || $category==vine) {
+            echo "<p><em>
+                <span class='tooltip'>Mature Plant Height:<span class='classic'>Mature heights represent a mature (over 10 years old) plant</span></span></em> " . feet_to_feet_inches($details->plant_height_max) . " (";
+            echo feet_to_meters2($details->plant_height_max) . " meters)</p>"; 
+            echo "<p><em>Mature Plant Width:</em> " . feet_to_feet_inches($details->plant_width_max) . " (";
+            echo feet_to_meters2($details->plant_width_max) . " meters)</p>";
+        }
+        else {};
+        
         echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
        
         if (!empty($plant_attributes['flower_color'])) {

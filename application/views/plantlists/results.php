@@ -58,7 +58,7 @@
             <th title="Click to Sort">Plant Name</th>
             <th title="Click to Sort">Common Name(s)</th>
             <th title="Click to Sort">Height (ft.)</th>
-            <th title="Click to Sort">(m.)</th>
+           <th title="Click to Sort">(m.)</th>
              <th title="Click to Sort">Type</th>
             </thead>
        
@@ -78,8 +78,8 @@
             <td class="height">
                 <?php echo $plant['height'] . "'"; ?>
             </td>
-          <td class="meters">
-                <?php echo feet_to_meters($plant['height']); ?>
+       <td class="meters">
+                <?php echo feet_to_meters($plant['height']) . "m"; ?>
             </td>
             <td class="type">
                 <?php echo $plant['type']; ?>

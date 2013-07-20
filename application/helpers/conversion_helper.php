@@ -1,4 +1,10 @@
 <?php
+
+/**
+* for PUBLIC plant list views outputs meters from decimal feet and feet-inches from decimal feet
+*
+*/
+
    function feet_to_meters($feet)
 {
         $meters = $feet*0.3048; // remove (int)$feet as we were truncating to 0 anything under 1 
