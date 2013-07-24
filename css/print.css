@@ -137,8 +137,8 @@ dd {margin:0 0 4px 0;}
 p.copy {font-size:8pt; margin:0 0 10px 0; padding:0; font-style:italic; line-height:11pt;}
 p.logo {font-size:9pt; margin:0; padding:0; line-height:11pt;}
 
-a:link {color:#0134c5; text-decoration:none;}
-a:visited {color: #0134c5; text-decoration:none;}
+a:link {color:black; text-decoration:none;}
+a:visited {color: black; text-decoration:none;}
 a:hover, a:active {color:#e16f43; text-decoration:none;}
 
 div.clear {clear:both;}

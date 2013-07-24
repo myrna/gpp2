@@ -10,4 +10,8 @@ $(document).ready(function() {
     if (this.__chk) this.checked = false;
   });
 });
-
+// to-top function on admin edit page
+function scrollWindow()
+                {
+                window.scrollTo(0,0)
+                }

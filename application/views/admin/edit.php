@@ -1,7 +1,6 @@
 <!-- Database Administration Edit Individual Record View -->
 
 <div id="content" class="admin">
-    
 <?php
     if($row == FALSE)
     {
@@ -21,7 +20,7 @@
     echo anchor('admin/crud/add_record', 'Add new record')." | ";
     echo anchor("admin/crud/synonym/".$id, 'Add Synonym')." | ";
     echo anchor("admin/crud/common_name/".$id, 'Add Common Name')." | ";
-    echo anchor('admin/listplants', 'Return to Main List')." | "; ?>
+    echo anchor('admin/listplants', 'Return to Main List')." | "; ?> 
  <?php
      if(isset($_SERVER['HTTP_REFERER'])) {
             $prev = $_SERVER['HTTP_REFERER'];
@@ -40,7 +39,6 @@
                 echo '<a href="javascript:history.go(-1);"> Back to Found List</a></p>';
             }
  ?>
-    
  <?php
         if (!empty($synonyms)) {
             echo "<h5>Synonyms</h5><p>";
@@ -116,4 +114,5 @@
     }
     ?>
          <div class="clear"></div>
+         <input type="button" onclick="scrollWindow()" value="To Top">
 </div><!-- end content -->
