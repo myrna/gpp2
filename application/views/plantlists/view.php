@@ -66,25 +66,22 @@
 
         echo "<div class='quickfacts'>";
         echo "<h3>Quick Facts</h3>";
-        echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>";
-        echo "<p><em>Foliage Type:</em> " . $details->foliage_type . "</p>";
-        echo "<p><em>
-            <span class='tooltip'>Plant Height:<span class='classic'>Heights represent a 10-year-old woody plant or a
-            5-year-old perennial or bulb</span></span></em> " . feet_to_feet_inches($details->plant_height_at_10) . " (";
-        echo feet_to_meters2($details->plant_height_at_10) . " meters)</p>";
-        echo "<p><em>Plant Width/Spread:</em> " . feet_to_feet_inches($details->plant_width_at_10) . " (";
+        echo "<p><em>Plant Type:</em> " . $details->growth_habit . " " . $details->plant_type . "</p>"; ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#foliage" target="_blank">Foliage Type:</a></em> <?php echo $details->foliage_type . "</p>"; ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#height" target="_blank">Plant Height:</a></em> <?php echo feet_to_feet_inches($details->plant_height_at_10) . " (";
+        echo feet_to_meters2($details->plant_height_at_10) . " meters)</p>"; ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#width" target="_blank">Plant Width/Spread:</a></em> <?php echo feet_to_feet_inches($details->plant_width_at_10) . " (";
         echo feet_to_meters2($details->plant_width_at_10) . " meters)</p>";
         $category = $details->plant_type;
         if ($category==tree || $category==shrub || $category==conifer || $category==bamboo || $category==vine) {
-            echo "<p><em>
-                <span class='tooltip'>Mature Plant Height:<span class='classic'>Mature heights represent a mature (over 10 years old) plant</span></span></em> " . feet_to_feet_inches($details->plant_height_max) . " (";
-            echo feet_to_meters2($details->plant_height_max) . " meters)</p>"; 
-            echo "<p><em>Mature Plant Width:</em> " . feet_to_feet_inches($details->plant_width_max) . " (";
+            ?> <p><em><a href="<?php echo base_url();?>resources/glossary#height" target="_blank">Plant Height-Mature:</a></em> <?php echo feet_to_feet_inches($details->plant_height_max) . " (";
+            echo feet_to_meters2($details->plant_height_max) . " meters)</p>"; ?>
+            <p><em><a href="<?php echo base_url();?>resources/glossary#width" target="_blank">Plant Width-Mature:</a></em> <?php echo feet_to_feet_inches($details->plant_width_max) . " (";
             echo feet_to_meters2($details->plant_width_max) . " meters)</p>";
         }
         else {};
-        
-        echo "<p><em>Hardiness:</em> USDA Zones " . $details->zone_low . " to " . $details->zone_high . "</p>";
+        ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#hardiness" target="_blank">Hardiness:</a></em> USDA Zones <?php echo $details->zone_low . " to " . $details->zone_high . "</p>";
        
         if (!empty($plant_attributes['flower_color'])) {
             echo "<p><em>Flower Color:</em> ";
@@ -93,8 +90,10 @@
         if (!empty($plant_attributes['flower_time'])) {
         echo "<p><em>Flowering Time:</em> " . $details->flower_time . "</p>";
         }
-        echo "<p><em>Sun/Light Exposure:</em> " . $details->sun_exposure . "</p>";
-        echo "<p><em>Water Requirements:</em> " . $details->water_requirements . "</p>";
+        ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#light" target="_blank">Sun/Light Exposure:</a></em> <?php echo $details->sun_exposure . "</p>";
+        ?>
+        <p><em><a href="<?php echo base_url();?>resources/glossary#water" target="_blank">Water Requirements:</a></em> <?php echo $details->water_requirements . "</p>";
         /*echo "<p><em>Soil Requirements:</em> " . $details->soil_requirements . "</p>";*/
         
         if (!empty($details->seasonal_interest))  {

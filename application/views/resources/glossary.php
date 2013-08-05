@@ -18,7 +18,7 @@
         <dd>Plants only require supplemental water about once a month during the dry season after being established (typically two years of regular supplemental watering during the dry season).</dd>
         <dt>evergreen plant</dt>
         <dd>Plants that are evergreen retain leaves throughout the year.</dd>
-        <dt>foliage&#8212;deciduous plant</dt>
+        <dt><a name="foliage" id="foliage"></a>foliage&#8212;deciduous plant</dt>
         <dd>Plants that are deciduous completely lose all of their leaves in autumn and new foliage grows back in springtime.</dd>
         <dt>foliage&#8212;evergreen plant</dt>
         <dd>Plants that are evergreen retain leaves throughout the year.</dd>
@@ -26,16 +26,32 @@
         <dd>Plants that are semi-evergreen lose some leaves in the autumn, but retain some throughout the winter.</dd>
         <dt>full sun</dt>
         <dd>A garden site with full sun receives six or more hours of direct sunlight each day.</dd>
-        <dt>hardiness zones</dt>
+        <dt><a name="hardiness" id="hardiness"></a>hardiness zones</dt>
         <dd>Hardiness zones provide the minimum average winter temperature for a given area. This is only one factor of many that account for a plant&#8217;s survival. Local nurseries or the cooperative extension service can provide your hardiness zone.</dd>
-        <dt>light shade</dt>
+        <dt><a name="light" id="light"></a>light requirements&#8212;full sun</dt>
+        <dd>A garden site with full sun receives six or more hours of direct sunlight each day.</dd>
+        <dt>light requirements&#8212;dappled shade</dt>
+        <dd>Dappled shade is a garden site under a canopy of trees and this area receives about two to three hours of sunlight filtered through the branches above. When one looks up into the canopy between one-quarter to one-third of the sky is still visible through the foliage.</dd>
+         <dt>light requirements&#8212;deep shade</dt>
+        <dd>This type of shade is dense with little to no direct sunlight, usually occurring from an almost impenetrable overhead canopy of trees with less than one quarter of the sky being visible.</dd>
+        <dt>light requirements&#8212;light shade</dt>
         <dd>Light shade offers the most versatility for a wide range of plants to thrive. These areas receive about four to six hours of direct sunlight every day.</dd>
+        <dt>light requirements&#8212;open shade</dt>
+        <dd>Open shade and light shade are often considered interchangeable, but there are distinct differences. An area of the landscape considered to have open shade is one that is exposed to the sky but with little to no direct sunlight. This usually occurs when a structure or building blocks any direct sunlight, but the area does not have a foliar canopy above it.</dd>
         <dt>moist watering</dt>
         <dd>Plants require supplemental water 2 to 3 times a week during the dry season.</dd>
         <dt>occasional watering</dt>
         <dd>Plants require supplemental water every 10 to 14 days during the dry season.</dd>
         <dt>open shade</dt>
         <dd>Open shade and light shade are often considered interchangeable, but there are distinct differences. An area of the landscape considered to have open shade is one that is exposed to the sky but with little to no direct sunlight. This usually occurs when a structure or building blocks any direct sunlight, but the area does not have a foliar canopy above it.</dd>
+        <dt><a name="height" id="height"></a>plant height</dt>
+        <dd>Approximate plant height, depending on growing conditions.  For trees, conifers, shrubs, bamboos and woody vines, this is estimated height at 10 years of age.</dd>
+        <dt>plant height&#8212;mature</dt>
+        <dd>Approximate plant height at maturity, for trees, conifers, shrubs, bamboos and woody vines above 10 years of age.</dd>
+        <dt><a name="width" id="width"></a>plant width</dt>
+        <dd>Approximate plant width, depending on growing conditions.  For trees, conifers, shrubs, bamboos and woody vines, this is estimated height at 10 years of age.</dd>
+        <dt>plant width&#8212;mature</dt>
+        <dd>Approximate plant width at maturity, for trees, conifers, shrubs, bamboos and woody vines above 10 years of age.</dd>
         <dt>regular watering</dt>
         <dd>Plants require supplemental water once per week during the dry season.</dd>
         <dt>sandy soil</dt>
@@ -60,9 +76,9 @@
         <dd>Well-drained soils allow water to move through reasonably quickly and not stand and pool. Puddles will not last longer than an hour or two.</dd>
         <dt>soil&#8212;wet</dt>
         <dd>Wet soils will puddle during winter rains and the puddles remain for longer than one day. Even during dry summers the soil often remains moist.</dd>
-        <dt>watering&#8212;drought tolerant</dt>
+        <dt><a name="water" id="water"></a>watering&#8212;drought tolerant</dt>
         <dd>Plants only require supplemental water about once a month during the dry season after being established (typically two years of regular supplemental watering during the dry season).</dd>
-        <dt>watering&#8212;moist</dt>
+        <dt>watering&#8212;frequent</dt>
         <dd>Plants require supplemental water 2 to 3 times a week during the dry season.</dd>
         <dt>watering&#8212;occasional</dt>
         <dd>Plants require supplemental water every 10 to 14 days during the dry season.</dd>

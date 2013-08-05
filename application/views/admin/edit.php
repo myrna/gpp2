@@ -34,9 +34,10 @@
                 echo '<a href="javascript:history.go(-3);"> Back to Found List</a></p>';
             }
             elseif (false !== strpos($baseUrl,'/save_common_name')) {
-                echo '<a href="javascript:history.go(-3);"> Back to Found List</a></p>';    
-            } else  {
-                echo '<a href="javascript:history.go(-1);"> Back to Found List</a></p>';
+                echo '<a href="javascript:history.go(-3);"> Back to Found List</a></p>';  
+			 }
+			else  {
+                echo '<a href="javascript:history.go(-2);"> Back to Found List</a></p>';
             }
  ?>
  <?php
