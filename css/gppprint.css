@@ -26,7 +26,7 @@
     margin-top:5px;
     padding:10px;
     }
-
+ 
  div#topbar, div#banner, div#navigation, div.simplesearch, span.clear-search, p.mail, p.footer-nav, span.click, div#breadcrumbs {display:none;}
  a:link, a:visited {text-decoration:none; color:#000;}
 

@@ -312,6 +312,10 @@ class Crud extends CI_Controller
         $design_use = $this->crud_model->link_table($id, 'design_use', 'plant');
         $data['design_use']['fields'] = $design_use['list'];
         $data['design_use']['requirements'] = $design_use['current'];
+        
+        $scent = $this->crud_model->link_table($id, 'scent', 'plant');
+        $data['scent']['fields'] = $scent['list'];
+        $data['scent']['requirements'] = $scent['current'];
 
         $theme = $this->crud_model->link_table($id, 'theme', 'plant');
         $data['theme']['fields'] = $theme['list'];

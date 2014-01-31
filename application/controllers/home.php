@@ -11,7 +11,7 @@ class Home extends CI_Controller {
   //		$this->load->view('home', $data);
 
         $this->template->set('thispage','Home');
-        $this->template->set('title','Home | Great Plant Picks: Unbeatable Plants for the Maritime Northwest Garden');
+        $this->template->set('title','Great Plant Picks: Unbeatable Plants for the Maritime Northwest Garden');
         $this->template->load('template','home');
 	}
 }

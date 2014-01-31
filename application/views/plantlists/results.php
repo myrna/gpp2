@@ -42,6 +42,8 @@
         elseif ($sort=="fantastic_foliage_color") echo "Fantastic " . $name . " Foliage";
         elseif ($sort=="by_theme" && $name=="sun_drought") echo "Fun in the Sun Plant Picks";
         elseif ($sort=="fun_in_the_sun") echo "Fun in the Sun: " . $name . "s";
+        elseif ($sort=="by_theme" && $name=="fragrance") echo "Plants that make SCENTS Plant Picks";
+        elseif ($sort=="plants_that_make_scents") echo "Fragrant: " . $name;
         elseif ($name=="rosa") echo "Roses";
         elseif ($name=="rhododendron") echo "Rhododendrons";
         elseif ($name=="clematis") echo "Clematis";

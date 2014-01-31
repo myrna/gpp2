@@ -30,7 +30,8 @@ class Crud_model extends CI_Model {
         'soil',
         'wildlife',
         'theme',
-        'habit'
+        'habit',
+        'scent'
         );
 
     public function update_link_table($id, $primary, $attribute, $values) {
@@ -253,6 +254,7 @@ class Crud_model extends CI_Model {
         $this->db->join('plant_wildlife', 'plant_wildlife.plant_id = plant_data.id', 'left');
         $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
         $this->db->join('plant_habit', 'plant_habit.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_scent', 'plant_scent.plant_id = plant_data.id', 'left');
 
         if ($common_name_array) {
             $this->db->where_in('plant_data.id', $common_name_array);
@@ -282,6 +284,10 @@ class Crud_model extends CI_Model {
             $this->db->where('plant_design_use.design_use_id',
 				"(select id from design_use where lower(design_use) = " . $this->db->escape($query_array['design_use']) . ")", false);
         }
+        if ($query_array['scent']) {
+            $this->db->where('plant_scent.scent_id',
+				"(select id from scent where lower(scent) = " . $this->db->escape($query_array['scent']) . ")", false);
+		}
         if ($query_array['water']) {
             $this->db->where('plant_water.water_id',
 				"(select id from water where lower(water) = " . $this->db->escape($query_array['water']) . ")", false);

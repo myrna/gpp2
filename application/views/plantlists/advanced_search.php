@@ -256,6 +256,17 @@
         <input type="radio" name="water" value="drought-tolerant"><span class="tooltip">Drought Tolerant Once Established<span class="classic">Once established, water once per month</span></span>
        </p>
         </fieldset>
+         <fieldset>
+        <p class="searchlabel"><?php echo form_label('Fragrance (leave blank if no preference):','scent'); ?></p>
+        <p class="radios">
+        <input type="radio" name="scent" value="flowers">Fragrant Flowers
+        <input type="radio" name="scent" value="foliage">Fragrant Foliage
+        <input type="radio" name="scent" value="floral">Floral Scent</p>
+        <p class="radios">
+        <input type="radio" name="scent" value="fresh">Fresh Scent
+        <input type="radio" name="scent" value="spicy">Spicy Scent
+        <input type="radio" name="scent" value="woodsy">Woodsy Scent</p>
+    </fieldset>
        </div>
    
  

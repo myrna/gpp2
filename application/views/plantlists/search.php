@@ -52,6 +52,7 @@
                   <li><?php echo anchor("plantlists/by_year/2011","2011"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2012","2012"); ?></li>
                   <li><?php echo anchor("plantlists/by_year/2013","2013"); ?></li>
+                  <!--<li><?php echo anchor("plantlists/by_year/2014","2014"); ?></li>-->
             </ul>
          
     <p class="listhead">Miscellaneous Lists</p>
@@ -67,6 +68,16 @@
           </ul>
      </div><!-- end column 1 -->
     <div class="col1-3">
+     <p class="listnote">Plants that make SCENTS</p>
+     <ul>
+         <li><?php echo anchor("plantlists/by_theme/fragrance", "All Plants that make SCENTS Selections"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/flowers", "Fragrant Flowers"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/foliage", "Fragrant Foliage"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/floral", "Floral Scent"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/fresh", "Fresh Scent"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/spicy", "Spicy Scent"); ?></li>
+         <li><?php echo anchor("plantlists/plants_that_make_scents/woodsy", "Woodsy Scent"); ?></li>
+     </ul>
      <p class="listnote">Small Spaces&#8212;Big Impact!</p>
           <ul>
                 <li><?php echo anchor("plantlists/by_theme/small_urban", "All Small Spaces&#8212;Big Impact! Selections"); ?></li>

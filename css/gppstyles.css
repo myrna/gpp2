@@ -277,7 +277,7 @@ img.left-donate {
     margin-bottom:5px;
 }
 .home-image img {
-    border: 1px #fdb928 solid;
+    border: 1px #ffe1f0 solid;
 }
 #home-caption {
     position:absolute;
@@ -291,20 +291,20 @@ img.left-donate {
     line-height:20px;
     text-align:right;
 }
-#home-caption a {color:#fef200;}
+#home-caption a {color:#ffe1f0;}
 #home-caption a:hover {color:#FDB928;}
 .home-text { 
     float:left;
-    width:984px;
-    background-color:#EFE85E;
-    border:5px #fdb928 solid;
+    width:994px;
+    background-color:#ffe1f0;
+    /*border:5px #663300 solid;*/
     padding:10px 10px 10px 20px;
    }
 #home-poster {
     float:right;   
     margin-left:20px;
 }
-#home-poster img { border:5px #fdb928 solid;}
+#home-poster img { border:5px #903b50 solid;}
 #home-poster:hover {
     opacity:0.9;
 }
@@ -460,7 +460,7 @@ p.radios {
     font-weight:normal;
     padding:0 0 5px 0;
 }
-
+.attn {color:red; font-weight:bold;}
 /********************************************************
 /* checkbox styling -- keep checkbox label from wrapping 
 /********************************************************/

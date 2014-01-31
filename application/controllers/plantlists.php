@@ -332,6 +332,13 @@ class Plantlists extends CI_Controller {
                   'plant_type' => $type
                 ));
         }
+        function plants_that_make_scents() {
+                $type = $this->uri->segment(3);
+                $type = $this->process_advanced_search(array(
+                  'theme' => "fragrance",
+                  'scent' => $type
+                ));
+        }
 
        function plant_array($results) { /* format plant results page ------- */
           $this->load->helper('conversion');
@@ -389,6 +396,7 @@ class Plantlists extends CI_Controller {
                 'foliage_color' => $this->input->get_post('foliage_color'), 
                 'sun' => $this->input->get_post('sun'),
                 'soil' => $this->input->get_post('soil'),
+                'scent' => $this->input->get_post('scent'),
                 'water' => $this->input->get_post('water'),
                 'genus' => $this->input->get_post('genus'),
                 'design_use' => $this->input->get_post('design_use'),

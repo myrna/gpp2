@@ -75,9 +75,11 @@ div.quickfacts h3 {text-decoration:underline; padding-bottom:5px;}
 }
 h2 {font-size:22px;
     text-align:center;
-    padding-left:30px;
-}
+    padding-left:60px;
+	line-height:26px;
+	}
 h2.common {font-size:18px;text-transform:uppercase; margin:0 0 8px 0;}
+.trademark-name {white-space:nowrap;}
 h3 {font-size:18px; margin:5px 0;}
 h3.drop {padding-top:10px;}
 h4 {

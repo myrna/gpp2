@@ -128,6 +128,7 @@ class Plantlists_model extends CI_Model {
         $this->db->join('plant_pest_resistance', 'plant_pest_resistance.plant_id = plant_data.id', 'left');
         $this->db->join('plant_common_name', 'plant_common_name.plant_id = plant_data.id', 'left');
         $this->db->join('plant_wildlife', 'plant_wildlife.plant_id = plant_data.id', 'left');
+        $this->db->join('plant_scent', 'plant_scent.plant_id = plant_data.id', 'left');
 
         if ($common_name_array) {
             $this->db->where_in('plant_data.id', $common_name_array);
@@ -149,7 +150,10 @@ class Plantlists_model extends CI_Model {
 	    $this->db->where('plant_foliage_texture.foliage_texture_id',
 				"(select id from foliage_texture where lower(foliage_texture) = " . $this->db->escape($query_array['foliage_texture']) . ")", false);
 		}
-        
+        if ($query_array['scent']) {
+	    $this->db->where('plant_scent.scent_id',
+				"(select id from scent where lower(scent) = " . $this->db->escape($query_array['scent']) . ")", false);
+		}
         if ($query_array['water']) {
             $this->db->where('plant_water.water_id', 
 				"(select id from water where lower(water) = " . $this->db->escape($query_array['water']) . ")", false);

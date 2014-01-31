@@ -18,7 +18,7 @@
         <dd class="sub last"><a href="http://www.gov.bc.ca/agri">British Columbia Agriculture</a></dd>
         <dt>Master Gardener Program</dt>
         <dd>The origin of this now internationally widespread program began in the Pacific Northwest.  In the early 1970s Cooperative Extension Service Agents in the Washington state counties of King and Pierce began to experience an increasingly high demand for information from urban gardeners.  This prompted the development of the Master Gardener program to train volunteers in the basics of horticulture and, in return for their education, volunteers commit to answering questions from the gardening public, thus allowing the Extension Agents the time to fulfill broader educational programming.  To contact a Master Gardener:</dd>
-        <dd class="sub">Washington: <a href="http://mastergardener.wsu.edu/mgpcounty.html">WSU Master Gardener Program by county</a></dd>
+        <dd class="sub">Washington: <a href="http://mastergardener.wsu.edu/program/county/">WSU Master Gardener Program by county</a></dd>
         <dd class="sub">Oregon: <a href="http://extension.oregonstate.edu/mg">OSU Master Gardener Program&#8482;</a></dd>
         <dd class="sub last">British Columbia: <a href="http://www.mgabc.org">Master Gardeners Association of BC</a></dd>
         <dt>Garden Exhibitions &amp; Nursery Trade Fairs</dt>
@@ -38,6 +38,7 @@
         <dd class="sub last"><a href="http://www.botanicalgarden.ubc.ca">University of British Columbia Botanical Garden &amp; Centre for Plant Research</a></dd>
         <dt>Horticulture Societies</dt>
         <dd class="sub"><a href="http://www.arboretumfoundation.org">Arboretum Foundation</a></dd>
+        <dd class="sub"><a href="http://www.gardenconservancynorthwestnetwork.org/">Garden Conservancy Northwest Network</a></dd>
         <dd class="sub"><a href="http://www.hardyferns.org">Hardy Fern Foundation</a></dd>
         <dd class="sub"><a href="http://www.hardyplantsociety.org">Hardy Plant Society of Oregon</a></dd>
         <dd class="sub"><a href="http://www.hardyplantsocietywa.org">Hardy Plant Society of Washington</a></dd>
